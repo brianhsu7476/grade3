@@ -1,0 +1,58 @@
+\begin{pr}
+
+\renewcommand{\S}{\textbf{S}}
+\newcommand{\T}{{\mathcal{T}_\gamma^{(n)}(S)}}
+\renewcommand{\A}{{\mathcal{A}_\delta^{(n)}(S)}}
+
+I'll prove (b) first, and then use (b) to prove (a) for convenience.
+
+\begin{enumerate}[(a)]
+
+\setcounter{enumi}{1}
+
+\item Suppose that $s^n=(s_1, s_2, \dots, s_n)\in\T$.\\
+By the definition of $\T$, $\forall a\in\S,\ \left|\frac1n\suml_{i=1}^n\I\{s_i=a\}-P_S(a)\right|\leq\gamma P_S(a)$.\\
+$\then\forall a\in\S,\ \left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\leq\gamma P_S(a)\log(P_S(a))$.\\
+$\then\suml_{a\in\S}\left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\leq\suml_{a\in\S}\gamma P_S(a)\log(P_S(a))$.\\
+By triangular inequality,\\
+$\left|\frac1n\suml_{i=1}^n\log(P_S(a))+H(S)\right|\\
+=\left|\suml_{a\in\S}\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-\suml_{a\in\S}P_S(a)\log(P_S(a))\right|\\
+\leq\suml_{a\in\S}\left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\\
+\leq\suml_{a\in\S}\gamma P_S(a)\log(P_S(a))=-\gamma H(S)$.\\
+Taking $\delta=\xi(\gamma):=-\gamma H(S)$, and we get $\left|\frac1n\suml_{i=1}^n\log(P_S(a))+H(S)\right|\leq\delta$, which means $s^n\in\A$.\\
+$\so\T\subseteq\A$.
+
+\setcounter{enumi}{0}
+
+\item Recall from (b), we take $\delta=\xi(\gamma):=-\gamma H(S)$.\\
+The $4$ properties in the proposition are:
+
+\begin{enumerate}[(1)]
+
+\item The original property is: $\forall s^n\in\A,\ 2^{-n(H(S)+\delta)}\leq\P\{S^n=s^n\}\leq2^{-n(H(S)-\delta)}$.\\
+$\cuz$ from (b) we know that $\forall s^n\in\T,\ s^n\in\A$.\\
+$\so2^{-n(H(S)+\delta)}\leq\P\{S^n=s^n\}\leq2^{-n(H(S)-\delta)}$.
+
+\item Let $A_n(a):=\{s^n\in\S^n:|\pi(a|s^n)-P_S(a)|>\gamma P_S(a)\}$.\\
+Since $S\sim P_S$ is a DMS, the random variables $\{X_i\}_{i=1}^\infty$ where $X_i:=\I\{S_i=a\}$ are i.i.d.\\
+The average of $X_i$, denote as $\mu$, $=\P\{S_i=a\}=P_S(a)$.\\
+$\bar{X_n}=\frac1n\suml_{i=1}^nX_i=\frac1n\suml_{i=1}^n\I\{S_i=a\}=\pi(a|S^n)$.\\
+Take $\epsilon>\gamma P_S(a)$.\\
+By the weak law of large numbers, $\lim_{n\to\infty}\P\{S^n\in A_n(a)\}=\lim_{n\to\infty}\P\{|\pi(a|S^n)-P_S(a)|>\gamma P_S(a)\}=\lim_{n\to\infty}\P\{|\bar{X_n}-\mu|>\gamma P_S(a)\}\leq\lim_{n\to\infty}\P\{|\bar{X_n}-\mu|\geq\epsilon\}=0$.\\
+$\cuz\T=\S^n\setminus\cupl_{a\in\S}A_n(a)$.\\
+$\so\lim_{n\to\infty}\P\{S^n\in\T\}=1-\lim_{n\to\infty}\P\{S^n\in\cupl_{a\in\S}A_n(a)\}\geq1-\lim_{n\to\infty}\suml_{a\in\S}\P\{S^n\in A_n(a)\}=1$.\\
+$\so\forall\epsilon>0$, by the definition of limits, $\P\{S^n\in\T\}\geq1-\epsilon$ for $n$ large enough.
+
+\item $\cuz\T\subseteq\A$.\\
+$\so|\T|\leq|\A|\leq2^{n(H(S)+\delta)}$.
+
+\item By (2), $\forall\epsilon>0$, for $n$ large enough, there is $1-\epsilon\leq\P\{S^n\in\T\}=\suml_{s^n\in\T}\P\{S^n=s^n\}\overtext{(1)}\leq\suml_{s^n\in\T}2^{-n(H(S)-\delta)}=|\T|2^{-n(H(S)-\delta)}$.\\
+$\so\forall\epsilon>0$, for $n$ large enough, there is $|\T|\geq(1-\epsilon)2^{n(H(S)-\delta)}$.
+
+\end{enumerate}
+
+\item
+
+\end{enumerate}
+
+\end{pr}
