@@ -1,2 +1,31 @@
-\begin{pr}
+\begin{pr}$ $
+
+\begin{enumerate}[(a)]
+
+\item Define $X_i=\log\frac1{P_S(S_i)}$. Since $S_i$ are i.i.d, $X_i$ are also i.i.d.\\
+Since $P_S(S_i)\leq1$, we get that $\log\frac1{P_S(S_i)}\geq0$.\\
+$\then\E[|X_i|]=\E[X_i]=\E[\log\frac1{P_S(S_i)}]=H(S)<\infty$.\\
+$\prodl_{i=1}^nP_S(S_i)\geq2^{-n(H(S)+n^{-1/2}\delta\varsigma(S))}\\
+\iff\prodl_{i=1}^n\frac1{P_S(S_i)}\leq2^{n(H(S)+n^{-1/2}\delta\varsigma(S))}\\
+\iff\suml_{i=1}^n\log\frac1{P_S(S_i)}\leq n(H(S)+n^{-1/2}\delta\varsigma(S))\\
+\iff\left(\frac1n\suml_{i=1}^nX_i\right)-H(S)\leq n^{-1/2}\delta\varsigma(S)\\
+\iff\frac{\sqrt n(\overline{X_n}-\E[X_i])}{\varsigma(S)}\leq\delta$.\\
+By central limit theorem, $\frac{\sqrt n(\overline{X_n}-\E[X_i])}{\varsigma(S)}\overset{d}\to Z\sim N(0, 1)$ as $n\to\infty$.\\
+$\then\P\left\{\prodl_{i=1}^nP_S(S_i)\geq2^{-n(H(S)+n^{-1/2}\delta\varsigma(S))}\right\}=\P\left\{\frac{\sqrt n(\overline{X_n}-\E[X_i])}{\varsigma(S)}\leq\delta\right\}\\\to\P\{Z\leq\delta\}=\Phi(\delta)$ as $n\to\infty$.
+
+\renewcommand{\B}{{\mathcal{B}_\delta^{(n)}(S)}}
+\newcommand{\cst}{{n(H(S)+n^{-1/2}\delta\varsigma(S))}}
+\item %$|\B|=\suml_{s^n}\I\{s^n\in\B\}=\suml_{s^n}\I\left\{\prodl_{i=1}^nP_S(s_i)\geq\cst\right\}$.\\
+Since $\suml_{s^n\in\B}P_{S^n}(s^n)\leq\suml_{s^n}P_{S^n}(s^n)=1$,\\
+and if $s^n\in B$, then $P_{S^n}(s^n)=\prodl_{i=1}^nP_S(s_i)\geq2^{-\cst}$.\\
+$\so|\B|2^{-\cst}=\suml_{s^n\in\B}2^{-\cst}\leq\suml_{s^n\in\B}P_{S^n}(s^n)\leq1$.\\
+$\then|\B|\leq2^\cst$.\\
+Let $Z\sim N(0, 1)$, by Berry-Esseen theorem, $|\P\{S^n\in\B\}-\P\{Z\leq\delta\}|=\left|\P\left\{\frac{\sqrt n(\overline{X_n}-E[X_i])}{\varsigma(S)}\leq\delta\right\}-\P\{Z\leq\delta\}\right|\leq cn^{-1/2}$ for some constant $c>0$.\\
+$\then\P\{S^n\in\B\}\geq\P\{Z\leq\delta\}-cn^{-1/2}$.\\
+Take $\delta=-\Phi^{-1}(\epsilon)$, we get that $\Phi(\delta)=1-\epsilon$.\\
+$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
+%If $s^n\in\B$, then (from the above) $\left(\frac1n\suml_{i=1}^n\log\frac1{P_S(S_i)}\right)-H(S)\leq n^{-1/2}\delta\varsigma(S)$.
+
+\end{enumerate}
+
 \end{pr}

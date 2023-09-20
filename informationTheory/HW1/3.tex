@@ -1,3 +1,16 @@
-\begin{pr}
+\begin{pr}$ $
 
+\renewcommand{\A}{{\mathcal{A}_\delta^{(n)}(S)}}
+
+\begin{enumerate}[(a)]
+
+\item Let $\delta\in(0, R-H(S))$, and $\A$ be the $\delta$-typical set defined in Definition 1.\\
+By the third property of Proposition 1, we know that $|\A|\leq2^{n(H(S)+\delta)}\\
+\overset{H(S)+\delta<R\then n(H(S)+\delta)<nR-1\text{ for }n\text{ large enough}}<2^{\lfloor nR\rfloor}$ for $n$ large enough.\\
+$\then\A$ is an $(n, \lfloor nR\rfloor)$ code.\\
+By the second property of Proposition 1, we know that $\forall\epsilon>0,\ \exists N$ s.t. $\forall n\geq N,\ P_e^{(n)}=\P\{S^n\notin\A\}\leq\epsilon$, which is the definition of $\lim_{n\to\infty}P_e^{(n)}=0$.\\
+$\so$ such sequence exists, and it is $\A$.
+
+\item
+\end{enumerate}
 \end{pr}
