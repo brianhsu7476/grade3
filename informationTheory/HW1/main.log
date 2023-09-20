@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  20 SEP 2023 23:50
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  21 SEP 2023 00:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1165,14 +1165,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--28
 
  []
 
-) (./3.tex [3]) [4]) (./main.aux (./main2.aux))
+) (./3.tex [3]
+Overfull \hbox (32.61853pt too wide) in paragraph at lines 16--22
+\OMS/cmsy/m/n/12 ) []f\OML/cmm/m/it/12 S[] \OMS/cmsy/m/n/12 2 [] \ []g \OT1/cmr
+/m/n/12 = [] []\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 S[] \OT1/cmr/m/n/12 = \OML/cm
+m/m/it/12 s[]\OMS/cmsy/m/n/12 g ^^T [] \OT1/cmr/m/n/12 2[] \OMS/cmsy/m/n/12 ^^T
+
+ []
+
+) [4]) (./main.aux (./main2.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  31551 strings out of 477715
  659187 string characters out of 5842503
- 997186 words of memory out of 5000000
+ 997184 words of memory out of 5000000
  51667 multiletter control sequences out of 15000+600000
  478528 words of font info for 80 fonts, out of 8000000 for 9000
  288 hyphenation exceptions out of 8191
