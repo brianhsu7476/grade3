@@ -1,0 +1,27 @@
+\newcommand{\w}{\omega}
+
+\begin{pr}
+$\forall\w'\in P(\w),\ P(\w)\subseteq P(\w')$.
+\begin{proof}
+
+The following three lemmas are from the powerpoints in class:
+
+\begin{lm}\label{sbst}
+If $E\subseteq F$, then $PE\subseteq PF$.
+\end{lm}
+
+\begin{lm}\label{cd}
+For all states $c, d$, there is $\{c\}\subseteq P\{d\}\iff\{d\}\subseteq P\{c\}$.
+\end{lm}
+
+\begin{lm}\label{dfp}
+For all states $c, d$, there is $c\in P(d)\iff\{d\}\subseteq P\{c\}$.
+\end{lm}
+
+Suppose $\w'\in P(\w)$, and we want to show that $\forall\w''\in P(\w),\ \w''\in P(\w')$.\\
+Suppose that $\w''\in P(\w)$.\\
+$w'\in P(\w)\overtext{\rflm{dfp}}\then\{\w\}\subseteq P\{\w'\}\overtext{\rflm{cd}}\then\{\w'\}\subseteq P\{\w\}\overtext{\rflm{sbst}}\subseteq PP\{\w''\}\overtext{P3}\subseteq P\{\w''\}$.\\
+$\then\w''\in P(\w')$.\\
+$\so P(\w)\subseteq P(\w')$.
+\end{proof}
+\end{pr}

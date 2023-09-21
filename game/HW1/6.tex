@@ -1,0 +1,21 @@
+\begin{pr}
+\begin{lm}\label{paeq}
+$P\{w\}=P(w)$.
+\end{lm}
+\begin{rmk}
+Lemma 2 in class proved it.
+\end{rmk}
+\begin{enumerate}[(a)]
+\item $\cuz P_A(1)\overtext{\rflm{paeq}}=P_A\{1\}\overtext{K4}\subseteq KP_A(1)$.\\
+$\so P_A(1)=\{1, 2\}$ is a truism.
+\item Clearly, $w\in P(w)$ by the definition.\\
+By Theorem 4 in class, $P(w_1)=P(w_2)\iff P(w_1)\cap P(w_2)\neq\emptyset$.\\
+Since $2\in P(1)\cap P(2)$, there is $P(1)=P(2)=\{1, 2\}$.\\
+Since $4\in P(3)\cap P(4),\ 5\in P(3)\cap P(5)$, there is $P(3)=P(4)=P(5)=\{3, 4, 5\}$.\\
+$K\{4, 5\}=\sim P\sim\{4, 5\}=\sim P\{1, 2, 3\}\overtext{P1}=\sim(P\{1, 2\}\cup P\{3\})\overtext{P1}=\sim(P\{1\}\cup P\{2\}\cup P\{3\})\overtext{\rflm{paeq}}=\sim(P(1)\cup P(2)\cup P(3))=\sim(\{1, 2\}\cup\{1, 2\}\cup\{3, 4, 5\})=\sim\{1, 2, 3, 4, 5\}=\emptyset$.\\
+$\so$ in no state will $A$ know that the event $\{4, 5\}$ has occurred.
+\item Telling how many elements $B$'s current possibility set contains is equivalent to tell what the current possibility set is. Let $P^0_A$ denote the original possibility sets of $A$. $P_A(1)=P^0_A(1)\cap P_B(1)=\{1, 2\},\ P_A(3)=P^0_A(3)\cap P_B(3)=\{3\},\ P_A(4)=P^0_A(4)\cap P_B(4)=\{4, 5\}$.\\
+By Theorem 4 in class, the possibility sets is a partition of $\{1, 2, 3, 4, 5\}$.\\
+$\so$ the possibility partition of $A$ will be changed to $\{1, 2\}, \{3\}, \{4, 5\}$.
+\end{enumerate}
+\end{pr}

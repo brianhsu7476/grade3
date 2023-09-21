@@ -1,0 +1,16 @@
+\begin{pr}
+First, there are two lemmas:
+
+\begin{lm}\label{not}
+$E\subseteq F\iff\sim F\subseteq\sim E$.
+\end{lm}
+
+\begin{lm}\label{pk}
+$PE=\sim K\sim E$.
+\end{lm}
+
+Let's prove P2, P4 by K2, K4.\\
+$K\sim E\overtext{K2}\subseteq\sim E\overtext{\rflm{not}}\then E\subseteq\sim K\sim E\overtext{\rflm{pk}}=PE$, which is P2.\\
+$P\sim E\overtext{K4}\subseteq KP\sim E\overtext{\rflm{not}}\then PKE\overtext{\rflm{pk}}=P\sim P\sim E\overtext{\rflm{pk}}=\sim KP\sim E\subseteq\sim P\sim E\overtext{\rflm{pk}}=KE$, which is P4.\\
+$KE\overtext{P2}\subseteq PKE\overtext{K4}\subseteq KPKE\overtext{P4}\subseteq K^2E$.
+\end{pr}
