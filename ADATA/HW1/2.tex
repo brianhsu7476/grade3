@@ -1,5 +1,26 @@
 \begin{pr}$ $\\
-(d):\\
-Let $m:=\lfloor\frac n3\rfloor$.\\
+(d)
 
+Let $m:=\lfloor\frac n3\rfloor$.\\
+Construction:\\
+For $1\leq i\leq n-m$, the $i$-th set operation is to insert $i$.\\
+For $n-m+1\leq i\leq n$, the $i$-th set operation is to delete $n-i+1$.
+
+The number of stack operations:\\
+In the first $n-m$ set operations, each contains one push operaion.\\
+In the last $m$ set operations, the $i$-th one is to delete $n-i+1$, and before it, all delete operations are to delete $m, m-1, \dots, n-i+2$. Since the position of $n-i+1$ is under those of $m, m-1, \dots, n-i+2$, when deleting $m, m-1, \dots, n-i+2$, the position of $n-i+1$ won't be changed in Arctan's implementation, which means it will be under the position of $m+1, m+2, \dots, n$. Therefore, to delete $n-i+1$, Arctan needs to pop $m+1, m+2, \dots, n$ first, then pop $n-i+1$, finally push $m+1, m+2, \dots, n$ back to the stack, which takes $2(n-m)+1$ stack operations in total.\\
+$\therefore$ the number of stack operations in total is $(n-m)+m(2(n-m)+1)=n-m+2nm-2m^2+m=n+2\lceil\frac{2n}3\rceil\lfloor\frac n3\rfloor=\Theta(n^2)$.
+
+(e)
+
+Define $B_{l, r}$ as $\left(\bigcup_{i=l}^{r-1}A_i\setminus A_{i+1}\right)\setminus\left(\bigcup_{i=l}^{r-1}A_{i+1}\setminus A_i\right)$. That is, the set of all elements that will be deleted but not be inserted in the $l$-th to the $r-1$-th set operation.\\
+Define $S_{i, j}$ as the $j\pmod{|S_i|}$-th element counted from the bottom of the stack $S_i$.\\
+Let's implement $solve(l, r)$ such that it does the following things:
+\begin{enumerate}
+\item Given is a stack $S_L$ such that $\{S_{L, i}|\}$
+\end{enumerate}
+can complete the $l$-th to the $r-1$-th set operations in $O((r-l)\log(r-l))$ number of stack operations, given that the stack before $solve(l, r)$ is implemented contains only the elements that would be deleted in these set operations.
+
+Use divide and conquer to implement it.\\
+For the base case $r\leq l+1$, if $|A_{l+1}\setminus A_l|=1$, then just push that element to the 
 \end{pr}
