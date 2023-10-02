@@ -15,11 +15,11 @@ By the definition of $\T$, $\forall a\in\S,\ \left|\frac1n\suml_{i=1}^n\I\{s_i=a
 $\then\forall a\in\S,\ \left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\leq\gamma P_S(a)\log(P_S(a))$.\\
 $\then\suml_{a\in\S}\left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\leq\suml_{a\in\S}\gamma P_S(a)\log(P_S(a))$.\\
 By triangular inequality,\\
-$\left|\frac1n\suml_{i=1}^n\log(P_S(a))+H(S)\right|\\
+$\left|\frac1n\suml_{i=1}^n\log(P_S(s_i))+H(S)\right|\\
 =\left|\suml_{a\in\S}\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-\suml_{a\in\S}P_S(a)\log(P_S(a))\right|\\
 \leq\suml_{a\in\S}\left|\frac1n\suml_{i=1}^n\log(P_S(a))\I\{s_i=a\}-P_S(a)\log(P_S(a))\right|\\
 \leq\suml_{a\in\S}\gamma P_S(a)\log(P_S(a))=-\gamma H(S)$.\\
-Taking $\delta=\xi(\gamma):=-\gamma H(S)$, and we get $\left|\frac1n\suml_{i=1}^n\log(P_S(a))+H(S)\right|\leq\delta$, which means $s^n\in\A$.\\
+Taking $\delta=\xi(\gamma):=-\gamma H(S)$, and we get $\left|\frac1n\suml_{i=1}^n\log(P_S(s_i))+H(S)\right|\leq\delta$, which means $s^n\in\A$.\\
 $\so\T\subseteq\A$.
 
 \setcounter{enumi}{0}

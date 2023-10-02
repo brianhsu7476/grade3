@@ -13,14 +13,42 @@ $\therefore$ the number of stack operations in total is $(n-m)+m(2(n-m)+1)=n-m+2
 
 (e)
 
-Define $B_{l, r}$ as $\left(\bigcup_{i=l}^{r-1}A_i\setminus A_{i+1}\right)\setminus\left(\bigcup_{i=l}^{r-1}A_{i+1}\setminus A_i\right)$. That is, the set of all elements that will be deleted but not be inserted in the $l$-th to the $r-1$-th set operation.\\
-Define $S_{i, j}$ as the $j\pmod{|S_i|}$-th element counted from the bottom of the stack $S_i$.\\
-Let's implement $solve(l, r)$ such that it does the following things:
-\begin{enumerate}
-\item Given is a stack $S_L$ such that $\{S_{L, i}|\}$
-\end{enumerate}
-can complete the $l$-th to the $r-1$-th set operations in $O((r-l)\log(r-l))$ number of stack operations, given that the stack before $solve(l, r)$ is implemented contains only the elements that would be deleted in these set operations.
+Define $B_{l, r}$ as $\left(\bigcup_{i=l}^{r-1}A_i\setminus A_{i+1}\right)\setminus\left(\bigcup_{i=l}^{r-1}A_{i+1}\setminus A_i\right)$. That is, the set of all elements that will be deleted but not be inserted during the $l$-th to the $r-1$-th set operation.\\
+Define $C_{l, r}$ as $\left(\bigcup_{i=l}^{r-1}A_{i+1}\setminus A_i\right)\setminus\left(\bigcup_{i=l}^{r-1}A_i\setminus A_{i+1}\right)$. That is, the set of all elements that will be inserted but not be deleted during the $l$-th to the $r-1$-th set operation.\\
+Define $S_{i, j}$ as $\begin{cases}
+\text{the }j\text{-th element counted from the bottom of the stack }S_i\text{, if }j>0;\\
+\text{the }(-j)\text{-th element counted from the top of the stack }S_i\text{, if }j<0.
+\end{cases}$.\\
+Define $S_{i, l..r}$ as the stack containing $r-l+1$ elements, where $\forall1\leq j\leq r-l+1$, the $j$-th element counting from the bottom is $S_{i, l+j-1}$.\\
+Define $A_S$ as the set of the elements of a stack $S$.\\
+Define $S+a$ as the stack formed by pushing an element $a$ into a stack $S$.
 
-Use divide and conquer to implement it.\\
-For the base case $r\leq l+1$, if $|A_{l+1}\setminus A_l|=1$, then just push that element to the 
+Let's implement $solve(l, r)$ such that it does the following things:
+\begin{enumerate}[C-(1)]
+\item Given is a stack $S_L$ such that $A_{S_L}=A_l$ and $A_{S_{L, -|B_{l, r}|..-1}}=B_{l, r}$.
+\item Return is a stack $S_R$ such that $A_{S_R}=A_r$ and $S_{R, 1..|S_L|-|B_{l, r}|}=S_{L, 1..|S_L|-|B_{l, r}|}$.
+\item $\exists i_l, i_{l+1}, \dots, i_r$ where $L=i_l<i_{l+1}<\cdots<i_r=R$ such that $\forall l\leq j\leq r,\ A_{S_{i_j}}=A_j$.
+\end{enumerate}
+
+Use divide and conquer to implement it.
+
+For the base case $r\leq l+1$, if $A_{l+1}=A_l\cup\{a\}$ for some $a$, then let $S_R=S_{L+1}=S_L+a$; otherwise let $S_R=S_{L+1}=S_{L, 1..|S_L|-1}$ since by C-(1), $\{S_{L, -1}\}=A_l\setminus A_{l+1}$. One can easily check that C-(2) and C-(3) are satisfied.
+
+For the other case $r\geq l+2$, let $k:=\lfloor\frac{l+r}2\rfloor$, and do the following:
+\begin{enumerate}[O-(1)]
+\item Pop the top $|B_{l, r}|$ elements from the stack, and the resulting stack is $S_{L+|B_{l, r}|}$.
+\item Push all the elements in $B_{l, r}\setminus B_{l, k}$ into the stack, then push all the elements in $B_{l, k}$ into the stack, and the resulting stack is $S_{L_1}$, where $L_1:=L+2|B_{l, r}|$.
+\item Do $solve(l, k)$. Since O-(1), O-(2) make $A_{S_{L_1}}=A_{S_L}=S_l$, and O-(2) gaurantees that $A_{S_{L_1, -|B_{l, k}|..-1}}=B_{l, k}$, C-(1) is satisfied. Suppose the returning stack is $S_{R_1}$.
+\item Let $D:=B_{l, r}\setminus B_{l, k}\cup C_{l, k}$. Pop the top $|D|$ elements from the stack, and the resulting stack is $S_{R_1+|D|}$.
+\item Push all the elements in $D\setminus B_{k, r}$ into the stack, then push all the elements in $B_{k, r}$ into the stack, and the resulting stack is $S_{L_2}$, where $L_2:=R_1+2|D|$.
+\item Do $solve(k, r)$. Since O-(4), O-(5) make $A_{S_{L_2}}=A_{S_{R_1}}\overtext{C-(2)}=A_k$, and O-(5) gaurantees that $A_{S_{L_2, -|B_{k, r}|..-1}}=B_{k, r}$, C-(1) is satisfied. Suppose the returning stack is $S_{R_2}$.
+\item Let $R:=R_2$, return $S_R$. Since by C-(2), $A_{S_R}=A_{S_{R_2}}=A_r$, and none of the above changes the $|S_L|-|B_{l, r}|$ elements in the bottom, C-(2) is satisfied. Since by C-(3), $solve(l, k), solve(k, r)$ gaurantee the existense of $i_l, i_{l+1}, \dots, i_r$, C-(3) is satisfied.
+\end{enumerate}
+
+Let $T(r-l)$ denote the number of stack operations in $solve(l, r)$.\\
+For O-(1), (2), (4), (5), there are $2|B_{l, r}|+2|B_{l, r}|-2|B_{l, k}|+2|C_{l, k}|$ of stack operations in total. Since $B_{l, r}, B_{l, k}, C_{l, k}\leq r-l$, $2|B_{l, r}|+2|B_{l, r}|-2|B_{l, k}|+2|C_{l, k}|=O(r-l)$.\\
+The number of stack operations in (3), (6) is $T((r-l)/2)$.\\
+$\Rightarrow T(r-l)=2T((r-l)/2)+O(r-l)$.\\
+By the master theorem, $T(r-l)=O((r-l)\log(r-l))$.\\
+$\therefore m=T(n)=O(n\log n)$.
 \end{pr}

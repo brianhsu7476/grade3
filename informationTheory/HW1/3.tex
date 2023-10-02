@@ -16,8 +16,10 @@ $\so$ such sequence exists, and it is $\A$.
 \item For a given $(n, \lfloor nR\rfloor)$ code, let $\B$ denote the range of the	decoding function.\\
 Let $\delta\in(0, H(S)-R)$, and $\A$ be the $\delta$-typical set defined in Definition 1.\\
 By the first property of Proposition 1, we know that $\forall s^n\in\A,\ \P\{S^n=s^n\}\leq2^{-n(H(S)-\delta)}$.\\
-$\then\P\{S^n\in\A\cap\B\}=\suml_{s^n\in\A\cap\B}\P\{S^n=s^n\}\leq\suml_{s^n\in\A\cap\B}2^{-n(H(S)-\delta)}\leq\suml_{s^n\in\B}2^{-n(H(S)-\delta)}=|\B|2^{-n(H(S)-\delta)}\leq2^{\lfloor nR\rfloor-n(H(S)-\delta)}\leq2^{-n(H(S)-R-\delta)}$.\\
-Since $H(S)-R-\delta>0$ by definition of $\delta$, we get that $\lim_{n\to\infty}P_e^{(n)}=\lim_{n\to\infty}\P\{S^n\in\A\cap\B\}\geq\lim_{n\to\infty}(1-2^{-n(H(S)-R-\delta)})=1$.\\
+$\then\P\{S^n\in\A\cap\B\}=\suml_{s^n\in\A\cap\B}\P\{S^n=s^n\}\\
+\leq\suml_{s^n\in\A\cap\B}2^{-n(H(S)-\delta)}\leq\suml_{s^n\in\B}2^{-n(H(S)-\delta)}\\
+=|\B|2^{-n(H(S)-\delta)}\leq2^{\lfloor nR\rfloor-n(H(S)-\delta)}\leq2^{-n(H(S)-R-\delta)}$.\\
+Since $H(S)-R-\delta>0$ by definition of $\delta$, we get that \\$\lim_{n\to\infty}P_e^{(n)}=\lim_{n\to\infty}\P\{S^n\in\A\cap\B\}\geq\lim_{n\to\infty}(1-2^{-n(H(S)-R-\delta)})=1$.\\
 On the other hand, $P_e^{(n)}\leq1$, so there is $\lim_{n\to\infty}P_e^{(n)}=1$.
 
 \end{enumerate}

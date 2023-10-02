@@ -15,15 +15,43 @@ $\then\P\left\{\prodl_{i=1}^nP_S(S_i)\geq2^{-n(H(S)+n^{-1/2}\delta\varsigma(S))}
 
 \renewcommand{\B}{{\mathcal{B}_\delta^{(n)}(S)}}
 \newcommand{\cst}{{n(H(S)+n^{-1/2}\delta\varsigma(S))}}
-\item %$|\B|=\suml_{s^n}\I\{s^n\in\B\}=\suml_{s^n}\I\left\{\prodl_{i=1}^nP_S(s_i)\geq\cst\right\}$.\\
+\item Let $Z\sim N(0, 1)$, by Berry-Esseen theorem, $|\P\{S^n\in\B\}-\P\{Z\leq\delta\}|=\left|\P\left\{\frac{\sqrt n(\overline{X_n}-E[X_i])}{\varsigma(S)}\leq\delta\right\}-\P\{Z\leq\delta\}\right|\leq cn^{-1/2}$ for some constant $c>0$.\\
+$\then\P\{S^n\in\B\}\geq\P\{Z\leq\delta\}-cn^{-1/2}=\Phi(\delta)-cn^{-1/2}$.\\
+Take $\delta=\Phi^{-1}(1-\epsilon+cn^{-1/2})=-\Phi^{-1}(\epsilon-cn^{-1/2})$, we get that $\P\{S^n\in\B\}\geq1-\epsilon$.\\
+$\then\P\{S^n\notin\B\}\leq\epsilon$.\\
+Since $\frac{d\Phi^{-1}(x)}{dx}=\left.\frac1{\frac{d\Phi(y)}{dy}}\right|_{y=\Phi^{-1}(x)}=\left.\sqrt{2\pi}e^{y^2/2}\right|_{y=\Phi^{-1}(x)}=\sqrt{2\pi}e^{(\Phi^{-1}(x))^2/2}$, there is $\Phi^{-1}(\epsilon-cn^{-1/2})\approx\Phi^{-1}(\epsilon)-\sqrt{2\pi}e^{(\Phi^{-1}(\epsilon))^2/2}cn^{-1/2}=\Phi^{-1}(\epsilon)-O(n^{-1/2})$ for $n$ sufficiently large.\\
+$\then\delta=-\Phi^{-1}(\epsilon)+\zeta'_n$, where $\zeta'_n=O(n^{-1/2})$.
+
+%We know that $\Phi(x)=\frac12+\frac12\mathrm{erf}(\frac x{\sqrt2})$.\\
+%$\then\Phi^{-1}(y)=\sqrt2\mathrm{erf}^{-1}(2(y-\frac12))$.\\
+%, and	$\mathrm{erf}(x)=\frac2{\sqrt\pi}\suml_{i=0}^\infty\frac{(-1)^ix^{2i+1}}{i!(2i+1)}$.\\
+%$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
+%$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
+
+\begin{lm}\label{2b}
+$\exists\zeta_n=O(n^{-1})$ s.t. $nk\leq\lfloor n(k+\zeta_n)\rfloor$.
+\begin{proof}
+Consider $\zeta_n=\frac1n$, we get that $\lfloor n(k+\zeta_n)\rfloor=\lfloor n(k+\frac1n)\rfloor=\lfloor nk\rfloor+1\geq nk$.
+\end{proof}
+\end{lm}
+%$|\B|=\suml_{s^n}\I\{s^n\in\B\}=\suml_{s^n}\I\left\{\prodl_{i=1}^nP_S(s_i)\geq\cst\right\}$.\\
 Since $\suml_{s^n\in\B}P_{S^n}(s^n)\leq\suml_{s^n}P_{S^n}(s^n)=1$,\\
 and if $s^n\in B$, then $P_{S^n}(s^n)=\prodl_{i=1}^nP_S(s_i)\geq2^{-\cst}$.\\
 $\so|\B|2^{-\cst}=\suml_{s^n\in\B}2^{-\cst}\leq\suml_{s^n\in\B}P_{S^n}(s^n)\leq1$.\\
 $\then|\B|\leq2^\cst$.\\
-Let $Z\sim N(0, 1)$, by Berry-Esseen theorem, $|\P\{S^n\in\B\}-\P\{Z\leq\delta\}|=\left|\P\left\{\frac{\sqrt n(\overline{X_n}-E[X_i])}{\varsigma(S)}\leq\delta\right\}-\P\{Z\leq\delta\}\right|\leq cn^{-1/2}$ for some constant $c>0$.\\
-$\then\P\{S^n\in\B\}\geq\P\{Z\leq\delta\}-cn^{-1/2}$.\\
-Take $\delta=-\Phi^{-1}(\epsilon)$, we get that $\Phi(\delta)=1-\epsilon$.\\
-$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
+\renewcommand{\cst}{{H(S)+n^{-1/2}\delta\varsigma(S)}}
+By $\rflm{2b}$, there exists $\zeta''_n\in O(n^{-1})$ s.t. $n(\cst)\leq\lfloor n(\cst+\zeta''_n)\rfloor$.\\
+Take $R=H(S)+n^{1/2}\varsigma(S)\delta+\zeta''_n=H(S)-n^{-1/2}\varsigma(S)\Phi^{-1}(\epsilon)+n^{-1/2}\varsigma(S)\zeta'_n+\zeta''_n$.\\
+Since $n^{-1/2}\varsigma(S)\zeta'_n=O(n^{-1})$, we get that $R=H(S)-n^{-1/2}\varsigma(S)\Phi^{-1}(\epsilon)+\zeta_n$ for some $\zeta_n=O(n^{-1})$.\\
+Therefore, $\B$ is an $(n, \lfloor nR\rfloor)$ code with $P_e^{(n)}\leq\epsilon$.
+%Let $Z\sim N(0, 1)$, by Berry-Esseen theorem, $|\P\{S^n\in\B\}-\P\{Z\leq\delta\}|=\left|\P\left\{\frac{\sqrt n(\overline{X_n}-E[X_i])}{\varsigma(S)}\leq\delta\right\}-\P\{Z\leq\delta\}\right|\leq cn^{-1/2}$ for some constant $c>0$.\\
+%$\then\P\{S^n\in\B\}\geq\P\{Z\leq\delta\}-cn^{-1/2}=\Phi(\delta)-cn^{-1/2}$.\\
+%Take $\delta=\Phi^{-1}(1-\epsilon+cn^{-1/2})=-\Phi^{-1}(\epsilon-cn^{-1/2})$, we get that $\P\{S^n\in\B\}\geq1-\epsilon$.\\
+%We know that $\Phi(x)=\frac12+\frac12\mathrm{erf}(\frac x{\sqrt2})$.\\
+%$\then\Phi^{-1}(y)=\sqrt2\mathrm{erf}^{-1}(2(y-\frac12))$.\\
+%, and	$\mathrm{erf}(x)=\frac2{\sqrt\pi}\suml_{i=0}^\infty\frac{(-1)^ix^{2i+1}}{i!(2i+1)}$.\\
+%$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
+%$\then\P\{S^n\in\B\}\to1-\epsilon$ as $n\to\infty$.\\
 %If $s^n\in\B$, then (from the above) $\left(\frac1n\suml_{i=1}^n\log\frac1{P_S(S_i)}\right)-H(S)\leq n^{-1/2}\delta\varsigma(S)$.
 
 \end{enumerate}
