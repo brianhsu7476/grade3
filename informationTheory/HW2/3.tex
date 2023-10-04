@@ -1,0 +1,40 @@
+\begin{pr}
+Note that $P_{X_{\Theta_i}[i]}(\theta_i, x_i)$ is defined as $\P\{\Theta_i=\theta_i\land X_{\theta_i}[i]=x_i\}$, while $P_{X_{\theta_i}[i]}(x_i)$ is defined as $\P\{X_{\theta_i}[i]=x_i\}$.\\
+Since $X_{\theta_i}[i]$ and $\Theta_i$ are independent, there is $P_{X_{\Theta_i}[i]}(\theta_i, x_i)=P_{\Theta_i}(\theta_i)P_{X_{\theta_i}[i]}(x_i)$.
+%Suppose that $P_{X_0[1]}=\pi_0,\ P_{X_1[1]}=\pi_1$.\\
+%$\cuz\{X_0[i]\}, \{X_1[i]\}$ are stationary random processes,\\
+%$\so\lim_{n\to\infty}\P\{X_i[n+1]=y|X_i[1]=x\}=\pi_i(y)$ for $i=0, 1$.
+\begin{enumerate}[(a)]
+\item $\cuz\forall l, n\in\N,\ P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}=P_{X_\Theta[1], X_\Theta[2], \dots, X_\Theta[n]}\\
+\overset{X_\Theta\text{ is stationary no matter }\Theta\text{ is }0\text{ or }1}=P_{X_\Theta[l+1], X_\Theta[l+2], \dots, X_\Theta[l+n]}=P_{X_{\Theta_{l+1}}[l+1], X_{\Theta_{l+2}}[l+2], \dots, X_{\Theta_{l+n}}[l+n]}$.\\
+$\so\{X_{\Theta_i}[i]\}$ is stationary.\\
+By the definition of entropy rates,\\
+$\lim_{n\to\infty}-\frac1n\E[\log P_{X_k[1], X_k[2], \dots, X_k[n]}]=\lim_{n\to\infty}\frac1nH(X_k[1], X_k[2], \dots, X_k[n])=\mathcal{H}_k$.\\
+$\then\mathcal{H}(\{X_{\Theta_i}[i]\})=\lim_{n\to\infty}\frac1nH(X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n])\\
+=\lim_{n\to\infty}-\frac1n\E[\log P_{X_\Theta[1], X_\Theta[2], \dots, X_\Theta[n]}]\\
+=\lim_{n\to\infty}-\frac1n\left(\P\{\Theta=0\}\E[\log\P\{\Theta=0\}P_{X_0[1], X_0[2], \dots, X_0[n]}]\right.\\\left.
++\P\{\Theta=1\}\E[\log\P\{\Theta=1\}P_{X_1[1], X_1[2], \dots, X_1[n]}]\right)\\
+=\lim_{n\to\infty}-\frac1n\left((1-q)\E[\log(1-q)+\log P_{X_0[1], X_0[2], \dots, X_0[n]}]+q\E[\log q+\log P_{X_1[1], X_1[2], \dots, X_1[n]}]\right)\\
+=\lim_{n\to\infty}-\frac1n((1-q)\log(1-q)+q\log q)+(1-q)\mathcal{H}_0+q\mathcal{H}_1=(1-q)\mathcal{H}_0+q\mathcal{H}_1$.
+%Define $\pi(y):=\P\{\Theta=0\}\pi_0(y)+\P\{\Theta=1\}\pi_1(y)$.\\
+%$\lim_{n\to\infty}\P\{X_{\Theta_{n+1}}[n+1]=y|X_{\Theta_1}[1]=x\}=\lim_{n\to\infty}\P\{X_\Theta[n+1]=y|X_\Theta[1]=x\}=\pi_\Theta(y)$
+\item $\cuz P_{X_{\Theta_{i+1}}[i+1]|X_{\Theta_i}[i]}\overset{X_j[i]\text{ is independent of }X_{j'}[i']\text{ for any }(i', j')\neq(i, j)}=P_{\Theta_{i+1}|\Theta_i}P_{X_{\theta_{i+1}}[i+1]}$.\\
+$\so P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}=\prodl_{i=1}^nP_{X_{\Theta_i}[i]|X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_{i-1}}[i-1]}=P_{X_{\Theta_1}[1]}\prodl_{i=2}^nP_{X_{\Theta_i}[i]|X_{\Theta_{i-1}}[i-1]}\\
+=P_{\Theta_1}P_{X_{\theta_1}[1]}\prodl_{i=2}^nP_{\Theta_i|\Theta_{i-1}}P_{X_{\theta_i}[i]}=\left(P_{\Theta_1}\prodl_{i=2}^nP_{\Theta_i|\Theta_{i-1}}\right)\prodl_{i=1}^nP_{X_{\theta_i}[i]}\\
+\overset{X_j[i]\text{ is independent of }X_{j'}[i']\text{ for any }(i', j')\neq(i, j)}=P_{\Theta_1, \Theta_2, \dots, \Theta_n}P_{X_{\theta_1}[1], X_{\theta_2}[2], \dots, X_{\theta_n}[n]}$.\\
+$\then\forall l, n\in\N,\ P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}=P_{\Theta_1, \Theta_2, \dots, \Theta_n}P_{X_{\theta_1}[1], X_{\theta_2}[2], \dots, X_{\theta_n}[n]}\overset{\{X_0[i]\}, \{X_1[i]\}, \{\Theta_i\}\text{ are stationary}}=P_{\Theta_{l+1}, \Theta_{l+2}, \dots, \Theta_{l+n}}P_{X_{\theta_1}[l+1], X_{\theta_2}[l+2], \dots, X_{\theta_n}[l+n]}=P_{X_{\Theta_{l+1}}[l+1], X_{\Theta_{l+2}}[l+2], \dots, X_{\Theta_{l+n}}[l+n]}$.\\
+$\so\{X_{\Theta_i}[i]\}$ is stationary.\\
+By theorem 11, $\mathcal{H}(\{X_{\Theta_i}[i]\})=H(X_{\Theta_2}[2]|X_{\Theta_1}[1])\\
+=-\suml_{\theta_1, \theta_2, x_1, x_2}P_{X_{\Theta_1}[1]}(\theta_1, x_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)P_{X_{\theta_2}[2]}(x_2)(\log(P_{\Theta_2|\Theta_1}(\theta_2|\theta_1))+\log(P_{X_{\theta_2}[2]}(x_2)))\\
+=-\suml_{\theta_1, \theta_2, x_1, x_2}P_{X_{\Theta_1}[1]}(\theta_1, x_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)P_{X_{\theta_2}[2]}(x_2)\log(P_{\Theta_2|\Theta_1}(\theta_2|\theta_1))\\
+-\suml_{\theta_1, \theta_2, x_1, x_2}P_{X_{\Theta_1}[1]}(\theta_1, x_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)P_{X_{\theta_2}[2]}(x_2)\log(P_{X_{\theta_2}[2]}(x_2)))\\
+=-\suml_{\theta_1, \theta_2, x_1}P_{X_{\Theta_1}[1]}(\theta_1, x_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)\log(P_{\Theta_2|\Theta_1}(\theta_2|\theta_1))\\
++\suml_{\theta_1, \theta_2, x_1}P_{X_{\Theta_1}[1]}(\theta_1, x_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)H(X_{\theta_2}[2])\\
+=-\suml_{\theta_1, \theta_2}P_{\Theta_1}(\theta_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)\log(P_{\Theta_2|\Theta_1}(\theta_2|\theta_1))\\
++\suml_{\theta_1, \theta_2}P_{\Theta_1}(\theta_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)H(X_{\theta_2}[2])\\
+=-(1-q)(1-\alpha)\log(1-\alpha)-(1-q)\alpha\log(\alpha)-q\beta\log(\beta)-q(1-\beta)\log(1-\beta)+H(X_0[2])((1-q)(1-\alpha)+q\beta)+H(X_1[2])((1-q)\alpha+q(1-\beta))\\
+\overset{\{X_k[i]\}\text{ are i.i.d.}\then \mathcal{H}_k=H(\{X_k[i]\})=H(X_k[i])}=(1-q)H_b(\alpha)+qH_b(\beta)+\mathcal{H}_0((1-q)(1-\alpha)+q\beta)+\mathcal{H}_1((1-q)\alpha+q(1-\beta))$.
+%$H(X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n])=-\E[\log P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}]\\
+%=-\suml_{\theta_1, \theta_2, \dots, \theta_n, x_1, x_2, \dots, x_n}P_{\Theta_1, \dots, \Theta_n}(\theta_1, \dots, \theta_n)\prodl_{i=1}^nP_{X_{\theta_i}}[i](x_i)\left(\log(P_{\Theta_1, \dots, \Theta_n}(\theta_1, \dots, \theta_n))+\suml_{i=1}^n\log(P_{X_{\theta_i}}[i](x_i))\right)$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,19 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Define $Q_X(x)=q_x$.\\
+$H(X)+\suml_{i=1}^\infty p_i\log q_i=\suml_{i=1}^\infty\E\left[\log\frac{Q_X}{P_X}\right]\overset{\cuz\log\text{ is concave}}\leq\log\E\left[\frac{Q_X}{P_X}\right]=\log\left(\suml_{i=1}^\infty p_i\cdot\frac{q_i}{p_i}\right)=\log\left(\suml_{i=1}^\infty q_i\right)=\log1=0$.\\
+$\so H(X)\leq-\suml_{i=1}^\infty p_i\log q_i$.
+\item $-\log q_i$ is an arithmetic sequence $\then q_i$ is an geometric sequence.\\
+Suppose that $q_i=q_0r^i$, where $1<r<1$ and $q_0>0$.\\
+$\cuz1=\suml_{i=1}^\infty q_i=\frac{q_0r}{1-r}\\
+\then q_0=\frac{1-r}r$.\\
+$\cuz\mu_X=\suml_{i=1}^\infty iq_i=\suml_{i=1}^\infty q_0ir^i=\suml_{i=1}^\infty\suml_{j=1}^i q_0r^i=\suml_{j=1}^\infty\suml_{i=j}^\infty q_0r^i=\suml_{j=1}^\infty\frac{q_0r^j}{1-r}=\frac{q_0r}{(1-r)^2}\\
+\then\frac1{1-r}=\mu_X\\
+\so r=1-\frac1{\mu_X}=\frac{\mu_X-1}{\mu_X},\ q_0=\frac{\frac1{\mu_X}}{1-\frac1{\mu_X}}=\frac1{\mu_X-1}$.\\
+$-\log q_i=-\log q_0r^i=-\log q_0-i\log r$.\\
+Take $\alpha=-\log r=\log(\mu_X)-\log(\mu_X-1),\ \beta=-\log q_0=\log(\mu_X-1)$ satisfies the conditions.\\
+$\so$ the answer is $q_i=\frac{(\mu_X-1)^{i-1}}{(\mu_X)^i},\ \alpha=\log(\mu_X)-\log(\mu_X-1),\ \beta=\log(\mu_X-1)$.
+\item $-\suml_{i=1}^\infty p_i\log q_i=\suml_{i=1}^\infty p_i(\alpha i+\beta)=\alpha\mu_X+\beta=\log(\mu_X)\mu_X-\log(\mu_X-1)\mu_X+\log(\mu_X-1)=\mu_X(\log(\mu_X)-(1-\frac1{\mu_X})\log(\mu_X-1))=\mu_X(\log(\frac{\mu_X}{\mu_X-1})-\frac1{\mu_X}\log(\frac{\mu_X}{\mu_X-1})+\frac1{\mu_X}\log(\mu_X))=\mu_X(-(1-\frac1{\mu_X})\log(1-\frac1{\mu_X})-\frac1{\mu_X}\log(\frac1{\mu_X}))=\mu_Xh_b(\mu_X^{-1})$.\\
+$\so H(X)\leq\mu_Xh_b(\mu_X^{-1})$, and the equation holds when $p_i=q_i$ for all $i$, that is, $P_X\sim\mathrm{Geo}(\frac1{\mu_X})$ is the geometric distribution.
+\end{enumerate}
+\end{pr}
