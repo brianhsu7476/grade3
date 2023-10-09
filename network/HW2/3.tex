@@ -5,11 +5,12 @@
 \item There are $\binom{120}n$ ways to choose $n$ users, and the probability for those $n$ users to transmit and other $120-n$ users not to transmit is $0.1^n0.9^{120-n}$.\\
 Therefore, the probability is $\binom{120}n0.1^n0.9^{120-n}$.
 \item %$\suml_{n=0}^{20}\binom{120}n0.1^n0.9^{120-n}$.\\
+Let $Z\sim\mathcal{N}(0, 1)$.\\
 From central limit theorem, $\lim_{n\to\infty}\P\left(\frac{\sqrt n(\bar X_n-\mu)}\sigma\leq\frac z\sigma\right)=\Phi\left(\frac z\sigma\right)$.\\
 Let $X_i\sim\mathrm{Ber}(0.1)$.\\
 $\then\mu=0.1, \sigma=\sqrt{0.1\times0.9}=0.3$.\\
 $\P\left(\suml_{i=1}^{120}X_i\leq20\right)=\P\left(\bar X_{120}\leq\frac16\right)=\P\left(\bar X_{120}-0.1\leq\frac1{15}\right)\\
-=\P\left(\sqrt{120}\frac{\bar X_{120}-0.1}{0.3}\leq\frac{\sqrt{120}}{15\times0.3}\right)\sim\Phi\left(\frac{4\sqrt{30}}9\right)\sim0.992$.\\
-$\so$ the probability there are $21$ or more users transmitting simultaneously $\sim0.008$.
+=\P\left(\sqrt{120}\frac{\bar X_{120}-0.1}{0.3}\leq\frac{\sqrt{120}}{15\times0.3}\right)\sim\P\left(Z\leq\frac{4\sqrt{30}}9\right)\sim\P(Z\leq 2.434)=1-\P(Z\leq-2.434)\sim1-0.0075$.\\
+$\so$ the probability there are $21$ or more users transmitting simultaneously $\sim0.0075$.
 \end{itemize}
 \end{pr}
