@@ -1,0 +1,13 @@
+\begin{pr}$ $
+\begin{itemize}
+\item $20$.
+\item $10\%=0.1$.
+\item $\binom{120}n0.1^n0.9^{120-n}$.
+\item %$\suml_{n=0}^{20}\binom{120}n0.1^n0.9^{120-n}$.\\
+From central limit theorem, $\lim_{n\to\infty}\P(\frac{\sqrt n(\bar X_n-\mu)}\sigma\leq\frac z\sigma)=\Phi(\frac z\sigma)$.\\
+Let $X_i\sim\mathrm{Ber}(0.1)$.\\
+$\then\mu=0.1, \sigma=\sqrt{0.1\times0.9}=0.3$.\\
+$\P(\suml_{i=1}^{120}X_i\leq20)=\P(\bar X_{120}\leq\frac16)=\P(\bar X_{120}-0.1\leq\frac1{15})=\P(\sqrt{120}\frac{\bar X_{120}-0.1}{0.3}\leq\frac{\sqrt{120}}{15\times0.3})\sim\Phi(\frac{4\sqrt{30}}9)\sim0.992$.\\
+$\so$ the probability there are $21$ or more users transmitting simultaneously $\sim0.008$.
+\end{itemize}
+\end{pr}

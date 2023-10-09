@@ -18,7 +18,12 @@ $\then\mathcal{H}(\{X_{\Theta_i}[i]\})=\lim_{n\to\infty}\frac1nH(X_{\Theta_1}[1]
 =\lim_{n\to\infty}-\frac1n((1-q)\log(1-q)+q\log q)+(1-q)\mathcal{H}_0+q\mathcal{H}_1=(1-q)\mathcal{H}_0+q\mathcal{H}_1$.
 %Define $\pi(y):=\P\{\Theta=0\}\pi_0(y)+\P\{\Theta=1\}\pi_1(y)$.\\
 %$\lim_{n\to\infty}\P\{X_{\Theta_{n+1}}[n+1]=y|X_{\Theta_1}[1]=x\}=\lim_{n\to\infty}\P\{X_\Theta[n+1]=y|X_\Theta[1]=x\}=\pi_\Theta(y)$
-\item $\cuz P_{X_{\Theta_{i+1}}[i+1]|X_{\Theta_i}[i]}\overset{X_j[i]\text{ is independent of }X_{j'}[i']\text{ for any }(i', j')\neq(i, j)}=P_{\Theta_{i+1}|\Theta_i}P_{X_{\theta_{i+1}}[i+1]}$.\\
+\item Suppose $\Theta_1\sim\mathrm{Ber}(q)$.\\
+Since $\{\Theta_i\}$ is stationary, $\matrix{1-q&q}=\matrix{1-q&q}\matrix{1-\alpha&\alpha\\\beta&1-\beta}$.\\
+$\then1-q=(1-q)(1-\alpha)+q\beta\\
+\then\alpha(1-q)=q\beta\\
+\then q=\frac\alpha{\alpha+\beta}$.\\
+$\cuz P_{X_{\Theta_{i+1}}[i+1]|X_{\Theta_i}[i]}\overset{X_j[i]\text{ is independent of }X_{j'}[i']\text{ for any }(i', j')\neq(i, j)}=P_{\Theta_{i+1}|\Theta_i}P_{X_{\theta_{i+1}}[i+1]}$.\\
 $\so P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}=\prodl_{i=1}^nP_{X_{\Theta_i}[i]|X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_{i-1}}[i-1]}=P_{X_{\Theta_1}[1]}\prodl_{i=2}^nP_{X_{\Theta_i}[i]|X_{\Theta_{i-1}}[i-1]}\\
 =P_{\Theta_1}P_{X_{\theta_1}[1]}\prodl_{i=2}^nP_{\Theta_i|\Theta_{i-1}}P_{X_{\theta_i}[i]}=\left(P_{\Theta_1}\prodl_{i=2}^nP_{\Theta_i|\Theta_{i-1}}\right)\prodl_{i=1}^nP_{X_{\theta_i}[i]}\\
 \overset{X_j[i]\text{ is independent of }X_{j'}[i']\text{ for any }(i', j')\neq(i, j)}=P_{\Theta_1, \Theta_2, \dots, \Theta_n}P_{X_{\theta_1}[1], X_{\theta_2}[2], \dots, X_{\theta_n}[n]}$.\\
@@ -33,7 +38,9 @@ By theorem 11, $\mathcal{H}(\{X_{\Theta_i}[i]\})=H(X_{\Theta_2}[2]|X_{\Theta_1}[
 =-\suml_{\theta_1, \theta_2}P_{\Theta_1}(\theta_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)\log(P_{\Theta_2|\Theta_1}(\theta_2|\theta_1))\\
 +\suml_{\theta_1, \theta_2}P_{\Theta_1}(\theta_1)P_{\Theta_2|\Theta_1}(\theta_2|\theta_1)H(X_{\theta_2}[2])\\
 =-(1-q)(1-\alpha)\log(1-\alpha)-(1-q)\alpha\log(\alpha)-q\beta\log(\beta)-q(1-\beta)\log(1-\beta)+H(X_0[2])((1-q)(1-\alpha)+q\beta)+H(X_1[2])((1-q)\alpha+q(1-\beta))\\
-\overset{\{X_k[i]\}\text{ are i.i.d.}\then \mathcal{H}_k=H(\{X_k[i]\})=H(X_k[i])}=(1-q)H_b(\alpha)+qH_b(\beta)+\mathcal{H}_0((1-q)(1-\alpha)+q\beta)+\mathcal{H}_1((1-q)\alpha+q(1-\beta))$.
+\overset{\{X_k[i]\}\text{ are i.i.d.}\then \mathcal{H}_k=H(\{X_k[i]\})=H(X_k[i])}=(1-q)H_b(\alpha)+qH_b(\beta)+\mathcal{H}_0((1-q)(1-\alpha)+q\beta)+\mathcal{H}_1((1-q)\alpha+q(1-\beta))\\
+=\frac\beta{\alpha+\beta}H_b(\alpha)+\frac\alpha{\alpha+\beta}H_b(\beta)+\mathcal{H}_0(\frac\beta{\alpha+\beta}(1-\alpha)+\frac\alpha{\alpha+\beta}\beta)+\mathcal{H}_1(\frac\beta{\alpha+\beta}\alpha+\frac\alpha{\alpha+\beta}(1-\beta))\\
+=\frac\beta{\alpha+\beta}(H_b(\alpha)+\mathcal{H}_0)+\frac\alpha{\alpha+\beta}(H_b(\beta)+\mathcal{H}_1)$.%+\frac1{\alpha+\beta}(\mathcal{H}_0+\mathcal{H}_1)$.
 %$H(X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n])=-\E[\log P_{X_{\Theta_1}[1], X_{\Theta_2}[2], \dots, X_{\Theta_n}[n]}]\\
 %=-\suml_{\theta_1, \theta_2, \dots, \theta_n, x_1, x_2, \dots, x_n}P_{\Theta_1, \dots, \Theta_n}(\theta_1, \dots, \theta_n)\prodl_{i=1}^nP_{X_{\theta_i}}[i](x_i)\left(\log(P_{\Theta_1, \dots, \Theta_n}(\theta_1, \dots, \theta_n))+\suml_{i=1}^n\log(P_{X_{\theta_i}}[i](x_i))\right)$.
 \end{enumerate}
