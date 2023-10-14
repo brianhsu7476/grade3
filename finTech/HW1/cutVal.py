@@ -3,8 +3,8 @@ from numpy import *
 import pandas as pd
 
 csvName='0050.TW.csv'
-trainDate=['2019-01-01', '2023-01-01']
-valDate=['2023-01-01', '2099-01-01']
+trainDate=['2017-10-05', '2022-10-04']
+valDate=['2022-10-04', '2099-12-31']
 
 dat=pd.read_csv(csvName)
 head=dat.columns.values
