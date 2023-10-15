@@ -3,7 +3,7 @@ def myStrategy(pastPriceVec, currentPrice):
 	import pandas as pd
 	data=pastPriceVec+[currentPrice]
 	try:
-		par=pd.read_csv('myPar.csv')
+		par=pd.read_csv('myPar1.csv')
 		nmaShort, nmaLong=int(par['nmaShort']), int(par['nmaLong'])
 		alpha, beta=float(par['alpha']), float(par['beta'])
 	except:

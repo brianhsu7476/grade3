@@ -1,0 +1,9 @@
+\section{Linear Regression}
+
+在綜合考量前述的那些指標，我使用簡單的線性 model ： linear regression 來計算如合分配那些指標的比重。
+
+具體而言，設$x_{ij}$是第$i$天資料的第$j$項指標（其中$x_{i1}=1$為常數項），而$y_i$是第$i$至第$i+1$天的漲幅，則目標是找到$w_1, w_2, \dots, w_k$（有$k$項指標）使得$\suml_i(y_i-\suml_{j=1}^kx_{ij}w_j)^2$最小。
+
+令$X$為一矩陣，其中第$i$列第$j$行是$x_{ij}$，而$y:=\matrix{y_1\\\vdots\\y_n}$，則目標是找到$w$使得$\|Xw-y\|$最小，而$w$就會是使得$Xw$是$y$到$X$的 column space 上的投影點的解，可以知道$w=X^\dagger y$，其中$X^\dagger$是$X$的 pseudo inverse 。
+
+另外，為了避免 noise data ，我使用 $20$-fold cross validation ，也就是隨機排列 data 後將其中的$\frac{19}{20}$拿來 linear regression ，剩下的$\frac1{20}$拿來計算誤差，取誤差最小所對應到的$w$。

@@ -1,1 +1,7 @@
+\section{MA}
 
+我使用 \texttt{myStrategy1.py} ，其中短期均線為$maShort$、長期均線為$maLong$，策略是當$maShort-maLong>\alpha$時就買進，當$maShort-maLong<-\beta$時就賣出。
+
+其中$maShort$是$nmaShort$天以來的平均值，而$maLong$是$nmaLong$天以來的平均值，我使用 \texttt{run1.sh} 爆搜所有的$1\leq nmaShort\leq10, 11\leq nmaLong\leq20, -3\leq\alpha\leq3, -3\leq\beta\leq3$之後，用 \texttt{getRes.py} 找出最好的$30$組結果，發現最好的$15$組結果滿足為$7\leq nmaShort\leq9$與$12\leq nmaLong\leq15$，$\alpha=-1$，而對於任意的$-3\leq\beta\leq1$並無差異。而這些最好的$15$組結果介於$31.22\%$到$33.71\%$之間，比範例的結果多賺了$67\%$。
+
+從這邊的結果得知，使用$(nmaShort, nmaLong)=(8, 13)$有較好的結果，於是對於之後在做混合指標的判斷，將會採用這些參數。

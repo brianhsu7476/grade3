@@ -1,5 +1,14 @@
-\section{Validation Set}
+\setcounter{section}{-1}
 
-The given \texttt{rrEstimate.py} is not a good estimation on the data, since it simulated running during 2017-10-05 to 2022-10-03.\\
-Instead, I used the data during 2017-10-05 to 2022-10-03 as the training data, while 2022-10-14 to 2023-10-13 as the validating data.\\
-What's more, I think
+本份作業中的所使用的程式碼詳見附錄。
+
+\section{Estimating the Result}
+
+作業給的 \texttt{rrEstimate.py} 是跑過所有 2017-10-05 到 2022-10-03 的收盤價來衡量最後的結果，也就是從 2017-10-05 就開始交易 0050 ，但是我們實際上是要從 2023-10-16 開始交易，而前面的資料只當作參考，因此我重寫了一遍 \texttt{rrEstimate.py} ，將衡量結果的方式改成是在 2022-10-14 到 2023-10-13 這一年中進行交易，而 2022-10-14 以前的資料就只用做計算 MA 、 RSI 、 K 線 、 D 線 等用途。
+
+使用重寫過的 \texttt{rrEstimate.py} 跑作業給的範例 strategy 的結果是$20.19\%$。
+
+重寫過的 \texttt{rrEstimate.py} 以及與其搭配分割資料的 \texttt{cutVal.py} 詳見附錄。
+%I used the data during 2017-10-05 to 2022-10-03 as the training data, while 2022-10-14 to 2023-10-13 as the validating data.
+
+%By using the validation set, the result may be more 
