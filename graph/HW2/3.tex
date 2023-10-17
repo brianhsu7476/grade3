@@ -1,0 +1,8 @@
+\setcounter{pr}{5}
+\begin{pr}
+By the definition of $k$-connected, $\forall U_1\subseteq V(G_1), U_2\subseteq V(G_2)$ where $|U_1|<k, |U_2|<k$, $G_1\setminus U_1, G_2\setminus U_2$ are connected.\\
+$\forall X\subseteq V(G_1)\cup V(G_2)$ with $|X|<k$, since $|X\cap V(G_1)|\leq|X|<k$ and $|X\cap V(G_2)|\leq|X|<k$, the vertices in $V(G_1)\setminus X$ are connected in $(G_1\cup G_2)\setminus X$, and so are those in $V(G_2)\setminus X$.\\
+Since $|V(G_1)\cap V(G_2)|\geq k$, $\exists u\in V(G_1)\cap V(G_2)$ s.t. $u\notin X$.\\
+Since $u$ is connected to all vertices in $V(G_1)\setminus X$, and connected to all vertices in $V(G_2)\setminus X$, $(G_1\cup G_2)\setminus X$ is connected.\\
+$\so G_1\cup G_2$ is $k$-connected by the definition.
+\end{pr}

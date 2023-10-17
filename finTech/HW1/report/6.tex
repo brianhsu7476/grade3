@@ -1,1 +1,14 @@
-\section{附錄}
+\section{策略結果比較}
+
+最後要選擇使用的 model 作為上傳的 strategy ，其中爆搜參數的部份有可能會對於這一年內的資料 overfitting ，所以我拿了其他也不錯的參數的結果來比較。
+
+$\begin{array}{|c|c|c|c|}\hline
+\text{使用 model }&\text{最好結果}&\text{前$\frac14$好的結果平均}&\text{前$\frac14$好的結果標準差}\\\hline
+\text{範例}&20.19\%&X&X\\\hline
+\text{MA}&33.71\%&25.54\%&2.34\%\\\hline
+\text{RSI}&34.08\%&21.91\%&2.32\%\\\hline
+\text{K線、D線}&23.16\%&18.52\%&1.60\%\\\hline
+\text{Mixed}&26.54\%&22.54\%&2.08\%\\\hline
+\end{array}$
+
+可以看到 MA 與 RSI 最好的結果差不多，而 Mixed 少了很多，但是 MA 的平均超過 RSI 很多，而標準差除了 K 線 、 D 線很小之外剩下的都差不多，所以我最後選擇了 MA 作為上傳的 strategy 。

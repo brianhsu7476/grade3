@@ -1,0 +1,27 @@
+\setcounter{pr}{1}
+\begin{pr}$ $
+\renewcommand{\d}{\bar d}
+\begin{enumerate}[(a)]
+\item Suppose that $|V(G)|=n$.\\
+Let's prove by contradiction, and suppose that for all $V'\subseteq V(G)$, the spanning subgraph $H$ of $G$ with vertices set $V'$ satisfies $\delta(H)<\frac12\d$. --- (1)\\
+Construct a sequence of graphs $\{G\}_{i=0}^{n-1}$, where $G_0:=G$, and $G_{i+1(0\leq i\leq n-2)}:=G_i\setminus\{u_i\}$, where $\deg_{G_i}(u_i)<\frac12\d$.\\
+The construction is legal, since by (1), such $u_i$ always exists in $G_i$.\\
+$\then|V(G_{n-1})|=|V(G_{n-2})|-1=|V(G_{n-3})|-2=\cdots=|V(G_0)|-(n-1)=1$.\\
+$|E(G_0)|=|E(G)|=\frac12|V|\d=\frac12n\d$.\\
+Since $\deg_{G_i}(u_i)<\frac12\d$, and all edges in $E(G_i)\setminus E(G_{i+1})$ are incident to $u_i$, there is $|E(G_{i+1})|=|E(G_i)|-|E(G_i)\setminus E(G_{i+1})|>|E(G_i)|-\frac12\d$.\\
+$\so|E(G_{n-1})|>|E(G_{n-2})|-\frac12\d>|E(G_{n-3})|-d>\cdots>|E(G_0)|-\frac{n-1}2\d=\frac12\d$.\\
+Since each edge in $G_{n-1}$ contributes two degrees to the only left vertex in $G_{n-1}$, the degree of that vertex $>\frac12\d\times2>\frac12\d$, which contradicts to (1).\\
+$\so$ such subgraph should exist.
+\item I thought that the description missed a condition that $G$ is a simple graph, so we assert $G$ to be simple in the following.\\
+Since $\d(G)\geq2k-2$, from the above, there exists $H\subseteq G$ s.t. $\delta(H)\geq k-1$.\\
+Since $G$ is simple, $H$ is also simple.\\
+Let's have an induction on $m(1\leq m\leq k)$ to prove that $H$ contains every tree of order $m$ --- (2).\\
+For $m=1$, $H$ contains a vertex, and therefore (2) holds.\\
+Suppose for $m=m'<k$, (2) holds.\\
+For $m=m'+1$, for each tree $T$ of order $m'+1$, let $v$ be a leaf of $T$, and $uv\in E(T)$. $T\setminus\{v\}$ is a tree of order $m'$.\\
+By the induction hypothesis, $H$ contains $T'$ which is isomorphic to $T\setminus\{v\}$, where $u'$ is isomorphic to $u$.\\
+Since $\deg_H(u')\geq k-1>m'-1$, there exists a neighbor $v'$ of $u'$ in $H$ such that $v'\notin T'$.\\
+$\then H$ contains $T$ since $T$ is isomorphic to $T'\cup\{v'\}\cup\{u'v'\}$.\\
+$\so$ by induction, $H$ contains all trees of order $k$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,15 @@
+\begin{pr}
+For each $e\in T_1$, suppose that $e=uv$.\\
+Since $T_2$ is connected, there is a path $u_0(=u)u_1u_2\cdots u_k(=v)$ from $u$ to $v$.\\
+Suppose that $U(, V):=$ all vertices that are connected to $u(, v)$ on $T_1-e$, respectively.\\
+Since $T_1$ is connected, all vertices are connected to either $u$ or $v$ on $T_1-e$.\\
+$\so U, V$ is a partition of $[n]$.\\
+Suppose that $l$ is the minimum index such that $u_l\in V$.\\
+Such $l$ exists since $u_k=v\in V$.\\
+We know that $u_0=u\in U$.\\
+$\then l\geq1$, and $u_{l-1}\in U$ by the definition of $l$.\\
+$\then$ take $f=u_{l-1}u_l$, and since $u_0(=u)u_1u_2\cdots u_k(=v)$ is a path on $T_2$, $f\in T_2$.\\
+Since $u_{l-1}\in U,\ u_l\in V$, $f$ connects $U$ and $V$.\\
+$\then T_1-e+f$ is connected.\\
+Since $|E(T_1-e+f)|=n-1$, $T_1-e+f$ is a tree.
+\end{pr}
