@@ -1,0 +1,20 @@
+\begin{pr}$ $
+\newcommand{\w}{{\overline\omega}}
+\begin{enumerate}[(a)]
+\item Consider $\phi_{\tau, \gamma}(x):=\begin{cases}
+1\text{, if }LR(x)>\tau\\
+\gamma\text{, if }LR(x)=\tau\\
+0\text{, if }LR(x)<\tau
+\end{cases}$.\\
+$LR(0)=\frac{P_1(0)}{P_0(0)}=\frac{1-p_1}{1-p_0}$.\\
+$LR(1)=\frac{P_1(1)}{P_0(1)}=\frac{p_1}{p_0}$.\\
+$\cuz p_0<p_1$.\\
+$\so LR(1)\frac{p_1}{p_0}>1>\frac{1-p_1}{1-p_0}>LR(0)$.\\
+By Neyman-Pearson theorem, $\phi_{\tau, \gamma}$ is optimal.\\
+$\pi_{1|0}(\phi_{\tau, \gamma})=P_0\{LR(X)>\tau\}+\gamma P_0\{LR(X)=\tau\}$.\\
+$\pi_{0|1}(\phi_{\tau, \gamma})=P_1\{LR(X)<\tau\}+(1-\gamma)P_1\{LR(X)=\tau\}$.\\
+We only need to consider the cases $\tau=LR(x)$ for some $x$, since other cases can be reduced to these cases by setting $\gamma$ properly.\\
+For $\tau=LR(0)$, $\pi_{1|0}=P_0(1)+\gamma P_0(0)=p_0+\gamma(1-p_0)$; $\pi_{0|1}=0+(1-\gamma)P_1(0)=(1-\gamma)(1-p_1)$.\\
+For $\tau=LR(1)$, $\pi_{1|0}=0+\gamma P_0(1)=\gamma p_0$; $\pi_{0|1}=P_1(0)+(1-\gamma)P_1(1)=1-p_1+(1-\gamma)p_1$.\\
+\end{enumerate}
+\end{pr}

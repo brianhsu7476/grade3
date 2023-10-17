@@ -1,0 +1,20 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $\int_2^\infty\frac1{x(\log x)^\alpha}dx=\int_{x=2}^\infty(\log x)^{-\alpha}d(\log x)\\
+=\begin{cases}
+\frac1{1-\alpha}(\log x)^{1-\alpha}|_{x=2}^\infty&\text{, if }\alpha\neq1\text{, which converges }\iff1-\alpha<0\iff\alpha>1,\\
+&\text{since }\lim_{y\to\infty}y^a=0\text{ for }a<0\text{, and }\lim_{y\to\infty}y^a\text{ does not exist for }a>0\\
+\log\log x|_{x=2}^\infty&\text{, if }\alpha=1\text{, which does not converges}
+\end{cases}$.\\
+$\so\suml_{n=2}^\infty\frac1{n(\log n)^\alpha}$ converges $\iff\alpha>1$.
+\item First, we know that the series converges $\iff\alpha>1$, so we only consider $\alpha>1$.\\
+$H(X_\alpha)=-\E(\log P_{X_\alpha})=\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^\alpha}\log(s_\alpha n(\log n)^\alpha)=\suml_{n=2}^\infty\frac{\log s_\alpha}{s_\alpha n(\log n)^\alpha}+\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^{\alpha-1}}+\suml_{n=2}^\infty\frac{\alpha\log\log n}{s_\alpha n(\log n)^\alpha}$.\\
+For $\alpha\leq2$, since $H(X_\alpha)>\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^{\alpha-1}}\to\infty$ from (a); therefore $H(X_\alpha)$ diverges to $\infty$.\\
+For $\alpha>2$, since $H(X_\alpha)<\suml_{n=2}^\infty\frac{\log s_\alpha}{s_\alpha n(\log n)^\alpha}+\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^{\alpha-1}}+\suml_{n=2}^\infty\frac{\alpha\log\log n}{s_\alpha n(\log n)^\alpha}\\
+\overset{\log\log n<\log n\text{ for }n\geq2}<\suml_{n=2}^\infty\frac{\log s_\alpha}{s_\alpha n(\log n)^\alpha}+\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^{\alpha-1}}+\suml_{n=2}^\infty\frac{\alpha}{s_\alpha n(\log n)^{\alpha-1}}\\
+=\log s_\alpha+\frac{(1+\alpha)s_{\alpha-1}}{s_\alpha}<\infty$,\\
+and $\suml_{n=2}^m\frac1{s_\alpha n(\log n)^\alpha}\log(s_\alpha n(\log n)^\alpha)$ is increasing as $m$ increases.\\
+$\then H(X_\alpha)=\suml_{n=2}^\infty\frac1{s_\alpha n(\log n)^\alpha}\log(s_\alpha n(\log n)^\alpha)$ converges.\\
+$\so H(X_\alpha)$ exists if $\alpha>2$, and diverges to $\infty$ if $1<\alpha\leq2$.
+\end{enumerate}
+\end{pr}
