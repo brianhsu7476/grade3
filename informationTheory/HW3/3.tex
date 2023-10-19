@@ -7,7 +7,10 @@ One can also verify that if $p<1-\frac1\mu$, $\frac d{dp}\D(P\|G(p))<0$ and if $
 $\so$ the minimum possible value of $\D(P\|G(p))$ occurs when $p=1-\frac1\mu$, that is, the distribution is $G(1-\frac1\mu)$, and $\D(P\|G(p))=H(X)-\log\mu+(1-\mu)\log(1-\mu)$.
 \item Let $X_i\sim P_i, Y\sim R$ where $R(y):=\frac1m\suml_{i=1}^mP_i(y)$.\\
 From HW2 we know that $H(R)\leq-\suml_{j=1}^\infty R(j)\log Q(j)$, with equality $\iff Q\sim R$.\\
-$\then\suml_{i=1}^m\D(P_i\|Q)=\suml_{i=1}^m\left(H(X_i)-\suml_{j=1}^\infty P_i(j)\log Q(j)\right)=\suml_{i=1}^mH(X_i)-\suml_{j=1}^\infty\left(\suml_{i=1}^m P_i(j)\right)\log Q(j)=\suml_{i=1}^mH(X_i)-m\suml_{j=1}^\infty R(j)\log Q(j)\geq\suml_{i=1}^mH(X_i)-mH(R)$.\\
+$\then\suml_{i=1}^m\D(P_i\|Q)=\suml_{i=1}^m\left(H(X_i)-\suml_{j=1}^\infty P_i(j)\log Q(j)\right)\\
+=\suml_{i=1}^mH(X_i)-\suml_{j=1}^\infty\left(\suml_{i=1}^m P_i(j)\right)\log Q(j)\\
+=\suml_{i=1}^mH(X_i)-m\suml_{j=1}^\infty R(j)\log Q(j)\\
+\geq\suml_{i=1}^mH(X_i)-mH(R)$.\\
 $\so\min_{Q\in\mathcal{P}(X)}\suml_{i=1}^mD(P_i\|Q)=\suml_{i=1}^mH(X_i)-mH(R)$, with minimizer $Q=R$, that is, $Q(y)=\frac 1m\suml_{i=1}^mP_i(y)$.
 \end{enumerate}
 \end{pr}

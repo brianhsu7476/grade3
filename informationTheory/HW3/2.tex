@@ -7,8 +7,10 @@ From HW2 we know that $H(X)\leq-\suml_{i=1}^\infty P_0(i)\log P_1(i)$, with equa
 $-\frac1n\log\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)=-\frac1n\left(\log\pi_1^{(0)}+\suml_{i=1}^n\log(P_1(X_i))\right)\overtext{SLLN}\to-\frac1n\log\pi_1^{(0)}-\E[\log(P_1(X))]\overset{\log\pi_1^{(0)}\text{ is a constant}}\to-\E[\log(P_1(X))]>H(X)$ as $n\to\infty$.\\
 $\then\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}\to\exp(nE[\log(P_1(X))]+nH(X))=\exp(E[\log(P_1(X))]+H(X))^n\overset{\E[\log(P_1(X))]+H(X)<0}\to0$ as $n\to\infty$.\\
 $\so\pi_0^{(n)}(X^n)=\frac{\pi_0^{(0)}\prodl_{i=1}^nP_0(x_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(x_i)+\pi_1^{(0)}\prodl_{i=1}^nP_1(x_i)}=\frac1{1+\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}}\to\frac1{1+0}=1$ as $n\to\infty$.\\
-As what we computed above, for any constant $c>0$, $-\frac1n\log\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{c\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}=H(X)+\E[\log(P_1(X))]+\frac1n\log c\overset{c\text{ is a constant}}\to H(X)+\E[\log(P_1(X))]=D(P_0\|P_1)$.\\
-$\cuz\log$ is an increasing function, and $\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}<\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)+\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}=\pi_1^{(n)}(X^n)<\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{2\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}$ when $n\to\infty$.\\
+As what we computed above, for any constant $c>0$, $-\frac1n\log\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{c\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}\\
+=H(X)+\E[\log(P_1(X))]+\frac1n\log c\overset{c\text{ is a constant}}\to H(X)+\E[\log(P_1(X))]=D(P_0\|P_1)$.\\
+$\cuz\log$ is an increasing function, and $\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}<\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)+\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}\\
+=\pi_1^{(n)}(X^n)<\frac{\pi_1^{(0)}\prodl_{i=1}^nP_1(X_i)}{2\pi_0^{(0)}\prodl_{i=1}^nP_0(X_i)}$ when $n\to\infty$.\\
 $\so$ by squeeze theorem, $-\frac1n\log\pi_1^{(n)}(X^n)\to D(P_0\|P_1)$ as $n\to\infty$.
 \end{enumerate}
 \end{pr}

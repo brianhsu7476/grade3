@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  19 OCT 2023 11:22
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  19 OCT 2023 13:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,7 +1124,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (./1.tex
+) (./0.tex) (./1.tex
 File: 1a.png Graphic file (type bmp)
 <1a.png>
 
@@ -1159,9 +1159,9 @@ Overfull \hbox (37.20305pt too wide) in paragraph at lines 3--5
  []
 
 
-Overfull \hbox (32.10893pt too wide) in paragraph at lines 5--13
+Overfull \hbox (19.63686pt too wide) in paragraph at lines 5--15
 \U/msa/m/n/12 * []$ \TU/lmr/m/n/12 is an increasing function, and $[] \OML/cmm/
-m/it/12 < [] \OT1/cmr/m/n/12 =
+m/it/12 < [][] 
  []
 
 [4]) (./3.tex
@@ -1174,25 +1174,17 @@ T1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/n/12 [[]((1 \OMS/cmsy/m/n/12
 ^^@
  []
 
-
-Overfull \hbox (79.22578pt too wide) in paragraph at lines 8--12
-\OMS/cmsy/m/n/12 ) [] []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 P[]\OMS/cmsy/m/n/12 k
-\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 ) = [] [] = [] \OML/cmm/m/it/12 H\OT1/cmr/m/n
-/12 (\OML/cmm/m/it/12 X[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ [] [] [] \OML/c
-mm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 j\OT1/cmr/m/n/12 ) =
- []
-
 [5]) [6]) (./main.aux (./main2.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31561 strings out of 477715
- 659197 string characters out of 5842503
- 999140 words of memory out of 5000000
- 51677 multiletter control sequences out of 15000+600000
+ 31566 strings out of 477715
+ 659232 string characters out of 5842503
+ 1000140 words of memory out of 5000000
+ 51679 multiletter control sequences out of 15000+600000
  478512 words of font info for 78 fonts, out of 8000000 for 9000
  288 hyphenation exceptions out of 8191
- 98i,11n,103p,840b,558s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,11n,103p,840b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (6 pages).
