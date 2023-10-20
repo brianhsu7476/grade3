@@ -1,0 +1,28 @@
+\begin{pr}
+The following is the payoff Colonel Blotto gets for each strategy:\\
+$\begin{array}{|c|c|c|}\hline
+\text{Colonel Blotto}\setminus\text{Count Baloney}&(2, 1)&(1, 2)\\\hline
+(3, 1)&2+0&1-1\\\hline
+(2, 2)&0+1&1+0\\\hline
+(1, 3)&-1+1&0+2\\\hline
+\end{array}$\\
+Since Count Baloney gets exactly the opposite of the payoff that Clonel Blotto gets, the above value is what Colonel Blotto wants to maximize and Count Baloney wants to minimize.\\
+$\min(2, 0)=0, \min(1, 1)=1, \min(0, 2)=0$, so for Clonel Blotto, the security value is $\max(0, 1, 0)=1$, and the strategy is $(2, 2)$.\\
+$\max(2, 1, 0)=2, \max(0, 1, 2)=2$, so for Count Baloney, the security is $\min(2, 2)=2$, and the strategy is $(2, 1)$ or $(1, 2)$.\\
+Since $2>1$, the saddle point does not exist by the theorem in the powerpoint of minimax and maximin.\\
+Suppose that Count Baloney's mixed strategy is $q=(q_1, q_2)$, if Colonel Blotto plays:\\
+$(3, 1)$, $\pi=2q_1$\\
+$(2, 2)$, $\pi=q_1+q_2$\\
+$(1, 3)$, $\pi=2q_2$.\\
+$\max(2q_1, q_1+q_2, 2q_2)\overset{q_1+q_2=\frac{2q_1+2q_2}2}=\max(2q_1, 2q_2)=\max(2q_1, 2-2q_1)\geq\frac{2q_1+2-2q_1}2=1$, the equation holds $\iff q_1=\frac12$.\\
+$\so q=(\frac12, \frac12)$ is Count Baloney's strategy.\\
+Suppose that Colonel Blotto's mixed strategy is $p=(p_1, p_2, p_3)$, if Count Baloney's plays:\\
+$(2, 1)$, $\pi=2p_1+p_2$\\
+$(1, 2)$, $\pi=p_2+2p_3$.\\
+The maximum of $\min(2p_1+p_2, p_2+2p_3)$ occurs when $2p_1+p_2=p_2+2p_3$, that is, $p_1=p_3$.\\
+$\then p_2=1-p_1-p_3=1-2p_1$.\\
+$\then\max\min(2p_1+p_2, p_2+2p_3)=\max\min(1, 1)=1$.\\
+$\so p=(p_1, 1-2p_1, p_1)$ for all $0\leq p_1\leq\frac12$ is Colonel Blotto strategy.\\
+$\so p=(p_1, 1-2p_1, p_1)$ for $0\leq p_1\leq\frac12$, $q=(\frac12, \frac12)$ is a mixed-strategy Nash equilibrium.
+\end{pr}
+\newpage

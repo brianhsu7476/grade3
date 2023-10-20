@@ -1,0 +1,16 @@
+\begin{pr}
+Suppose that $M$ is an $n\times k$ matrix, and let $M_{ij}$ denote the value of the intersection of the $i$-row and the $j$-column of $M$.
+\begin{enumerate}[(a)]
+\item $\underline{m}=\max_{i=1, 2, \dots, n}\min_{j=1, 2, \dots, k}M_{ij}$.\\
+Let $S=\{(a_1, a_2, \dots, a_n)\in[0, 1]^n:a_1+a_2+\cdots+a_n\}$.\\
+Let $p=(p_1, p_2, \dots, p_n)$ be the mixed strategy of the row player.\\
+$\underline{v}=\max_{(p_1, p_2, \dots, p_n)\in S}\min_{j=1, 2, \dots, k}(M_{1j}p_1+M_{2j}p_2+\cdots+M_{nj}p_n)$.\\
+Let $e_i:=(e_{i1}, e_{i2}, \dots, e_{in})$, where $e_{ij}=\I\{i=j\}$.\\
+Clearly, $e_1, e_2, \dots, e_n\in S$.\\
+$\then\underline{v}=\max_{(p_1, p_2, \dots, p_n)\in S}\min_{j=1, 2, \dots, k}(M_{1j}p_1+M_{2j}p_2+\cdots+M_{nj}p_n)\geq\max_{(p_1, p_2, \dots, p_n)\in\{e_1, e_2, \dots, e_n\}}\min_{j=1, 2, \dot, k}(M_{1j}p_1+M_{2j}p_2+\cdots+M_{nj}p_n)=\max_{i=1, 2, \dots, n}\min_{j=1, 2, \dots, k}(M_{1j}e_{i1}+M_{2j}e_{i2}+\cdots+M_{nj}e_{in})=\max_{i=1, 2, \dots, n}\min_{j=1, 2, \dots, k}(M_{ij})=\underline{m}$.
+\item Since the row player and the column player are symmetric.\\
+$\so$ from the above, similarly, $\overline{v}\leq\overline{m}$.\\
+$\then\underline{m}=\overline{m}\geq\overline{v}\geq\underline{v}\geq\underline{m}$.\\
+$\then\overline{v}=\underline{m}=\underline{v}$.
+\end{enumerate}
+\end{pr}
