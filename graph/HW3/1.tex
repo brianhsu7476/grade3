@@ -1,0 +1,13 @@
+\setcounter{pr}{0}
+\begin{pr}
+Consider a graph $G$ where $V(G)=\{v_1, v_2, \dots, v_{2k}\},\ E(G)=\{v_iv_j|1\leq i<j\leq k\}\cup\{v_iv_j|k+1\leq i<j\leq2k\}\cup\{v_iv_{i+k}|1\leq i\leq k\}$.\\
+Let $A:=\{v_1, v_2, \dots, v_k\}, B:=\{v_{k+1}, v_{k+2}, \dots, v_{2k}\}$, and we can see that both the induced subgraph of $A$ and the induced subgraph of $B$ are complete graphs. -- (1)\\
+For any $S\subseteq V(G)$ with $|S|<k$, both the induced subgraph of $A\setminus S$ and the induced subgraph of $B$ are connected by (1).\\
+Also, since $C:=\{v_iv_{i+k}|1\leq i\leq k\}\in E(G)$ are $k$ edges that connect $A, B$, and no two of them shares the same vertex, after removing vertices in $S$, at least one of the edges in $C$ is not removed in the induced subgraph of $V(G)\setminus S$.\\
+$\so A, B$ are connected with each other.\\
+$\so G-S$ is still a connected graph, by the definition, $G$ is $k$-connected.\\
+$A, B$ are disjoint sets with size $k$.\\
+Let $a_i:=v_i, b_i:=v_{2k+1-i}$.\\
+All of the $k$ vertex-disjoint $A, B$-paths have length $1$, since $V(G)=A\cup B$ and each path has exactly one vertex in $A$ and in $B$.\\
+$\then$ we cannot demand that there are vertex-disjoint paths from $a_i$ to $b_i$ for each $i\in[k]$ since the distance from $a_1=v_1$ to $b_1=v_{2k}$ is $2$ not $1$.
+\end{pr}

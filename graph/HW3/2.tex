@@ -1,0 +1,36 @@
+\setcounter{pr}{2}
+\begin{pr}
+Recall from Corollary 4.7 in class:\\
+A connected multigraph $G$ has an Eulerian trail if and only if it has either $0$ or $2$ vertices of odd degree.\\
+Since the number of odd-degree vertices is even, the above can also be written as:\\
+A connected multigraph $G$ has an Eulerian trail if and only if it has at most $2$ vertices of odd degree. -- (1)
+\begin{enumerate}[(i)]
+\item I think that this problem must request $e(G)\geq1$, otherwise $\sigma(G)\leq-1$ is impossible. Therefore, I just assert that $e(G)\geq1$.\\
+Suppose that $uv$ is an edge of $G$.\\
+Consider a multigraph $H$.\\
+$V(H):=V(G)$, $E(H):=E(G)\cup E(G)\setminus\{uv\}$, that is, double all edges in $E(G)$ except $uv$.\\
+$\forall w\notin\{u, v\}, \deg_H(w)=2\deg_G(w)$ is even.\\
+$H$ has at most $2$ vertices of odd degree.\\
+Also, $H$ is connected since $G$ is connected.\\
+$\so$ by (1), $H$ has an Eulerian trail $p$, and since $E(G)\subseteq E(H)$, $p$ is a walk that covers every edge of $G$.\\
+$\then\sigma(G)\leq$ the length of $p=|E(H)|=2e(G)-1$.
+\item If $\sigma(G)=e(G)$, the shortest walk that covers every edge of $G$ passes through each edge for exactly one time, which is an Eulerian trail of $G$.\\
+$\then$ by (1), $G$ has at most two vertices of odd degrees.\\
+If $G$ has at most two vertices of odd degrees, then by (1), $G$ has an Eulerian trail.\\
+Since by the definition of $\sigma(G)$, the walk passes through all edges.\\
+$\so\sigma(G)\geq e(G)$.\\
+Since $G$ has an Eulerian trail, and it is a walk that passes through all edges.\\
+$\so\sigma(G)\leq e(G)$.\\
+$\so\sigma(G)=e(G)$.
+\item No, such constant $\ell$ does not exist.\\
+Consider $G$ where $V(G)=\{v_1, v_2, \dots, v_{4n+1}\}$ and $E(G)=\bigcup_{i=0}^3(\{v_{in+j}v_{in+j+1}|1\leq j\leq n-1\}\cup\{v_{in+1}v_{4n+1}\})$.\\
+We can see that $G$ has exactly $4$ vertices of odd degree: $S:=\{v_n, v_{2n}, v_{3n}, v_{4n}\}$.\\
+Suppose that the shortest walk that covers every edge of $G$ is $p$.\\
+The multigraph $H$ (where $V(G)=V(H)$ and the number of edge $e$ in $H$ is the number of its appearances in $p$) contains an Eulerian trail.\\
+$\then H-E(G)$ is a graph that only the $2$ or $4$ of the vertices in $S$ have odd degree.\\
+$\then H-E(G)$ should contain a path from one of the vertex in $S$ to another one in $S$.\\
+$\then|E(H-E(G))|\geq2n$.\\
+$\so\sigma(G)=|E(H)|\geq e(G)+2n$.\\
+$\then\sigma(G)\not\leq e(G)+\ell$ since $2n$ is not a constant.
+\end{enumerate}
+\end{pr}
