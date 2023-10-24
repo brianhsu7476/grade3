@@ -5,14 +5,14 @@ If $d_T(u, v)\leq3$, then $d_G(u, v)\leq d_T(u, v)\leq3$, and therefore $uv\in E
 Suppose that $|V(G)|=n$.\\
 Let's prove that there exists a sequence of vertices $v_0(=v_n), v_1, v_2, \dots, v_n$ where $V(G)=\{v_1, \dots, v_n\}$ and $d_T(v_i, v_{i+1})\leq3,\ \forall0\leq i\leq n-1$.\\
 If such sequence exists, since "$d_T(u, v)\leq3\then d_G(u, v)\leq d_T(u, v)\leq3\then uv\in E(G^3)$", $G^3$ is Hamiltonian.\\
-The exists of such sequence:\\
-Choose an arbitrary vertex in $T$ to be a root, and colors all vertices with even depth in black, all vertices with odd depth in white.\\
+The existence of such sequence:\\
+Choose an arbitrary vertex in $T$ to be a root, and color all vertices with even depth in black, all vertices with odd depth in white.\\
 Since the depth of a neighbor $u$ of a vertex $v$ is exactly greater or less than that of $v$ by $1$, all adjacent neighbors have different colors.\\
 Let's use the following algorithm to find the sequence.\\
 Use DFS (depth-first search) to visit all the vertex.\\
 We can treat DFS as a walk on the tree, and let $p$ be the walk.\\
 Claim: mark the first appearance of each black vertex in $p$, and the last appearance of each white vertex in $p$, and $v_i:=$ the $(i+1)$-th ($1$-base) marked vertex in $p$ for $0\leq i\leq n-1$, $v_n:=v_0$. This sequence satisfies $d_T(v_i, v_{i+1})\leq3,\ \forall0\leq i\leq n-1$.\\ Furthermore, the depth of $v_{n-1}$ is $1$.\\
-Proof: we can do induction on the number of vertices of the tree (I'll prove this claim holds for arbitrary tree).\\
+Proof: we can do induction on the number of vertices of the tree (I'll prove this claim holds for an arbitrary tree).\\
 For the tree with one vertex, it's trivial.\\
 For the trees with more than one vertex, let's $r$ be the root of the tree, and $s_1, s_2, \dots, s_m$ be the children of $r$.\\
 By the induction hypothesis, each of the $m$ subtree of $s_1, s_2, \dots, s_m$ has such sequence, and suppose that the sequence of the subtree of $s_i$ is $v_{i0}, v_{i1}, \dots, v_{in_i}$.\\
