@@ -22,7 +22,7 @@ void toUpper(char *s){
 	for(int i=0; s[i]; ++i)s[i]=toUpper(s[i]);
 }
 
-int main(int argc, char **argv){
+int main(){
 	int fd=socket(AF_INET, SOCK_STREAM, 0);
 	struct sockaddr_in sif;
 	sif.sin_family=AF_INET, inet_aton(host, &sif.sin_addr), sif.sin_port=htons(port);

@@ -27,7 +27,7 @@ string toStr(sockaddr_in cif){
 	return (string)inet_ntoa(cif.sin_addr)+":"+to_string(cif.sin_port);
 }
 
-int main(int argc, char **argv){
+int main(){
 	int fd=socket(AF_INET, SOCK_STREAM, 0);
 	struct sockaddr_in sif, cif;
 	sif.sin_family=AF_INET, inet_aton(host, &sif.sin_addr), sif.sin_port=htons(port);
