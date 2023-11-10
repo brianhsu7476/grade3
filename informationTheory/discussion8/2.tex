@@ -1,0 +1,25 @@
+\newpage
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $I(X_4; X_1)=I(X_4; X_2)-I(X_4; X_2|X_1)\\
+I(X_3; X_1)=I(X_3; X_2)-I(X_3; X_2|X_1)=I(X_3; X_2)-I(X_3; X_2|X_1, X_4)-I(X_4; X_2|X_1)\\
+%I(X_4; X_2)=I(X_4; X_3)-I(X_4; X_3|X_2)
+\then I(X_1; X_3)+I(X_2; X_4)=I(X_3; X_2)-I(X_3; X_2|X_1, X_4)-I(X_4; X_2|X_1)+I(X_2; X_4)=I(X_2; X_3)+I(X_1; X_4)-I(X_3; X_2|X_1, X_4)\leq I(X_2; X_3)+I(X_1; X_4)$.\\[7cm]
+\item It's equivalent to two Markov's chains: $X_1-X_2-X_3, X_1-X_2-X_4$.\\
+$I(X_3; X_1)=I(X_3; X_2)-I(X_3; X_2|X_1)\\
+I(X_4; X_1)=I(X_4; X_2)-I(X_4; X_2|X_1)\\\
+I(X_1; X_2)+I(X_3; X_4)\geq I(X_1; X_2)+I(X_4; X_1)-I(X_4; X_1|X_3)\geq I(X_2; X_1)+I(X_4; X_1)-I(X_2; X_1|X_3)=I(X_1; X_3)+I(X_1; X_4)$.\\[7cm]
+\end{enumerate}
+
+\iffalse
+$I(X_1; X_4)-I(X_1; X_4|X_2)-I(X_1; X_4|X_3)+I(X_1; X_4|X_2, X_3)=
+I(X_2; X_3, X_4)=I(X_2; X_3)+I(X_2; X_4|X_3)=I(X_2; X_3)$.\\
+$I(X_1; X_2, X_3, X_4)=I(X_1; X_4)+I(X_1; X_3|X_4)+I(X_1; X_2|X_3, X_4)$.\\
+$I(X_1; X_2, X_3, X_4)=I(X_1; X_3)+I(X_1; X_4|X_3)+I(X_1; X_2|X_3, X_4)=I(X_1; X_3)+I(X_1; X_2|X_3, X_4)$.\\
+$I(X_2; X_3, X_4)=I(X_2; X_4)+I(X_2; X_3|X_4)$.\\
+$\then I(X_2; X_3)+I(X_1; X_4)=I(X_2; X_3, X_4)+I(X_1; X_2, X_3, X_4)-I(X_1; X_3|X_4)-I(X_1; X_2|X_3, X_4)$, and \\
+$I(X_1; X_3)+I(X_2; X_4)=I(X_1; X_2, X_3, X_4)-I(X_1; X_2|X_3, X_4)+I(X_2; X_3, X_4)-I(X_2; X_3|X_4)$.\\
+$\cuz I(X_1; X_3|X_4)=H(X_1|X_4)-H(X_1|X_3, X_4)=H(X_1, X_4)-H(X_4)-H(X_1, X_3, X_4)+H(X_3, X_4)$
+$I(X_2; X_3|X_4)=H(X_2|X_4)-H(X_2|X_3, X_4)=H(X_2, X_4)-H(X_4)-H(X_2, X_3, X_4)+H(X_3, X_4)$
+\fi
+\end{pr}
