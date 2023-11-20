@@ -23,7 +23,8 @@ always@(posedge clk or negedge rst)begin
 		rd<=32'b0;
 	end
 	else begin
-		ctrl<=ctrli;
+		ctrl[0]<=ctrli[0]&&rdi;
+		ctrl[1]<=ctrli[1];
 		alu1<=alu1i;
 		alu2<=alu2i;
 		rd<=rdi;
