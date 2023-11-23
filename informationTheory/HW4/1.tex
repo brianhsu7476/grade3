@@ -1,0 +1,29 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item %$I(N_0; X_1, \dots, X_{N_0})=H(N_0)+H(X_1, X_2, \dots, X_{N_0})-H(N_0, X_1, X_2, \dots, X_{N_0})=\frac13\log3+\frac23(\log3-1)+N_0+\frac13(\log3+6)+\frac23(\log3-1+12)=\log3-\frac23+\log3+\frac{28}3+N_0=2\log3+\frac{26}3+N_0$.\\
+%$I(N_1; X_1, \dots, X_{N_1})=H(X_1, \dots, X_{N_1})-H(X_1, \dots, X_{N_1}|N_1)=H(X_1, \dots, X_{N_1})$.
+Since $N_0$ is deterministic from $X_1, X_2, \dots, X_{N_0}$, $N_1$ is deterministic from $X_1, X_2, \dots, X_{N_1}$, there is $I(N_0; X_1, \dots, X_{N_0})=H(N_0)=\frac13\log3+\frac23(\log3-1)=\log3-\frac23,\ I(N_1; X_1, \dots, X_{N_1})=H(N_1)=\sum_{i=1}^\infty\frac1{2^i}i=\sum_{i=1}^\infty\frac1{2^i}\sum_{j=1}^i1=\sum_{j=1}^\infty\sum_{i=j}^\infty\frac1{2^i}=\sum_{j=1}^\infty\frac1{2^{j-1}}=2$.
+\item Let's assume $n\geq2$ (because for $n=1$ there is nothing to be computed).\\
+Claim: $X_1, X_2, \dots, X_{n-1}$ are mutually independent $\Ber(\frac12)$.
+\begin{proof}
+$\forall x\in[0, 1]^{n-1}$, there is exactly one $x^*\in[0, 1]^n$ (which is $(x_1, x_2, \dots, x_{n-1}, x_1\oplus\cdots\oplus x_{n-1})$) s.t. $2\mid\suml_{i=1}^nx^*_i$ and $\forall1\leq i\leq n-1,\ x^*_i=x_i$.\\
+$\so\P((X_1, \dots, X_{n-1})=x)=\P((X_1, \dots, X_n)=x^*)=2^{-(n-1)}$.\\
+$\then(X_1, \dots, X_{n-1})$ is an uniform distribution on $[0, 1]^{n-1}$, which means $X_1, X_2, \dots, X_{n-1}$ are mutually independent $\Ber(\frac12)$.
+\end{proof}
+Similarly, for any distinct $i_1, i_2, \dots, i_{n-1}$, $X_{i_1}, \dots, X_{i_{n-1}}$ are mutually independent.\\
+Let $1\leq i\leq n-1,\\ I(X_i; X_{i+1}|X_1, \dots, X_{i-1})=H(X_i|X_1, \dots, X_{i-1})-H(X_i|X_1, \dots, X_{i-1}, X_{i+1})\\
+\overset{X_1, \dots, X_i\text{ are mutually independent}}=H(X_i)-H(X_i|X_1, \dots, X_{i-1}, X_{i+1})\\
+\overset{X_1, \dots, X_{i+1}\text{ are mutually independent if }i<n-1}=\\
+\begin{cases}
+H(X_i)-H(X_i)=0\text{, if }i<n-1\\
+H(X_i)-H(X_1\oplus\cdots\oplus X_{i-1}\oplus X_{i+1}|X_1, \dots, X_{i-1}, X_{i+1})=H(X_i)-0=1\text{, if }i=n-1
+\end{cases}$.
+\iffalse
+$\then\forall1\leq i\leq n-1,\ X_1, X_2, \dots, X_i$ are mutually independent.\\
+$\then $
+$\then X_1$ and $X_{i+1}|X_1, \dots, X_{i-1}$ are independent.\\
+$\then\forall1\leq i\leq n-2,\ I(X_i; X_{i+1}|X_1, \dots, X_{i-1})=0$.\\
+For $i=n-1$, since $X_{n-1}=X_1\oplus\cdots\oplus X_{n-2}\oplus X_n$ is a deterministic function of $X_n|X_1, \dots, X_{n-2}$, $I(X_{n-1}; X_n|X_1, \dots, X_{n-2})=H(X_{n-1})=H(\Ber(\frac12))=1$.
+\fi
+\end{enumerate}
+\end{pr}

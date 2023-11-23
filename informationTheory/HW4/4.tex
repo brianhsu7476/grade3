@@ -1,0 +1,15 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Suppose that $X\sim\Ber(q)$.\\
+$\then P_Y(0)=1-q+pq=1-\frac12q, P_Y(1)=q(1-p)=\frac12q$.\\
+$I(X; Y)=H(X)+H(Y)-H(X, Y)=-q\log q-(1-q)\log(1-q)-\frac12q\log(\frac12q)-(1-\frac12q)\log(1-\frac12q)+(1-q)\log(1-q)+2\cdot\frac12q\log(\frac12q)=-q\log q+\frac12q\log(\frac12q)-(1-\frac12q)\log(1-\frac12q)=-q-\frac12q\log(\frac12q)-(1-\frac12q)\log(1-\frac12q)$.\\
+Let $\frac{dI(X; Y)}{dq}=-1-\frac12\log(\frac12q)-\frac12\log e+\frac12\log(1-\frac12q)+\frac12\log e=-1+\frac12\log\frac{1-\frac12q}{\frac12q}=0$.\\
+$\then\log\frac{1-\frac12q}{\frac12q}=2$.\\
+$\then\frac{1-\frac12q}{\frac12q}=4$.\\
+$\then q=\frac25$.\\
+$\so I(X; Y)\leq-\frac25-\frac15\log\frac15-\frac45\log\frac45=-\frac25-\frac85+\log5=\log5-2$, with equality iff $P^*_X=\Ber(\frac25), P^*_Y=\Ber(\frac15)$.
+\item Since the equality in (a) is an if and only if condition, so the input distribution is unique.
+\item $D(P_{Y|X}(\cdot|0)\|P^*_Y(\cdot))=P_{Y|X}(0|0)\log\frac{P_{Y|X}(0|0)}{P^*_Y(0)}=1\log\frac1{1-\frac12q}=-\log(1-\frac12q)=\log5-2$.\\
+$D(P_{Y|X}(\cdot|1)\|P^*_Y(\cdot))=P_{Y|X}(0|1)\log\frac{P_{Y|X}(0|1)}{P^*_Y(0)}+P_{Y|X}(1|1)\log\frac{P_{Y|X}(1|1)}{P^*_Y(1)}=\frac12\log\frac1{2(1-\frac12q)}+\frac12\log\frac1{2(\frac12q)}=-\frac12(\log(2-q)+\log q)=-\frac12(3-\log5+1-\log5)=\log5-2$.
+\end{enumerate}
+\end{pr}

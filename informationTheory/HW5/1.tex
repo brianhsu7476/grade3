@@ -1,0 +1,40 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item
+\begin{enumerate}[(1)]
+\item From Gaussian integral, we know that $\int_{-\infty}^\infty e^{-x^2}dx=\sqrt\pi$.\\
+$\int xe^{-x^2}dx=\int\frac12e^{-x^2}d(x^2)=-\frac12e^{-x^2}+c$.\\
+$\lim_{x\to\infty}xe^{-x^2}=\lim_{x\to\infty}\frac x{e^{x^2}}\overtext{L'H}=\lim_{x\to\infty}\frac1{2xe^{x^2}}=0$.\\
+$\lim_{x\to-\infty}xe^{-x^2}=\lim_{x\to-\infty}\frac x{e^{x^2}}\overtext{L'H}=\lim_{x\to-\infty}\frac1{2xe^{x^2}}=0$.\\
+$\int_{-\infty}^\infty x^2e^{-x^2}dx=\int_{-\infty}^\infty xe^{-x^2}\cdot xdx=\left.-\frac12e^{-x^2}x\right|_{-\infty}^\infty-\int_{-\infty}^\infty-\frac12e^{-x^2}\cdot1dx=0+\frac12\sqrt\pi=\frac12\sqrt\pi$.\\
+$f(x)=\frac1{\sigma_1\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_1}{\sigma_1})^2}, g(x)=\frac1{\sigma_2\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_2}{\sigma_2})^2}$.\\
+$D(f\|g)=\int_{-\infty}^\infty\frac1{\sigma_1\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_1}{\sigma_1})^2}\log\left(\frac1{\sigma_1\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_1}{\sigma_1})^2}/\frac1{\sigma_2\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_2}{\sigma_2})^2}\right)dx\\
+=\int_{-\infty}^\infty\frac1{\sigma_1\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_1}{\sigma_1})^2}\left(\log\left(\frac{\sigma_2}{\sigma_1}\right)+\frac12\log e\left(-(\frac{x-\mu_1}{\sigma_1})^2+(\frac{x-\mu_2}{\sigma_2})^2\right)\right)dx\\
+=\int_{-\infty}^\infty\frac1{\sigma_1\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu_1}{\sigma_1})^2}\left(\log\left(\frac{\sigma_2}{\sigma_1}\right)-\frac12\log e(\frac{x-\mu_1}{\sigma_1})^2\right.\\
+\left.+\frac12\log e(\frac{x-\mu_1}{\sigma_2})^2+\log e(\frac{\mu_1-\mu_2}{\sigma_2})(\frac{x-\mu_1}{\sigma_2})+\frac12\log e(\frac{\mu_1-\mu_2}{\sigma_2})^2\right)dx\\
+=\log\left(\frac{\sigma_2}{\sigma_1}\right)-\frac12\log e+\frac12\log e\frac{\sigma_1^2}{\sigma_2^2}+\frac12\log e(\frac{\mu_1-\mu_2}{\sigma_2})^2\\
+=\log\left(\frac{\sigma_2}{\sigma_1}\right)+\frac{\log e}{2\sigma_2^2}(\sigma_1^2-\sigma_2^2+(\mu_1-\mu_2)^2)$.
+\item % Let $a:=\min(\mu_1, \mu_2), b:=\max(\mu_1, \mu_2)$.\\
+$f(x)=\frac1{\sqrt 2\sigma_1}e^{-\frac{\sqrt2|x-\mu_1|}{\sigma_1}}, g(x)=\frac1{\sqrt 2\sigma_2}e^{-\frac{\sqrt2|x-\mu_2|}{\sigma_2}}$.\\
+$\int xe^xdx=e^xx-\int e^xdx=(x-1)e^x+c$.\\
+$\int xe^{-x}dx=-e^{-x}x-\int-e^{-x}dx=-(x+1)e^{-x}+c$.\\
+$\lim_{x\to\infty}e^{-x}x=0$.\\
+$\int_{-\infty}^\infty|x-a|e^{-|x-b|}dx=\int_{-\infty}^\infty|x+b-a|e^{-|x|}dx$.\\
+If $c:=a-b\geq0$, then $\int_{-\infty}^\infty|x+b-a|e^{-|x|}dx=\int_{-\infty}^0(c-x)e^xdx+\int_0^c(c-x)e^{-x}+\int_c^\infty(x-c)e^{-x}dx\\
+=c+1+(-ce^{-c}+c)+((c+1)e^{-c}-1)+(c+1)e^{-c}-ce^{-c}=2c+2e^{-c}$.\\
+If $c<0$, then $\int_{-\infty}^\infty|x-c|e^{-|x|}dx=\int_{-\infty}^\infty|x+c|e^{-|x|}dx=-2c+2e^c$.\\
+$\so\int_{-\infty}^\infty|x-a|e^{-|x-b|}dx=2|a-b|+2e^{-|a-b|}$.\\
+$D(f\|g)=\int_{-\infty}^\infty\frac1{\sqrt 2\sigma_1}e^{-\frac{\sqrt2|x-\mu_1|}{\sigma_1}}\log\left(\frac1{\sqrt 2\sigma_1}e^{-\frac{\sqrt2|x-\mu_1|}{\sigma_1}}/\frac1{\sqrt 2\sigma_2}e^{-\frac{\sqrt2|x-\mu_2|}{\sigma_2}}\right)dx\\
+\int_{-\infty}^\infty\frac1{\sqrt 2\sigma_1}e^{-\frac{\sqrt2|x-\mu_1|}{\sigma_1}}\left(\log\left(\frac{\sigma_2}{\sigma_1}\right)+\sqrt2\log e(\frac{|x-\mu_2|}{\sigma_2}-\frac{|x-\mu_1|}{\sigma_1})\right)dx\\
+=\log\left(\frac{\sigma_2}{\sigma_1}\right)+\frac{\log e}{\sigma_1\sigma_2}(\frac{\sigma_1^2}2)(2\cdot\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|+2e^{-\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|})-\frac{\log e}{\sigma_1^2}(\frac{\sigma_1^2}2)2\\
+=\log\left(\frac{\sigma_2}{\sigma_1}\right)+\frac{\sigma_1\log e}{\sigma_2}(\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|+e^{-\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|})-\log e$.
+\end{enumerate}
+\item The first KL divergence $-$ the second KL divergence $=\frac{\log e}{2\sigma_2^2}(\sigma_1^2-\sigma_2^2)-\frac{\sigma_1\log e}{\sigma_2}-\log e=\frac{\log e}2\left((\frac{\sigma_1}{\sigma_2})^2-2(\frac{\sigma_1}{\sigma_2})+1\right)=\frac{\log e}2(\frac{\sigma_1}{\sigma_2}-1)^2\geq0$.\\
+$\so$ the first KL divergence $\geq$ the second KL divergence, the equation holds $\iff\sigma_1=\sigma_2$.
+\item Let $x:=|\mu_1-\mu_2|$.\\
+The first KL divergence $-$ the second KL divergence $=\frac{\log e}2(\mu_1-\mu_2)^2-\log e(\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|+e^{-\frac{\sqrt2}{\sigma_1}|\mu_1-\mu_2|})+\log e\\
+=\frac{\log e}2x^2-\log e(\frac{\sqrt2}{\sigma_1}x+e^{-\frac{\sqrt2}{\sigma_1}x})+\log e\\
+=\log e(\frac12x^2-\frac{\sqrt2}{\sigma_1}x-e^{-\frac{\sqrt2}{\sigma_1}x}+1)$.\\
+$\so$ the first KL divergence is the larger $\iff\frac12x^2-\frac{\sqrt2}{\sigma_1}x-e^{-\frac{\sqrt2}{\sigma_1}x}+1\geq0$.
+\end{enumerate}
+\end{pr}

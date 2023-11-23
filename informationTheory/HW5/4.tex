@@ -1,0 +1,28 @@
+\begin{pr}$ $
+\renewcommand{\Q}{\mathbf{Q}}
+\newcommand{\q}{\mathbf{q}}
+In HW2, we know that if $\sum_ip_i=\sum_iq_i=1$ where $p_i, q_i\geq0$, then $\sum_ip_i\log\frac1{p_i}\leq\sum_ip_i\log\frac1{q_i}$. -- (1)
+\begin{enumerate}[(a)]
+\item $D_{\min}=\min_{\q(s)}\E[d(S, \q(S))]=\min_{\q(s)}\E[\log\frac1{\q(S)}]=0$ if $\q(s)=\I\{S=s\}$.\\
+$D_{\max}=\max_\q\E[d(S, \q)]=\min_\q\E[\log\frac1{\q(S)}]$.\\
+$\cuz\E[\log\frac1{\q(S)}]=\suml_sP_S(s)\log\frac1{\q(S)}\overtext{(1)}\geq\suml_sP_S(s)\log\frac1{P_S(s)}=H(S)=H(\pi)$, and the equation holds when $\q(s)=P_S(s)$.\\
+$\so D_{\max}=H(\pi)$.
+\item $H(S|\Q)=\E_{(S, \Q)\sim P}[\log\frac1{P_{S|\Q}}]=\sum_\q P_\Q(\q)\sum_sP_{S|\Q}(s|\q)\log\frac1{P_{S|\Q}(s|\q)}\\
+\overtext{(1)}\leq\sum_\q P_\Q(\q)\sum_sP_{S|\Q}(s|\q)\log\frac1{\q(s)}=\E_{(S, \Q)\sim P}\left[\log\frac1{\Q(S)}\right]$.
+\item $R(D)=\inf_{(S, \Q)}\left\{I(S; \Q)\left|\E[\log\frac1{\Q(S)}]\leq D\text{ and }S\sim\pi\right.\right\}\\
+=\inf_{(S, \Q)}\left\{I(S; \Q)\left|H(S|\Q)\leq\E[\log\frac1{\Q(S)}]\leq D\text{ and }S\sim\pi\right.\right\}\\
+\overtext{(2)}\leq\inf_{(S, \Q)}\left\{I(S; \Q)\left|H(S|\Q)\leq D\text{ and }S\sim\pi\right.\right\}\\
+\overtext{(3)}\leq\inf_{(S, \Q)}\left\{I(S; \Q)\left|H(S|\Q)\leq D\text{ and }S\sim\pi\text{ and }\Q(\hat s)=1\text{ for some }\hat s\in\mathcal{S}\right.\right\}\\
+=\min_{(S, \hat S)}\left\{I(S; \hat S)\left|H(S|\hat S)\leq D\text{ and }S\sim\pi\right.\right\}$.
+\item Let $\q_{\hat s}(s):=\I(s=\hat s)$.\\
+Consider the distribution $\Q=\q_S$:\\
+%$P_\Q(\q)=\begin{cases}P_S(s)\text{, if }\q=\q_s\text{ for some }s\\
+%0\text{, otherwise}\end{cases}$.\\
+The equation in (2) holds $\iff$ the equation in (1) holds $\iff\forall s, \q,\ P_{S|\Q}(s|\q)=\q(s)$, which is true because $\forall\q$ with nonzero probability, $\q=\q_{\hat s}$ for some $\hat s$, and $\q_{\hat s}(s)=\I(s=\hat s)\overset{\Q=\q_S}=P_{S|\Q}(s|\q_{\hat s})$.\\
+The equation in (3) holds since $\q_{\hat s}=1$ for $\hat s\in S$.\\
+$\so$ with this distribution, $R(D)=\min_{(S, \hat S)}\left\{I(S; \hat S)\left|H(S|\hat S)\leq D\text{ and }S\sim\pi\right.\right\}\\
+=\min_{(S, \hat S)}\left\{H(S)-H(S|\hat S)\left|H(S|\hat S)\leq D\text{ and }S\sim\pi\right.\right\}\\
+=\min_{(S, \hat S)}\left\{H(\pi)-H(S|\hat S)\left|H(S|\hat S)\leq D\text{ and }S\sim\pi\right.\right\}\\
+=H(\pi)-D\overset{0\leq D\leq H(\pi)\text{ is given}}=\max(0, H(\pi)-D)$.
+\end{enumerate}
+\end{pr}

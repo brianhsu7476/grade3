@@ -1,0 +1,23 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item \renewcommand{\b}{\tilde b}
+Consider $\b(x):=\E[b(x, Y)]=\E_{P_{Y|X}}[b(x, Y)]$.\\
+Since $\b(x)=\sum_yP_{Y|X}(y|x)b(x, y)$ is a deterministic function of $x$, $\b(x)$ is an input-only cost function.\\
+$\cuz\frac1n\suml_{i=1}^n\E_{Y_i}[b(x_i, Y_i)]=\frac1n\suml_{i=1}^n\b(x_i)$.\\
+$\so$ the cost constraint becomes: $\frac1n\suml_{i=1}^n\b(x_i)\leq B$.\\
+Therefore, this problem is equivalent to the channel coding problem with input-cost only function $\b$.\\
+From Theorem 1 in Lecture 5, $C(B)=\max_{P_X:\E_{P_X}[\b(X)]\leq B}I(X; Y)\\
+=\max_{P_X:\E_{P_X}[\E_{P_{Y|X}}[b(X, Y)]]\leq B}I(X; Y)=\max_{P_X:\E_{P_XP_{Y|X}}[b(X, Y)]\leq B}I(X; Y)$.
+\item First, $P_{Y|X}(y|x)=P_Z(y-x)=\frac1{\sigma\sqrt{2\pi}}e^{-\frac12(\frac{y-x}\sigma)^2}$.\\
+Let $b(x, y):=y^2$.\\
+The cost constraint is $\frac1n\suml_{i=1}^n\E_{Y_i}[b(x_i, Y_i)]=\frac1n\suml_{i=1}^n\E_{Y_i}[Y_i^2]\leq B$.\\
+From the formula in Problem 1 (a)(1):\\
+$\b(x):=\E[b(x, Y)]=\int_{-\infty}^\infty P_{Y|X}(y|x)b(x, y)dy=\int_{-\infty}^\infty\frac1{\sigma\sqrt{2\pi}}e^{-\frac12(\frac{y-x}\sigma)^2}y^2dy\\
+=\int_{-\infty}^\infty\frac1{\sigma\sqrt{2\pi}}e^{-\frac12(\frac{y-x}\sigma)^2}((y-x)^2+2(y-x)x+x^2)dy\\
+=\sigma^2+0+x^2=\sigma^2+x^2$.\\
+$\then$ the cost constraint becomes $\frac1n\suml_{i=1}^n(\sigma^2+x_i^2)=\frac1n\suml_{i=1}^n\b(x_i)\leq B$, which is $\frac1n\suml_{i=1}^n|x_i|^2\leq B-\sigma^2$.\\
+From the example of Guasian channel capacity in Lecture 5, we get that $C(B)=\frac12\log(1+\frac{B-\sigma^2}{\sigma^2})=\frac12\log(\frac B{\sigma^2})$.
+%$\then\E_{P_X}[\b(X)]=\E_{P_X}[\sigma^2+X^2]=\sigma^2+\E_{P_X}[X^2]$.\\
+
+\end{enumerate}
+\end{pr}

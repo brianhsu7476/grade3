@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  10 NOV 2023 14:20
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.18)  23 NOV 2023 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,41 +1124,47 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (./0.tex
-File: symmetric.png Graphic file (type bmp)
-<symmetric.png>
- [1
+) (./0.tex) (./1.tex
+Overfull \hbox (12.73615pt too wide) in paragraph at lines 5--18
+\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OMS/cmsy/m/n/12 k\OML/cmm
+/m/it/12 g\OT1/cmr/m/n/12 ) = [][] []\OML/cmm/m/it/12 e[] [] [] dx[] 
+ []
 
 
-]
-File: symmetric2.png Graphic file (type bmp)
-<symmetric2.png>
+Overfull \hbox (11.80028pt too wide) in paragraph at lines 5--18
+\OT1/cmr/m/n/12 = [][] []\OML/cmm/m/it/12 e[] [] dx[] 
+ []
 
-[2]
-File: erasure.png Graphic file (type bmp)
-<erasure.png>
- [3]
-File: erasure2.png Graphic file (type bmp)
-<erasure2.png>
- [4]
+[1
 
-Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
-(xeCJK)                
-(xeCJK)                Try to use `\setCJKmonofont[...]{...}' to define it.
 
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 57.
-(./BA.py [5] [6] [7] [8])) [9]) (./main.aux (./main2.aux))
+]) (./2.tex
+Overfull \hbox (6.77176pt too wide) in paragraph at lines 3--4
+[]$\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = \OM
+L/cmm/m/it/12 E[]\OT1/cmr/m/n/12 ([] []) = [][] []\OML/cmm/m/it/12 e[]\OT1/cmr/
+m/n/12 ([](2\OML/cmm/m/it/12 b\OT1/cmr/m/n/12 ) + [] \OML/cmm/m/it/12 e[]\OT1/c
+mr/m/n/12 )\OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = [](2\OML/cmm/m/it/12 b\OT1/cmr
+/m/n/12 ) +
+ []
+
+[2]) (./3.tex [3]) (./4.tex
+Overfull \hbox (2.12665pt too wide) in paragraph at lines 17--27
+\TU/lmr/m/n/12 The equation in (2) holds $ \OMS/cmsy/m/n/12 ([]) $ \TU/lmr/m/n/
+12 the equation in (1) holds $ \OMS/cmsy/m/n/12 ([])  8\OML/cmm/m/it/12 s; []; 
+ P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/n/12 ) =
+ []
+
+[4]) [5]) (./main.aux (./main2.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31595 strings out of 477715
- 659936 string characters out of 5842503
- 1147150 words of memory out of 5000000
- 51706 multiletter control sequences out of 15000+600000
- 478544 words of font info for 82 fonts, out of 8000000 for 9000
+ 31561 strings out of 477715
+ 659298 string characters out of 5842503
+ 1009149 words of memory out of 5000000
+ 51671 multiletter control sequences out of 15000+600000
+ 478536 words of font info for 81 fonts, out of 8000000 for 9000
  288 hyphenation exceptions out of 8191
- 98i,12n,103p,479b,1700s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,11n,103p,479b,654s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (9 pages).
+Output written on main.pdf (5 pages).

@@ -1,0 +1,11 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $X_i\in\mathcal{X}^{(i)}$.\\
+$I(X; Y)=H(X)-H(X|Y)\overset{I\text{ is deterministic from }X}=H(X, I)-H(X|Y)=H(X|I)+H(I)-H(X|Y)\overset{I\text{ is deterministic from }Y}=H(X|I)+H(I)-H(X|Y, I)=I(X; Y|I)+H(I)$.
+%$I(X; Y|I)=H(X|I)-H(X|Y, I)$
+\item The capacity $=\max_{P_I}I(X; Y)=\max_{P_I}E_{(X, Y)\sim P_{X, Y}}(\log\frac{P_{Y|X}(Y|X)}{P_Y(Y)})=\max_{P_I}\sum_{i=1}^lP_I(i)(I(X_i; Y_i)-\log P_I(i))=\max_{P_I}\left(\sum_{i=1}^lP_I(i)C^{(i)}+H(I)\right)$.
+\item Consider the distribution: $P_J(i)=\frac{2^{C^{(i)}}}{\sum_{j=1}^l2^{C^{(j)}}}$.\\
+$\sum_{i=1}^lP_I(i)C^{(i)}+H(I)=\sum_{i=1}^lP_I(i)\log\frac{2^{C^{(i)}}}{\sum_{j=1}^l2^{C^{(j)}}P_I(i)}+\sum_{i=1}^lP_I(i)\log\sum_{j=1}^l2^{C^{(j)}}=\sum_{i=1}^lP_I(i)\log\frac{P_J(i)}{P_I(i)}+\log\sum_{j=1}^l2^{C^{(j)}}=-D(P_I\|P_J)+\log\sum_{j=1}^l2^{C^{(j)}}\geq\log\sum_{j=1}^l2^{C^{(j)}}$, with equality $\iff D(P_I\|P_J)=0\iff P_I=P_J$.\\
+$\so$ the capacity $=\log\sum_{j=1}^l2^{C^{(j)}}$, and the distribution $P_I$ is $P_I(i)=\frac{2^{C^{(i)}}}{\sum_{j=1}^l2^{C^{(j)}}}$.
+\end{enumerate}
+\end{pr}

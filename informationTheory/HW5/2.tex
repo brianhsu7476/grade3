@@ -1,0 +1,14 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $h(X)=E_{X\sim f_X}(\log\frac1{f_X(X)})=\int_{-\infty}^\infty\frac1{2b}e^{-\frac{|x-\mu|}b}(\log(2b)+\log e\frac{|x-\mu|}b)dx=\log(2b)+\log e\int_\mu^\infty\frac1be^{-\frac{(x-\mu)}b}\frac{x-\mu}bdx=\log(2b)+\log e=\log(2be)$.
+\item From Problem 1 (a)(2), we know that $\int_{-\infty}^\infty|x-a|e^{-|x-b|}dx=2|a-b|+2e^{-|a-b|}$.\\
+$E(|X|)=\int_{-\infty}^\infty|x|\frac1{2b}e^{-\frac{|x-\mu|}b}dx=\frac1{2b}b^2(2|\mu|+2e^{-|\mu|})=b(|\mu|+e^{-|\mu|})$.\\
+Let $g(y):=y+e^{-y}$.\\
+$\then g'(y)=1-e^{-y}>0$ when $y>0$.\\
+$\then g(y)$ is strictly increasing on $(0, \infty)$.\\
+$\then b(|\mu|+e^{-|\mu|})=bg(|\mu|)\overtext{(1)}\geq bg(0)=2b$.\\
+$\then 2b\leq E(|X|)\leq B$.\\
+$\then b\overtext{(2)}\leq\frac B2$.\\
+$\then h(X)=\log(2be)\leq\log Be$, and when the equation holds, the distribution of $X$ is $\mathrm{Lap}(0, \frac B2)$ since the equation in (1) holds $\iff\mu=0$, and the equation in (2) holds.
+\end{enumerate}
+\end{pr}
