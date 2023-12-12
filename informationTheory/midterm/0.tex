@@ -1,0 +1,25 @@
+\section{Distribution}
+
+$\mathrm{Bin}(n, p): P_X(x)=\binom nxp^xq^{n-x}$ for $x\in[n]_0$.\\
+$\mu=np, \sigma^2=npq, H(X)=\frac12\log(2\pi enpq)+O(\frac1n)$.\\
+$\mathrm{Pois}(\lambda): P_X(x)=\frac{\lambda^xe^{-\lambda}}{x!}$ for $x\in\N_0$.\\
+$\mu=\sigma^2=\lambda$.\\
+$\mathrm{Geo}(p): P_X(x)=q^{x-1}p$ for $x\in\N$.\\
+$\mu=\frac1p, \sigma^2=\frac q{p^2}, H(X)=\frac{-q\log q-p\log p}p$.\\
+$\mathrm{Exp}(\lambda): f_X(x)=\lambda e^{-\lambda x}$ for $x\in\R^+_0$.\\
+$\mu=\frac1\lambda, \sigma^2=\frac1\lambda$.\\
+$\mathcal{N}(\mu, \sigma^2): f_X(x)=\frac1{\sigma\sqrt{2\pi}}e^{-\frac12\left(\frac{x-\mu}\sigma\right)^2}$.\\
+$h(X)=\frac12\log(2\pi e\sigma^2)$.\\
+$\mathrm{Lap}(\mu, b): f_X(x)=\frac1{2b}e^{-\frac{|x-\mu|}b}$.\\
+$\sigma^2=2b^2, h(X)=\log(2be)$.
+
+\section{Markov Chain}
+
+$X_1-X_2-\cdots-X_n:=\forall n, x^n,\ P_{X_{n+1}|X^n}(x_{n+1}|x^n)=P_{X_{n+1}|X_n}(x_{n+1}|x_n)$.\\
+Stationary: $P_{X_1, \dots, X_n}=P_{X_{1+l}, \dots, X_{n+l}},\ \forall n, l\in\N$.
+
+\section{Central Limit Theorem}
+
+Khinchin WLLN: $X_1, X_2, \dots, $ are i.i.d. with $E[|X_i|]<\infty$, then $\forall\epsilon>0,\ \lim_{n\to\infty}\P\{|\bar X_n-\mu|\geq\epsilon\}=0$.\\
+Central limit theorem: $X_1, X_2, \dots, $ are i.i.d. with $E[|X_i|]<\infty$, then $\frac{\sqrt n(\bar X_n-\mu)}\sigma\overtext d\to Z\sim N(0, 1)$.\\
+Berry-Esseen: $X_1, X_2, \dots, $ are i.i.d. with $E[|X_i-\mu|^3]=\rho_3<\infty$. Let $Z_n:=\frac{S_n-n\mu}{\sqrt n\sigma}, Z\sim N(0, 1)$. Then $|F_{Z_n}(z)-F_Z(z)|\leq c\frac{\rho_3}{\sigma^3}n^{-1/2},\ \forall z\in\R, n\in\N$ for constant $c\in(0.4, 0.5)$.

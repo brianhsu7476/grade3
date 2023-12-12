@@ -1,0 +1,22 @@
+# 1
+T1, (m/2*T1)
+
+# 2
+ld
+ld
+add
+sd
+ld
+add
+sd
+$220*11=2420$
+
+# 3
+blt 0
+add 0+0=0
+addi 0+0=0
+addi 0+1=1
+blt 0
+add 
+addi
+addi

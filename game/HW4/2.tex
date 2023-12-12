@@ -1,0 +1,15 @@
+\begin{pr}[11.9.5]
+Let $A, B$ be the space of the strategy of the row, column player, respectively.\\
+Suppose that the $3$ Nash equilibria are $(a_1, b_1), (a_2, b_2), (a_3, b_3)$.\\
+Let $p_i(s), q_i(t)$ denote the probability that the row, column player plays $s, t$ when using strategy $a_i, b_i$, respectively.\\
+Let $f:T\to A, g:S\to B$ denote the strategy of the row, column player when playing the game for the second time, where $f_i, g_i$ denote the constant function $f_i(t)=a_i, g_i(s)=b_i$, respectively.\\
+Let $u(a, b), v(a, b)$ denote the expected payoff of the row, column player when the row player uses strategy $a$ and the column player uses strategy $b$, respectively.\\
+%Let $a_ia_j$ denote the strategy of the row player that plays $a_i$ in the first game and plays $a_j$ in the second game no matter what the column player plays in the first game.\\
+%Let $b_ib_j$ denote the strategy of the column player that plays $b_i$ in the first game and plays $b_j$ in the second game no matter what the row player plays in the first game.\\
+Claim: $\forall i, j,\ (a_if_j, b_ig_j)$ are Nash equilibria.\\
+Proof: $\forall a\in A,\ f:T\to A,\ u(af, b_ig_j)\overset{\forall s,\ g_j(s)=b_j}=u(a, b_i)+\sum_{t\in T}q_i(t)u(f(t), b_j)\overset{(a_j, b_j)\text{ is a Nash equilibria}}\leq u(a, b_i)+\sum_{t\in T}q_i(t)u(a_j, b_j)\overset{\sum_{t\in T}q_i(t)=1}=u(a, b_i)+u(a_j, b_j)\overset{(a_i, b_i)\text{ is a Nash equilibria}}\leq u(a_i, b_i)+u(a_j, b_j)=u(a_if_j, b_ig_j)$.\\
+Similarly, $\forall b\in B,\ g:S\to B,\ v(a_if_j, bg)\leq v(a_if_j, b_ig_j)$.\\
+$\so$ by the definition, $(a_if_j, b_ig_j)$ is a Nash equilibria.
+
+$\so$ the claim holds. Since there are $9$ ways to choose $i, j$, there are at least $9$ Nash equilibria.
+\end{pr}

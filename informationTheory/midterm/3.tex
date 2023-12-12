@@ -1,0 +1,21 @@
+\section{Deviverling Information Reliably}
+
+$BSC(p)$: flip the bit bit i.i.d. with probability $p\in(0, \frac12)$.
+
+\section{Mutual Information}
+
+$I(X; Y)=D(P_{X, Y}\|P_X\times P_Y)$.\\
+Exercise 1: $I(X; Y)=\min_{Q_Y:D(P_Y\|Q_Y)<\infty}D(P_{Y|X}\|Q_Y|P_X)$.\\
+$I(X; Y|Z):=H(X|Z)-H(X|Y, Z)$.\\
+Chain rule: $I(X; Y^n)=\sum_{i=1}^nI(X; Y_i|Y^{i-1})$.\\
+$X-Y-Z$, then $I(X; Y)\geq I(X; Z)$.\\
+$X-Y-Z$, then $I(X; Y)\geq I(X; Y|Z)$.
+
+\section{Noisy Channel Coding Theorem}
+
+An $(n, k)$ code with $P_e^{(n)}:=\P\{W\neq\hat W\}\leq\epsilon$ is called an $(n, k, \epsilon)$ code.\\
+$k^*(n, k)$ is the largest $k$ s.t. $\exists(n, k, \epsilon)$ code.\\
+$C(\epsilon):=\lim_{n\to\infty}\frac1nk^*(n, \epsilon)$.\\
+Channel coding theorem for DMC without feedback: $C(\epsilon)=C^I:=\max_{P_X}I(X; Y),\ \forall\epsilon\in(0, 1)$.\\
+$x^n$ is robust typical sequence: $|\hat P_{x^n}(a)-P_X(a)|\leq\epsilon P_X(a)$, where $\hat P_{x^n}(a):=\frac1n\suml_{i=1}^n\I\{x_i=a\}$.\\
+The set of $\epsilon$-robust typical sequence with respect to $X$: $\mathcal{T}_\epsilon^{(n)}(X)$.

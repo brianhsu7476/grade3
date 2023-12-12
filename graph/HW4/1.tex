@@ -1,0 +1,15 @@
+\setcounter{pr}{1}
+\begin{pr}
+Let $uv\in E(G),\ H:=G-uv,\ N_H(w):=\{x|wx\in E(H)\}$.\\
+Let $S:=\{p|p$ is a Hamiltonian path in $H$ with $u$ being one of the endpoint $\}$, $p_i:=$ the $i$-th vertex on the path $p$ ($p=p_1(=u)p_2p_3\cdots p_n$), and $T_w:=\{p|p\in S,\ p_n=w\}$.\\
+Let $f:S\to2^S$ (the power set of $S$), where $f(p):=\{p_1p_2\cdots p_ip_np_{n-1}\cdots p_{i+1}|p_ip_n\in E(H),\ i\neq n-1\}$.\\
+$\then|f(p)|=|\{i|p_ip_n\in E(H),\ i\neq n-1\}|=\deg_H(p_n)-1$.\\
+Suppose that $q\in f(p)$, where $q=p_1p_2\cdots p_ip_np_{n-1}\cdots p_{i+1}$.\\
+$\then p=q_1q_2\cdots q_iq_nq_{n-1}\cdots q_{i+1}$.\\
+$\cuz q_iq_n=p_ip_{i+1}\in E(H)$.\\
+$\so p\in f(q)$ by the definition of $f$ and Hamiltonian path.\\
+$\so\forall p, q\in S,\ p\in f(q)\iff q\in f(p)$.\\
+Consider a graph $H'$ with vertex set $S$, and $pq\in E(H')\iff p\in f(q)(\iff q\in f(p))$.\\
+$\deg_{H'}(p)=|f(p)|=\deg_H(p_n)-1$.\\
+The number of Hamiltonian cycles of $G$ that contain $uv\equiv$ the number of Hamiltonian paths that starts at $u$ and ends at $v$ in $H\equiv\suml_{p_n=v}1\overset{\deg_H(v)\equiv\deg_G(v)-1\equiv0\pmod2}\equiv\suml_{p_n=v}(\deg_H(v)-1)\overset{\deg_H(w)\equiv\deg_G(v)\equiv1\pmod2\text{ for }w\neq v}\equiv\suml_{w\in V}\suml_{p_n=w}(\deg_H(w)-1)\equiv\suml_{p\in S}(\deg_H(p_n)-1)\equiv\suml_{p\in S}\deg_{H'}(p)\equiv0\pmod2$, which finishes this problem.
+\end{pr}

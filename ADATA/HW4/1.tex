@@ -1,0 +1,137 @@
+%\newcommand{\sat}{\texttt{SAT}}
+
+\section{2 SAT, or not 2 SAT, That Is the Question}
+
+\section*{(a) $2$-SAT is in P}
+
+A $2$-CNF formula is a CNF formula where each clause has exactly $2$ literals. For example: $$\phi_1=(a_1\lor\sim a_2)\land(a_3\lor a_1)\land(\sim a_1\lor\sim a_1)$$
+$$\phi_2=(a_1\lor a_1)\land(\sim a_1\lor\sim a_1)$$
+are both $2$-CNF formulas.
+$$2\text{-SAT (or }2\text{-CNF-SAT) }:=\{\phi|\phi\text{ is a }2\text{-CNF formula with a satisfying assignment}\}$$ For example:\\
+$\phi_1$ can be satisfied if $(a_1, a_2, a_3)=(0, 0, 1)$; therefore $\phi_1\in2$-SAT.\\
+$\phi_2$ does not have a satisfying assignment; therefore $\phi_2\notin2$-SAT.
+
+A $2$-SAT problem is to determine whether a $2$-CNF formula $\phi$ is in $2$-SAT or not, and the size of this problem is defined as the number of clauses.
+
+Prove that $2$-SAT is in P.
+
+\subsection*{Hint}
+
+Let $\phi$ be a $2$-CNF formula with variables $a_1, a_2, \dots, a_n$. Consider a directed graph $G$ where $V(G)=\{a_1, a_2, \dots, a_n, \sim a_1, \sim a_2, \dots, \sim a_n\}$ is the set of all literals. For each clause $x\lor y$ of $\phi$, construct directed edges from $\sim x$ to $y$ and from $\sim y$ to $x$. For example, the following is the graph of $\phi_1$ (which is described above):
+
+\begin{tikzpicture}[nd/.style={circle, draw=black!100, very thick, minimum size=1.2cm}]
+\node[nd](1){$a_2$};
+\node[nd](2)[right=of 1]{$a_1$};
+\node[nd](3)[right=of 2]{$\sim a_3$};
+\node[nd](4)[below=of 1]{$\sim a_2$};
+\node[nd](5)[below=of 2]{$\sim a_1$};
+\node[nd](6)[below=of 3]{$a_3$};
+\draw[->](1)--(2);
+\draw[->](5)--(4);
+\draw[->](5)--(6);
+\draw[->](3)--(2);
+\draw[->](2)--(5);
+\end{tikzpicture}
+
+First prove that
+\begin{gather*}\text{All clauses can be satisfied.}\\
+\Updownarrow\\
+\text{ For all variables }x\text{, either }x\text{ can't reach }\sim x\text{ or }\sim x\text{ can't reach }x.
+\end{gather*}
+Then find an polynomial time complexity algorithm to check if $G$ satisfies the transformed condition, deducing that $2$-SAT is in P.
+
+\iffalse
+\section*{(b)}
+
+A MAX-$2$-SAT problem is to find the truth values of the variables such that the number of satisfied clauses in a given $2$-CNF formula is maximized. The decision version of MAX-$2$-SAT problem is to determine whether at least $k$ clauses in a $2$-CNF formula can be satisfied. That is:
+\begin{gather*}
+\text{MAX-}2\text{-SAT}:=\{(\phi, k)|\phi\text{ is a }2\text{-CNF formula with an assignment such that}\\
+\text{at least }k\text{ clauses can be satisfied}\}
+\end{gather*}
+Prove that MAX-$2$-SAT is in NP-complete.
+
+\subsection*{Hint}
+
+Take a look at what will happen to the following $10$ clauses:
+$$x, y, z, w, \sim x\lor\sim y, \sim y\lor\sim z, \sim z\lor\sim x, x\lor\sim w, y\lor\sim w, z\lor\sim w$$
+if $x\lor y\lor z$, and use this result to provide a reduction from a known NP-complete problem: MAX-$3$-SAT.
+\fi
+
+\section*{(b) Conditions on MAX-$2$-SAT}
+
+A MAX-$2$-SAT problem is to find the truth values of the variables such that the number of satisfied clauses in a given $2$-CNF formula is maximized. The decision version of MAX-$2$-SAT problem is to determine whether at least $k$ clauses in a $2$-CNF formula can be satisfied. That is:
+\begin{gather*}
+\text{MAX-}2\text{-SAT}:=\{(\phi, k)|\phi\text{ is a }2\text{-CNF formula with an assignment such that}\\
+\text{at least }k\text{ clauses can be satisfied}\}
+\end{gather*}
+It is known that MAX-$2$-SAT is in NP-complete, but some condition on the clauses may make the problem easier.
+
+Let $f$ be a given single-variable function. The set $S_f$ is defined as the collection of all $2$-CNF formulas whose variables can be numbered as $a_1, a_2, \dots, a_n$ such that for all pairs of variables $(a_i, a_j)$ that are in the same clause, there is $|i-j|<f(n)$.\\
+For example, let $f(x):=\sqrt x$.
+$$\phi_3=(b_1\lor b_2)\land(\sim b_1\lor b_3)$$
+$$\phi_4=(b_1\lor b_2)\land(b_2\lor b_3)\land(\sim b_3\lor b_1)$$
+One can number the variables in $\phi_3$ by letting $a_1=b_2, a_2=b_1, a_3=b_3$, and $\phi_3$ becomes $(a_2\lor a_1)\land(\sim a_2\lor a_3)$. Since $|2-1|<\sqrt3, |2-3|<\sqrt3$, there is $\phi_3\in S_{\sqrt x}$.\\
+However, no matter how the variables in $\phi_4$ are numbered to $a_1, a_2, a_3$, there always exists a clause that contains both $a_1$ and $a_3$. Since $|1-3|\not<\sqrt3$, there is $\phi_4\notin S_{\sqrt x}$.
+
+Let's define the MAX-$f$-CondSAT problem, which is to find the truth values of the variables such that the number of satisfied clauses in a given $\phi\in S_f$ is maximized. The decision version of MAX-$f$-CondSAT problem is to determine whether at least $k$ clauses can be satisfied. That is:
+\begin{gather*}
+\text{MAX-}f\text{-CondSAT}:=\{(\phi, k)|\phi\in S_f\text{ has an assignment such that}\\
+\text{at least }k\text{ clauses can be satisfied}\}
+\end{gather*}
+
+%Let $f(n)$ be a given function of $n$ and $\phi$ be a $2$-CNF formula with variables $a_1, a_2, \dots, a_n$. If $a_i, a_j$ are variables in the same clause (that is, the clause is one of $(a_i, a_j), (a_i, \sim a_j), (\sim a_i, a_j), (\sim a_i, \sim a_j)$), then it is guaranteed that $|i-j|<f(n)$. For a given $k$, determine if 
+
+\subsection*{(b-1)}
+
+Let $f(x):=x^{0.001}$. Prove that MAX-$f$-CondSAT is NP-complete.
+
+\subsubsection*{Hint}
+
+Can you provide a reduction from a known NP-complete problem: MAX-$2$-SAT?
+
+\subsection*{(b-2)}
+
+Let $f(x):=\log x$. Prove that MAX-$f$-CondSAT is P.
+
+\subsubsection*{Hint}
+
+MAX-$1$-CondSAT can be easily done by dynamic programming in polynomial time complexity. How about MAX-$2$-CondSAT, MAX-$3$-CondSAT, $\dots$, and so on? Can this dynamic programming method be generalized to MAX-$f$-CondSAT?
+
+\section*{(c) $2$-SAT with Generalized Boolen Values}
+
+In a $2$-SAT problem, all variables take values in $\{True, False\}$, but what if the variables take values in a set with size larger than $2$? Will the problem become harder?
+
+Let $c$ be a positive integer. Define the notation $[c]:=\{1, 2, \dots, c\}$.
+
+\subsection*{(c-1)}
+
+% Let's define $c$-MultiSAT as follow:\\
+The set $T_c$ is defined as the collection of all formulas $\phi$ that is the disjunction of some clauses, and each clause of $\phi$ is the conjunction of two literals, where each literal is of the form $a=b$. $a$ is a variable taking values in $[c]$, while $b$ is an element of $[c]$.\\
+For example, let $c=3$.
+$$\phi_5=(a_1=3\lor a_2=2)\land(a_3=1\lor a_2=3)$$
+$$\phi_6=(\sim(a_1=3)\lor a_2=2)$$
+$\phi_5\in T_c$, but $\phi_6\notin T_c$ because $\sim(a_1=3)$ is not of the form $a=b$ for a variable $a$ and a constant $b$ taking values in $[c]$.
+
+Let's define the $c$-GenSAT problem, which is to determine whether all clauses in a given $\phi\in T_c$ can be satisfied. That is:
+$$c\text{-GenSAT}:=\{\phi|\phi\in T_c\text{ has a satisfying assignment}\}$$
+Prove that $c$-GenSAT is P for all positive integers $c$.
+
+\subsubsection*{Hint}
+
+Can you provide a reduction to a known P problem: $2$-SAT?
+
+\subsection*{(c-2)}
+
+The set $U_c$ is defined as the collection of all formulas $\phi$ that is the disjunction of some clauses, and each clause of $\phi$ is the conjunction of two literals, where each literal is of the form $a=B$. $a$ is a variable taking values in $[c]$, while $B$ is a subset of $[c]$.\\
+For example, let $c=3$.
+$$\phi_7=(a_1\in\{1, 2\}\lor a_2\in\{3\})\land(a_3\in\{1, 2, 3\}\lor a_2\in\emptyset)$$
+$$\phi_8=(a_1\in\{3, 4\}\lor a_2\in\{2, 3\})$$
+$\phi_7\in T_c$, but $\phi_8\notin T_c$ because $\{3, 4\}$ is not a subset of $[c]$.
+
+Let's define the $c$-GenSetSAT problem, which is to determine whether all clauses in a given $\phi\in U_c$ can be satisfied. That is:
+$$c\text{-GenSetSAT}:=\{\phi|\phi\in U_c\text{ has a satisfying assignment}\}$$
+Prove that $c$-GenSetSAT is NP-complete for all integers $c\geq3$.
+
+\subsubsection*{Hint}
+
+Can you provide a reduction from a known NP-complete problem: $3$-colorability problem?

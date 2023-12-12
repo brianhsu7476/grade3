@@ -1,0 +1,10 @@
+\setcounter{pr}{0}
+\begin{pr}
+Consider the following graph:\\
+$V=\{v_1, v_2, \dots, v_{2k}\}, E=\{v_{2i-1}v_{2j}|i, j\in[k], i\neq j\}$ with coloring order $v_1, v_2, \dots, v_{2k}$.\\
+Let's have an induction on $l$ to prove that $\forall i\leq l, v_{2i-1}, v_{2i}$ are colored in the $i$-th color. -- (1)\\
+For $l=1$, (1) holds because $v_1, v_2$ are not neighbors and none of their neighbors are colored before them.\\
+Suppose for $l=l'$, (1) holds.\\
+For $l=l'+1$, since $v_{2l'+1}$'s neighbors $v_2, v_4, \dots, v_{2l'}$ are colored in the $1, 2, \dots, l'$-th color, respectively, and the neighbors $v_{2l'+4}, v_{2l'+6}, \dots$ are colored after it, $v_{2l'+1}$ will be colored in the $l'+1$-th color; since $v_{2l'+2}$'s neighbors $v_1, v_3, \dots, v_{2l'-1}$ are colored in the $1, 2, \dots, l'$-th color, respectively, and the neighbors $v_{2l'+3}, v_{2l'+5}, \dots$ are colored after it, $v_{2l'+2}$ will be colored in the $l'+1$-th color.\\
+$\so$ by induction, the greedy algorithm uses $k$ colors on this graph.
+\end{pr}

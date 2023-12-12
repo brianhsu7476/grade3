@@ -9,7 +9,7 @@ input               clk_i;
 input               rst_i;
 
 wire [31:0]pc_i, pc_o, inst, ALUres, rs1, rs2, ext, rs3;
-wire ALUSrc, RegWrite;
+wire ALUSrc, RegWrite, Zero;
 wire [1:0]ALUOp;
 wire [2:0]ALUOp3;
 wire [9:0]ALUinst;

@@ -1,0 +1,19 @@
+\begin{pr}[11.9.28]$ $
+\begin{enumerate}[(a)]
+\item The expected payoff of $s$ playing with $s$ is $2\times99+\frac14(2+0+3-1)=199$.\\
+The maximum expected payoff of a strategy that chooses the different action (from $s$ when playing with $s$) in the $i$-th ($1\leq i\leq99$) stage is $2(i-1)+3\leq2\times98+3=199$.\\
+The maximum expected payoff of a strategy that chooses the same action (as $s$ when playing with $s$) in the first $99$ stages, and its probability of choosing slow in the last stage is $p$ is $2\times99+\frac12p(2+0)+\frac12(1-p)(3-1)=199$.\\
+$\so$ changing $s$ to another strategy won't increase the expected payoff, and therefore $(s, s)$ is a Nash equilibrium.
+\item Claim: For all $1\leq i\leq100$, the subgame that starts from the $i$-th stage using the suffix strategy of $s$ (that is, do what $s$ will do in the $j+i-1$-th stage when playing the $j$-th stage) denote as $s^*$, has a Nash equilibrium $(s^*, s^*)$.\\
+Proof: The expected payoff of $s^*$ playing with $s^*$ is $2\times(100-i)+\frac14(2+0+3-1)=201-2i$.\\
+The maximum expected payoff of a strategy that chooses the different action (from $s^*$ when playing with $s^*$) in the $j$-th ($1\leq j\leq100-i$) stage is $2(j-1)+3\leq2\times(100-i-1)+3=201-2i$.\\
+The maximum expected payoff of a strategy that chooses the same action (as $s^*$ when playing with $s^*$) in the first $100-i$ stages, and its probability of choosing slow in the last stage is $p$ is $2\times(100-i)+\frac12p(2+0)+\frac12(1-p)(3-1)=201-2i$.\\
+$\so$ changing $s^*$ to another strategy won't increase the expected payoff, and therefore $(s^*, s^*)$ is a Nash equilibrium.
+
+By the definition of subgame-perfect equilibrium, since $(s, s)$ plays a rational strategy (which is $(s^*, s^*)$) in every subgame, $(s, s)$ is a subgame-perfect equilibrium.
+\item $\underbrace{-1, \dots, -1}_i, \underbrace{2, \dots, 2}_{99-i}, 1$ for any $0\leq i\leq66$ can be supported by both players using the strategy that tells you always to choose speed up until the $(i+1)$-th stage, to choose slow up until the 100th stage, and to use slow and speed with equal probabilities at the 100th stage—unless the two players have failed to use the same actions at every preceding stage. If such a coordination failure has occurred in the past, the strategy tells a player to look for the ﬁrst stage at which differing actions were used and then always to use speed.
+\item $\underline{v_1}=\max_p\min_t\E(\pi(s, t))=\max_p\min(2p+3(1-p), 0-(1-p))=0$ when $p=1$.\\
+Similarly, $\underline{v_2}=0$.\\
+$\then$ strings that have expected payoff $\geq0$ for any subgame can be supported as equilibrium outcomes by folk theorem.
+\end{enumerate}
+\end{pr}

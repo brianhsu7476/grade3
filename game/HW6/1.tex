@@ -1,0 +1,40 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Same as the reason in the powerpoint, when Alice holds $A$, she will always raise; when Bob holds $A$, he will always call; when Bob holds $J$, he will always fold.\\
+Suppose that the probability that Alice raises when holding $K, Q$ are $p, q$, respectively, and the probability that Bob calls when holding $K, Q$ are $r, s$, respectively.\\
+When holding $Q$, the expected value that Bob calls is $-2$, and that he folds is $-1$, since when he needs to decide whether calling or folding, Alice won't hold $J$.\\
+$\so$ Bob will always fold when holding $Q$, $s=0$.\\
+When holding $K$, the expected value that Alice raises is $\frac13(-2)+\frac13(1)+\frac13(1)=0$, and that she checks is $\frac13(-1)+\frac13(1)+\frac13(1)=\frac13$.\\
+$\so$ Alice will always checks when holding $K$, $p=0$.\\
+When holding $Q$, the expected value that Alice raises is $\frac13(-2)+\frac13(r(-2)+(1-r)(1))+\frac13(1)=-\frac13+\frac13(1-3r)=-r$, and that she checks is $\frac13(-1)+\frac13(-1)+\frac13(1)=-\frac13$.\\
+Alice will indifferent between these two actions iff $-r=-\frac13\iff r=\frac13$.\\
+When holding $K$, the expected value that Bob calls is $\frac1{1+q}(-2)+\frac q{1+q}(2)$, and that he folds is $-1$.\\
+Bob will indifferent between these two actions iff $\frac1{1+q}(-2)+\frac q{1+q}(2)=-1\iff\frac{q-1}{q+1}=-\frac12\iff q=\frac13$.\\
+$\so$ there is a Nash equilibrium when Alice uses the mixed strategy $(1, 0, \frac13, 0)$ and Bob uses the mixed strategy $(1, \frac13, 0, 0)$.
+\item Let $a_1, a_2, a_3, a_4$ denote the probability that Alice raises when holding $A, K, Q, J$, respectively, and $b_1, b_2, b_3, b_4$ denote the probability that Bob calls when holding $A, K, Q, J$, respectively.\\
+If there is a Nash equilibrium with $a_4=0$, then there are two cases.
+
+Case 1: $a_1<1$.\\
+When holding $A$, the expected value that Alice raises is $\frac13(b_2(2)+(1-b_2)(1))+\frac13(b_3(2)+(1-b_3)(1))+\frac13(b_4(2)+(1-b_4)(1))=\frac13(b_2+b_3+b_4)+1\geq1=$ the expected value that Alice checks, the equation holds $\iff b_2=b_3=b_4=0$.\\
+In this case, since $\frac13(b_2+b_3+b_4)+1\leq1$ must holds, there must be $b_2=b_3=b_4=0$.\\
+When holding $J$, the expected value that Alice raises is $\frac13(b_1(-2)+(1-b_1)(1))+\frac13(b_2(-2)+(1-b_2)(1))+\frac13(b_3(-2)+(1-b_3)(1))\overset{\cuz b_2=b_3=0}=\frac13(1-3b_1)+\frac23$, and the expected value that Alice checks is $-1$.\\
+$\cuz\frac13(1-3b_1)+\frac23\geq\frac13(1-3\cdot1)+\frac23=0>-1$, $a_4=1$, which gets a contradiction.
+
+Case 2: $a_1=1$.\\
+When holding $Q$, the expected value that Bob calls is $-2$, and that he folds is $-1$, since when he needs to decide whether calling or folding, Alice won't hold $J$.\\
+$\so$ Bob will always fold when holding $Q$, $b_3=0$.\\
+When holding $J$, the expected value that Alice raises is $\frac13(b_1(-2)+(1-b_1)(1))+\frac13(b_2(-2)+(1-b_2)(1))+\frac13(b_3(-2)+(1-b_3)(1))\overset{\cuz b_3=0}=\frac13(2-3b_1-3b_2)+\frac13$, and the expected value that Alice checks is $-1$.\\
+$\cuz\frac13(2-3b_1-3b_2)+\frac13=1-b_1-b_2\geq-1$, the equation holds $\iff b_1=b_2=1$.\\
+$\cuz a_4=0$, the equation must hold.\\
+$\then b_1=b_2=1$.\\
+When holding $J$, the expected value that Bob calls is $-2$, and that he folds is $-1$.\\
+$\so$ Bob will always fold when holding $J$, $b_4=0$.\\
+When holding $Q$, the expected value that Alice raises is $\frac13(-2)+\frac13(-2)+\frac13(1)=-1$, and that she checks is $\frac13(-1)+\frac13(-1)+\frac13(1)=-\frac13$.\\
+Since $-1<-\frac13$, Alice will always check when holding $Q$, $a_3=0$.\\
+When holding $K$, the expected value that Bob calls is $-2$, that he folds is $-1$, since when he needs to decide whether calling or folding, Alice won't hold $J$ or $Q$.\\
+$\then$ Bob will fold when holding $K$, contradicts to that $b_2=1$.
+
+$\so$ there is no Nash equilibrium with $a_4=0$.
+
+\end{enumerate}
+\end{pr}

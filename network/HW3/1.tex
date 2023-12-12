@@ -1,0 +1,9 @@
+\begin{pr}$ $
+\begin{enumerate}[a.]
+\item False, since a request message will be sent for each object, four request messages will be sent instead of one.
+\item True, since these two Web pages are under the same server \texttt{www.mit.edu}.
+\item False, since the connection closes in a nonpersitent connection after each connection, the TCP will close after dealing with the first request, and therefore the two requests won't share the same TCP segment.
+\item False, Date is the time the request was created but not that of the object last modified.
+\item False, HTTP status 304 has an empty message body.
+\end{enumerate}
+\end{pr}

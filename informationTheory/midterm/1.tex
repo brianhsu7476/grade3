@@ -1,0 +1,62 @@
+\section{Representing An i.i.d. Sequence Almost Losslessly}
+
+DMS: discrete memoryless source.
+$\mathcal{B}(n, \epsilon)$ is an $\epsilon$-high-probability set: $\P\{S^n\in\mathcal{B}(n, \epsilon)\}\geq1-\epsilon$\\
+$s^n$ is $\delta$-typical: $|\frac1n\suml_{i=1}^n\log P_S(s_i)+H(S)|\leq\delta$.\\
+$\delta$-typical set $\mathcal{A}_\delta^{(n)}(S):=\{s^n|s^n$ is $\delta$-typical$\}$.\\
+Properties of typical sequences and typical sets:
+\begin{itemize}
+\item $\forall s^n\in\mathcal{A}^{(n)}_\delta(S), 2^{-n(H(S)+\delta)}\leq\P\{S^n=s^n\}\leq2^{-n(H(S)-\delta)}$.
+\item $\P\{S^n\in\mathcal{A}^{(n)}_\delta(S)\}\geq1-\epsilon$ for $n$ large enough.
+\item $|\mathcal{A}^{(n)}_\delta(S)|\leq2^{n(H(S)+\delta)}$.
+\item $|\mathcal{A}^{(n)}_\delta(S)|\geq(1-\epsilon)2^{n(H(S)-\delta)}$ for $n$ large enough.
+\end{itemize}
+$s^n\to b^k\to\hat s^n$: $(n, k)$ code.\\
+$(n, k, \epsilon)$ code: $(n, k)$ code with $P^{(n)}_e:=\P\{S^n\neq\hat S^n\}\leq\epsilon$.\\
+$k^*(n, \epsilon)$: the smallest $k$ s.t. $\exists(n, k, \epsilon)$ code.\\
+$R^*(\epsilon):=\lim_{n\to\infty}\frac{k^*(n, \epsilon)}n$.\\
+A	lossless source coding theorem for DMS: $R^*(\epsilon)=H(S),\ \forall\epsilon\in(0, 1)$.\\
+AEP (Asymptotic Equipartition Property): Entropy determines the asymptotic size of a typical set, and determines the probability of a typical sequence asymptotically.
+
+\section{Entropy}
+
+$H(X|Y)=\sum_yP_Y(y)H(X|Y=y)=\sum_{x, y}P_{X, Y}(x, y)\log\frac1{P_{X|Y}(x, y)}$.\\
+$0\leq H(X)\leq\log|\mathcal{X}|$, where $H(X)=\log|\mathcal{X}|\iff X$ is uniform distributed over $\mathcal{X}$.\\
+$H(X, Y)=H(Y)+H(X|Y)=H(X)+H(Y|X)$.\\
+$H(X|Y)\leq H(X)$, but $H(X|Y=y)$ may $>H(X)$.\\
+$H(X_1, \dots, X_n)=\suml_{i=1}^nH(X_i|X_1, \dots, X_{i-1})$.\\
+$H(X|Y, Z)\leq H(X|Y)$.\\
+The above still holds for $h$.\\
+Exercise 4: $H(X, Y, Z)\leq H(X, Y)+H(X, Z)-H(X)$.\\
+Concavity of Entropy: $H(\mathbf{p}):=-\suml_{i=1}^dp_i\log p_i$ is concave in $\mathbf{p}$.\\
+That is, $H(\lambda\mathbf{p_1}+(1-\lambda)\mathbf{p_2})\geq\lambda H(\mathbf{p_1})+(1-\lambda)H(\mathbf{p_2})$.\\
+Fano's inequality: $H(U|V)\leq H_b(P_e)+P_e\log|\mathcal{U}|$, where $P_e:=\P\{U\neq V\}$.\\
+$\then\P\{U\neq V\}\geq\frac{H(U|V)-1}{\log|\mathcal{U}|}$.\\
+Exercise 5: if $U, V$ both take values in $\mathcal{U}$, then $H(U|V)\leq H_b(P_e)+P_e\log(|\mathcal{U}|-1)$.
+
+\section{Representing A Sequence with Memory Almost Losslessly}
+
+Entropy rate:
+\begin{itemize}
+\item $\H(\{X_i\}):=\lim_{n\to\infty}\frac1nH(X_1, \dots, X_n)$ if exists.
+\item $\tilde\H(\{X_i\}):=\lim_{n\to\infty}H(X_n|X^{n-1})$ if exists.
+\end{itemize}
+$\H$ and $\tilde\H$ may be different: consider $X_1, X_3, \dots$ are i.i.d. and $X_{2k}=X_{2k-1}$.\\
+If $\{X_i\}$ is stationary, then $H(X_n|X^{n-1})$ is decreasing in $n$.\\
+If $\{X_i\}$ is stationary, then $\H(\{X_i\})=\tilde\H(\{X_i\})$.\\
+Stationary ergodic processes: $\frac1n\suml_{l=0}^{n-1}f(X_{k_1+l}, \dots, X_{k_m+l})\overset{\text{a.s., }L^1}\to\E[f(X_{k_1}, \dots, X_{k_m})]$ as $n\to\infty$.\\
+Shannon-McMillan-Breiman theorem: if $\{S_i\}$ is stationary ergodic, then $\frac1n\log\frac1{P(S^n)}\overset{\text{a.s., }L^1}\to\H(\{S_i\})$ as $n\to\infty$.\\
+A Lossless Source Coding Theorem for Ergodic DSS: For a discrete stationary ergodic source $\{S_i\}$, $R^*(\epsilon)=H(\{S_i\})\forall\epsilon\in(0, 1)$.\\
+Let $\mathcal{X}$ be the state space of a Markov process.
+\begin{enumerate}
+\item A Markov process is irreducible if $\forall x, y\in\mathcal{X}$, it is possible to reach to start at $x$ and reach $y$ in a finite number of steps.
+\item The period of a state is the g.c.d. of the \# of times that a state can return to itself. A Markov process is aperiodic if all states have period $= 1$.
+\item A Markov process is homogeneous (or time-invariant) if $\forall n>1,\ P_{X_n|X_{n-1}}=P_{X_2|X_1}$. Hence, a homogeneous Markov process is completely defined by its initial state distribution $P_{X_1}$ and transition probability $P_{X_2|X_1}$.
+\item A steady-state distribution $\pi:\mathcal{X}\to[0, 1]$ is one such that the distribution does not change after one transition: $\pi(x)=\sum_{y\in X}\pi(y)P_{X_{n+1}|X_n}(x|y),\ \forall x\in\mathcal{X},\ n\in\N$. For a finite-alphabet homogeneous Markov process, steady-state distribution always exists, and it is unique if the process is irreducible.
+\item For a finite-alphabet homogeneous Markov process that is both irreducible and aperiodic, $\lim_{n\to\infty}\P\{X_{n+1} = y|X_1 = x\} = \pi(y),\ \forall x, y \in\mathcal{X}$, where $\pi(\cdot)$ is the unique steady-state distribution. If $P_{X_1} = \pi$, the Markov process becomes a stationary process.
+\end{enumerate}
+For a homogeneous, irreducible, and aperiodic Markov process $\{X_i\}$, $\H(\{X_i\})=\tilde\H(\{X_i\})=H(X_2|X_1)|_{P_{X_1}=\pi}=\suml_{x\in\mathcal{X}}\pi(x)H(X_2|X_1=x)$, where $\pi$ is the unique steady-state distribution.
+
+\section{Information for Continuous Distributions}
+
+The covariance of $n$-dimensional $X$ is $k$, then $h(X)\leq h(X^G)=\frac12\log((2\pi e)^n\det(k))$.

@@ -1,0 +1,10 @@
+\begin{pr}$ $
+\begin{enumerate}[a.]
+\item It takes $2RTT$ for each connection. Besides, it takes additional $\frac{(1+50\times5)\times8\text{ (kb)}}{1000\text{ (kbps)}}=2.008$ (s) $=2008$ (ms) to download the objects.\\
+$\so$ the total time it takes $=6\times2\times100+2008=3208$ (ms).
+\item It takes $2RTT$ for each connection. However, after transmitting the document object, the $5$ image objects can be transmitted parallelly, which can be seen as transmitting $\lceil\frac52\rceil=3$ image objects serially. Besides, it takes additional $\frac{(1+50\times6)\times8\text{ (kb)}}{1000\text{ (kbps)}}=2.008$ (s) $=2008$ (ms) to download the objects since the download speed is bounded by the bandwidth.\\
+$\so$ the total time it takes $=4\times2\times100+2008=2808$ (ms).
+\item It takes $RTT$ to send the request to the server. Then for each object, it takes $RTT$ time to be sent back. Besides, it takes additional $\frac{(1+50\times5)\times8\text{ (kb)}}{1000\text{ (kbps)}}=2.008$ (s) $=2008$ (ms) to download the objects.\\
+$\so$ the total time it takes $=(1+6)\times100+2008=2708$ (ms).
+\end{enumerate}
+\end{pr}

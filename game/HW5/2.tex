@@ -1,0 +1,24 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $(p^*, p^*)$ is NE.\\
+$\then\forall p,\ p^TAp^*\leq p^{*T}Ap^*$. -- (1)\\
+Suppose that $i$ is such that $(Ap^*)_i\geq(Ap^*)_j$ for all $j$.\\
+Let $e_i$ be the vector that is the $i$-th column of $I$.\\
+If $p^*_j\neq0$, then $p^{*T}Ap^*\leq e_i^TAp^*$, the equation holds only if $(Ap^*)_i=(Ap^*)_j$.\\
+But by (1), $e_i^TAp^*\leq p^{*T}Ap^*$, and the equation should hold.\\
+$\then(Ap^*)_j=(Ap^*)_i,\ \forall j$ s.t. $p^*_j\neq0$.\\
+$\then\forall j$ s.t. $p^*_j\neq0$, $f_j(p^*)=(Ap^*)_j=(Ap^*)_i=\suml_{k, p^*_k\neq0}p_k(Ap^*)_i=\suml_{k, p^*_k\neq0}p_k(Ap^*)_k=\bar f(p^*)$.\\
+$\so\forall j$. either $p^*_j=0$ or $f_j(p^*)-\bar f(p^*)=0$.\\
+$\then p'_j=0,\ \forall j$.\\
+$\so p^*$ is a rest point.
+\item $(e_1, e_1)$ is an asymptotic attractor.\\
+$\then$ for sufficiently small $\epsilon>0$, there is $p_1'\geq0$ for $p=e_1(1-\epsilon)+e_i\epsilon$ for all $i\neq1$.\\
+$p_1'=p_1(f_1(e_1)-\bar f(e_1))=p_1(f_1(e_1)-(1-\epsilon)f_1(e_1)-\epsilon f_i(e_1))\geq0$.\\
+$\cuz p_1=1-\epsilon>0$, there is $f_1(e_1)-(1-\epsilon)f_1(e_1)-\epsilon f_i(e_1)\geq0$.\\
+$\then\epsilon(f_1(e_1)-f_i(e_1))\geq0$.\\
+$\then f_1(e_1)\geq f_i(e_1),\ \forall i$.\\
+$\so e_1^TAe_1=f_1(e_1)=\suml_{i=1}^nq_if_1(e_1)\geq\suml_{i=1}^nq_if_i(e_1)=q^TAe_1,\ \forall q$.\\
+And $e_1^TA^Te_1=\suml_{i=1}^n(e_1^TA^T)_1q_i=\suml_{i=1}^nf_1(e_1)q_i\geq\suml_{i=1}^nf_i(e_1)q_i=\suml_{i=1}^n(e_1^TA^T)_iq_i=e_1^TA^tq,\ \forall q$.\\
+$\so(e_1, e_1)$ is a NE.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,15 @@
+\begin{pr}[21.11.13]
+Let $B(v)$ denote the bidding function with respect to the value $v$.\\
+The expected value a buyer gets is $P(B(v))(v-B(v))+(1-P(B(v)))(-B(v))=P(B(v))v-B(v)$, where $P(p):=\P\{$ this buyer wins $|$ the bid $=p\}$.\\
+$\cuz B(v)$ is increasing and every player use it, $P(B(v))=\P\{v>w\text{ for all the other players' values }w\}=v^{n-1}$.\\
+$\then P(p)=B^{-1}(p)^{n-1}$.\\
+$\then$ the expected value is $vC(B(v))^{n-1}-B(v)$.\\
+Let $\beta=B(v)$, and $C$ be the inverse of $B$.\\
+Let $\frac{d(vC(B(v))^{n-1}-B(v))}{d\beta}=\frac{d((n-1)vC(\beta)^{n-2}-\beta)}{d\beta}=0$.\\
+$\then(n-1)vC(\beta)^{n-2}C'(\beta)-1=0$.\\
+$\then(n-1)v^{n-1}\frac{d(C(\beta))}{d\beta}=1$.\\
+$\then(n-1)v^{n-1}\frac{dv}{dB(v)}=1$.\\
+$\then(n-1)v^{n-1}dv=dB(v)$.\\
+$\then B(v)=\int(n-1)v^{n-1}dv=\frac{n-1}nv^n+C$.\\
+$\cuz B(0)=0$, there is $B(v)=\frac{n-1}nv^n$.
+\end{pr}

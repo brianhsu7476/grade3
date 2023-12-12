@@ -1,0 +1,31 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $A=\matrix{
+0&6&-4\\
+-3&0&5\\
+-1&3&0
+}$.\\
+One can see that $(Aq)_1\leq(Aq)_2\iff6q_2-4q_3\leq-3q_1+5q_3\iff3q_1+6q_2\leq9-9q_1-9q_2\iff4q_1+5q_2\leq3$.\\
+$(Aq)_2\leq(Aq)_3\iff-3q_1+5q_3\leq-1q_1+3q_2\iff2q_1+3q_2\geq5-5q_1-5q_2\iff7q_1+8q_2\geq5$.\\
+$(Aq)_3\leq(Aq)_1\iff-1q_1+3q_2\leq6q_2-4q_3\iff3q_2+q_1\geq4-4q_1-4q_2\iff5q_1+7q_2\geq4$.\\
+When $(Aq)_1=(Aq)_2, (Aq)_2=(Aq)_3$, there is $q_1=q_2=\frac13$.\\
+$\so$ for NE that the row player does not play pure strategy, the column player plays $(\frac13, \frac13, \frac13)$.\\
+Similarly, for NE that the column player does not play pure strategy, the row player plays $(\frac13, \frac13, \frac13)$.\\
+$\so((\frac13, \frac13, \frac13), (\frac13, \frac13, \frac13))$ is the only NE that some player does not play pure strategy.\\
+When playing pure strategy, one can see that only $(s_1, s_1)$ is NE because if a player plays $s_3$, then it will switch to $s_2$ if another plays $s_3$, switch to $s_1$ is another plays $s_1, s_2$.\\
+$\then$ no player will play $s_3$ in NE.\\
+And $(s_2, s_2)$ will be switch to $(s_1, s_2)$ by the row player, $(s_1, s_2), (s_2, s_1)$ will be switch to $(s_1, s_1)$ by the column player, row player, respectively.\\
+$\so$ all NE are: $((1, 0, 0), (1, 0, 0)), ((\frac13, \frac13, \frac13), (\frac13, \frac13, \frac13))$.
+\item Let $e_1=(1, 0, 0)$.\\
+One can see that $Ae_1=(0, -3, -1)$.\\
+$\so\forall p\neq e_1,\ p^TAe_1<e_1^TAe_1$.\\
+$\so(e_1, e_1)$ is an evolutionarily stable strategy.\\
+Let $u=(\frac13, \frac13, \frac13)$.\\
+One can see that $Au=(\frac23, \frac23, \frac23)$.\\
+$\then\forall p\neq u,\ p^TAu=2=u^TAu$.\\
+However, consider $p=(0, \frac12, \frac12)$.\\
+$\then p^TAp=4>u^TAp$.\\
+$\so(u, u)$ is not an evolutionarily stable strategy.
+$\so$ the only evolutionarily stable strategy is $(e_1, e_1)$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,39 @@
+\section{Learning a Bit of Information}
+
+$\pi_{1|0}(\phi)$: false alarm, false positive, false rejection, type I error.\\
+$\pi_{0|1}(\phi)$: miss detection, false negative, false acceptance, type II error.\\
+$\A_\theta(\phi)$: acceptance region of $\H_\theta$.\\
+Likelihood ratio $LR(x):=\frac{P_1(x)}{P_0(x)}$, Log likelihood ratio $LLR(x):=\log LR(x)$.\\
+Likelihood ratio test (LRT) with parameter $\tau\in\R_0^+$ is $\phi^{LRT}_\tau(x):=\I\{LR(x)>\tau\}$.\\
+(Randomized) LRT $\phi_{\gamma, \tau}(x)=\begin{cases}
+1\text{, if }LR(x)>\tau\\
+\gamma\text{, if }LR(x)=\tau\\
+0\text{, if }LR(x)<\tau
+\end{cases}$.\\
+Neyman-Pearson problem: minimize $\pi_{0|1}(\phi)$ subject to $\pi_{1|0}(\phi)\leq\epsilon$.\\
+Neyman-Pearson: LRT is optimal.\\
+Generalized to $n$ i.i.d.: $\phi_{\eta_n, \gamma_n}^n(x^n)=\begin{cases}
+1/0\text{, if }\suml_{i=1}^nLLR(x_i)\gtrless\eta_n\\
+\gamma_n\text{, if }\suml_{i=1}^nLLR(x_i)=\eta_n
+\end{cases}$.\\
+Chernoff-Stein lemma: $\lim_{n\to\infty}-\frac1n\log\omega_{0|1}^*(n, \epsilon)=D(P_0\|P_1)$.\\
+Typical set:
+
+\section{Information Divergence}
+
+$D(P\|Q):=\suml_aP(a)\log\frac{P(a)}{Q(a)}$.\\
+$D(P\|Q)\geq0$, with equality $\iff P(x)=Q(x),\ \forall x$.\\
+$D(P_{Y|X}\|Q_{Y|X}|P_X):=\E_{X\sim P_X}[D(P_{Y|X}(\cdot|X)\|Q_{Y|X}(\cdot|X))]$.\\
+Chain rule for information divergence: $D(P_{X, Y}\|Q_{X, Y})=D(P_{Y|X}\|Q_{Y|X}|P_X)+D(P_X\|Q_X)$.\\
+$D(P_Y\|Q_Y)\leq D(P_{Y|X}\|Q_{Y|X}|P_X)$, with equality iff $D(P_{X|Y}\|Q_{X|Y}|P_Y)=0$.\\
+Donsker-Varadhan theorem: $D(P\|Q)=\max_{f:\mathcal{X}\to\R}E_{X\sim P}[f(X)]-\log\E_{X\sim Q}[2^{f(X)}]$ s.t. $E_{X\sim Q}[2^{f(X)}]<\infty$.
+
+\section{Error Exponents and Chernoff Information}
+
+$P_0, P_1$ are given.\\
+$P_\lambda(a):=\frac{P_0(a)^{1-\lambda}P_1(a)^\lambda}{\sum_bP_0(b)^{1-\lambda}P_1(b)^\lambda}$.\\
+Exercise 6: $D(P_\lambda\|P_0)$ is a continuous and strictly increasing function of $\lambda$ for $\lambda\in[0, 1)$.\\
+$P^*_e(\pi(=(\pi_0, \pi_1)), n):=\min_\phi\{\pi_0\pi_{1|0}^{(n)}(\phi)+\pi_1\pi_{0|1}^{(n)}(\phi)\}$.\\
+$\bar P^*_e(n):=\min_\phi\{\max\{\pi^{(n)}_{1|0}, \pi_{0|1}^{(n)}\}\}$.\\
+Chernoff Information: $CI(P_0, P_1):=\max_{\lambda\in(0, 1)}\underbrace{-\log\sum_{a\in\mathcal{X}}P_0(a)^{1-\lambda}P_1(a)^\lambda}_{f(\lambda)}$.\\
+Theorem 11: $\lim_{n\to\infty}\{-\frac1n\log P_e^*(\pi, n)\}=\lim_{n\to\infty}\{-\frac1n\log\bar P^*_e(n)\}=CI(P_0, P_1)$.

@@ -1,0 +1,11 @@
+\section{Channel Coding with a Cost Constraint}
+
+Constraint: $\frac1n\suml_{i=1}^nb(x_i)\leq B$.\\
+$(n, \lceil nR\rceil, B)$ code.\\
+$C(B):=\sup\{R|R:$ achievable $\}$.\\
+Channel coding for DMC with average input cost constraint: $C(B)=C^I(B):=\max_{P_X: \E_{P_X}[b(X)]\leq B}I(X; Y)$.\\
+The above also holds for CMC.\\
+$C^I(B)$ is non-decreasing, concave, continuous in $B$.\\
+AWGN (additive with Gaussian noise) channel: noise is Gaussian and independent of others, and constraint: $\frac1n\suml_{i=1}^n|x_i|^2\leq B$.\\
+The capacity of the AWGN channel with input power constraint $B$ and noise variance $\sigma^2$ is given by $C(B)=\sup_{X:E[|X^2|]\leq B}I(X; Y)=\frac12\log(1+\frac B{\sigma^2})$, which is achieved by $X\sim N(0, B)$.\\
+Proposition 2: $X^G\sim N(0, B),\ Y=X^G+Z$ where $\mathrm{Var}[Z]=\sigma^2,\ Z\perp X^G$, then $I(X^G; Y)\geq\frac12\log(1+\frac B{\sigma^2})$.

@@ -1,0 +1,30 @@
+\begin{pr}[9.8.12]$ $
+\begin{enumerate}[(a)]
+\item Let $p=p_1, p_2=1-p$.\\
+$\cuz{p_1'}_{p_1=1}=0, {p_2'}_{p_2=0}=0$.\\
+$\so(1, 0)$ (that is, $p=1$) is always a rest point.\\
+When $a\neq c$, for sufficiently small $\epsilon>0$, for $p>1-\epsilon$, there is $p(a-c)+(1-p)(b-d)>0$ iff $a-c>0$.\\
+When $a=c$, there is $p(a-c)+(1-p)(b-d)>0$ iff $b-d>0$.\\
+$\then p_1'(p)>0$ for any sufficiently small $\epsilon>0$ iff $a-c>0$ or ($a=c$ and $b-d>0$).\\
+$\then1\in(1-\epsilon, 1]\subseteq\mathrm{int}(\{p:\lim_{t\to\infty}p(t)=1\})$.\\
+Otherwise, if $a-c<0$ or $a=c$ and $b-d<0$, then $p_1'(p)<0$ for any sufficiently small $\epsilon>0$, then $\lim_{t\to\infty}p\neq1$.\\
+Otherwise, if $a=c$ and $b=d$, then $p_1'(p)=0$, and $\lim_{t\to\infty}p\neq1$ if $p\neq1$.\\
+$\so$ it is an asymptotic attractor iff $a-c>0$ or ($a=c$ and $b-d>0$).
+\setcounter{enumi}{3}
+\item Since if $p_1'=p_2'=0$ but $p_1\neq0$ or $1$, then $p_1=\frac{d-b}{a-c+d-b}$.\\
+$\then(\frac{d-b}{a-c+d-b}, 1-\frac{d-b}{a-c+d-b})$ is a rest point iff $\frac{d-b}{a-c+d-b}\in(0, 1)$ iff $\frac{d-b}{a-c+d-b}>0$ and $\frac{a-c}{a-c+d-b}>0$ iff $(a-c)(d-b)\geq0$ iff $a\geq c$ and $d\geq b$ or $a\leq c$ and $d\leq b$.
+\item Note that when $a=c$, $\tilde p_1=1$, which is the case of (a).\\
+When $b=d$, $\tilde p_1=0$, which is the case of (b).\\
+$\so$ in this problem, we can assume that $a\neq c$, and $b\neq d$.\\
+If ($a>c$ and $d<b$) or ($a<c$ and $d>b$), then by (d), $(\tilde p_1, 1-\tilde p_1)$ will not be an asymptotic attractor.\\
+Otherwise there are two cases: case 1: $a<c$ and $d<b$; case 2: $a>c$ and $d>b$.\\
+${p_1'}_{p_1=\tilde p_1+\epsilon}=p_1(1-p_1)\{\epsilon(a-c)-\epsilon(b-d)\}=p_1(1-p_1)(a+b-c-d)\epsilon$.\\
+If $a-c-b+d<0$ (which is case 1), then $p_1'<0$ for $\epsilon>0$, and $p_1'>0$ for $\epsilon<0$.\\
+$\then(\tilde p_1-\epsilon, \tilde p_1+\epsilon)\subseteq\{p:\lim_{t\to\infty}p=\tilde p_1\}$ for some $\epsilon>0$.\\
+$\then\tilde p_1$ is an asymptotic attractor in this case.\\
+If $a-c-b+d>0$ (which is case 2), then $p_1'>0$ for $\epsilon>0$, and $p_1'<0$ for $\epsilon<0$.\\
+$\then\lim_{t\to\infty}p\neq\tilde p_1$ for $p\neq p_1$.\\
+$\so\tilde p_1$ is not an asymptotic attractor in this case.\\
+$\so\tilde p_1$ is an asymptotic attractor iff $a<c$ and $d<b$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,18 @@
+\section{Lossy Source Coding}
+
+$d(s^n, \hat s^n):=\frac1n\suml_{i=1}^nd(s_i, \hat s_i)$, where $d(s, \hat s):=(s-\hat s)^2$.\\
+$(R, D)$ achievable: $\exists$ sequence of $(n, \lfloor nR\rfloor)$ codes s.t. $\limsup_{n\to\infty}D^{(n)}\leq D$.\\
+Rate distortion function $R(D):=\inf\{R|(R, D):$ achievable $\}$.\\
+$D_{\min}:=\min_{\hat s(s)}\E[d(S, \hat s(S))]$.\\
+$D_{\max}:=\min_{\hat s}\E[d(S, \hat s)]$.\\
+$R(D)=R^I(D):=\min_{P_{\hat S|S}:\E[d(S, \hat S)]\leq D}I(S; \hat S)$.\\
+$R^I(D_{\min})\leq H(S), R^I(D)=0$ if $D\geq D_{\max}$.\\
+$\mathrm{Ber}(p)$ source: $R(D)=\begin{cases}
+H_b(p)-H_b(D)\text{, if }0\leq D\leq\min\{p, 1-p\}\\
+0\text{, if }D>\min\{p, 1-p\}
+\end{cases}$.\\
+Gaussian source: $R(D)=\begin{cases}
+\frac12\log(\frac{\sigma^2}D)\text{, if }0\leq D\leq\sigma^2\\
+0\text{, if }D>\sigma^2
+\end{cases}$.\\
+$R(D)\leq R^G(D)$.

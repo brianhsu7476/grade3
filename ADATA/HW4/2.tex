@@ -1,0 +1,70 @@
+\section*{(a)}
+\noindent
+Claim: All clauses can be satisfied $\iff$ for all variables $x$, either $x$ can't reach $\sim x$ or $\sim x$ can't reach $x$.\\
+Proof:\\
+($\Rightarrow$):\\
+Since $a\lor b$ is true $\iff\sim a\to b$ is true, and if $a\to b$ and $b\to c$, then $a\to c$.\\
+$\therefore a$ can reach $b$ on the graph means that $a\to b$ is true.\\
+If $x$ can reach $\sim x$, then $\sim x\lor\sim x$ (which is $x\to\sim x$) is true.\\
+$\Rightarrow x=0$.\\
+Similarly, if $\sim x$ can reach $x$, then $x=1$.\\
+$\therefore$ either $x$ can't reach $\sim x$ or $\sim x$ can't reach $x$.\\
+($\Leftarrow$):\\
+Consider the DAG of SCC.\\
+Repeat choosing SCC with no out degree and assign all vertices in the SCC with true, and then remove that SCC from the DAG until we can't do that ($a$ is assigned to be true but $\sim a$ is in the SCC). Then we assign all left SCC with false.\\
+Proof of $a, \sim a$ won't be false simultanously: if $a$ can't be true, it means that there is $b$ where $a$ can walk to $b$ such that $b$ is false and it's because of $\sim b$ is assigned true. Since this graph is symmetric ($a\to b\iff\sim b\to\sim a$), $\sim b$ can walk to $\sim a$ and therefore $\sim a$ has been assigned true.
+
+It is equivalent to check if for each $a$, $\sim a$ is in the same SCC or not by the claim, which can be done by using Kosaraju's algorithm to find all SCC (with time complexity $O(n\log n)$) and then check the SCC that $a$, $\sim a$ are in for each $a$ (with time complexity $O(n)$).\\
+This is an algorithm that runs in polynomial time, and therefore $2$-SAT is in P.
+
+\section*{(b)}
+
+\subsection*{(b-1)}
+
+Let $\phi$ be any $2$-CNF formula, and $n(\phi):=$ the number of variables in $\phi$.\\
+Let $\phi'$ be a $2$-CNF with $n(\phi)^{1000}$ variables, and $\phi'$'s clauses $:=$ the union of the clauses in $\phi$ and $\{x\lor\sim x:$ for all variables $x$ of $\phi'\}$.\\
+One can see that $\phi'\in S_{x^{0.001}}$ by numbering the first $n(\phi)$ variables being those in $\phi$.\\
+Since $x\lor\sim x$ is always true, the number of satisfied clauses in $\phi=$ the number of satisfied clauses in $\phi'-n(\phi)^{1000}$.\\
+$\therefore(\phi, k)\in$ MAX-$2$-SAT $\iff(\phi', k+n(\phi)^{1000})\in$ MAX-$f$-CondSAT.\\
+Also, $\phi'$ can be constructed from $\phi$ in complexity $n(\phi)^{1000}$, which is polynomial complexity.\\
+$\therefore(\phi, k)\to(\phi', k+n(\phi)^{1000})$ is a polynomial reduction. Since MAX-$2$-SAT is NP-complete, MAX-$f$-CondSAT is also NP-complete.
+
+\subsection*{(b-2)}
+
+Sort all clauses by the maximum index of its variables.\\
+Let $k:=\lfloor f(n)\rfloor$, and $j=(j_kj_{k-1}\cdots j_0)_2$.\\
+Let $dp[i][j]:=$ the maximum number of clauses with both its variables in $\{a_1, a_2, \dots, a_i\}$ are satisfied given the condition $a_{i-l}=j_l,\ \forall0\leq l\leq k$.\\
+$dp[i][j]=\max(dp[i-1][j/2], dp[i-1][j/2+1])+$ (the number of clauses containing $a_i, a_{i-l}$ are satisfied when $a_i=j_0$ and $a_{i-l}=j_l$ for all $l$).\\
+After calculating the values of all $dp[i][j]$ in the order $i=1$ to $n$, $j=0$ to $2^{k+1}-1$, find the maximum value of $dp[n][j]$ among all $j$.\\
+The time complexity of calculating a single $dp[i][j]$ is $O(k)$.\\
+Suppose that $f(n)<c\log n$ for all $n$.\\
+$\therefore$ the total time complexity $=O(n\times2^k\times k)=O(n\times2^{c\log n}c\log n)=O(n^{c+1}\log n)$, which is a polynomial time complexity.
+
+\section*{(c)}
+
+\subsection*{(c-1)}
+
+Suppose that the variables used in $\phi$ are $a_1, a_2, \dots, a_n$.\\
+Let $\phi'$ contains boolen variables $a_{i, j}$ for $i\in[n]$ and $j\in[c]$.\\
+For all $i$ and $j_1\neq j_2$, add the clause $\sim a_{i, j_1}\lor\sim a_{i, j_2}$ to $\phi'$. These clauses are called type 1.\\
+For each clause $a_i=b_1\lor a_j=b_2$ of $\phi$, add the clause $a_{i, b_1}\lor a_{j, b_2}$ to $\phi'$. These clauses are called type 2.\\
+For an assignment $a_1, a_2, \dots, a_n$ such that $\phi$ is satisfied, set $a_{i, j}=\I\{a_i=j\}$. One can see that the clauses in type 2 are satisfied, and the clauses in type 1 are satisfied because $a_i=j_1, a_i=j_2$ won't be true simultanously for $j_1\neq j_2$.\\
+For an assignment of all $a_{i, j}$ such that $\phi'$ is satisfied, set $a_i=\begin{cases}
+j\text{, if }\exists j\text{ s.t. }a_{i, j}\text{ is true}\\
+1\text{, otherwise}
+\end{cases}$.\\
+Such existence of $j$ is unique because $\sim a_{i, j_1}\lor\sim a_{i, j_2}$ for all $j_1\neq j_2$. If $a_{i, j}$ is false for all $j$, then assigning $a_{i, 1}=1$ won't change any clause of $\phi'$ to false.\\
+Since $a_{i, b_1}\lor a_{j, b_2}$ is true implies $a_i=b_1\lor a_j\lor b_2$ is true, all clauses in $\phi$ are satisfied.\\
+$\therefore\phi\in c-$GenSAT$\iff\phi'\in2$-SAT.\\
+Also, constructing $\phi'$ from $\phi$ takes polynomial time complexity.\\
+$\therefore\phi\to\phi'$ is a polynomial reduction. Since $2$-SAT is in P, $c$-GenSAT is also in P.
+
+\subsection*{(c-2)}
+
+Let's have a reduction from $3$-colorability problem to $c$-GenSetSAT.\\
+For a graph $G$ with vertices $v_1, v_2, \dots, v_n$, construct a correspond formula $\phi$ with variables $a_1, a_2, \dots, a_n$. If $v_iv_j\in G$, add the three clauses $a_i\in\{1\}\lor a_j\in\{2, 3\}, a_i\in\{2\}\lor a_j\in\{3, 1\}, a_i\in\{3\}\lor a_j\in\{1, 2\}$ to $\phi$.\\
+One can see that the above three clauses are all satisfied iff $a_i\neq a_j$ and $a_i, a_j\in\{1, 2, 3\}$.\\
+Therefore, $\phi$ is true iff $a_i\neq a_j$ for all edges $v_iv_j$ iff we can color $v_i$ in $a_i$ for some $a_i$.\\
+$\therefore G$ can be $3$-colored iff $\phi\in3$-GenSetSAT.\\
+Also, constructing $\phi$ from $G$ takes polynomial time complexity.\\
+$\therefore G\to\phi$ is a polynomial reduction. Since $c$-colorability problem is NP-complete, $3$-GenSetSAT is also NP-complete.

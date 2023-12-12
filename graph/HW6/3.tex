@@ -1,0 +1,24 @@
+\setcounter{pr}{4}
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Consider $G=K_{n, n}$. $dg(G)\geq\delta(G)\geq n$, but $\chi(G)=2$.\\
+$\forall f,\ f(2)$ is a constant, hence $\exists n$ s.t. $dg(G)\geq n>f(\chi(G))$.\\
+$\so\rho_1$ is not $\rho_2$-bounded.
+\item Consider $G$ where $V(G)=\{v_1, v_2, \dots, v_{n(n-1)}\}$ and $E(G)=\{v_iv_j|1\leq i<j\leq n\}$.\\
+Since the induced subgraph of $\{v_1, \dots, v_n\}$ is $K_n$, $\chi(G)\geq n$.\\
+$\bar d(G)=\frac{(n-1)\times n}{n(n-1)}=1$.\\
+$\forall f,\ f(1)$ is a constant, hence $\exists n$ s.t. $\chi(G)\geq n>f(\bar d(G))$.\\
+$\so\rho_1$ is not $\rho_2$-bounded.
+\item Consider $G=K_{n, n}$. $\bar d(G)=n$, but $\chi(G)=2$.\\
+$\forall f,\ f(2)$ is a constant, hence $\exists n$ s.t. $\bar d(G)=n>f(\chi(G))$.\\
+$\so\rho_1$ is not $\rho_2$-bounded.
+\item By problem 2 of HW2, there exists a subgraph of $G$ whose minimum degree is at least $\frac12\bar d$.\\
+$\so dg(G)\geq\frac12\bar d(G)$.\\
+$\then$ consider $f(x)=2x$ (which is increasing), since $\bar d(G)\leq2dg(G)$ always holds, $\rho_1$ is $\rho_2$-bounded.
+\item Consider $G$ where $V(G)=\{v_1, v_2, \dots, v_{n(n-1)}\}$ and $E(G)=\{v_iv_j|1\leq i<j\leq n\}$.\\
+Since the induced subgraph of $\{v_1, \dots, v_n\}$ is $K_n$, $dg(G)\geq n-1$.\\
+$\bar d(G)=\frac{(n-1)\times n}{n(n-1)}=1$.\\
+$\forall f,\ f(1)$ is a constant, hence $\exists n$ s.t. $dg(G)\geq n-1>f(\bar d(G))$.\\
+$\so\rho_1$ is not $\rho_2$-bounded.
+\end{enumerate}
+\end{pr}

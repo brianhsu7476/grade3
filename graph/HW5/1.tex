@@ -1,0 +1,28 @@
+\setcounter{pr}{0}
+\begin{pr}$ $\\
+($\then$):\\
+Lemma 1: Let $G$ be a graph, and $G_1, G_2$ be induced subgraph of $G$ such that $V(G_1), V(G_2)$ is a partition of $V(G)$. Then $q(G)\leq q(G_1)+q(G_2)$.\\
+Proof: $q(G_1)+q(G_2)$ is the total number of odd components of $G_1$ and $G_2$, which is the number of odd components after removing all edges between $V(G_1)$ and $V(G_2)$ in $G$. Let $C$ be an odd component of $G$. It will be decomposed into several components (denote this set of components as $D_C$) after removing all edges between $V(G_1)$ and $V(G_2)$, since the sum of several even numbers is even, there should be at least one component in $D_C$ whose size is odd.\\
+$\then q(G)=\sum_{C\text{ is an odd component in }G}1\leq\sum_{C\text{ is an odd component in }G}$ the number of odd components in $D_C=q(G_1)+q(G_2)$, which finishes the proof of Lemma 1.
+
+Suppose that $G$ has a matching $M$ covering all but at most $k$ vertices. Let $U$ denote the induced subgraph of $G$ of the set of vertices that are not covered by $M$, and $H:=G\setminus U$.\\
+By the definition, $|U|\leq k$.\\
+By Tutte's theorem, $\forall T\subseteq V(H)$, $q(H\setminus T)\leq|T|$. -- (1)\\
+$\then\forall S\subseteq V(G)$, let $T:=S\cap H$, $q(G\setminus S)=q((H\cup U)\setminus S)=q((H\setminus S)\cup(U\setminus S))=q((H\setminus T)\cup(U\setminus S))\overtext{Lemma 1}\leq q(H\setminus T)+q(U\setminus S)\overtext{(1)}\leq|T|+q(U\setminus S)\overset{U\setminus S\text{ has at most }|U|\text{ components}}\leq|T|+|U|\leq|T|+k=|S\setminus U|+k\leq|S|+k$.
+
+($\Leftarrow$):\\
+Suppose that $\forall S\subseteq V(G)$, there is $q(G\setminus S)\leq|S|+k$.\\
+Let $H$ be a graph where $V(H)=V(G)\cup\{v_1, v_2, \dots, v_k\}$ ($v_1, v_2, \dots, v_k\notin V(G)$, and $E(H)=E(G)\cup\{v_iv_j|1\leq i<j\leq k\}\cup\{uv_i|u\in V(G), 1\leq i\leq k\}$.\\
+Let $T\subseteq V(H)$, and $S=T\setminus\{v_1, v_2, \dots, v_k\}$.\\
+
+Case 1: $\{v_1, v_2, \dots, v_k\}\subseteq T$.\\
+$q(H\setminus T)=q(G\setminus S)\leq|S|+k=|T|$.
+
+Case 2: $\exists i$ s.t. $v_i\notin T$.\\
+Since $v_i$ connects to all vertices in $H$ by definition, it connects to all vertices in $H\setminus T$, which implies $q(H\setminus T)\leq1\leq|T|$.
+
+Therefore, $q(H\setminus T)\leq T$ always holds.\\
+By Tutte's theorem, $\exists$ a perfect matching $M$ of $H$.\\
+Let $M'=M\cap G$, and we can see that a vertex $u$ is not covered by $M'$ in $G\iff u$ matches to $v_i$ in $M$ for some $i$.\\
+Since there is at most $k$ vertices in $G$ matches to $\{v_1, v_2, \dots, v_k\}$ in $M$, in $M'$ there is at most $k$ vertices in $G$ that are not covered, which finishes the proof.
+\end{pr}

@@ -1,0 +1,18 @@
+\setcounter{pr}{5}
+\begin{pr}
+Consider $G$ with bipartition $V(G)=A\cup B$.\\
+$A=\{u_i|i\in[n]\}, B=\{v_i|i\in[n]\}$, where $u_i\in A, v_j\in B$ are adjacent $\iff$ the $i$-th column of $L$ does not contain $j$.\\
+$\cuz$ the size of a row is $n$, each element of $[n]$ appears exactly once in every row.\\
+$\then$ there are $r$ $j$s for all $j\in[n]$.\\
+$\cuz$ no column contains two $j$s.\\
+$\then\deg(v_j)=n-$ the number of columns that contain $j=n-r$.\\
+$\cuz$ every column contains $r$ different elements.\\
+$\so\deg(u_i)=n-r\forall i\in[n]$.\\
+$\so G$ is $k$-regular.\\
+By corollary 5.10 in class, $G$ has a perfect matching, and suppose that $M$ is a perfect matching.\\
+Let $f(j)$ denote the index of the other endpoint of the edge containing $v_j$ in $M$ (that is, $u_{f(j)}v_j\in M$).\\
+Put $j$ at the intersection of the $f(j)$-th column and the $(r+1)$-th row for all $j\in[n]$.---(1)\\
+By the definition of $G$, since $u_{f(j)}v_j\in M\subseteq E(G)$, $j$ does not appears in the $f(i)$-th column of $L$.\\
+Also, since $M$ is a perfect matching, $f$ is a bijection, which means the $(r+1)$-th row contains each element in $[n]$ exactly once.\\
+$\so$ (1) is a valid way to extend $L$.
+\end{pr}

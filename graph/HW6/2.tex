@@ -1,0 +1,24 @@
+\setcounter{pr}{2}
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $f_1$ be $G_1$'s proper $\chi(G_1)$-coloring, $f_2$ be $G_2$'s proper $\chi(G_2)$-coloring.\\
+Consider the $\chi(G_1)+\chi(G_2)$-coloring $f$ on $H$:\\
+$f(v):=\begin{cases}
+f_1(v)\text{, if }v\in V_1\\
+f_2(v)+\chi(G_1)\text{, if }v\in V_2
+\end{cases}$.\\
+One can see that if $uv\in E_1$, then $f(u)=f_1(u)\neq f_1(v)=f(v)$; if $uv\in E_2$, then $f(u)=f_2(u)+\chi(G_1)\neq f_2(v)+\chi(G_1)=f(v)$; if $uv\in\{u'v': u'\in V_1, v'\in V_2\}$, WLOG suppose that $u\in V_1$, then $f(u)=f_1(u)\leq\chi(G_1)<\chi(G_1)+1\leq f_2(v)+\chi(G_1)=f(v)$.\\
+$\so f$ is a proper $\chi(G_1)+\chi(G_2)$-coloring, which means $\chi(H)\leq\chi(G_1)+\chi(G_2)$.\\
+On the other hand, if one use at most $\chi(G_1)+\chi(G_2)-1$, since the vertices in $V_1$ will be colored in at least $\chi(G_1)$ colors, and the vertices in $V_2$ will be colored in at least $\chi(G_2)$ colors, there exists $u\in V_1$ and $v\in V_2$ such that $u, v$ have the same color. But $uv\in E(H)$, which is not a proper coloring.\\
+$\so\chi(H)\geq\chi(G_1)+\chi(G_2)$.\\
+$\so\chi(H)=\chi(G_1)+\chi(G_2)$.
+\item Let $f_1$ be $G_1$'s proper $\chi(G_1)$-coloring, $f_2$ be $G_2$'s proper $\chi(G_2)$-coloring.\\
+Consider the $\chi(G_1)\chi(G_2)$-coloring $f$ on $H$:\\
+$f(v):=f_1(v)\chi(G_2)+f_2(v)$.\\
+Since $f_2(v)\in[\chi(G_2)]$, there is $f(u)=f(v)\iff(f_1(u), f_2(u))=(f_1(v), f_2(v))$.\\
+If $uv\in E(H)$, then $uv\in E_1$ or $uv\in E_2$ must hold.\\
+$\then f_1(u)\neq f_1(v)$ or $f_2(u)\neq f_2(v)$ must hold.\\
+$\then f(u)\neq f(v)$ must hold, which means $f$ is a proper coloring.\\
+$\so\chi(H)\leq\chi(G_1)\chi(G_2)$.
+\end{enumerate}
+\end{pr}

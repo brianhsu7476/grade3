@@ -1,0 +1,21 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $(p_1, p_2, p_3)$ is a rest point.\\
+$\then p_1'=p_2'=p_3'=0$.\\
+If $p_1=p_2=p_3$, then $p_1'=p_2'=p_3'=0$, which is a rest point.\\
+Suppose that $p_1=p_2=p_3$ does not hold.\\
+Without loss of generality, suppose that $p_1\neq p_2$.\\
+$p_3(p_1-p_2)=p_3'=0\then p_3=0$.\\
+$\then p_1p_2=p_1'=0, p_2(-p_1)=p_2'=0$.\\
+$\then p_1=0$ or $p_2=0$.\\
+$\so(p_1, 0, 0), (0, p_2, 0), (0, 0, p_3)$ are also rest points.\\
+$\so$ all rest points are $(p, p, p), (p, 0, 0), (0, p, 0), (0, 0, p)$.
+\item $\frac{d(p_1p_2p_3)}{dt}=p_1'p_2p_3+p_1p_2'p_3+p_1p_2p_3'=(p_1p_2p_3)\left(\frac{p_1'}{p_1}+\frac{p_2'}{p_2}+\frac{p_3'}{p_3}\right)=(p_1p_2p_3)(p_2-p_3+p_3-p_1+p_1-p_2)=0$.
+\item Since $\frac{d(p_1p_2p_3)}{dt}=0$, $\lim_{t\to\infty}(p_1(t), p_2(t), p_3(t))=(\sqrt[3]{p_1p_2p_3}, \sqrt[3]{p_1p_2p_3}, \sqrt[3]{p_1p_2p_3})$ for $p_1p_2p_3\neq0$ (where $p_i:=p_i(0)$ for convenience).\\
+$\lim_{t\to\infty}(p_1(t)+\epsilon, p_2(t), p_3(t))\neq(\sqrt[3]{p_1p_2p_3}, \sqrt[3]{p_1p_2p_3}, \sqrt[3]{p_1p_2p_3})$ for any sufficiently small $\epsilon$.\\
+$\so\mathrm{int}((p, p, p)$'s BoA$)=\emptyset$ for $p\neq0$.\\
+Since $\forall p_1, p_2, p_3$ s.t. $p_1p_2p_3=0$, for any sufficiently small $\epsilon$, $(p_1+\epsilon)(p_2+\epsilon)(p_3+\epsilon)\neq0$.\\
+$\so\mathrm{int}((p, 0, 0)$'s BoA$)=\mathrm{int}((0, p, 0)$'s BoA$)=\mathrm{int}((0, 0, p)$'s BoA$)=\emptyset$.\\
+$\so$ there is no asymptotic attractor.
+\end{enumerate}
+\end{pr}

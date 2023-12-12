@@ -1,0 +1,21 @@
+\setcounter{pr}{2}
+\begin{pr}
+Let $m:=\frac n2$.\\
+Consider the graph $K_{m+1, m-1}$ (where $V(K_{m-1, m+1})$ has bipartition $A\cup B$, and $|A|=m+1$), it does not have a perfect matching because $|N_S|<|S|$ for $S=A$ by Hall theorem.\\
+$\so d(n)>\delta(K_{m+1, m-1})=m-1$.\\
+Claim: $d(n)=m$.\\
+Proof: %We'll prove the claim by showing that for $G$ with $\delta(G)\geq m$, $q(G\setminus S)\leq|S|$ for all $S\subseteq V(G)$, and therefore by Tutte theorem, $G$ has a perfect matching.\\
+Let $G$ be a graph with $\delta(G)\geq m$, and $S\subseteq V(G)$.\\
+For $|S|>m$, $q(G\setminus S)\leq|V(G\setminus S)|\leq m-1\leq|S|$.\\
+For $|S|\leq m$:\\
+The size of a connected component in $G\setminus S$ is at least $\delta(G\setminus S)+1$, because every vertex is connected to at least $\delta(G\setminus S)$ vertices.\\
+$\so$ the number of connected components of $G\setminus S\leq\lfloor\frac{n-|S|}{\delta(G\setminus S)+1}\rfloor\overset{\delta(G\setminus S)\geq\delta(G)-|S|\geq m-|S|}\leq\lfloor\frac{2m-|S|}{m-|S|+1}\rfloor$.\\
+Let $f(x):=\frac{2m-x}{(m-x+1)x}$ for $x\in(0, m+1)$ (so that $(m-x+1)x>0$).\\
+$f(x)\leq1\iff2m-x\leq(m-x+1)x\iff x^2-(m+2)x+2m\leq0\iff(x-m)(x-2)\leq0\iff2\leq x\leq m$.---(1)\\
+$\then\frac{q(G\setminus S)}{|S|}\leq\frac{\lfloor\frac{2m-|S|}{m-|S|+1}\rfloor}{|S|}\begin{cases}
+=\lfloor\frac{2m-1}m\rfloor=1\text{, if }x=1\\
+\leq\frac{2m-|S|}{(m-|S|+1)|S|}\overtext{(1)}\leq1\text{, if }x\geq2
+\end{cases}$.\\
+$\then q(G\setminus S)\leq|S|$.\\
+$\so$ by Tutte theorem, $G$ has a perfect matching, which finishes the proof.
+\end{pr}
