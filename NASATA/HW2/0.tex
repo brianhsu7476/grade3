@@ -1,0 +1,59 @@
+\section{Shell Scripting}
+
+這題的目標是要寫出一個程式\texttt{compare.sh}，比較兩個檔案或兩個目錄的差別。
+
+\subsection{參數檢查}
+
+\begin{lstlisting}
+usage: ./compare.sh [OPTION] <PATH A> <PATH B>
+options:
+-a: compare hidden files instead of ignoring them
+-h: output information about compare.sh
+-l: treat symlinks as files instead of ignoring them
+-n <NAME>: compare only files whose paths contain <NAME> as a substring
+-r: compare directories recursively
+\end{lstlisting}
+
+指令：
+\begin{enumerate}
+\item 所有symlink皆視為非目錄。
+\item 如果\texttt{[OPTION]}中有\texttt{-r}，則\texttt{<PATH A>}、\texttt{<PATH B>}都要是目錄，否則都不能是目錄。
+\item 如果\texttt{[OPTION]}中有\texttt{-a}或\texttt{-n}，則必需有\texttt{-r}。
+\item \texttt{<PATH A>}、\texttt{<PATH B>}需出現在所有\texttt{[OPTION]}的後面。
+\item 不能有方框中沒有定義的參數。
+\item 所有方框中的參數皆需照其定義的方式出現，例如\texttt{-n}後面要接額外的字串\texttt{<NAME>}，而\texttt{-l}後面不能有額外的字串。
+\end{enumerate}
+
+如違反上述規定，或是\texttt{[OPTION]}中有\texttt{-h}，則輸出方框中的內容並結束執行，否則不能輸出方框中的內容並且繼續執行程式。這個小題只要能在對的時機輸出方框中的內容即可得分。
+
+\subsection{比較檔案}
+
+這個小題的指令皆為
+\begin{lstlisting}
+./compare.sh <PATH A> <PATH B>
+\end{lstlisting}
+這個型式，在判斷參數合法之後，如兩檔案內容一樣，則什麼都不需要輸出，否則需輸出
+\begin{lstlisting}
+changed ${x}%
+\end{lstlisting}
+其中\texttt{\$\{x\}}計算方法如下：
+\begin{enumerate}
+\item 如果\texttt{<PATH A>}或\texttt{<PATH B>}並非文字檔（即兩者使用\texttt{diff}指令比較之後會輸出\texttt{binary files <PATH A> <PATH B> differ}），則\texttt{\$\{x\}}$:=100$。
+\item 否則設要在\texttt{<PATH A>}中刪除$a$行保留$c$行插入$b$行會變成\texttt{<PATH B>}，\texttt{\$\{x\}}$:=\lfloor\frac{100\max(a, b)}{\max(a, b)+c}\rfloor$的最小可能值。
+\end{enumerate}
+舉例來說設兩個檔案的內容分別為
+\begin{lstlisting}
+hello
+world
+and
+hello
+kitty
+\end{lstlisting}
+以及
+\begin{lstlisting}
+hi
+world
+and
+kitty
+\end{lstlisting}
+可以發現當$(a, b, c)=(2, 1, 3)$時，$\lfloor\frac{100\max(a, b)}{\max(a, b)+c}\rfloor$有最小可能值$40$，所以\texttt{\$\{x\}}$=40$。

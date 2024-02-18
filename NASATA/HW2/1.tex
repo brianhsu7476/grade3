@@ -1,0 +1,23 @@
+\subsection{比較目錄}
+
+\newcommand{\A}{\texttt{\$\{A\}}}
+\newcommand{\B}{\texttt{\$\{B\}}}
+這個小題\texttt{[OPTION]}只會出現\texttt{-r}，在判斷參數合法之後，對於每個字串\texttt{<PATH C>}，令\A$:=$\texttt{<PATH A>/<PATH C>}，\B$:=$\texttt{<PATH B>/<PATH C>}，需照以下規則輸出：
+\begin{enumerate}
+\item 若\A 、\B 皆不存在，什麼都不輸出。
+\item 若\A 存在\B 不存在，輸出
+\begin{lstlisting}
+delete <PATH C>
+\end{lstlisting}
+\item 若\B 存在\A 不存在，輸出
+\begin{lstlisting}
+create <PATH C>
+\end{lstlisting}
+\item 若\A 、\B 皆存在，且兩檔案內容相同，則什麼都不輸出。
+\item 若\A 、\B 皆存在，且兩檔案內容不同，則輸出
+\begin{lstlisting}
+<PATH C>: ${C}
+\end{lstlisting}
+其中\texttt{\$\{C\}}為\texttt{./compare.sh} \A\ \B 的輸出。
+\end{enumerate}
+而這些輸出的順序，需照\texttt{<PATH C>}的字典序由小到大輸出。

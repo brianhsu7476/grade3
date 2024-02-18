@@ -1,0 +1,7 @@
+\subsection{隱藏的檔案與 Symlink}
+
+這個小題\texttt{[OPTION]}只會出現\texttt{-r}、\texttt{-a}、\texttt{-l}。若\texttt{[OPTION]}中有\texttt{-a}，則將隱藏的檔案視為存在，否則視為不存在；若\texttt{[OPTION]}中有\texttt{-l}，則將 symlink 視為檔案，否則視為不存在。其中 symlink 的內容定義成是其指向的路徑，如果兩個 symlink 同時是絕對路徑或同時是相對路徑，且其絕對/相對路徑一樣，則視為一樣，否則視為$100\%$不一樣。
+
+\subsection{僅比較特定的檔案}
+
+這個小題\texttt{[OPTION]}沒有任何限制。若\texttt{[OPTION]}中有\texttt{-n <NAME>}，則一個檔案\texttt{<PATH A>/<PATH C>}或\texttt{<PATH B>/<PATH C>}視為存在，若且唯若\texttt{<PATH C> =~ <NAME>}。

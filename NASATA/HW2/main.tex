@@ -1,0 +1,147 @@
+%\documentclass[12pt, a4paper,oneside]{book}
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,mathrsfs}
+%\usepackage{yhmath}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{type1cm}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage[square, comma, numbers, super, sort&compress]{natbib}
+\usepackage[unicode=true, pdfborder={0 0 0}, bookmarksdepth=-1]{hyperref}
+\usepackage[noabbrev,capitalize]{cleveref}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{enumerate}
+\usepackage{tikz-cd}
+\usepackage{centernot}
+\usepackage{cases}
+\usepackage{indentfirst}
+\usepackage{tkz-berge}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows, petri, topaths}
+
+%\usepackage{minted, listings}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily,
+    breaklines,
+    backgroundcolor = \color{lightgray},
+    %numbers=left
+}
+%\newminted[cpp]{c++}{
+    %frame=single,
+    %frame=lines,
+    %framesep=0mm,
+    %breaklines,
+    %linenos,
+    %mathescape,
+    %xleftmargin=1cm,
+    %baselinestretch=1.6,
+    %style=manni,
+    %fontsize=,
+%}
+
+\usepackage{xeCJK}
+    \setCJKmainfont[AutoFakeBold=6,AutoFakeSlant=.2]{AR PL KaitiM Big5}
+    \XeTeXlinebreaklocale "zh"
+    \XeTeXlinebreakskip = 0pt plus 1pt
+
+\usepackage{tocloft}
+    \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    \setcounter{tocdepth}{1}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\setlength{\headheight}{15pt}
+\setlength{\droptitle}{-1.5cm}
+
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\bibsection}{\bf\Large 參考資料\normalsize\rm}
+\renewcommand{\bibname}{\bf 參考資料}
+
+\hyphenation{word list}
+
+\input{command.tex}
+
+\newtheoremstyle{mystyle}
+  {15pt}{15pt}
+  {}
+  {}
+  {\bf}
+  {.}
+  {1em}
+  {}
+
+\theoremstyle{mystyle}
+\newtheorem{thm}{定理}[section]
+\newtheorem{thr}[thm]{引理}%alias
+\newtheorem{ex}[thm]{範例}
+\newtheorem{pr}[thm]{習題}
+\newtheorem{sbpr}[thm]{Subproblem}
+\newtheorem{df}[thm]{定義}
+\newtheorem{pp}[thm]{性質}
+\newtheorem{co}[thm]{推論}
+\newtheorem{for}[thm]{公式}
+\newtheorem{lm}[thm]{引理}
+\newtheorem{nota}[thm]{符號}
+\newtheorem{cl}[thm]{Claim}
+\newtheorem{rmk}[thm]{註}
+\newtheorem{say}[thm]{名言}
+
+\newtheoremstyle{pfstyle}
+  {0pt}{3pt}
+  {}
+  {}
+  {\it}
+  {.}
+  {1em}
+  {}
+
+\theoremstyle{pfstyle}
+%\newtheorem{cl}{Claim}[pr]
+\newtheorem*{pf}{pf}
+\newtheorem*{tht}{想法}
+\newtheorem*{hint}{hint}
+%\newtheorem*{rmk}{\bf 註}
+
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\nat}{\mathbb{N}}
+
+%\newenvironment{solution}
+%    {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+%    {\end{proof}}
+%\newenvironment{sketch}
+%    {\begin{proof}[Sketch of Proof]}
+%    {\end{proof}}
+%\ExplSyntaxOn
+%\NewDocumentCommand{\cycle}{ O{\;} m }
+% {
+%  (
+%  \alec_cycle:nn { #1 } { #2 }
+%  )
+% }
+
+%\seq_new:N \l_alec_cycle_seq
+%\cs_new_protected:Npn \alec_cycle:nn #1 #2
+% {
+%  \seq_set_split:Nnn \l_alec_cycle_seq { , } { #2 }
+%  \seq_use:Nn \l_alec_cycle_seq { #1 }
+% }
+%\ExplSyntaxOff
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\everymath{\displaystyle}
+
+\begin{document}
+
+    \include{main2}
+
+\end{document}
