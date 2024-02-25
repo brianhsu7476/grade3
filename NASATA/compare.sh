@@ -63,7 +63,7 @@ dfs(){
 	done
 }
 
-while getopts "ahl:nr?" argc; do
+while getopts "ahln:r?" argc; do
 	case $argc in
 		a)
 			arga=1; cnt=$((cnt+1))
