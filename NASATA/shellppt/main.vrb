@@ -1,0 +1,15 @@
+\frametitle{Loops}
+\begin{multicols}{2}
+\begin{itemize}
+\item \t{for i in range(10)}
+\lstinputlisting[language=bash]{for1.sh}
+\item \t{for(i=0; i<10; ++i)}
+\lstinputlisting[language=bash]{for2.sh}
+\newpage
+\item \t{for i in arr}
+\lstinputlisting[language=bash]{for3.sh}
+\item \t{while}
+\lstinputlisting[language=bash]{while1.sh}
+\item Use \t{continue} to continue, and use \t{break} to break.
+\end{itemize}
+\end{multicols}

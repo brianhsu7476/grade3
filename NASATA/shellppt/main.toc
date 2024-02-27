@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Introduction to Shell and Shell Script}{3}{0}{1}
+\beamer@sectionintoc {2}{Do Things Like A PRO}{7}{0}{2}
+\beamer@sectionintoc {3}{Shell Script - Syntax}{12}{0}{3}
+\beamer@sectionintoc {4}{Shell Script - Frequently Used Commands and Useful Tools}{27}{0}{4}
+\beamer@sectionintoc {5}{Exercise}{32}{0}{5}

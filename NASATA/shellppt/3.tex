@@ -1,0 +1,86 @@
+\begin{frame}[fragile]{If-Else}
+\begin{itemize}
+\item	If clause:
+\lstinputlisting[language=bash]{if.sh}
+\item If-else clause:
+\lstinputlisting[language=bash]{ifelse.sh}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Condition}
+The spaces in the following syntaxes are important!
+\begin{multicols}{2}
+\begin{itemize}
+\only<1>{
+\item Expression: \t{[[ expr ]]}
+\item Boolen operations:
+\begin{itemize}
+\item \t{[[ ! expr ]]}: not
+\item \t{[[ expr1 ]] \&\& [[ expr2 ]]}: and
+\item \t{[[ expr1 ]] || [[ expr2 ]]}: or
+\end{itemize}
+\item Files:
+\begin{itemize}
+\item \t{[[ -e FILE ]]}: exists
+\item \t{[[ -f FILE ]]}: is file
+\item \t{[[ -d FILE ]]}: is directory
+\item \t{[[ -L FILE ]]}, \t{[[ -h FILE ]]}: is symbolic link
+\end{itemize}
+}\only<2>{
+\item Strings:
+\begin{itemize}
+\item \t{[[ -z str ]]}: is empty string
+\item \t{[[ -n str ]]}: is non-empty string
+\item \t{[[ str1 == str2 ]]}: is equal
+\item \t{[[ str1 != str2 ]]}: is unequal
+\item \t{[[ str =\sm\ regex ]]}: \t{str} satisfies \t{regex}
+\end{itemize}
+\item Numerical comparison:
+\begin{itemize}
+\item \t{[[ a -eq b ]]}: $a=b$
+\item \t{[[ a -ne b ]]}: $a\neq b$
+\item \t{[[ a -lt b ]]}: $a<b$
+\item \t{[[ a -le b ]]}: $a\leq b$
+\item \t{[[ a -gt b ]]}: $a>b$
+\item \t{[[ a -ge b ]]}: $a\geq b$
+\end{itemize}
+}
+\end{itemize}
+\end{multicols}
+\end{frame}
+
+\begin{frame}[fragile]{Loops}
+\begin{multicols}{2}
+\begin{itemize}
+\item \t{for i in range(10)}
+\lstinputlisting[language=bash]{for1.sh}
+\item \t{for(i=0; i<10; ++i)}
+\lstinputlisting[language=bash]{for2.sh}
+\newpage
+\item \t{for i in arr}
+\lstinputlisting[language=bash]{for3.sh}
+\item \t{while}
+\lstinputlisting[language=bash]{while1.sh}
+\item Use \t{continue} to continue, and use \t{break} to break.
+\end{itemize}
+\end{multicols}
+\end{frame}
+
+\begin{frame}{Functions}
+\begin{multicols}{2}
+\begin{itemize}
+\item Declare:
+\lstinputlisting[language=bash]{func1.sh}
+\item Call: \t{func}
+\item Arguments:
+\begin{itemize}
+\item Passing: \t{func arg1 arg2 ...}
+\item Get the value: \t{\$1}, \t{\$2}, ... in the function declaration are the arguments
+\end{itemize}
+\item Local variable: \t{local var}
+\newpage
+\item Example of \t{min} function:
+\lstinputlisting[language=bash]{min.sh}
+\end{itemize}
+\end{multicols}
+\end{frame}

@@ -1,0 +1,78 @@
+\section{Shell Script - Frequently Used Commands and Useful Tools}
+
+\begin{frame}{Frequently Used Commands}
+\begin{multicols}{2}
+\begin{itemize}
+\item Get file attributes: \t{ls}, \t{stat}, \t{file}
+\item Working directory: \t{cd}, \t{pwd}
+\item Create files/directories: \t{touch}, \t{mkdir}
+\item Move/copy/delete: \t{mv}, \t{cp}, \t{rm}
+\item Permission: \t{chmod}, \t{chown}, \t{chgrp}, \href{https://man7.org/linux/man-pages/man5/acl.5.html}{ACL}
+\item Search: \t{find}, \t{which}, \t{whereis}, \t{locate}
+\item I/O: \t{echo}, \t{printf}, \t{cat}, \t{less}, \t{head}, \t{tail}, \t{read}
+\item String: \t{grep}, \t{awk}, \t{sed}, \t{cut}, \t{wc}, \t{diff}, \t{tr}
+\item Order: \t{sort}, \t{uniq}
+\item Process: \t{ps}, \t{top}, \t{kill}
+\item Runtime: \t{time}, \t{/usr/bin/time}, \t{timeout}, \t{ulimit}, \t{strace}, \t{sleep}
+\item Network utilities: \t{ifconfig}, \t{ip}, \t{ping}, \t{dig}, \t{traceroute}, \t{host}
+\item Connection: \t{nc}, \t{telnet}, \t{ssh}, \t{sftp}, \t{scp}
+\item Web: \t{wget}, \t{curl}
+\item Other: \t{bc}, \t{openssl}, \t{xargs}, \t{tee}, \t{trap}, \href{https://www.gnu.org/software/bash/manual/bash.html\#Pattern-Matching}{GlobPattern}
+\end{itemize}
+\end{multicols}
+\end{frame}
+
+\begin{frame}{Regular Expression}
+\begin{itemize}
+\item Regular expression (regex) is a kind of expression method describing some forms of texts.
+\item BRE (Basic Regular Expressions) is used as default by many commands (e.g. \t{sed}, \t{grep}).
+\item \href{https://www.gnu.org/software/sed/manual/html\_node/BRE-syntax.html}{BRE syntax}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Regular Expressions}
+\begin{itemize}
+\item \begin{table}[htbp]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Element} & \textbf{Description} \\
+\hline
+\texttt{c} & Match any character \\
+\hline
+\texttt{\^\ } & Anchor the pattern to the beginning of a line \\
+\hline
+\texttt{\$} & Anchor the pattern to the end of a line \\
+\hline
+\texttt{.} & Match any single character \\
+\hline
+\texttt{[list]} & Match any single character in \texttt{list} \\
+\hline
+\texttt{[\^\ list]} & Match any single character not in \texttt{list} \\
+\hline
+\texttt{a*} & Match zero or more occurrences of \texttt{a} \\
+\hline
+\texttt{a\{n\}} & Match exactly \texttt{n} occurrences of \texttt{a} \\
+\hline
+\texttt{a\{n,\}} & Match at least \texttt{n} occurrences of \texttt{a} \\
+\hline
+\texttt{a\{n,m\}} & Match at least \texttt{n} and at most \texttt{m} occurrences of \texttt{a} \\
+\hline
+\texttt{r\textbar s} & Match either \texttt{r} or \texttt{s} \\
+\hline
+\texttt{(re)} & Grouping for precedence \\
+\hline
+\end{tabular}
+\end{table}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Still A Lot to Learn}
+\begin{itemize}
+\item Google
+\item Chatgpt
+\item \href{https://devhints.io/bash}{Cheatsheet}
+\end{itemize}
+\end{frame}
+
+

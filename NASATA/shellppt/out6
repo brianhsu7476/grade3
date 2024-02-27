@@ -1,0 +1,2 @@
+./redirect.sh: line 12: cd: -h: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]

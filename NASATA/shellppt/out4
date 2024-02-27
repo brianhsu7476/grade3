@@ -1,0 +1,31 @@
+1.tex
+2.tex
+array.sh
+command.tex
+echoshell.png
+exitvim.png
+hello.sh
+helloworld.png
+main2.tex
+main.aux
+main.log
+main.nav
+main.out
+main.pdf
+main.snm
+main.tex
+main.toc
+main.vrb
+missfont.log
+out
+out1
+out2
+out3
+out4
+redirect.sh
+shell.png
+varassign.png
+varex1.sh
+viminstead.png
+./redirect.sh: line 10: cd: -h: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
