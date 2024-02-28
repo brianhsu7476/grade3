@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 arga=''
 argl=''
@@ -36,7 +36,7 @@ df(){
 			else echo '100'; exit 0; fi
 		else echo '100'; exit 0; fi
 	elif [[ -L $2 ]]; then echo '100'; exit 0; fi
-	local a=`diff $1 $2`
+	local a=`diff -d $1 $2`
 	if [[ $a == '' ]]; then echo ''; exit 0; fi
 	if [[ `cut -c 1-3 <<< $a`  == 'Bin' ]]; then echo '100'; exit 0; fi
 	local ca=0; local cb=0
