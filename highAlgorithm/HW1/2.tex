@@ -6,5 +6,33 @@ Let $k=\min_{i:p_{p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}<P}}(i)$.\\
 That is, for $i=1, 2, \dots, k$, $p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}\geq P$.\\
 $\then k\leq val(OPT)$.\\
 Since $p_{4k+1}\geq p_{4k+2}\geq\cdots\geq p_m$, for all $4$ distinct elements $a, b, c, d$ of the multiset $\{p_{4k+1}, p_{4k+2}, \dots, p_m\}$, $a+b+c+d\leq p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}<P$.\\
-
+$\then$ a worker with productivity at least $P$ should take at least one of the $1, 2, \dots, 4k$-th machine.\\
+$\then val(OPT)\leq4k$.\\
+$\so k\leq val(OPT)\leq4k$.\\
+Since in the OPT solution, one would use at most $16k$ machines, and using the machines with larger productivity will not decrease the number of workers with productivity at least $P$.\\
+$\so$ set $M:=\min(16k, m)$, and there is an OPT solution s.t. only the $i$-th ($1\leq i\leq M$) machine will be used.\\
+Let $a:=\lfloor\frac{M\epsilon}{32}\rfloor$, and $b:=\lceil\frac Ma\rceil$.\\
+Let $q_i:=p_{M+1-i}$. (That is, $q$ is $p$'s reverse, which is increasing.)\\
+Partition $\{q_1, q_2, \dots, q_M\}$ into $S_1, S_2, \dots, S_b$, where $S_i:=\{q_j:a(i-1)+1\leq j\leq ai\}$. That is, the $i$-th machine is of the $\lceil\frac ia\rceil$-th type, and define the new productivity of the machines of the $j$-th type as $f(S_j)$.\\
+There are at most $c:=\bbinom b4+\bbinom b3+\bbinom b2+\bbinom b1+\bbinom b0$ ways to select the types of at most $4$ different machines.\\
+There are $n$ identical workers in total, and $c$ different ways to select the types of the machines they take.\\
+$\then$ there are at most $\bbinom cn$ possibilities.\\
+Bruteforce through all (at most) $\bbinom cn$ possibilities, for each possibility, check if the $i$-th type of machine is used by at most $|S_i|$ workers for $i=1, 2, \dots, b$, and then calculate the number of workers with new productivity $\geq4$. The value of this algorithm with new productivity function $f$ (denote as $val(f)$) is the maximum number of workers with new productivity $\geq4$. The complexity of this part is $O(\bbinom cn\times(b+n))=O(n^{c+1})$.\\
+Define $f_1$: $f_1(S_i):=\begin{cases}
+\min(S_i)\text{, if }i\geq2\\
+0\text{, if }i=1
+\end{cases}$.\\
+Define $f_2$: $f_2(S_i):=\begin{cases}
+\min(S_{i+1})\text{, if }i\leq b-1\\
+\max(P, q_M)\text{, if }i=b
+\end{cases}$.\\
+Since the difference of the new productivities using $f_1, f_2$ are $a$ $0$s, and $a$ $\max(P, q_M)$, and the a worker taking only $\max(P, q_M)$ have new productivities $\geq P$.\\
+$\so val(f_2)\leq val(f_1)+a$.\\
+Also, the new productivity of the $i$-th machine in $f_1$ is not larger than the original productivity, and in $f_2$ is not smaller than the original productivity.\\
+$\so val(f_1)\leq val(OPT)\leq val(f_2)\leq val(f_1)+a=val(f_1)+\lfloor\frac{M\epsilon}{32}\rfloor\leq val(f_1)+\frac{M\epsilon}{32}\leq val(f_1)+\frac{16k\epsilon}{32}\leq val(f_1)+\frac{val(OPT)\epsilon}2$.\\
+$\then(1-\frac\epsilon2)val(OPT)\leq val(f_1)$.\\
+$\then val(f_1)\leq val(OPT)\leq\frac{val(f_1)}{1-\frac\epsilon2}\leq(1+\epsilon)val(f_1)$.\\
+$b=\lceil\frac Ma\rceil<\frac Ma+1=\frac M{\lfloor\frac{M\epsilon}{32}\rfloor}<\frac M{\frac{M\epsilon}{32}-1}=\frac1{\frac{\epsilon}{32}-\frac1M}<\frac1{\frac \epsilon{32}-\frac\epsilon{64}}=\frac{64}\epsilon=O(1)$.\\
+$c=\bbinom b4+\bbinom b3+\bbinom b2+\bbinom b1+\bbinom b0=O(1)$.\\
+$\so$ the time complexity is $O(n^{c+1})$, which is a polynomial of $n$.
 \end{pr}
