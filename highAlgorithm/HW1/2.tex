@@ -1,0 +1,10 @@
+\begin{pr}
+Let OPT be the optimal solution, and $val(OPT)$ be its value.\\
+Let $p_j:=p_{1j}=p_{2j}=\cdots=p_{nj}$.\\
+First, there is a $4$-approximation.\\
+Let $k=\min_{i:p_{p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}<P}}(i)$.\\
+That is, for $i=1, 2, \dots, k$, $p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}\geq P$.\\
+$\then k\leq val(OPT)$.\\
+Since $p_{4k+1}\geq p_{4k+2}\geq\cdots\geq p_m$, for all $4$ distinct elements $a, b, c, d$ of the multiset $\{p_{4k+1}, p_{4k+2}, \dots, p_m\}$, $a+b+c+d\leq p_{4i+1}+p_{4i+2}+p_{4i+3}+p_{4i+4}<P$.\\
+
+\end{pr}
