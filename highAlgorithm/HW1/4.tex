@@ -1,3 +1,35 @@
 \begin{pr}
-
+Let $w_v$ be the weight of the vertex $v\in V(G)$.\\
+Transform the vertex cover problem to an ILP problem (like that taught in class):\\
+Variables: $\{x_v:v\in V(G)\}$.\\
+$\min\suml_{v\in V}w_vx_v$.\\
+Subject to:\\
+$x_v\in\{0, 1\},\ \forall v\in V(G)$, where $x_v=1$ iff the vertex cover contains $v$.\\
+$x_u+x_v\geq1,\ \forall uv\in E(G)$.\\
+Relax the above to LP (that is, relax the condition $x_v\in\{0, 1\}$ to $0\leq x_v\leq1$), then we can solve it in polynomial time complexity, and suppose the solution is $x_v=y_v^*$.\\
+Let $I\subseteq V(G)$ be an independent set.\\
+One can see that $y_v^{(I)}:=\begin{cases}
+0\text{, if }y_v^*<\frac12\text{ or }(x_v=\frac12\text{ and }v\in I)\\
+1\text{, otherwise}
+\end{cases}$ satisfy that $y_v^{(I)}\in\{0, 1\},\ \forall v\in V(G)$.\\
+Since $y_u^*+y_v^*\geq1$, WLOG suppose that $y_u^*\geq y_v^*$, there is $y_u^*\geq\frac12{y_u^*+y_v^*}\geq\frac12$.\\
+If $y_u^*>\frac12$ or $(y_u^*=\frac12$ and $u\notin I)$, then $y_u^{(I)}=1$.\\
+Otherwise, $y_u^*=\frac12$ and $u\in I$.\\
+$\then y_v^*\geq1-y_u^*=\frac12$.\\
+Since $I$ is an independent set and $uv\in E$ and $u\in I$, there must be $v\notin I$.\\
+$\then y_v^{(I)}=1$.\\
+$\so$ at least one of $y_u^{(I)}, y_v^{(I)}=1$.\\
+$\then$ the condition "$y_u^{(I)}+x_v^{(I)}\geq1,\ \forall uv\in E(G)$" is satisfied.\\
+In class, we learn that the solution to this LP problem satisfies $\forall v\in V(G),\ y_v^*\in\{0, \frac12, 1\}$.\\
+Since $G$ has a $k$-coloring, one can partition $V(G)$ into $k$ independent sets $I_1, I_2, \dots, I_k$.\\
+If $y_v^*=\frac12$, then $\suml_{v\in V(G)}y_v^{(I_i)}=1(k-1)+0=k-1=(2k-2)y_v^*$.\\
+If $y_v^*=0$ or $1$, then $\suml_{v\in V(G)}y_v^{(I_i)}=ky_v^*\leq(2k-2)y_v^*$.\\
+$\so\suml_{i=1}^k\suml_{v\in V(G)}y_v^{(I_i)}\leq\suml_{v\in V(G)}(2k-2)y_v^*$.\\
+By pigeonhole principle, $\exists i$ s.t. $\suml_{v\in V(G)}y_v^{(I_i)}\leq(2-\frac2k)\suml_{v\in V}y_v^*$.\\
+Let $val(OPT)$ be the value of the ILP.\\%By the definition, $val(OPT)\leq\suml_{v\in V(G)}y_v^{(I_i)}$.\\
+Since LP relaxes some condition of the ILP, $\suml_{v\in V}y_v^*\leq val(OPT)$.\\
+$\then\suml_{v\in V(G)}y_v^{(I_i)}\leq(2-\frac2k)\suml_{v\in V}y_v^*\leq(2-\frac2k)val(OPT)$.\\
+The time complexity is polynomial since:\\
+1. The time complexity creating and solving the LP problem is polynomial.\\
+2. The time complexity running through all $i=1$ to $k$, finding the $i$ such that $\suml_{v\in V(G)}y_v^{(I_i)}\leq(2-\frac2k)\suml_{v\in V(G)}y_v^*$ is $O(kV(G))\overset{k\leq V(G)}\leq O(V(G)^2)$.
 \end{pr}

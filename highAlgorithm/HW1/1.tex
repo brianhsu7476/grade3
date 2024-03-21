@@ -29,7 +29,7 @@ Let $k_i$ denote the selected item by $W_i$ in OPT, and let the new productivity
 By the definition of OPT, $val(ALG)\leq val(OPT)$.\\
 Since the above dp algorithm obtains optimal solution of new productivity, $val'(ALG)\geq val'(OPT)$.\\
 $val(ALG)=\suml_{i=1}^np_{ij_i}>\suml_{i=1}^n(\lceil\frac{p_{ij_i}}b\rceil-1)b=val'(ALG)-nb\geq val'(OPT)-nb=\suml_{i=1}^n\lceil\frac{p_{ik_i}}b\rceil b-nb\geq\suml_{i=1}^np_{ik_i}-nb=val(OPT)-nb=val(OPT)-\frac{p_{11}\epsilon}2$.\\
-By what we suppose in the first line, $p_{11}\leq p_{11}+p_{2m}+p_{3m}+\cdots+p_{nm}\leq val(OPT)$ (since $W_1$ can select $1$, while $W_2, W_3, \dots, W_n$ select $m$).\\
+By what we suppose in the first three lines, $p_{11}\leq p_{11}+p_{2m}+p_{3m}+\cdots+p_{nm}\leq val(OPT)$ (since $W_1$ can select $1$, while $W_2, W_3, \dots, W_n$ select $m$).\\
 $\then val(ALG)\geq val(OPT)-\frac{val(OPT)\epsilon}2=(1-\frac{\epsilon}2)val(OPT)$.\\
 $\then val(ALG)\leq val(OPT)\leq\frac{val(ALG)}{1-\frac{\epsilon}2}\leq(1+\epsilon)val(ALG)$.\\
 The time complexity of this algorithm $=O(nQm)=O(n\suml_{k=1}^nq_{k1}m)=O(n\suml_{k=1}^n\lceil\frac{p_{k1}}b\rceil m)=O(n\suml_{k=1}^n\lceil\frac{2np_{k1}}{p_{11}\epsilon}\rceil m)=O(n\suml_{k=1}^n\frac{2n}\epsilon m)=O(\frac{n^3m}\epsilon)$
