@@ -3,11 +3,12 @@ from heapq import *
 
 goals, ng=[], 0
 dis=[]
-n, m, lgn, lgm=0, 0, 0, 0
+n, m=0, 0
 sx, sy=0, 0
 haveKruskal={}
 oo=1000000007
 mz=''
+cnt=0
 
 def bfs0(s):
 	d=[[-1 for j in range(m+1)] for i in range(n+1)]
@@ -46,12 +47,14 @@ def bfs1(s, t):
 	return list(res)
 
 def init(maze, typ):
-	global goals, ng, n, m, lgn, lgm, sx, sy, dis, mz
+	global goals, ng, n, m, sx, sy, dis, mz, haveKruskal, cnt
+	dis=[]
+	haveKruskal={}
+	cnt=0
 	mz=maze
 	goals=maze.getObjectives()
 	ng=len(goals)
 	n, m=maze.getDimensions()
-	lgn, lgm=n.bit_length(), m.bit_length()
 	sx, sy=maze.getStart()
 	if typ:
 		dis=[bfs0(i) for i in goals]
@@ -66,6 +69,8 @@ class dsu:
 	def __init__(self, n):
 		self.p=list(range(n))
 	def find(self, x):
+		global cnt
+		#cnt+=1
 		if self.p[x]==x:
 			return x
 		self.p[x]=self.find(self.p[x])
@@ -76,8 +81,11 @@ class dsu:
 		return False if rx==ry else True
 
 def kruskal(g):
+	global haveKruskal, cnt
+	#cnt+=1
 	if g in haveKruskal:
 		return haveKruskal[g]
+	#cnt+=1
 	e=[]
 	for i in range(ng):
 		if g>>i&1:
@@ -101,43 +109,68 @@ class state:
 				g^=1<<i
 				break
 		self.g=g
+		self.h0=-1
 	def __hash__(self):
-		return self.g<<(n+m)&self.x<<m&self.y
+		global n, m
+		return (self.g*(n+1)+self.x)*(m+1)+self.y
+		#return (self.x, self.y, self.g).__hash__()
 	def __eq__(self, r):
-		return self.x==r.x and self.y==r.y and self.g==r.g
+		return (self.x, self.y, self.g)==(r.x, r.y, r.g)
 	def h(self):
+		global cnt
+		if self.h0!=-1:
+			return self.h0
 		if len(dis)==0:
-			return abs(self.x-goals[0][0])+abs(self.y-goals[0][1])
+			self.h0=abs(self.x-goals[0][0])+abs(self.y-goals[0][1])
+			return self.h0
+		#cnt+=1
 		mn=oo
 		for i in range(ng):
 			if self.g>>i&1:
 				mn=min(mn, dis[i][self.x][self.y])
-		return mn+kruskal(self.g)
+		self.h0=mn+kruskal(self.g)
+		return self.h0
 	def __lt__(self, r):
+		global cnt
+		#cnt+=1
 		return self.d+self.h()<r.d+r.h()
 
 def sol(maze, typ):
+	global cnt
 	init(maze, typ)
 	s=state(sx, sy, (1<<ng)-1, 0)
 	t=state(-1, -1, -1, -1)
 	pq=[s]
 	par={s:s}
+	bh={s:s.h()}
+	vis={}
+	#print('hi')
 	while len(pq)>0:
 		u=heappop(pq)
+		if u in vis:
+			continue
+		vis[u]=True
 		ngh=mz.getNeighbors(u.x, u.y)
 		for v0 in ngh:
 			v=state(v0[0], v0[1], u.g, u.d+1)
-			if v not in par:
+			if v not in bh or v.h()<bh[v]:
 				heappush(pq, v)
+				bh[v]=v.h()
 				par[v]=u
 			if v.g==0:
 				t=v
 				pq=[]
 				break
+	#print('done')
+	#print(len(dis))
 	res=deque([t])
 	while res[0]!=s:
 		res.appendleft(par[res[0]])
-	return [(i.x, i.y) for i in res]
+	#print(cnt)
+	path=[(i.x, i.y) for i in res]
+	print(path)
+	print(len(path))
+	return path
 
 def search(maze, searchMethod):
 	return {
