@@ -120,6 +120,9 @@ class state:
 		global cnt
 		if self.h0!=-1:
 			return self.h0
+		if self.g==0:
+			self.h0=0
+			return 0
 		if len(dis)==0:
 			self.h0=abs(self.x-goals[0][0])+abs(self.y-goals[0][1])
 			return self.h0
