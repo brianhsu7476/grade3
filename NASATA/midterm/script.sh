@@ -3,7 +3,11 @@
 export LC_ALL=C
 cur=`pwd`; lc=$((${#cur}+1))
 
-cutl(){ echo "$1" | rev | cut -d '/' -f 1 --complement | rev; }
+cutl(){
+	res=`echo "$1" | rev | cut -d '/' -f 1 --complement | rev`
+	if [[ $res == $1 ]]; then echo '.'
+	else echo "$res"; fi
+}
 cutol(){ echo "$1" | rev | cut -d '/' -f 1 | rev; }
 cutf(){ echo "$1" | cut -c 1-$lc --complement; }
 
@@ -16,7 +20,10 @@ while getopts "l" argc; do
 	esac
 done
 
-a=`find "$1" | sort`
+d=''
+if [[ ${1: -1} == '/' ]]; then d=`echo $1 | rev | cut -c 1 --complement | rev`
+else d=$1; fi
+a=`find "$d" | sort`
 declare -A G; declare -A vis; declare -A stk
 for i in $a; do G[$i]=''; vis[$i]=0; stk[$i]=0; done
 
@@ -36,18 +43,22 @@ dfs(){
 }
 
 for i in $a; do
-	if [[ -d $i ]]; then for j in `ls $i`; do
+	if [[ -d $i && ! -L $i ]]; then for j in `ls $i`; do
 		if [[ -L $i/$j ]]; then
 			cd $i; k=`readlink $j`
 			cd `cutl $k`; l=`cutf "$(pwd)/$(cutol $k)"`
-			G[$i]+="$j,$l"; cd $cur
+			G[$i]+="$j,$l;"; cd $cur
 		else G[$i]+="$j,$i/$j;"; fi
 	done fi
 done
 
+#for i in $a; do
+#	echo "$i -> ${G[$i]}" >&2
+#done
+
 if [[ $argl == 1 ]]; then
-	declare -A ans; bfs=($1); i=0
-	ans[$1]=$1; vis[$1]=1
+	declare -A ans; bfs=($d); i=0
+	ans[$d]=$d; vis[$d]=1
 	while [[ $i -lt ${#bfs[@]} ]]; do
 		x=${bfs[$i]}; i=$((++i))
 		IFS=';' read -r -a tmp <<< "${G[$x]}"; unset IFS
@@ -61,7 +72,7 @@ if [[ $argl == 1 ]]; then
 	done
 	for i in $a; do if [[ ${ans[$i]} ]]; then echo "${ans[$i]} -> $i"; fi done
 else
-	dfs $1
+	dfs $d
 	if [[ $? == 1 ]]; then echo 'loops detected'
 	else echo 'no loops detected'; fi
 fi

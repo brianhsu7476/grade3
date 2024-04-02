@@ -1,0 +1,13 @@
+exponential -> exponential
+exponential/a -> exponential/b
+exponential/a/a -> exponential/b/b
+exponential/a/a/a -> exponential/b/b/b
+exponential/a/a/a/a -> exponential/b/b/b/b
+exponential/a/a/a/a/a -> exponential/b/b/b/b/b
+exponential/a/a/a/a/a/a -> exponential/b/b/b/b/b/b
+exponential/a/a/a/a/a/a/a -> exponential/b/b/b/b/b/b/b
+exponential/a/a/a/a/a/a/a/a -> exponential/b/b/b/b/b/b/b/b
+exponential/a/a/a/a/a/a/a/a/a -> exponential/b/b/b/b/b/b/b/b/b
+exponential/a/a/a/a/a/a/a/a/a/a -> exponential/b/b/b/b/b/b/b/b/b/b
+exponential/a/a/a/a/a/a/a/a/a/a/c -> exponential/b/b/b/b/b/b/b/b/b/b/c
+exponential/gen.sh -> exponential/gen.sh
