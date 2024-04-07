@@ -44,7 +44,7 @@ class ReflexAgent(Agent):
 		if nf==0:
 			return 0
 		for i in newGhostStates:
-			if i.scaredTimer<1 and manhattanDistance(newPos, i.getPosition())<2:
+			if i.scaredTimer<1 and manhattanDistance(newPos, i.getPosition())<4:
 				return -oo
 		return -min([manhattanDistance(newPos, i) for i in foods])-nf*10000 if nf else oo
 
