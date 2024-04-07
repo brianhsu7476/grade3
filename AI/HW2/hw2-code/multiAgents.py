@@ -19,7 +19,10 @@ import random, util
 from game import Agent
 from pacman import GameState
 
-oo=1e18
+def avg(a):
+	return sum(a)/len(a)
+
+oo=134521345213452
 
 class ReflexAgent(Agent):
 	"""
@@ -92,7 +95,7 @@ class ReflexAgent(Agent):
 		#for i in ghosts:
 		#	if newGhostStates[i].scaredTimer<1 and manhattanDistance(newPos, i)<2:
 		#		return -1e9
-		return -mn-nf*10000
+		return -mn-nf*10000 if nf else oo
 		
 		# foodPos = newFood.asList()
 		# foodCount = len(foodPos)
@@ -266,7 +269,69 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
 		legal moves.
 		"""
 		"*** YOUR CODE HERE ***"
-		util.raiseNotDefined()
+		return self.dfs(gameState, 0, 0)
+		#actions=gameState.getLegalActions(0)
+		#return max(actions, key=lambda i:self.dfs(gameState.generateSuccessor(0, i), 0, 1))
+	def dfs(self, s, d, ag):
+		if d>=self.depth:
+			return self.evaluationFunction(s)
+		na=s.getNumAgents()
+		actions=s.getLegalActions(ag)
+		vals=[self.dfs(s.generateSuccessor(ag, i), d+1 if ag==na-1 else d, (ag+1)%na) for i in actions]
+		if d==0 and ag==0:
+			return actions[max(list(range(len(vals))), key=lambda i:vals[i])]
+		if len(vals):
+			return (avg if ag else max)(vals)
+		return self.evaluationFunction(s)
+
+from collections import deque
+n, m, walls, st, ghosts, foods, caps, scared=0, 0, [], (0, 0), [], [], [], 0
+dg, df, dc=[], [], []
+
+def init(s: GameState):
+	global n, m, walls, st, ghosts, foods, caps, scared
+	walls=s.getWalls().data
+	n, m=len(walls), len(walls[0])
+	st=s.getPacmanPosition()
+	tmp=s.getGhostPositions()
+	ghosts=[[0 for j in range(m)] for i in range(n)]
+	for i in tmp:
+		ghosts[round(i[0])][round(i[1])]=1
+	foods=s.getFood().data
+	tmp=s.getCapsules()
+	caps=[[0 for j in range(m)] for i in range(n)]
+	for i in tmp:
+		caps[round(i[0])][round(i[1])]=1
+	tmp=s.getGhostStates()
+	scared=oo if len(tmp)==0 else tmp[0].scaredTimer
+
+def allDistance():
+	global dg, df, dc
+	dg, df, dc=[], [], []
+	d=[[-1 for j in range(m)] for i in range(n)]
+	d[st[0]][st[1]]=0
+	bfs=deque([st])
+	while len(bfs)>0:
+		u=bfs.popleft()
+		ngh=[]
+		nxt=[(1, 0), (0, 1), (-1, 0), (0, -1)]
+		for i in nxt:
+			nxx, nxy=u[0]+i[0], u[1]+i[1]
+			if nxx>=0 and nxx<n and nxy>=0 and nxy<m and walls[nxx][nxy]==0:
+				ngh.append((nxx, nxy))
+		for v in ngh:
+			if d[v[0]][v[1]]==-1:
+				d[v[0]][v[1]]=d[u[0]][u[1]]+1
+				bfs.append(v)
+	for i in range(n):
+		for j in range(m):
+			if ghosts[i][j]:
+				dg.append(d[i][j])
+			if foods[i][j]:
+				df.append(d[i][j])
+			if caps[i][j]:
+				dc.append(d[i][j])
+	dg, df, dc=sorted(dg), sorted(df), sorted(dc)
 
 def betterEvaluationFunction(currentGameState: GameState):
 	"""
@@ -276,7 +341,18 @@ def betterEvaluationFunction(currentGameState: GameState):
 	DESCRIPTION: <write something here so we know what you did>
 	"""
 	"*** YOUR CODE HERE ***"
-	util.raiseNotDefined()
+	global dg, df, dc
+	init(currentGameState)
+	allDistance()
+	res=currentGameState.getScore()
+	df+=dc
+	if scared>1:
+		res-=dg[0]*6
+	if scared<1 and dg[0]<2:
+		res-=oo
+	else:
+		res+=(-df[0]-len(df)*10000)*5 if len(df) else oo
+	return res
 
 # Abbreviation
 better = betterEvaluationFunction
