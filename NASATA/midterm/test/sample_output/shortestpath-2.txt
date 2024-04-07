@@ -1,4 +1,4 @@
 shortestpath -> shortestpath
 shortestpath/a -> shortestpath/a
-shortestpath/a/b -> shortestpath/a/b
-shortestpath/link -> shortestpath/a/b/c
+shortestpath/link -> shortestpath/a/b
+shortestpath/link/c -> shortestpath/a/b/c
