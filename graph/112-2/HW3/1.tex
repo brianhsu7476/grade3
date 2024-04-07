@@ -1,0 +1,18 @@
+\setcounter{pr}{0}
+\begin{pr}$ $
+Let's have an induction on $r$ to prove the following claim:\\
+Claim: For every $k$, there exists a least integer $n=n(k, r)$ such that whenever $[n]$ is $r$-coloured, there is a monochromatic $k$-AP $a_0, a_1, \dots, a_{k-1}$ whose common difference $d=a_1-a_0$ is also the same colour.\\
+For $r=1$, $1, 2, \dots, k$ along with $1$ are monochromatic, the claim holds.\\
+Suppose for all $r<r'$, the claim holds.\\
+For $r=r'$:\\
+By Van der Waerden's Theorem: for all positive integers $x$ and $y$, there exists a least integer $W=W(x, y)$ such that any $y$-coloring of $[W]$ contains a $x$-term monochromatic arithmetic progression.\\
+Let $m=n(k, r-1)$, by Van der Waerden's Theorem, there exists $a>0, d>0$ such that $S=\{a+id|i\in\{0, 1, \dots, m(k-1)\}\}$ is monochromatic.\\
+By the induction hypothesis, every $(r-1)$-coloring of $[m]$ contains a monochromatic $k$-AP along with its common difference, and so is every $(r-1)$-coloring of $\{di|i\in[m]\}$.\\
+$\so$ either $\{di|i\in[m]\}$ contains $r$ different colors, or a monochromatic $k$-AP along with its common difference. $n(k, r)$ exists for the latter case.\\
+If $\{di|i\in[m]\}$ contains $r$ different colors, let $dj$ have the same color as $S$.\\
+$\cuz a+dj(k-1)\leq a+dm(k-1)$.\\
+$\so\{a+idj|i\in\{0, 1, \dots, k-1\}\}\subseteq S$.\\
+$\then\{a+idj|i\in\{0, 1, \dots, k-1\}\}$ along with $dj$ have the same color.\\
+$\then n(k, r)$ exists.\\
+$\so$ by induction, the claim holds for all $k, r$, and this finishes the proof of this problem.
+\end{pr}
