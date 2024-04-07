@@ -1,21 +1,13 @@
-\begin{pr}$ $
-\begin{enumerate}[(a)]
-\item For every coloring $c:2^{[n]}\to[r]$, consider the following graph $G$ and the corresponding edge-coloring $d$:\\
-$G=\left([n], \binom{[n]}2\right)$, for all $uv\in E$, WLOG suppose that $u<v$, $d(uv):=c([v-1]\setminus[u-1])$.\\
-By what we learned in class, $R(\underbrace{3, 3, \dots, 3}_{r})$ is finite.\\
-$\so$ for $n$ large enough, for every edge-coloring of $G$, there exists a monochromatic triangle $uvw$.\\
-Let $n$ be large enough, and $uvw$ be a monochromatic triangle, WLOG suppose that $u<v<w$.\\
-$\then d(uv)=d(vw)=d(wu)$.\\
-$\then c(\{u, u+1, \dots, v-1\})=c(\{v, v+1, \dots, w-1\})=c(\{u, u+1, \dots, w-1\})$.\\
-$\so X=\{u, u+1, \dots, v-1\}, Y=\{v, v+1, \dots, w-1\}$ satisfy that $X, Y, X\cup Y$ receive the same color.
-
-\item Suppose that the numbers in $\N$ are colored with $r$ colors, and let $c:\N\to[r]$ be a coloring.\\
-Consider the following graph $G_n$ and the corresponding edge-coloring $d$:\\
-$G_n:=\left([n], \binom{[n]}2\right)$, for all $uv\in E$, $d(uv):=c(|u-v|)$.\\
-By what we learned in class, $R(\underbrace{3, 3, \dots, 3}_{r})$ is finite.\\
-$\so\exists n$ s.t. for every edge-coloring of $G_n$, there exists a monochromatic triangle $uvw$.\\
-WLOG suppose that $u<v<w$.\\
-$\then c(v-u)=c(w-v)=c(w-u)$.\\
-Let $x=v-u, y=w-v, z=w-u$, and they are monochromatic satisfying $x+y=z$.
-\end{enumerate}
+\begin{pr}
+Let's prove that $W(r, k)\leq k^{HJ(k, r)}$.\\
+For every coloring $c:[k^{HJ(k, r)}]\to[r]$, consider the coloring $c':[k]^{HJ(k, r)}\to[r]$ where $c'(a_1, a_2, \dots, a_{HJ(k, r)}):=c\left(\suml_{i=1}^{HJ(k, r)}(a_i-1)k^{i-1}\right)$.\\
+By the Hales-Jewett Theorem, there is a monochromatic combinatorial line in the coloring $c'$.\\
+That is, there is a set $S\neq\emptyset$ and $a_{ij}(1\leq i\leq k, 1\leq j\leq HJ(k, r))$, where $a_{ij}=\begin{cases}i\text{, if }j\in S\\a_{1j}\text{, otherwise}\end{cases}$, such that $c'(a_{i1}, a_{i2}, \dots, a_{i, HJ(k, r)})$ are the same for all $i\in[k]$.\\
+$\then c\left(\suml_{j=1}^{HJ(k, r)}(a_{ij}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\then c\left(\suml_{j\in S}(i-1)k^{j-1}+\suml_{j\notin S}(a_{1j}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\then c\left(\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\cuz\suml_{j\notin S}(a_{1j}-1)k^{j-1}, \suml_{j\in S}k^{j-1}$ are constants with respect to $i$,\\
+$\so\left\{\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}|i\in[k]\right\}$ is a $k$-AP.\\
+$\then$ we find a monochromatic $k$-AP.\\
+$\then W(r, k)\leq k^{HJ(k, r)}$, which proves Van der Waerden's Theorem.
 \end{pr}
