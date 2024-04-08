@@ -1,0 +1,27 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $g(x):=\suml_{i=1}^kc_if_i(x)$.\\
+$\cuz g(x)$ is a valid PDF.\\
+$\so\int_{-\infty}^\infty g(x)dx=1$.\\
+$\cuz f_i(x)$ are valid PDFs.\\
+$\so\int_{-\infty}^\infty f_i(x)dx=1$.\\
+$\then\suml_{i=1}^kc_i=\suml_{i=1}^kc_i\int_{-\infty}^\infty f_i(x)dx=\int_{-\infty}^\infty\suml_{i=1}^kc_if_i(x)dx=\int_{-\infty}^\infty g(x)dx=1$.\\
+$\so$ "$g$ is a PDF $\then\suml_{i=1}^kc_i=1$".\\
+Also, if $\suml_{i=1}^kc_i=1$, then by the above, $\int_{-\infty}^\infty g(x)dx=1$.\\
+$\cuz f_i(x)$ are valid PDFs.\\
+$\so f_i(x)\geq0,\ \forall x$.\\
+$\cuz$ the linear combination of continuous functions is also a continuous function, and $c_i$ are non-negative.\\
+$\so g$ is continuous, and $g(x)\geq0,\ \forall x$.\\
+$\so g$ is a PDF $\iff\suml_{i=1}^kc_i=1$.
+\item $\int_0^2f_1(x)dx=2c_1, \int_0^\infty f_2(x)dx=\int_0^\infty c_2e^{-x}dx=c_2$.\\
+$1=\int_{-\infty}^\infty f_X(x)=\frac12\int_0^2f_1(x)dx+\frac12\int_0^\infty f_2(x)dx=c_1+\frac12c_2$.\\
+For $x=3,\ f_X(x)=c_2e^{-3}\geq0\then c_2\geq0$.\\
+$f_X(x)=c_1+c_2e^{-x}\geq0$ for $x\in[0, 2]$.\\
+$\then c_1\geq-c_2e^{-x}\geq-c_2e^{-2}$.\\
+$\so$ the conditions are $\begin{cases}
+c_1+\frac12c_2=1.\\
+c_2\geq0.\\
+c_1\geq-c_2e^{-2}.
+\end{cases}$.
+\end{enumerate}
+\end{pr}

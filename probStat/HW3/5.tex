@@ -1,0 +1,12 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $P_N(n)=(1-p)^{n-1}p=0.1\times0.9^{n-1}$
+\item $P_{N|B}(n)=0$ for $n\leq19$.\\
+$P_{N|B}(n)=$ the probability that the $20, 21, \dots, n-1$-th tests success but the $n$-th test fails, which is $(1-p)^{n-20}p=0.1\times0.9^{n-20}$.\\
+$\so P_{N|B}(n)=\begin{cases}
+0\text{, if }n\leq19\\
+0.1\times0.9^{n-20}\text{, otherwise}
+\end{cases}$.
+\item $E[N|B]=\suml_{n=1}^\infty P_{N|B}(n)=\suml_{n=20}^\infty n0.1\times0.9^{n-20}=\suml_{n=1}^\infty(n+19)0.1\times0.9^{n-1}=19\suml_{n=1}^\infty0.1\times0.9^{n-1}+\suml_{n=1}^\infty\suml_{i=1}^n0.1\times0.9^{n-1}=19\times\frac{0.1}{1-0.9}+\suml_{i=1}^\infty\suml_{n=i}^\infty0.1\times0.9^{n-1}=19+\suml_{i=1}^\infty\frac{0.10.9^{i-1}}{1-0.9}=19+\suml_{i=1}^\infty0.9^{i-1}=19+\frac1{1-0.9}=19+10=29$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,15 @@
+\begin{pr}
+The inter-arrival times are exponential random variables means that the arrival times follow a poisson distribution.\\
+The rate is one passenger per minute.\\
+$\so$ the probability that less than $7$ passengers arrives in the first $10$ minutes is $\suml_{i=0}^6\frac{10^ie^{-10}}{i!}$.\\
+Use the following program to calculate the result and it is about $0.13$.\\
+\lstinputlisting{p7.py}
+%Let $X$ be the random variable of passenger inter-arrival time with PDF $p_X(x)=\lambda e^{-\lambda x}$.\\
+%The rate is one passenger per minute.\\
+%$\then\E[X]=1$.\\
+%$\then\int_0^\infty x\lambda e^{-\lambda x}dx=1$.\\
+%$\then\frac1\lambda=1$.\\
+%$\then\lambda=1$.\\
+%Let $X_i$ be the time between the arrival of the $i-1$-th passenger and the $i$-th one (the arrival of the $0$-th passenger is defined as the time $0$).\\
+%The probability that more than $10$ minutes elapse until the van is full $=\P\{X_1+X_2+\cdots+X_7>10\}$
+\end{pr}

@@ -1,0 +1,17 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $\cuz1-U\leq1$, there is $X=-\ln(1-U)\geq0$.\\
+$\then F_X(x)=0$ for all $x\leq0$.\\
+$\P(X\leq x)=\P(-\ln(1-U)\leq x)=\P(\ln(1-U)\geq-x)=\P(1-U\geq e^{-x})=\P(U\leq1-e^{-x})$.\\
+$\so F_X(x)=\begin{cases}
+1-e^{-x}\text{, if }x>0\\
+0\text{, otherwise}
+\end{cases}$.
+\item $\frac{dF_X(x)}{dx}=e^{-x}$.\\
+$\so f_X(x)=\begin{cases}
+e^{-x}\text{, if }x>0\\
+0\text{, otherwise}
+\end{cases}$.
+\item $E[X]=\int_{-\infty}^\infty xf_X(x)dx=\int_0^\infty xe^{-x}dx=-xe^{-x}|_0^\infty+\int_0^\infty e^{-x}dx=1$.
+\end{enumerate}
+\end{pr}

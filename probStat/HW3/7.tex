@@ -1,0 +1,20 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Since $X$ is an exponential-1 random variable, there is $X\geq0$ for all $X$.\\
+Since if $X\leq1$, then $Y=X\in[0, 1]$, and if $X>1$, then $Y=\frac1X\in(0, 1)$.\\
+$\so F_Y(y)=0$ for $y\leq0$, and $F_Y(y)=1$ for $y>1$.\\
+For $y\in(0, 1]$, $F_Y(y)=\P[Y\leq y]=\P[(X\leq1\land X\leq y)\lor(X>1\land\frac1X\leq y)]=\P[X\leq1\land X\leq y]+\P[X>1\land X\geq\frac1y]=F_X(y)+1-\P[X\leq\frac1y]=F_X(y)+1-F_X(\frac1y)$.\\
+$\so F_Y(y)=\begin{cases}
+1\text{, if }y>1\\
+0\text{, if }y\leq0\\
+F_X(y)+1-F_X(\frac1y)\text{, if }0<y\leq1
+\end{cases}$.
+\item $f_Y(y)=\frac{dF_Y(y)}{dy}=0$ if $y>1$ or $y<0$.\\
+Since $X$ is an exponential-1 random variable, there is $f_X(x)=e^{-x}$.\\
+$\then\frac{d(F_X(y)+1-F_X(\frac1y))}{dy}=f_X(y)-f_X(\frac1y)(-\frac1{y^2})=f_X(y)+\frac{f_X(\frac1y)}{y^2}=e^{-y}+\frac{e^{-\frac1y}}{y^2}$.\\
+$\so f_Y(y)=\begin{cases}
+0\text{, if }y<0\text{ or }y>1\\
+e^{-y}+\frac{e^{-\frac1y}}{y^2}\text{, if }0<y<1
+\end{cases}$.
+\end{enumerate}
+\end{pr}

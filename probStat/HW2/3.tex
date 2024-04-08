@@ -1,0 +1,6 @@
+\begin{pr}
+Let $d_k:=p_{X_k}(0)$.\\
+When randomly distributing $k$ hats of $k$ people, the probability that the specific $i$ people get their own hat is $\frac{(k-i)!}{k!}$.\\
+$\then$ by the inclusion-exclusion principle, $d_k=\suml_{i=0}^k(-1)^i\binom ki(k-i)!$.\\
+$\then p_{X_N}(x)=\binom Nxd_{N-x}=\binom Nx\suml_{i=0}^{N-x}(-1)^i\binom{N-x}i(N-x-i)!=\frac{N!}{x!(N-x)!}\suml_{i=0}^{N-x}(-1)^i\frac{(N-x)!}{i!}=\frac{N!}{x!}\suml_{i=0}^{N-x}\frac{(-1)^i}{i!}$.
+\end{pr}

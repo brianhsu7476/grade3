@@ -1,0 +1,18 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $p_X(x)=\binom nxp^x(1-p)^{n-x}$.\\
+$\then\frac{p_X(k+1)}{p_X(k)}=\frac{\frac{n!}{(k+1)!(n-k-1)!}p^kp(1-p)^{n-k-1}}{\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k-1}(1-p)}=\frac{n-k}{k+1}\times\frac p{1-p}$.
+\item For all $0\leq k_1<k_2\leq n$, $\frac{n-k_1}{k_1+1}>\frac{n-k_2}{k_1+1}>\frac{n-k_2}{k_2+1}$.\\
+$\then\frac{n-k}{k+1}\times\frac p{1-p}$ is a strictly decreasing function of $k$ in $[0, n]$.\\
+Solve the equation $\frac{n-k}{k+1}\times\frac p{1-p}=1$, and we get $p(n-k)=(1-p)(k+1)\then k=p(n+1)-1$.\\
+$\so\begin{cases}
+\forall k<p(n+1)-1,\ \frac{p_X(k+1)}{p_X(k)}>1\then p_X(k+1)>p_X(k)\\
+\forall k>p(n+1)-1,\ \frac{p_X(k+1)}{p_X(k)}<1\then p_X(k+1)<p_X(k)\\
+\text{For }k=p(n+1)-1,\ \frac{p_X(k+1)}{p_X(k)}=1\then p_X(k+1)=p_X(k)
+\end{cases}$.\\
+$\cuz k_{\max}$ is the largest integer that $k_{\max}>p(n+1)-1$ and $k_{\max}-1\leq p(n+1)-1$.\\
+$\so p_X(k)$ has maximum at $k=k_{\max}$.\\
+If $p(n+1)\in\Z,\ k_{\max}=p(n+1)-1\then p_X(k_{\max})=p_X(k_{\max}-1)$.\\
+$\so$ the maximum is also achieved at $k=k_{\max}-1$.
+\end{enumerate}
+\end{pr}

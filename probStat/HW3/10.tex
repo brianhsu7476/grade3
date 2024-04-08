@@ -1,0 +1,14 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item The PDF of $\mathrm{Erlang}(4, 3)$ is $f(x)=\frac{3^4x^3e^{-3x}}{3!}=\frac{27x^3e^{-3x}}{2}$.\\
+$\then$答對率$=\int_0^3g(t)f(t)dt=\int_0^3\frac{4-(t-2)^2}5\times\frac{27t^3e^{-3t}}2dt=\frac1{90}e^{-3t}(81t^5-189t^4-252t^3-252t^2-168t-56)|_0^3=\frac1{45}(28-2629e^{-9})\approx0.615$.\\
+$\so$考試分數期望值$\approx0.615\times n$.
+\item 伍佰億聊天的時間$T$呈現 Exponential 機率分布，平均時間為 60 分鐘\\
+$\then f_T(t)=\frac1{60}e^{-\frac1{60}t}, F_T(t)=1-e^{-\frac1{60}t}$.\\
+$\P[T\geq120|T\geq60]=\frac{\P[T\geq120]}{\P[T\geq60]}=\frac{e^{-2}}{e^{-1}}=\frac1e$.\\
+所以之後已讀不回的機率$=\frac1e$。
+\item $\P[T>60|T=60]=1(\cuz\P[T=60|T=60]=0)$.\\
+有好感的女生與伍佰億聊了$1$小時傳了$50$則訊息的機率$=\frac{120^{50}e^{-120}}{50!}$，沒有好感的女生與伍佰億聊了$1$小時傳了$50$則訊息的機率$=\frac{15^{50}e^{-15}}{50!}$。\\
+所以其為沒好感的女生且還持續聊天的機率為$\frac{0.2\times\frac{15^{50}e^{-15}}{50!}}{0.2\times\frac{15^{50}e^{-15}}{50!}+0.8\times\frac{120^{50}e^{-120}}{50!}}\\=\frac{0.2\times15^{50}e^{-15}}{0.2\times15^{50}e^{-15}+0.8\times120^{50}e^{-120}}\approx0.411$.
+\end{enumerate}
+\end{pr}

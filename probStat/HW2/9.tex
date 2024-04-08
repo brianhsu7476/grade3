@@ -1,0 +1,19 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $f_{X_n}(x)=\begin{cases}
+\frac{\lambda^nx^{n-1}e^{-\lambda x}}{(n-1)!}\text{, if }x\geq0,\\
+0\text{, otherwise.}
+\end{cases}$.\\
+$\cuz f_{X_n}(x)=0$ for $x<0$.\\
+$\so F_{X_n}(x)\int_0^x\frac{\lambda^nt^{n-1}e^{-\lambda t}}{(n-1)!}dt$.
+\item Let $du=e^{-\lambda t}dt, v=\frac{\lambda^nt^{n-1}}{(n-1)!}$.\\
+$\int vdu=uv-\int udv$.\\
+$\then F_{X_n}(x)=\int_0^x\frac{\lambda^nt^{n-1}e^{-\lambda t}}{(n-1)!}dt=\left.-\frac{\lambda^{n-1}t^{n-1}e^{-\lambda t}}{(n-1)!}\right|_0^x-\int_0^x-\frac{\lambda^{n-1}t^{n-2}e^{-\lambda t}}{(n-2)!}dt=F_{X_{n-1}}(x)-\frac{\lambda^{n-1}x^{n-1}e^{-\lambda x}}{(n-1)!}$.
+\item $F_{X_n}(x)=F_{X_{n-1}}(x)-\frac{\lambda^{n-1}x^{n-1}e^{-\lambda x}}{(n-1)!}=F_{X_{n-2}}(x)-\frac{\lambda^{n-2}x^{n-2}e^{-\lambda x}}{(n-2)!}-\frac{\lambda^{n-1}x^{n-1}e^{-\lambda x}}{(n-1)!}=\cdots=F_1(x)-\suml_{k=1}^{n-1}\frac{\lambda^kx^ke^{-\lambda x}}{k!}=1-e^{-\lambda x}-\suml_{k=1}^{n-1}\frac{\lambda^kx^ke^{-\lambda x}}{k!}=1-\suml_{k=0}^{n-1}\frac{\lambda^kx^ke^{-\lambda x}}{k!}$.\\
+Also, since $f_{X_n}(x)=0$ for $x<0$, we get that\\
+$F_{X_n}(x)=\begin{cases}
+1-\suml_{k=0}^{n-1}\frac{\lambda^kx^ke^{-\lambda x}}{k!}\text{, if }x\geq0\\
+0\text{, otherwise}
+\end{cases}$.
+\end{enumerate}
+\end{pr}
