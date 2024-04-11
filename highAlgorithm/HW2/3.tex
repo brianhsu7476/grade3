@@ -34,9 +34,12 @@ $\then\forall i\in I,\ f_i+\suml_{j\in S\cap B_i}c_{ij}=\suml_{j\in S\cap B_i}\a
 $\forall j\notin S$, by 3., there's $i\in U_j$ s.t. $i$ conflicts with $p_j$. By the definition of conflict, $\exists k$ s.t. $\alpha_k-c_{ik}>0$ and $\alpha_k-c_{p_jk}>0$.\\
 $\then c_{p_jj}\leq c_{ij}+c_{ik}+c_{p_jk}<c_{ij}+2\alpha_k\overset{\cuz i\in U_j}\leq\alpha_j+2\alpha_k\leq3\alpha_j$.\\
 The last inequality above is because $\alpha_k=$ the time that $k$ is connected $=$ the time that $i$ is temporarily open $\leq$ the time that $j$ is connected $=\alpha_j$.\\
+$\forall i\in I$:\\
 $\suml_{j\in S\cap B_i}\alpha_j\overtext{2(d)}=\suml_{j\in S^{(i)}}\alpha_j=q_i$.\\
 $\suml_{j\in B_i\setminus S}\alpha_j\overset{\text{there's }k\in U_j\text{ s.t. }k\in A_i}\leq\suml_{k\in A_i}\suml_{j\in B_i\setminus S:k\in U_j}\alpha_j\leq\suml_{k\in A_i}\suml_{j\in S^{(i)}}\alpha_j=\suml_{k\in A_i}q_k\overtext{2(a)}\leq\suml_{k\in A_i}q_i=|A_i|q_i\leq(K-1)q_i$.\\
 $\then\suml_{j\in S\cap B_i}\alpha_j=q_i=\frac1K(1+K-1)q_i\geq\frac1K\left(\suml_{j\in S\cap B_i}\alpha_j+\suml_{j\in B_i\setminus S}\alpha_j\right)=\frac1K\suml_{j\in B_i}\alpha_j$.\\
 $\so\suml_{j\in B_i}c_{ij}+f_i=\suml_{j\in S\cap B_i}\alpha_j+\suml_{j\in B_i\setminus S}c_{ij}\leq\suml_{j\in S\cap B_i}\alpha_j+3\suml_{j\in B_i\setminus S}\alpha_j=3\suml_{j\in B_i}\alpha_j-2\suml_{j\in S\cap B_i}\alpha_j\leq(3-\frac2K)\suml_{j\in B_i}\alpha_j$.\\
-$\then\suml_i\suml_{j\in B_i}c_{ij}+f_i\leq(3-\frac2K)\suml_{j\in B_i}\alpha_j$.
+%$\then\suml_{i\in I}\suml_{j\in B_i}c_{ij}+f_i\leq(3-\frac2K)\suml_{j\in B_i}\alpha_j$.\\
+Also, $\forall i\notin I,\ x_i=0$.\\
+$\so$ this is a $(3-\frac2K)$-approximation.
 \end{pr}

@@ -1,3 +1,21 @@
 \begin{pr}
-
+Run phase 1 in class.\\
+Let $K$ denote the given $k$ in the problem description (since $k$ is frequently used in this proof).\\
+Let $S_j:=\{i: \alpha_j>c_{ij}\},\ T_j:=\{i: \alpha_j=c_{ij}\},\ U_j:=\begin{cases}
+S_j\text{, if }S_j\neq\emptyset\\
+T_j\text{, otherwise}
+\end{cases}$.\\
+Since the algorithm in phase 1 guaranteed that all clients are connected.\\
+$\so S_j\cup T_j\neq\emptyset,\ \forall j$.\\
+In another word, $U_j\neq\emptyset,\ \forall j$.\\
+Let's modify the phase 2 in class.\\
+Let $I:=$ the set of all temporarily facilities, and serve client $j$ with an arbitrary element $p_j\in U_j$.\\
+Let $B_i:=\{j:p_j=i\}$.\\
+$\forall i\in I,\ \suml_{j\in B_i}(\alpha_j-c_{ij})\leq\suml_{j:i\in U_j}(\alpha_j-c_{ij})\overset{\alpha_j=c_{ij}\text{ for }i\in T_j}=\suml_{j:i\in U_j\cap S_j}(\alpha_j-c_{ij})\overset{\text{by the definition of }U_j}=\suml_{j:i\in S_j}(\alpha_j-c_{ij})\overtext{by phase 1}=f_i$.\\
+$\then\suml_{j\in B_i}\alpha_j\leq\suml_{j\in B_i}c_{ij}+f_i$.\\
+$f_i+\suml_{j\in B_i}c_{ij}\leq f_i+\suml_{j:i\in U_j}c_{ij}=\suml_{j:i\in U_j}\alpha_j$.\\
+$\then\suml_{i\in I}\left(f_i+\suml_{j\in B_i}c_{ij}\right)\leq\suml_{i\in I}\suml_{j:i\in U_j}\alpha_j=\suml_j|U_j|\alpha_j\leq\suml_jk\alpha_j$ (since if $c_{ij}=\infty$, then $\alpha_j<c_{ij}$).\\
+Also, if $i\notin I$, $x_i=0$.\\
+$\so\suml_ix_i\left(\suml_j\beta_{ij}c_{ij}+f_i\right)=\suml_{i\in I}\left(\suml_{j\in B_i}c_{ij}+f_i\right)\leq\suml_jk\alpha_j$.\\
+$\so$ this is a $k$-approximation.
 \end{pr}
