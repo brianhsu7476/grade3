@@ -1,0 +1,45 @@
+\begin{pr}$ $\\
+Equivalent ILP:\\
+$\min\suml_{v\in V}w_vx_v$.\\
+$\subj x_u+x_v\geq1,\ \forall uv\in E$.\\
+$x_v\in\{0, 1\},\ \forall v\in V$.\\
+LP relaxation:\\
+$\min\suml_{v\in V}w_vx_v$.\\
+$\subj x_u+x_v\geq1,\ \forall uv\in E$.\\
+$x_v\geq0,\ \forall v\in V$.\\
+Dual LP:\\
+$\max\suml_{e\in E}\alpha_e$.\\
+$\subj\suml_{u\in N(v)}\alpha_{uv}\leq w_v,\ \forall v\in V$.\\
+$\alpha_e\geq0,\ \forall e\in E$.\\
+The rephrased algorithm:
+\begin{enumerate}
+\item Initially, the residual weight $r_v=w_v$ for every vertex $v$. The vertex cover $S$ is empty. All variables $x_v, \alpha_e$ are $0$.
+\item Repeat until all edges are covered by $S$:
+\begin{enumerate}
+\item Pick any edge $e=uv$ that is not covered by $S$.
+\item Set $\alpha_{uv}$ to $\min(r_u, r_v)$, and reduce the residual weights $r_u$ and $r_v$ by $\alpha_{uv}$.
+\item Add all vertices $v$ with $0$ residual weights to $S$, and set $x_v$ to $1$.
+\end{enumerate}
+\end{enumerate}
+We want to prove that:
+\begin{enumerate}
+\item $x_u+x_v\geq1,\ \forall uv\in E$.
+\item $\suml_{u\in N(v)}\alpha_{uv}\leq w_v,\ \forall v\in V$.
+\item $x_u+x_v\leq2$ or $\alpha_{uv}=0,\ \forall uv\in E$.
+\item $\suml_{u\in N(v)}\alpha_{uv}\geq w_v$ or $x_v=0,\ \forall v\in V$.
+\end{enumerate}
+Proof of 1.:\\
+If $x_u+x_v<1$, then $x_u=x_v=0$.\\
+$\then$ neither $u$ nor $v$ is in $S$.\\
+$\then uv$ is not covered by $S$, contradiction.\\
+$\so x_u+x_v\geq1$.\\
+Proof of 2.:\\
+By 2(b) of the algorithm, the amount of change of $r_v$ is the amount of $\alpha_e$ for $e$ connected to $v$.\\
+$\so\suml_{u\in N(v)}\alpha_{uv}=$ the amount of change of $r_v=w_v-r_v\leq w_v$.\\
+Proof of 3.:\\
+$x_u+x_v\leq1+1\leq2$.\\
+Proof of 4.:\\
+If $x_v\neq0$, then $r_v$ is set to $0$ by 2(c).\\
+$\then\suml_{u\in N(v)}\alpha_{uv}=w_v-r_v=w_v$.\\
+Since the complementary slackness conditions 3. 4. are satisfied, this is a $2$-approximation.
+\end{pr}
