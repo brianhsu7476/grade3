@@ -1,7 +1,7 @@
 \begin{pr}
 Let OPT $=\suml_if_iy_i=\suml_j\alpha_j$. (They're equal by the strong duality theorem).\\
 $\then$ all slackness conditions must hold.\\
-$\then\alpha_j-\beta_{ij}=c_{ij},\ \forall i, j$.\\
+$\then\alpha_j-\beta_{ij}=c_{ij}$ or $x_{ij}=0,\ \forall i, j$.\\
 Let $p_j$ denote the falicity that serves $j$, $q_i$ denote the chosen client $j$ that open $i$ in $N_j$, and $B_i:=\{j:p_j=i\}$.\\
 If $p_j\notin N_j$, it means that $N_j\cap N_{q_{p_j}}\neq\emptyset$. Let $r_j$ denote a facility that $\in N_j\cap N_{q_{p_j}}$.\\
 Else just simply set $r_j:=p_j$.\\
@@ -9,6 +9,8 @@ Let $F$ denote the set of falicities that are open.\\
 $\suml_{i\in F}f_i\leq\suml_{i\in F}f_i\suml_{k\in N_{q_i}}x_{kq_i}\leq\suml_{i\in F}f_i\suml_{k\in N_{q_i}}y_k\overset{f_i\leq f_k,\ \forall k\in N_{q_i}}\leq\suml_{i\in F}\suml_{k\in N_{q_i}}f_ky_k\overset{N_{q_i}\cap N_{q_k}=\emptyset,\ \forall i\neq k}\leq\suml_if_iy_i=OPT$.\\
 $\forall j,\ c_{p_jj}\leq c_{r_jj}+c_{r_jq_{p_j}}+c_{p_jq_{p_j}}$ (by the definition of metric).\\
 Since $q_{p_j}$ is chosen before $j$, there is $\alpha_{q_{p_j}}\leq\alpha_j$.\\
+Since $r_j\in N_j, r_j\in N_{q_{p_j}}, p_j\in N_{q_{p_j}}$, by the definition of $N$, there is $x_{r_jj}, x_{r_jq_{p_j}}, x_{p_jq_{p_j}}$ are all nonzero.\\
+$\so$:\\
 $c_{r_jj}\leq c_{r_jj}+\beta_{r_jj}=\alpha_j$.\\
 $c_{r_jq_{p_j}}\leq c_{r_jq_{p_j}}+\beta_{r_jq_{p_j}}=\alpha_{q_{p_j}}\leq\alpha_j$.\\
 $c_{p_jq_{p_j}}\leq c_{p_jq_{p_j}}+\beta_{p_jq_{p_j}}=\alpha_{q_{p_j}}\leq\alpha_j$.\\

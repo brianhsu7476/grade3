@@ -1,2 +1,49 @@
 \begin{pr}
+We'll use the term "at time $t$" denote when the value of $\alpha_j$ of unserved client $j$ is set to $t$ in the algorithm (that is, not performing 1. or 2. yet).\\
+Let $U^{(t)}$ denote $U$ at time $t$.\\
+Let $p_j$ denote the facility that serves $j$, and $B_i:=\{j:p_j=i\}$.\\
+Suppose that $f_i$ is open at time $a_i$.
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item while there are unserved clients
+\begin{enumerate}
+\item for $i$ in facilities
+\begin{enumerate}
+\item if $i$ is closed, find a set of unserved clients $S(i)$ s.t. $val(i):=\frac{f_i+\sum_{j\in S(i)}c_{ij}}{|S(i)|}$ is minimized. (This is equivalent to 1. in the algorithm.)
+\item if $i$ is open, find an unserved client $S(i)=\{s(i)\}$ s.t. $val(i):=c_{is(i)}$ is minimized. (This is equivalent to 2. in the algorithm.)
+\end{enumerate}
+%\item Find a closed facility $i$ and a set of unserved clients $S$ s.t. $\frac{f_i+\suml_{j\in S}c_{ij}}{|S|}$ is minimized.
+\item Let $i^*$ be a facility s.t. $val(i^*)$ is minimized.
+\item Open $i^*$ if it's closed, and serve all clients in $S(i^*)$ by $i^*$.
+\end{enumerate}
+\end{enumerate}
+\item Lemma: if $\alpha_j>c_{ij}$, then $\alpha_j\leq a_i$.\\
+Proof: If $\alpha_j>a_i$, then $j$ is served after $i$ is open. By 2. in the algorithm, $\alpha_j\leq c_{ij}$.\\
+$\so$ the lemma holds.\\
+There are $2$ cases:\\
+Case 1: $\alpha_k=0$.\\
+In this case, $\alpha_j=c_{ij}=0,\ \forall j\in\{1, 2, \dots, k\}$.\\
+$\so\sum_{j=x}^k(\alpha_x-c_{ij})=0\leq f_i$ holds for all $x=1, 2, \dots, k$.\\
+Case 2: $\alpha_k\neq0$.\\
+$\then\alpha_k>c_{ik}$.\\
+$\then$ by the lemma, $a_i\geq\alpha_k$.\\
+At time $\alpha_x$, $x, x+1, x+2, \dots, k$ are unserved, by 1. in the algorithm, $\suml_{j=x}^k(\alpha_x-c_{ij})\leq\suml_{j\in U^{(\alpha_x)}}\max(0, \alpha_x-c_{ij})\leq f_i$.
+$\so\suml_{j=x}^k(\alpha_x-c_{ij})\leq f_i$ always holds.
+\item Claim: $\alpha_j-\alpha_x\leq c_{ix}+c_{ij},\ \forall 1\leq x\leq j\leq k$.\\
+Proof: If $\alpha_j=\alpha_x$, then the claim holds trivially.\\
+If $\alpha_j>\alpha_x$, then $\alpha_j>\alpha_x\geq a_{p_x}$ since $p_x$ is open before $x$ is served.\\
+$\then$ by the lemma, $\alpha_j\leq c_{p_xj}$.\\
+$\then\alpha_j-\alpha_x\leq c_{p_xj}-\alpha_x\overtext{metric}\leq c_{ij}+c_{ix}+c_{p_xx}-\alpha_x\overset{x\text{ is served by }p_x}=c_{ij}+c_{ix}$.\\
+$\then\suml_{j=x}^k(\alpha_j-c_{ix}-2c_{ij})\overtext{the claim}\leq\suml_{j=x}^k(c_{ix}+c_{ij}+\alpha_x-c_{ix}-2c_{ij})=\suml_{j=x}^k(\alpha_x-c_{ij})\leq f_i$.
+\item $\suml_{j=1}^k(\alpha_1-c_{ij})\leq f_i$.\\
+$\suml_{j=1}^k(\alpha_j-c_{i1}-2c_{ij})\leq f_i$.\\
+Since $\alpha_1-c_{i1}\geq\alpha_1-3c_{i1}\geq0$.\\
+$\so\suml_{j=1}^k(\alpha_j-3c_{ij})\leq\suml_{j=1}^k(\alpha_1-c_{ij}+\alpha_j-c_{i1}-2c_{ij})\leq2f_i$.
+\item We need to define $\alpha'_j, \beta'_{ij}:=\max(\alpha'_j-c_{ij}, 0)$ so that $\suml_j\beta'_{ij}\leq f_i$ can be satisfied for all $i$.\\
+Let $\alpha'_j=\frac13\alpha_j$, one can see that $\suml_j\beta'_{ij}=\suml_{j:\alpha_j\geq3c_{ij}}\alpha'_j-c_{ij}=\suml_{j:\alpha_j\geq3c_{ij}}\frac13(\alpha_j-3c_{ij})\leq\frac23f_i\leq f_i$.\\
+From 1. of the algorithm, $\suml_{j\in B_i}(\alpha_j-c_{ij})=f_i$.\\
+$\then\suml_{j\in B_i}c_{ij}+f_i=\suml_{j\in B_i}\alpha_j\leq3\suml_{j\in B_i}\alpha'_j$.\\
+$\so$ this is a $3$-approximation.
+\end{enumerate}
 \end{pr}
