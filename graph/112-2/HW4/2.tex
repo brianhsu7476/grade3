@@ -1,13 +1,38 @@
-\begin{pr}
-Let's prove that $W(k, r)\leq k^{HJ(k, r)}$.\\
-For every coloring $c:[k^{HJ(k, r)}]\to[r]$, consider the coloring $c':[k]^{HJ(k, r)}\to[r]$ where $c'(a_1, a_2, \dots, a_{HJ(k, r)}):=c\left(1+\suml_{i=1}^{HJ(k, r)}(a_i-1)k^{i-1}\right)$.\\
-By the Hales-Jewett Theorem, there is a monochromatic combinatorial line in the coloring $c'$.\\
-That is, there is a set $S\neq\emptyset$ and $a_{ij}(1\leq i\leq k, 1\leq j\leq HJ(k, r))$, where $a_{ij}=\begin{cases}i\text{, if }j\in S\\a_{1j}\text{, otherwise}\end{cases}$, such that $c'(a_{i1}, a_{i2}, \dots, a_{i, HJ(k, r)})$ are the same for all $i\in[k]$.\\
-$\then c\left(1+\suml_{j=1}^{HJ(k, r)}(a_{ij}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\then c\left(1+\suml_{j\in S}(i-1)k^{j-1}+\suml_{j\notin S}(a_{1j}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\then c\left(1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\cuz1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}, \suml_{j\in S}k^{j-1}$ are constants with respect to $i$,\\
-$\so\left\{1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}|i\in[k]\right\}$ is a $k$-AP.\\
-$\then$ we find a monochromatic $k$-AP.\\
-$\then W(k, r)\leq k^{HJ(k, r)}$, which proves Van der Waerden's Theorem.
+\setcounter{pr}{5}
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $f_i(x)$ denote the $i$-th lowest bit of $x$ in its ternary expansion.\\
+That is, if $x=\suml_{i=0}^{l-1}x_i3^i$ where $x_i\in\{0, 1, 2\}$, then $f_i(x):=x_i$.\\
+First, let's prove by contradiction to show that $A$ is $3$-AP-free.\\
+Let $a-d, a, a+d$ be a $3$-AP of $A$ with $d\neq0$.\\
+Let $i$ be the minimum $j$ such that at least two of $f_j(a-d), f_j(a), f_j(a+d)$ are different.\\
+Such $i$ exists because $d\neq0$.\\
+Let $b=\suml_{j=0}^{i-1}f_j(a)$.\\
+$\then a-d-b\equiv a-b\equiv a+d-b\equiv0\pmod{3^i}$.\\
+$\then(a-d-b)+(a-b)+(a+d-b)=3(a-b)\equiv0\pmod{3^{i+1}}$.\\
+$a-d-b\equiv3^if_i(a-d)\pmod{3^{i+1}}, a-b\equiv3^if_i(a)\pmod{3^{i+1}}, a+d-b\equiv3^if_i(a+d)\pmod{3^{i+1}}$.\\
+$\then3^i(f_i(a-d)+f_i(a)+f_i(a+d))\equiv0\pmod{3^{i+1}}$.\\
+$\then f_i(a-d)+f_i(a)+f_i(a+d)\equiv0\pmod3$.\\
+Since at least two of $f_i(a-d), f_i(a), f_i(a+d)$ are different by the definition of $i$, one of which is $0$, and one of which is $1$.\\
+The remaining $\equiv0-0-1\equiv2\pmod3$.\\
+$\so$ the remaining is $2$, which contradicts to that $A$ does not contain any number with digit $2$ in its ternary expansion.\\
+$\so A$ is $3$-AP-free.\\
+Since every digit of $A$ can be either $0$ or $1$, and there are $l$ digits.\\
+$\so|A|=2^l=2^{\log_3n}=n^{\log_32}$.
+\item It is sufficient to show that:
+\begin{enumerate}[(1)]
+\item For every $x\notin A$, there are $y, z\in A\cap[0, x-1]$ s.t. $\{x, y, z\}$ is a $3$-AP.
+\item For every $x\in A$, there are no $y, z\in A\cap[0, x-1]$ s.t. $\{x, y, z\}$ is a $3$-AP.
+\end{enumerate}
+(2) is because of that $A$ is $3$-AP-free, which is proved in (a).\\
+Suppose $x\notin A$, and $S:=\{i:f_i(x)=2\}$. (The definition of $f_i$ is in (a).)\\
+By the definition of $A$, $S\neq\emptyset$.\\
+Consider $d=\suml_{i\in S}3^i$.\\
+$x-d$ is the number changing all digit $2$ of $x$ into $1$, and $x-2d$ is the number changing all digit $2$ of $x$ into $0$.\\
+Also, since $d>0$, there is $x-d, x-2d\in[0, x-1]$.\\
+Hence $x-d, x-2d\in A\cap[0, x-1]$.\\
+Take $y=x-d, z=x-2d$, and we can see that $\{x, y, z\}$ is a $3$-AP.\\
+$\then$ (1) is proved.\\
+$\so A$ is the $3$-AP-free set we get from the greedy algorithm.
+\end{enumerate}
 \end{pr}

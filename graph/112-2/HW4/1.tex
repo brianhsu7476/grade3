@@ -6,11 +6,11 @@
 $e(X, Y)=\suml_{a\in X}|N(a)\cap Y|<\suml_{a\in X}(d-\epsilon)|Y|=(d-\epsilon)|X||Y|$.\\
 $\then d(X, Y)=\frac{e(X, Y)}{|X||Y|}<d-\epsilon=d(A, B)-\epsilon$.\\
 If $X\geq\epsilon|A|$, then by the definition of $\epsilon$-regular, $|d(X, Y)-d(A, B)|\leq\epsilon$, which contradicts to $d(X, Y)<d(A, B)-\epsilon$.\\
-$\so X<\left|\{a\in A:|N(a)\cap Y|<(d-\epsilon)|Y|\}\right|\epsilon|A|$.
+$\so\left|\{a\in A:|N(a)\cap Y|<(d-\epsilon)|Y|\}\right|=|X|<\epsilon|A|$.
 \item For any $C\subseteq X, D\subseteq Y$ with $|C|\geq\epsilon'|X|$, $|D|\geq\epsilon'|Y|$, there is $|C|\geq\epsilon'|X|\geq\frac\epsilon\alpha|X|\geq\epsilon|A|$, $|D|\geq\epsilon'|Y|\geq\frac\epsilon\alpha|Y|\geq\epsilon|B|$.\\
 Since $\{A, B\}$ is an $\epsilon$-regular pair, there is $|d(C, D)-d(A, B)|\leq\epsilon$.\\
-Note that $|X|\geq\alpha|A|>\epsilon|A|, |Y|\geq\alpha|B|>\epsilon|B|$, there is $|d(X, Y)-D(A, B)|\leq\epsilon$.\\
-$\then|d(C, D)-d(X, Y)|\leq|d(C, D)-d(A, B)|+|d(X, Y)-d(A, B)|\leq\epsilon+\epsilon\leq2\epsilon\leq\epsilon'$.\\
+Note that $|X|\geq\alpha|A|>\epsilon|A|, |Y|\geq\alpha|B|>\epsilon|B|$, there is $|d(X, Y)-d(A, B)|\leq\epsilon$.\\
+$\then|d(C, D)-d(X, Y)|\overset{\cuz\text{triangular inequality}}\leq|d(C, D)-d(A, B)|+|d(X, Y)-d(A, B)|\leq\epsilon+\epsilon\leq2\epsilon\leq\epsilon'$.\\
 $\so$ by the definition, $\{X, Y\}$ is an $\epsilon'$-regular pair.
 \end{enumerate}
 \end{pr}
