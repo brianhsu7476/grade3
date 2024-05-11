@@ -1,0 +1,117 @@
+\section{Optimizations}
+
+\begin{frame}{Batching}
+\begin{itemize}
+\item Goal: Operate on $n$ items simultaneously.
+\item $R:=\Z[x]/(x^n+1), R_t:=R/tR$, where $n$ is a power of $2$
+\item $R_t\cong\Z_t^n$ for suitable $t$
+\item SIMD (single instruction, multiple data): plaintext space $\Z_t^n$
+\item Receiver: Group $Y$ into $\frac{N_Y}n$ vectors of length $n$, and encrypt the vectors to $c_1, c_2, \dots$.
+\item Sender: Homomorphically compute $d_i=r_i\prod_{x\in X}(c_i-x)$, where $r_i\in(\Z_t^*)^n$.
+%\item $R:=\Z[x]/(x^n+1), R_t:=R/tR$, where $n$ is a power of $2$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hashing}
+\begin{itemize}
+\item Hashing $d$ items into a hash table of size $d$ results in a maximum load of $O(\log d)$ with high probability.
+\item Proof:\\
+Let $k=\log d\gg e^3$, and $\epsilon>0$.\\
+$k(\log e-\log k)<k(\log e-\log e^3)<-2k<\log\epsilon-\log d$.\\
+$\then\P\{$ maximum load exceed $k\}\leq\binom dk(\frac1d)^{k-1}<(\frac{de}k)^k(\frac1d)^{k-1}=d(\frac ek)^k<\epsilon$.
+\item Hash $X, Y$ into $d$ bins, and run PSI for each bin.
+\item Uneven loads reveal additional information $\then$ Every bin must be padded to a fixed size $\then$ Receiver and sender set two different dummy values from $\Z_t$ that are not legitimate values, and use them to pad the bins.
+\item Complexity: $O(d\log^2d)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cuckoo Hashing}
+\begin{itemize}
+\item Cuckoo hashing:
+\begin{itemize}
+\item $h>1$ hash functions $H_1, \dots, H_h$
+\item To insert $x$, randomly choose $i\in[h]$ and insert $(x, i)$ at location $H_i(x)$. If this location was already occupied by $(y, j)$, remove $(y, j)$ and reinsert $(y, j')$ where $j'\in[h]$ is chosen randomly.
+\end{itemize}
+\item Application to our protocol:
+\begin{itemize}
+\item Number of bins: $m, m\approx N_Y, m>N_Y$
+\item Receiver: Perform cuckoo hashing.
+\item Sender: Perform normal hashing, and insert all $hN_X$ elements of $[h]\times X$.
+\item Assume $hN_X>m\log m$.
+\item $\P\{$ at least one bin has load $>B\}\leq m\sum_{i=B+1}^d\binom di(\frac1m)^i(1-\frac1m)^{d-i}$.
+\item $B$ is upper-bounded by $\frac dm+O(\sqrt{\frac{d\log m}m})$ with high probability.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Permutation-based Hashing}
+\begin{itemize}
+\item Suppose that $m$ is a power of $2$.
+\item $x\to x_L\|x_R$, where $x_R$ is of length $\log_2m$.
+\item Location function $\loc_i(x):=H_i(x_L)\oplus x_R$.
+\item Insert $(x_L, i)$ to $\loc_i(x)$.
+\item Receiver: Perform the insertion of cuckoo hashing.
+\item Sender: Perform the insertion of normal hashing.
+\item Correctness: If $(x_L, i)=(y_L, j)$ and $\loc_i(x)=\loc_j(y)$, then $x=y$.
+\item Reduce the length of the strings stored in the hash table by $\log_2(m)-\lceil\log_2(h)\rceil$.
+\end{itemize}
+\end{frame}
+
+\iffalse
+\begin{frame}{Dummy Values}
+\begin{itemize}
+\item Uneven loads reveal additional information $\then$ Every bin must be padded to a fixed size.
+\item Receiver and sender set two different dummy values from $\Z_t$ that are not legitimate values.
+\end{itemize}
+\end{frame}
+\fi
+
+\begin{frame}{Hashing to A Smaller Representation}
+\begin{itemize}
+\item Usually, $N_X+N_Y\ll2^\sigma\then$ Hash $N_X\cup N_Y$ to $2^{\sigma_{\max}}$.
+\item Probability of a collision $\leq\binom{N_X+N_Y}2\times2^{-\sigma_{\max}}<(N_X+N_Y)^2\times2^{-\sigma_{\max}-1}$.
+\item Want: Probability of a collision $\leq2^{-\lambda}$.
+\item $\then\sigma_{\max}\geq2\log_2(N_X+N_Y)+\lambda-1$.
+\item Combine with permutation-based hashing: $\sigma_{\max}-\log_2m+\lceil\log_2h\rceil$
+\item Choose $t$ s.t. $\log_2t>\sigma_{\max}-\log_2m+\lceil\log_2h\rceil+1$ is enough.
+\item Combine with batching:
+\begin{itemize}
+\item Receiver: $\frac mn$ plaintext vectors
+\item Sender: $\frac{Bm}n$ plaintext vectors
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reducing the Circuit Depth - Windowing}
+\begin{itemize}
+\item Recall: Compute the encryption of $r\prod_{x\in X}(y-x)=ry^{N_X}+ra_{N_X-1}y^{N_X-1}+\cdots+ra_0$.
+\item Original:
+\begin{itemize}
+\item Receiver sends the encryption of $y$.
+\item Computing $ry^{N_X}$ needs a circuit of depth $\lceil\log_2(N_X+1)\rceil$.
+\end{itemize}
+\item Modified:
+\begin{itemize}
+\item Receiver sends $c^{(i, j)}=\fenc(y^{i2^{\ell j}})$ for all $1\leq i\leq2^\ell-1, 0\leq j\leq\lfloor\frac{\log_2(N_X)}\ell\rfloor$.
+\item Worst case: A product of $\lfloor\frac{\log_2(N_X)}\ell\rfloor+1$ terms
+\item $\then$ Needs a circuit of depth $\lceil\log_2(\lfloor\frac{\log_2(N_X)}\ell\rfloor+1)\rceil$.
+\end{itemize}
+\item $\ell$: A computation-communication trade-off
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reducing the Circuit Depth - Partitioning}
+\begin{itemize}
+\item Partition $X$ into $\alpha$ subsets.
+\item Compute $r\prod_{x\in X_1}(y-x), r\prod_{x\in X_2}(y-x), \dots, r\prod_{x\in X_\alpha}(y-x)$ instead.
+\item Circuit depth: $\lceil\log_2(\frac{N_X}\alpha+1)\rceil$
+\item Combine with windowing and all of the hashing optimizations above, the circuit depth becomes $\lceil\log_2(\lfloor\frac{\log_2(\frac B\alpha)}\ell\rfloor+1)\rceil+1$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reducing Reply Size via Modulus Switching}
+\begin{itemize}
+\item Change the encryption parameter from $q$ to $q'$ if $q'$ is not too small.
+\item Ciphertext sizes are reduced by a factor of $\frac{\log q}{\log q'}$.
+\end{itemize}
+\end{frame}

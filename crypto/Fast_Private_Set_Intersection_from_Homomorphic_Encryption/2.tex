@@ -1,0 +1,28 @@
+\section{The Basic Protocol}
+
+\begin{frame}{The Basic Protocol}
+\begin{itemize}
+\item $t\in\P$ is large enough to encode $\{0, 1\}^\sigma$ as elements of $\Z_t$.
+\item Receiver:
+\begin{itemize}
+\item Generate $(pk, sk)$.
+\item Send $(c_1, c_2, \dots, c_{N_Y})$ to sender, where $Y=\{y_1, \dots, y_{N_Y}\}$ and $c_i=\fenc(y_i, pk)$.
+\end{itemize}
+\item Sender:
+\begin{itemize}
+\item Uniformly randomly sample $r_i\in\Z_t^*$.
+\item Homomorphically compute $d_i=r_i\prod_{x\in X}(c_i-x)$.
+\item Return $(d_1, d_2, \dots, d_{N_Y})$ to receiver.
+\end{itemize}
+\item Receiver: $X\cap Y=\{y_i: \fdec(d_i, sk)=0\}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Basic Protocol}
+\begin{itemize}
+\item $\fdec(d_i, sk)=r_i\prod_{x\in X}(y_i-x)$.
+\item If $y_i\in X$, then $\fdec(d_i, sk)=0$.
+\item If $y_i\notin X$, then $\fdec(d_i, sk)$ is a uniform distribution on $\Z_t^*$, independent of $\prod_{x\in X}(y_i-x)$.
+\item $O(N_XN_Y)$ homomorphic multiplications and additions
+\end{itemize}
+\end{frame}

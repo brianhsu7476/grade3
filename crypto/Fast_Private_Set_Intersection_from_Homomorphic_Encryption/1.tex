@@ -1,0 +1,62 @@
+\section{Introduction}
+
+\begin{frame}{Private Set Intersection}
+\begin{itemize}
+\item Public: $N_X, N_Y, \sigma$
+\item Sender: $X\subseteq\{0, 1\}^\sigma$ with size $N_X$
+\item Receiver: $Y\subseteq\{0, 1\}^\sigma$ with size $N_Y$
+\item Goal:
+\begin{itemize}
+\item Sender should not know anything about $Y$.
+\item Receiver should know $X\cap Y$.
+\item Receiver should not know anything about $X\setminus Y$.
+\end{itemize}
+\item Threat model: semi-honest security model (both parties correctly follow the protocol, but may try to learn as much as possible from their view of the protocol execution)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fast Private Set Intersection}
+\begin{itemize}
+\item Original communication complexity: $O(N_XN_Y)$
+\item Goal communication complexity: $O(N_Y\log N_X)$
+\item The protocol works for all $N_X, N_Y$, but since it's powerful when $N_X\gg N_Y$, assume that $N_X\gg N_Y$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{FHE (Fully Homomorphic Encryption)}
+\begin{itemize}
+\item Homomorphism: $\varphi: A\to B$ with $\varphi(x\circ_Ay)=\varphi(x)\circ_B\varphi(y)$.
+\item Homomorphic Encryption: $\enc, \dec$ are homomorphisms.
+\item Types of homomorphic encryption: (distinguish by the arithmetic circuits they support)
+\begin{itemize}
+\item PHE (partially homomorphic encryption): one type of gates with unlimited depth
+\item SHE (somewhat homomorphic encryption): two types of gates with limited depth
+\item Leveled fully homomorphic encryption: multiple types of gates with limited depth
+\item FHE (fully homomorphic encryption): multiple types of gates with unlimited depth
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{IND-CPA Secure}
+\begin{itemize}
+\item IND-CPA: indistinguishability under chosen-plaintext attack
+\item Steps:
+\begin{itemize}
+\item Challenger: Generate $(pk, sk)$.
+\item Adversary: Choose and send $m_0, m_1$ to the challenger.
+\item Challenger: Uniformly randomly choose $b\in\{0, 1\}$, and send $\enc(m_b, pk)$ back to the adversary.
+\item Adversary: Submit a guess for $b$.
+\end{itemize}
+\item Restriction: The adversary can only perform polynomially bounded number of operations.
+\item Goal: The adversary's guess is correct with probability $\frac12+\negl(\lambda)$, where $\lambda$ is the security parameter.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Assumption}
+\begin{itemize}
+\item $\fenc, \fdec$: Encryption and decryption of a IND-CPA secure FHE scheme
+\item Threat model: semi-honest security model
+\item $N_X\gg N_Y$
+\end{itemize}
+\end{frame}
+
