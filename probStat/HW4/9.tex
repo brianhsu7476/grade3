@@ -1,0 +1,17 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $P_N(n)=0$ for $n<0$.\\
+For $n\geq0$, $P_N(n)=\suml_{k=0}^n\frac{100^ne^{-100}}{(n+1)!}=(n+1)\times\frac{100^ne^{-100}}{(n+1)!}=\frac{100^ne^{-100}}{n!}$.\\
+$\so P_N(n)=\begin{cases}
+\frac{100^ne^{-100}}{n!}\text{, if }n\in\Z^+\cup\{0\}\\
+0\text{, otherwise}
+\end{cases}$.\\
+$P_{K|N}(k|n)=\frac{P_{N, K}(n, k)}{P_N(n)}=\begin{cases}
+\frac{\frac{100^ne^{-100}}{n!}}{\frac{100^ne^{-100}}{(n+1)!}}=\frac1{n+1}\text{, if }k=0, 1, \dots, n; n=0, 1, \dots\\
+0\text{, otherwise}
+\end{cases}$.
+\item $\E[K|N=n]=\suml_{k=0}^nkP_{K|N}(k|n)=\suml_{k=0}^nk\times\frac1{n+1}=\frac n2$.
+\item	$\E[K|N]=\frac N2$.\\
+$\E[K]=\E[\E[K|N]]=\E[\frac N2]=\suml_{n=0}^\infty\frac n2\frac{100^ne^{-100}}{n!}=\suml_{n=1}^\infty\frac{100^ne^{-100}}{(n-1)!\times2}=50\suml_{n=1}^\infty\frac{100^{n-1}e^{-100}}{(n-1)!}=50\suml_{n=0}^\infty\frac{100^ne^{-100}}{n!}=50\suml_{n=0}^\infty P_N(n)=50$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,17 @@
+\begin{pr}
+First, $X\sim\mathrm{Unif}[0, \frac d2], \Theta\sim\mathrm{Unif}[0, \frac\pi2]$.\\
+$\then f_X(x)=\begin{cases}
+\frac2d\text{, if }0\leq x\leq\frac d2\\
+0\text{, otherwise}
+\end{cases}, f_\Theta(\theta)=\begin{cases}
+\frac2\pi\text{, if }0\leq\theta\leq\frac\pi2\\
+0\text{, otherwise}
+\end{cases}$.\\
+The needle intersects one of the lines $\iff X\leq\frac l2\sin\theta$.\\
+$\so$ the probability that the needle will intersect one of the lines $=\P[X\leq\frac l2\sin\theta]$.\\
+Note that $l<d$, so the upperbound of $X$ in the following integral is $\min(\frac l2\sin\theta, \frac d2)=\frac l2\sin\theta$.\\
+And $X, \Theta$ are independent, so their joint pdf $f_{X, \Theta}(x, \theta)=f_X(x)f_\Theta(\theta)$.\\
+$\then\P[X\leq\frac l2\sin\theta]=\int_0^{\frac\pi2}\int_0^{\frac l2\sin\theta}f_X(x)f_\Theta(\theta)dxd\theta=\int_0^{\frac\pi2}\frac l2\sin\theta\frac2d\frac2\pi d\theta=\frac{2l}{d\pi}$.\\
+This experiment can get $p$: the approximated value of the probability that the needle will intersect one of the lines when the needle is dropped for sufficient large number of times.\\
+And one can approximate $\pi\approx\frac{2l}{dp}$.
+\end{pr}

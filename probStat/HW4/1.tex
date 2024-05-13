@@ -1,0 +1,10 @@
+\begin{pr}
+$\P(K=k\land X=x)\\
+=$ the probability that "the first $x$ circuits are acceptable, the $x+1$-th is reject, and the $x+2$-th to $n$-th circuits contain exactly $k-1$ rejected circuits\\
+$=p^x\times(1-p)\times\binom{n-x-1}{k-1}p^{n-x-1-k+1}(1-p)^{k-1}\\
+=\binom{n-x-1}{k-1}p^{n-k}(1-p)^k$.\\
+$\so P_{K, X}(k, x)=\begin{cases}
+\binom{n-x-1}{k-1}p^{n-k}(1-p)^k\text{, if }k+x\leq n, k\geq1, x\geq0\\
+0\text{, otherwise}
+\end{cases}$.
+\end{pr}

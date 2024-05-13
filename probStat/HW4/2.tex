@@ -1,0 +1,10 @@
+\begin{pr}
+$P_N(n)=0$ for $n<0$.\\
+For $n\geq0$, $P_N(n)=\suml_{k=0}^n\frac{100^ne^{-100}}{(n+1)!}=(n+1)\times\frac{100^ne^{-100}}{(n+1)!}=\frac{100^ne^{-100}}{n!}$.\\
+$\so P_N(n)=\begin{cases}
+\frac{100^ne^{-100}}{n!}\text{, if }n\in\Z^+\cup\{0\}\\
+0\text{, otherwise}
+\end{cases}$.\\
+$\cuz$ By the definition, if $k>n$, then $P_{N, K}(n, k)=0$.\\
+$\so P_K(k)=\suml_{n=0}^\infty P_{N, K}(n, k)=\suml_{n=k}^\infty P_{N, K}(n, k)=\suml_{n=k}^\infty\frac{100^ne^{-100}}{(n+1)!}=\suml_{n=k+1}^\infty\frac{100^{n-1}e^{-100}}{n!}=\frac1{100}\suml_{n=k+1}^\infty\frac{100^ne^{-100}}{n!}=\frac1{100}\suml_{n=k+1}^\infty P_N(n)=\frac1{100}\P(n>k)$.
+\end{pr}

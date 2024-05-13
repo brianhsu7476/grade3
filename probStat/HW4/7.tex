@@ -1,0 +1,10 @@
+\begin{pr}
+First, if $W<1$, then both $\frac XY, \frac YX$ are less than $1$.\\
+Since $\Pr[X\leq0\lor Y\leq0]=0$ by the definition of $f_{X, Y}(x, y)$.\\
+$\so\frac XY<1, \frac YX<1\then X<Y, Y<X$, which is impossible.\\
+$\so$ there must be $W\geq1$.\\
+$F_W(w)=\P[W\leq w]=\P[\max\left(\frac XY, \frac YX\right)\leq w]=\P[\frac XY\leq w\land\frac YX\leq w]=\P[Y\geq\frac Xw\land X\geq\frac Yw]=1-\P[X<\frac Yw]-\P[Y<\frac Xw]$.\\
+Note that $\frac Yw\leq\frac aw\leq a, \frac Xw\leq\frac aw\leq a$.\\
+$\so1-\P[X<\frac Yw]-\P[Y<\frac Xw]=1-\int_0^a\int_0^{\frac yw}f_{X, Y}(x, y)dxdy-\int_0^a\int_0^{\frac xw}f_{X, Y}dydx=1-2\int_0^a\int_0^{\frac yw}\frac1{a^2}dxdy=1-\frac2{a^2}\int_0^a\frac ywdy=1-\frac1{a^2w}a^2=1-\frac1w$.\\
+$\then f_W(w)=F_W'(w)=\frac1{w^2}$.
+\end{pr}

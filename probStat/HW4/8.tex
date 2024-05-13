@@ -1,0 +1,28 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Since at least one bus arrive, there is $n\geq1$.\\
+Since at most one bus arrives in a minute, there is $t\geq n$.\\
+$\so$ the set is $\{(n, t):t\geq n\geq1, n, t\in\Z\}$.
+\item If $n>t$, then by (a), $P_{N, T}(n, t)=0$.\\
+If $n\leq t$, it means that exactly $n-1$ buses passed through in the first $t-1$ minutes, and a bus passed through at the $t$-th minute, so the probability is $\binom{t-1}{n-1}p^n(1-p)^{t-n}$.\\
+The probability that I didn't board the first $n-1$ buses but the $n$-th is $(1-q)^{n-1}q$.\\
+$\so P_{N, T}(n, t)=\begin{cases}
+\binom{t-1}{n-1}p^n(1-p)^{t-n}(1-q)^{n-1}q\text{, if }t\geq n\geq1, n, t\in\Z\\
+0\text{, otherwise}
+\end{cases}$.
+\item $P_N(n)=$ the probability that I didn't board the first $n-1$ buses but the $n$-th $=(1-q)^{n-1}q$.\\
+$P_T(t)=$ the probability that in $t$ minutes:\\
+(1) the first $t-1$ minutes either the bus didn't come, or I didn't board the bus, which has probability $(1-pq)$.\\
+(2) the $t$-th minute the bus came and I boarded the bus, which has probability $pq$.\\
+$\so P_T(t)=(1-pq)^{t-1}pq$.
+\item $P_{N|T}(n|t)=\frac{P_{N, T}(n, t)}{P_T(t)}=\begin{cases}
+\frac{\binom{t-1}{n-1}p^n(1-p)^{t-n}(1-q)^{n-1}q}{(1-pq)^{t-1}pq}\text{, if }n\leq t\\
+0\text{, otherwise}
+\end{cases}$.\\
+$P_{T|N}(t|n)=\frac{P_{N, T}(n, t)}{P_N(n)}=\begin{cases}
+\frac{\binom{t-1}{n-1}p^n(1-p)^{t-n}(1-q)^{n-1}q}{(1-q)^{n-1}q}=\binom{t-1}{n-1}p^n(1-p)^{t-n}\text{, if }n\leq t\\
+0\text{, otherwise}
+\end{cases}$.
+%Given $T=t$, the probability that $N=n$ is the probability that exactly $n$ buses come
+\end{enumerate}
+\end{pr}

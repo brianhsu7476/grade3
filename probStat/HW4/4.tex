@@ -1,0 +1,20 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item If $x\geq2$, then $F_X(x)=1$.\\
+If $x\leq0$, then $F_X(x)=0$.\\
+If $0\leq x\leq 2$, then $F_X(x)=\int_{-\infty}^xf_X(y)dy=\int_0^x\frac y2dy=\frac{x^2}4$.\\
+$\so F_X(x)=\begin{cases}
+0\text{, if }x\leq0\\
+\frac{x^2}4\text{, if }0\leq x\leq2\\
+1\text{, otherwise}
+\end{cases}$.
+\item Since $X_1, X_2$ are independent, $\P[X_1\leq1, X_2\leq1]=\P[X_1\leq1]\P[X_2\leq1]=F_X(1)F_X(1)=(\frac14)^2=\frac1{16}$.
+\item $F_W(1)=\P[\max(X_1, X_2)\leq1]=\P[X_1\leq1, X_2\leq1]=\frac1{16}$.
+\item $F_W(w)=\P[\max(X_1, X_2)\leq w]=\P[X_1\leq w, X_2\leq w]\\
+\overset{\cuz X_1, X_2\text{ are independent}}=\P[X_1\leq w]\P[X_2\leq w]=F_X(w)^2=\begin{cases}
+0\text{, if }w\leq0\\
+\frac{x^4}{16}\text{, if }0\leq w\leq2\\
+1\text{, otherwise}
+\end{cases}$.
+\end{enumerate}
+\end{pr}
