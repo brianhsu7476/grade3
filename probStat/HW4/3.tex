@@ -1,3 +1,16 @@
 \begin{pr}
-
+The triangle is the same to Example 5.8.\\
+The cases (a) (b) (c) (d) (e) are defined like those in Example 5.8.\\
+(a): $F_{X, Y}(x, y)=0$.\\
+(e): $F_{X, Y}(x, y)=1$.\\
+(b): $F_{X, Y}(x, y)=\int_0^y\int_v^x8uvdudv=\int_0^y4v(x^2-v^2)dv=\left.(2v^2x^2-v^4)\right|_0^y=2x^2y^2-y^4$.\\
+(c): $F_{X, Y}(x, y)=\int_0^x\int_v^x8uvdudv=\int_0^x4v(x^2-v^2)dv=\left.(2v^2x^2-v^4)\right|_0^x=2x^4-x^4=x^4$.\\
+(d): $F_{X, Y}(x, y)=\int_0^y\int_v^18uvdudv=\int_0^y4v(1^2-v^2)dv=\left.(2v^2-v^4)\right|_0^y=2y^2-y^4$.\\
+$\so F_{X, Y}(x, y)=\begin{cases}
+0\text{, if }x<0\text{ or }y<0\\
+2x^2y^2-y^4\text{, if }0\leq y\leq x\leq1\\
+x^4\text{, if }0\leq x<y, 0\leq x\leq1\\
+2y^2-y^4\text{, if }0\leq y\leq1, x>1\\
+1\text{, if }x>1, y>1
+\end{cases}$.
 \end{pr}
