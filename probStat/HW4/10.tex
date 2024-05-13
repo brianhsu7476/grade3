@@ -1,3 +1,8 @@
 \begin{pr}
-
+$J=J_6+\frac12(N_6+N_5+N_4+N_3+N_2+N_1+N_0)=10^6+\frac12(N_6+\cdots+N_0)$.\\
+$\then\E[J]=10^6+\frac12(\E[N_6]+\cdots+\E[N_0])$.\\
+$\E[N_k|J_k]=J_k$ by the definition of $N_k$.\\
+$\E[J_k|J_{k-1}, N_{k-1}]=J_{k-1}+N_{k-1}$.\\
+$\so\E[N_k|N_{k+1}]$
+$\E[N_k]=\E[\E[N_k|N_{k+1}]]$.
 \end{pr}
