@@ -1,0 +1,14 @@
+\setcounter{pr}{3}
+
+\begin{pr}
+\newcommand{\e}{\mathbf{\epsilon}}
+Let $A:=\left\{\suml_{i=1}^n\epsilon_ia_i,\ \epsilon_i\in\{-1, 1\}\right\}$, the set of all possible sums $\suml_{i=1}^n\epsilon_ia_i$.\\
+Consider a surjective function $f:2^{[n]}\to A$, where $f(S):=\suml_{i\in S}a_i-\suml_{i\in[n]\setminus S}a_i$.\\
+Claim: If $S\subsetneq T$, then at most one of $f(S), f(T)$ is in $I$.\\
+Proof:\\
+$f(T)-f(S)=2\suml_{i\in T\setminus S}a_i\overset{\cuz a_i\geq1}\geq2|T\setminus S|\geq2$.\\
+Since $I$ is an open interval of length at most $2$, $f(S), f(T)$ can not both be in $I$.\\
+This finishes the proof of the claim.\\
+By the claim, $\{S\in2^{[n]}:f(S)\in I\}$ is an antichain.\\
+And since $f$ is surjective, by Sperner's theorem, $|A\cap I|=|f(S)\in I:S\in2^{[n]}|\leq|\{S\in2^{[n]}:f(S)\in I\}|\leq\binom n{\lfloor\frac n2\rfloor}$.
+\end{pr}

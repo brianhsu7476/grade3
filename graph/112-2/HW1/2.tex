@@ -1,0 +1,14 @@
+\setcounter{pr}{3}
+\begin{pr}$ $
+Suppose that $G$ doesn't contain a cycle whose vertices all have degree $\Delta(G)$.\\
+That is, the induced subgraph of the set of vertices with degree $\Delta(G)$ is a forest, which is $2$-edge colourable.\\
+
+
+Let $f:E(G)\to[\Delta(G)+1]$ be a proper edge-coloring of $G$.\\
+We do the following for serveral times until such vertex $v$ does not exist:\\
+Choose $v\in V(G)$ such that $\deg(v)<\Delta(G)$ and $f(v)=\Delta(G)+1$, since $\deg(v)<\Delta(G)$, there exists $i\in[\Delta(G)]$ such that $\forall u\in N_G(v),\ f(u)\neq i$, then change $f(v)$ to $i$. By the definition, $f$ is still a proper edge-coloring after changed.
+
+Now we get a proper edge-coloring $f$ such that if $f(v)=\Delta(G)+1$ then $\deg(v)=\Delta(G)$.\\
+
+
+\end{pr}

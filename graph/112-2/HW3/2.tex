@@ -1,13 +1,13 @@
 \begin{pr}
-Let's prove that $W(r, k)\leq k^{HJ(k, r)}$.\\
-For every coloring $c:[k^{HJ(k, r)}]\to[r]$, consider the coloring $c':[k]^{HJ(k, r)}\to[r]$ where $c'(a_1, a_2, \dots, a_{HJ(k, r)}):=c\left(\suml_{i=1}^{HJ(k, r)}(a_i-1)k^{i-1}\right)$.\\
+Let's prove that $W(k, r)\leq k^{HJ(k, r)}$.\\
+For every coloring $c:[k^{HJ(k, r)}]\to[r]$, consider the coloring $c':[k]^{HJ(k, r)}\to[r]$ where $c'(a_1, a_2, \dots, a_{HJ(k, r)}):=c\left(1+\suml_{i=1}^{HJ(k, r)}(a_i-1)k^{i-1}\right)$.\\
 By the Hales-Jewett Theorem, there is a monochromatic combinatorial line in the coloring $c'$.\\
 That is, there is a set $S\neq\emptyset$ and $a_{ij}(1\leq i\leq k, 1\leq j\leq HJ(k, r))$, where $a_{ij}=\begin{cases}i\text{, if }j\in S\\a_{1j}\text{, otherwise}\end{cases}$, such that $c'(a_{i1}, a_{i2}, \dots, a_{i, HJ(k, r)})$ are the same for all $i\in[k]$.\\
-$\then c\left(\suml_{j=1}^{HJ(k, r)}(a_{ij}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\then c\left(\suml_{j\in S}(i-1)k^{j-1}+\suml_{j\notin S}(a_{1j}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\then c\left(\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}\right)$ are the same for all $i\in[k]$.\\
-$\cuz\suml_{j\notin S}(a_{1j}-1)k^{j-1}, \suml_{j\in S}k^{j-1}$ are constants with respect to $i$,\\
-$\so\left\{\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}|i\in[k]\right\}$ is a $k$-AP.\\
+$\then c\left(1+\suml_{j=1}^{HJ(k, r)}(a_{ij}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\then c\left(1+\suml_{j\in S}(i-1)k^{j-1}+\suml_{j\notin S}(a_{1j}-1)k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\then c\left(1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}\right)$ are the same for all $i\in[k]$.\\
+$\cuz1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}, \suml_{j\in S}k^{j-1}$ are constants with respect to $i$,\\
+$\so\left\{1+\suml_{j\notin S}(a_{1j}-1)k^{j-1}+(i-1)\suml_{j\in S}k^{j-1}|i\in[k]\right\}$ is a $k$-AP.\\
 $\then$ we find a monochromatic $k$-AP.\\
-$\then W(r, k)\leq k^{HJ(k, r)}$, which proves Van der Waerden's Theorem.
+$\then W(k, r)\leq k^{HJ(k, r)}$, which proves Van der Waerden's Theorem.
 \end{pr}

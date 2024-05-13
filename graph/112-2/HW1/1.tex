@@ -1,0 +1,20 @@
+\setcounter{pr}{1}
+\begin{pr}
+First, let's prove that $R(3, 4)\leq9$. That is, for any red/blue-edge-coloring of $K_9$, there exists either a red $K_3$ or a blue $K_4$.\\
+Let $G$ be a $K_9$, and $c:E(G)\to\{R, B\}$ be an arbitrary coloring.\\
+Let $H_R:=(V(G), \{e\in E(G):c(e)=R\}), H_B:=(V(G), \{e\in E(G):c(e)=B\})$.\\
+If for all $v\in V(G),\ 2\nmid\deg_{H_R}(v)$, then $\sum_{v\in V(G)}d_{H_R}\equiv9\times1\equiv1\pmod2$, which contradicts to the handshake lemma.\\
+$\so\exists v\in V(G)$ s.t. $2\mid\deg_{H_R}(v)$.\\
+There are two cases:\\
+Case 1: $\deg_{H_R}(v)\geq4$.\\
+Let $S:=N_{H_R}(v)$.\\
+If there are distinct $u, w\in S$ with $c(uw)=R$, then $\{u, v, w\}$ forms a red $K_3$ as $c(uv)=c(wv)=R$.\\
+Otherwise, for all $u, w\in S$, $c(uw)=B$, then $S$ forms a blue $K_{|S|}=K_{\deg_{H_R}(v)}$, which contains a blue $K_4$ as a subgraph.\\
+Case 2: $\deg_{H_R}(v)\leq2$.\\
+$\then\deg_{H_B}(v)=\deg_G(v)-\deg_{H_R}(v)=8-\deg_{H_R}(v)\geq6$.\\
+Let $T:=N_{H_B}(v)$.\\
+Since $R(3, 3)=6$, $T$ contains a monochromatic $K_3$.\\
+If $T$ does not contain a red $K_3$, then it contains a blue $K_3$. Let $U$ be the set of vertices that form the blue $K_3$ in $T$. Since $c(uv)=B,\ \forall u\in T$, $U\cup\{v\}$ forms a blue $K_4$.\\
+$\so$ either a red $K_3$ or a blue $K_4$ exists in a red/blue-edge-coloring of $K_9$.\\
+From Exercise 1(a), $R(4, 4)\leq R(3, 4)+R(4, 3)=R(3, 4)+R(3, 4)\leq18$.
+\end{pr}

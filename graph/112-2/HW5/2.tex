@@ -1,0 +1,38 @@
+\setcounter{pr}{1}
+
+\begin{pr}$ $
+\begin{enumerate}[(i)]
+\item Consider the bipartite graph $G_k$.\\
+If $F\in V_k$, then $\deg(F)=$ the number of elements that can be added to $F=n-k$.\\
+If $F\in V_{k+1}$, then $\deg(F)=$ the number of elements that can be removed from $F=k+1$.\\
+$\forall S\subseteq V_k$, $|S|(n-k)=$ the number of edges between $S$ and $N(S)\leq|N(S)|(k+1)$.\\
+$\then|S|\leq\frac{k+1}{n-k}|N(S)|$.\\
+$\cuz k<\frac n2\then2k<n\then2k+1\leq n\then k+1\leq n-k\then\frac{k+1}{n-k}\leq1$.\\
+$\so|S|\leq\frac{k+1}{n-k}|N(S)|\leq|N(S)|$.\\
+By Hall's theorem, there is a matching $M_k: V_k\hookrightarrow V_{k+1}$.
+\item $k\geq\frac n2$.\\
+$\then n-1-k\leq n-1-\frac n2<\frac n2$.\\
+By (i), there is a matching $M_{n-1-k}: V_{n-1-k}\hookrightarrow V_{n-k}$.\\
+Let $F\in V_{k+1}$.\\
+Construct $M_{k+1}(F):=M_{n-1-k}(V_{k+1}^c)^c$.\\
+This is well-defined because $|V_{k+1}^c|=n-1-k$.\\
+The image is $V_k$ because $|M_{n-1-k}(V_{k+1}^c)^c|=n-(n-k)=k$.\\
+There is an edge connecting $F$ and $M_{k+1}(F)$ because $V_{k+1}^c\subset M_{n-1-k}(V_{k+1}^c)\then M_{n-1-k}(V_{k+1}^c)^c\subset V_{k+1}$.\\
+This is a matching because $M_{n-1-k}$ and taking complement are both injective functions.
+\item \newcommand{\half}{{\lceil\frac n2\rceil}}
+For every set $F$, suppose $|F|=k$, define $f(F):=\begin{cases}
+F\text{, if }k=\half\\
+f(M_k(F))\text{, otherwise}
+\end{cases}$.\\
+Since if $k<\half$, then $k\leq\half-1\leq(\frac n2-\frac12)<\frac n2$, and if $k>\half$, then $k-1\geq\half\geq\frac n2$.\\
+$\so M_k$ is well-defined for all $k\neq\half$.\\
+Also, $|M_k(F)|=k+1$ for $k<\half$, and $|M_k(F)|=k-1$ for $k>\half$.\\
+$\so f$ is a well-defined function from $2^{[n]}$ to $V_\half$.\\
+For every $F\in V_\half$, let $S_F:=\{F':f(F')=F\}$.\\
+By the definition of $f$ and $M_k$, $S_F$ is a chain.\\
+Since the preimage of $f$ is $2^{[n]}$, $\{S_F:F\in V_\half\}$ is a partition of $2^{[n]}$.\\
+$\so\{S_F:F\in V_\half\}$ is a partition of $\binom n\half$ chains.\\
+Since in an antichain, no two sets are in the same chain by the definition.\\
+$\so$ there are at most $\binom n\half$ elements in an antichain of $2^{[n]}$.
+\end{enumerate}
+\end{pr}

@@ -1,0 +1,19 @@
+\setcounter{pr}{0}
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item If two distinct edges have a common vertex and are colored in different colors, we call them a \textbf{coloring angle}.\\
+In a non-monochromatic triangle, the multiset of the color of the edges is $\{R, R, B\}$ or $\{B, B, R\}$.\\
+$\then$ there is exactly one vertex that is incident to the edges of the same color in a non-monochromatic triangle.\\
+$\then$ there are exactly two vertices that are incident to edges of different colors in a non-monochromatic triangle.\\
+$\then$ there are exactly two coloring angles of a non-monochromatic triangle.\\
+Also, for any two edges $uv, uw$ that have a common vertex, there is a unique triangle $uvw$ that uses both of the edges.\\
+$\so$ every coloring angle is contained in exactly one non-monochromatic triangle.\\
+$\so$ the number of non-monochromatic triangle $=\frac12\times($ the number of coloring angle $)$.\\
+Every coloring angle has a unique common vertex, so we can count the number of coloring angles by vertices.\\
+The number of coloring angles having the common vertex $v$ is the number of ways to select two edges incident to $v$ with different colors, which is $r_v(n-1-r_v)$.\\
+$\so$ the number of non-monochromatic triangles $=\frac12\times($ the number of coloring angle $)=\frac12\sum_{i=1}^nr_i(n-1-r_i)$.\\
+$\then$ the number of monochromatic triangles $=\binom n3-\frac12\sum_{i=1}^nr_i(n-1-r_i)$.
+\item By AM-GM inequality, $\sqrt{r_i(n-1-r_i)}\leq\frac{n-1}2$.\\
+$\then\binom n3-\frac12\suml_{i=1}^nr_i(n-1-r_i)\geq\binom n3-\frac12\suml_{i=1}^n(\frac{n-1}2)^2=\binom n3-\frac18n(n-1)^2=\frac16(n^3-3n^2+2n)-\frac18(n^3-2n^2+n)=\frac1{24}n^3-\frac14n^2+\frac5{24}n=(\frac1{24}-\frac1{4n}+\frac5{24n^2})n^3=(\frac1{24}-o(1))n^3$.
+\end{enumerate}
+\end{pr}

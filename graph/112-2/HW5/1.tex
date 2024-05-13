@@ -1,0 +1,37 @@
+\setcounter{pr}{0}
+
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Suppose that $\mathcal F$ is maximal.\\
+For any $S\in2^{[n]}$:\\
+$\cuz S\cap S^c=\emptyset$.\\
+$\so$ at most one of $S, S^c$ is in $\mathcal F$.\\
+Suppose that $S^c\notin\mathcal F$.\\
+Since $\mathcal F$ is maximal, this means that $\mathcal F\cup\{S^c\}$ is not intersecting.\\
+$\then\exists T\in\mathcal F$ s.t. $T\cap S^c=\emptyset$.\\
+$\then T\subseteq(S^c)^c=S$.\\
+For any $U\in\mathcal F$, $T\cap U\neq\emptyset$ by the definition of intersecting.\\
+$\then T\cap U\subseteq S\cap U\neq\emptyset$.\\
+$\so\mathcal F\cup\{S\}$ is intersecting.\\
+Since $\mathcal F$ is maximal, $S\in\mathcal F$.\\
+$\so$ exactly one of $S, S^c$ is in $\mathcal F$.\\
+Since $2^{[n]}$ can be partitioned into $2^{n-1}$ pairs of $\{S, S^c\}$.\\
+$\so|\mathcal F|=2^{n-1}$.
+\item Let $A:=\{S\in2^{[n]}:|S|=k\}$.\\
+One can see that $A$ can be partitioned into $\frac12\binom{2k}k$ pairs of $\{S, S^c\}$.\\
+For every pair of $\{S, S^c\}$, put exactly one of $S, S^c$ into $B$.\\
+Claim: No matter what $B$ is, $F:=\{S\in2^{[n]}:|S|>k\}\cup B$ is intersecting and has size $2^{n-1}$.\\
+Proof:\\
+$|F|=\binom{2k}{k+1}+\binom{2k}{k+2}+\cdots+\binom{2k}{2k}+\frac12\binom{2k}k\\
+=\frac12\left(\binom{2k}{k+1}+\binom{2k}{k-1}\right)+\frac12\left(\binom{2k}{k+2}+\binom{2k}{k-2}\right)+\cdots+\frac12\left(\binom{2k}{2k}+\binom{2k}0\right)+\frac12\binom{2k}k\\
+=\frac12\left(\binom{2k}0+\binom{2k}1+\cdots+\binom{2k}{2k}\right)\\
+=2^{2k-1}=2^{n-1}$.\\
+For all $S, T\in F$, if $|S|+|T|>n$, then $|S\cap T|=|S|+|T|-|S\cup T|>n-|S\cup T|\geq n-n=0$.\\
+$\so S\cap T\neq\emptyset$.\\
+If $|S|+|T|=n$, since $|S|\geq k, |T|\geq k$, the only possibility is that $|S|=|T|=k$, and hence $S, T\in B$.\\
+Since $T\neq S^c$ by the definition of $B$, there is $T\not\subseteq S^c$.\\
+$\then S\cap T\neq\emptyset$.\\
+$\so F$ is intersecting, and this finishes the proof of the claim.\\
+Since there are $2^{\frac12\binom{2k}k}$ choices of $B$, there are $2^{\frac12\binom{2k}k}$ different $F$, and these $F$ are distinct intersecting families of size $2^{n-1}$ in $2^{[n]}$.
+\end{enumerate}
+\end{pr}
