@@ -3,7 +3,7 @@
 If a process succeeds with probability at least $p$, where $p>0$ is a constant, and each time the process runs, the results are independent, then the expected number of times running the process to get a success is at most $\frac1p$.
 \begin{proof}
 Let $T$ denote the number of times running the process to get a success.\\
-Suppose that the probability that the process succeeds $=q$.\\
+%Suppose that the probability that the process succeeds $=q$.\\
 $\E[T]=1+\P[$ the process fails $]\E[T]\leq1+(1-p)\E[T]$.\\
 $\then p\E[T]\leq1$.\\
 $\then\E[T]\leq\frac1p$.
@@ -25,9 +25,9 @@ For any $i$, the expected total number of times step 3 is run when the $i$, $(i+
 \begin{proof}
 If step 3 is run for $0$ times, then \rflm{4c} holds clearly.\\
 Suppose that step 3 is run for the first time when the $j$-th insertion arrives.\\
-For all $k=j+1, j+2, \dots, 2i-1$, let $p_k$ denote the probability that step 3 is run when the $k$-th insertion arrives.\\
-$p_k=$ the probability that collisions happen on both slots $\overset{\text{Both tables have at most }k\text{ non-empty slots}}\leq(\frac k{\text{table size}})^2\leq(\frac k{4j^{1.5}})^2\leq(\frac{2i}{4j^{1.5}})^2\leq(\frac{2i}{4i^{1.5}})^2=\frac1{4i}$.\\
-$\so$ the expected number of step 3 is called $=1+\suml_{k=j+1}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}\frac1{4i}=\frac32=O(1)$.
+For all $k=j+1, j+2, \dots, 2i-1$, let $p_k$ denote the expected probability that step 3 is run when the $k$-th insertion arrives.\\
+$p_k=$ the expected probability that collisions happen on both slots $\overset{\text{Both tables have at most }k\text{ non-empty slots}}\leq(\frac k{\text{table size}})^2\leq(\frac k{4j^{1.5}})^2\leq(\frac{2i}{4j^{1.5}})^2\leq(\frac{2i}{4i^{1.5}})^2=\frac1{4i}$.\\
+$\so$ the expected number of step 3 is called $=1+\suml_{k=j+1}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}\frac1{4i}=\frac54=O(1)$.
 \end{proof}
 \end{lm}
 Let $t_i$ denote the total expected running time when the $i$, $i+1$, \dots, $2i-1$-th insertion arrive.\\

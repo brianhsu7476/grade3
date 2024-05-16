@@ -17,15 +17,16 @@ When $m=n$, the algorithm is deterministic.
 \end{itemize}
 \item for $i=m+1$ to $n$:
 \begin{itemize}
-\item Uniformly choose $j$ from $k$.
+\item Uniformly randomly choose $j$ from $k$.
 \item Set $c_m(i)=j$ (i.e. color the vertex $i$ with $j$).
 \end{itemize}
 \end{itemize}
 Let the resulting $S$ of the algorithm be $S_m$.\\
-$\E[|S_0|]\geq(1-\frac1k)OPT$, which has been proved above.\\
-$\E[|S_i|]=|\{(u, v)\in E:u<v<i, c_i(u)\neq c_i(v)\}|+|\{(u, i)\in E:u<i, c_i(u)\neq c_i(i)\}|+(1-\frac1k)|\{(u, v)\in E:u<v, v>i\}|\overtext{By (1)}\geq|\{(u, v)\in E:u<v<i, c_i(u)\neq c_i(v)\}|+(1-\frac1k)|\{(u, i)\in E:u<i\}|+(1-\frac1k)|\{(u, v)\in E:u<v, v>i\}|=\E[|S_{i-1}|]$.\\
-$\so$ the algorithm with parameter $m=n$, which is a deterministic algorithm, satisfied $|S_n|\geq|S_{n-1}|\geq\cdots\geq|S_0|\geq(1-\frac1k)OPT$.\\
+$\E[|S_0|]\geq(1-\frac1k)OPT$ has been proved above.\\
+$\E[|S_i|]=|\{(u, v)\in E:u<v<i, c_i(u)\neq c_i(v)\}|+|\{(u, i)\in E:u<i, c_i(u)\neq c_i(i)\}|+(1-\frac1k)|\{(u, v)\in E:u<v, v>i\}|\\
+\overtext{By (1)}\geq|\{(u, v)\in E:u<v<i, c_i(u)\neq c_i(v)\}|+(1-\frac1k)|\{(u, i)\in E:u<i\}|+(1-\frac1k)|\{(u, v)\in E:u<v, v>i\}|=\E[|S_{i-1}|]$.\\
+$\so$ the algorithm with parameter $m=n$, which is a deterministic algorithm, satisfied $|S_n|=\E[|S_n|]\geq\E[|S_{n-1}|]\geq\cdots\geq\E[|S_0|]\geq(1-\frac1k)OPT$.\\
 Clearly, setting $c_n(i)=j$ above is $O(1)$.\\
-One can first store the neighborhood of each vertex, and then in (1), run though all neighbors of $i$.\\
+One can first store the neighborhood of each vertex, and then in (1), run through all neighbors of $i$.\\
 Since each edge will be run for twice in (1), the running time of this algorithm is $O(|V|+|E|)$.
 \end{pr}

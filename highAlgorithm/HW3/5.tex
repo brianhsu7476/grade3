@@ -13,5 +13,7 @@ Suppose that there are $i$ points $P_1, P_2, \dots, P_i$ on the circle, where th
 Since $E_j, E_k$ are disjoint for all $j\neq k$.\\
 $\so$ The probability that the intervals between any two points are still greater than $\frac1{n^2}\leq1-\P[E_1\cup E_2\cup\cdots\cup E_i]=1-(\P[E_1]+\P[E_2]+\cdots+\P[E_i])=1-\frac i{2n^2}$.\\
 $\so$ after inserting $n$ points, the probability that the intervals between any two points are greater than $\frac1{n^2}\leq(1-\frac1{2n^2})(1-\frac2{2n^2})\cdots(1-\frac n{2n^2})\overtext{By \rflm{5a}}\leq e^{-\frac1{2n^2}}e^{-\frac2{2n^2}}\cdots e^{-\frac n{2n^2}}=e^{-\frac{n(n+1)}{4n^2}}\leq e^{-\frac{n^2}{4n^2}}=e^{-\frac14}$.\\
-$\so$ the probability that the size of the smallest interval is less than $\frac1{n^2}=1-$ the probability that the intervals between any two points are greater than $\frac1{n^2}\geq1-e^{-\frac14}=\Omega(1)$.
+$\so$ the probability that the size of the smallest interval is less than $\frac1{n^2}\\
+=1-$ the probability that the intervals between any two points are greater than $\frac1{n^2}\\
+\geq1-e^{-\frac14}=\Omega(1)$.
 \end{pr}
