@@ -1,0 +1,45 @@
+\begin{pr}
+Let $K$ denote the given $k$ in the problem description (since $k$ is frequently used in this proof).\\
+Let $S_j:=\{i: \alpha_j>c_{ij}\},\ T_j:=\{i: \alpha_j=c_{ij}\},\ U_j:=\begin{cases}
+S_j\text{, if }S_j\neq\emptyset\\
+T_j\text{, otherwise}
+\end{cases}$.\\
+Since the algorithm in phase 1 guaranteed that all clients are connected.\\
+$\so S_j\cup T_j\neq\emptyset,\ \forall j$.\\
+In another word, $U_j\neq\emptyset,\ \forall j$.\\
+%Let $p_j\in S_j\cup T_j$, satisfying $p_j\notin S_j\iff S_j=\emptyset$.\\
+%Let $q_i:=\suml_{j:i\in S_j\cup T_j}\alpha_j$.\\
+Algorithm in phase 2:
+\begin{enumerate}
+\item $I:=\emptyset, J:=$ the set of all temporarily open facilities, $S:=\emptyset$.
+\item while $J\neq\emptyset$
+\begin{enumerate}
+\item Let $i\in J$ s.t. $q_i:=\suml_{j\notin S:i\in U_j}\alpha_j$ is maximized, and let $S^{(i)}:=S^c$.
+\item Let $A_i$ denote all facilities in $J$ that are conflict with $i$.
+\item Remove $A_i\cup\{i\}$ from $J$, add $i$ to $I$.
+\item for all $j\notin S$ with $i\in U_j$, serve $j$ with $i$, and add $j$ to $S$.
+\end{enumerate}
+\item for all $j\notin S$, select an arbitrary $i\in U_j$, it must be in some $A_k$ for some $k$ by 2(b), serve $j$ with $k$.
+%\begin{enumerate}
+%\item if $S_j\cap I\neq\emptyset$, serve $j$ with the only element (since $I$ does not contain falicities that are conflict with each other) of $S_j\cap I$, and add $j$ to $S$.
+%\item else if $T_j\cap I\neq\emptyset$, serve $j$ with an arbitrary $i\in T_j\cap I$, and add $j$ to $S$.
+%\item Select an arbitrary $i\in U_j$, it must be in some $A_k$ for some $k$ by 2(b), serve $j$ with $k$.
+%\end{enumerate}
+\end{enumerate}
+The maximality of $I$ is guaranteed by the condition of the while loop.\\
+Let $p_j$ denote the facility that serves $j$ in the above algorithm, and $B_i:=\{j:p_j=i\}$.\\
+By the definition of temporarily open and that no two facilities in $I$ are confict with each other, $\forall i\in I,\ \{j:i\in S_j\}\subseteq B_i$.\\
+$\then\forall i\in I,\ \suml_{j\in S\cap B_i}(\alpha_j-c_{ij})=f_i$.\\
+$\then\forall i\in I,\ f_i+\suml_{j\in S\cap B_i}c_{ij}=\suml_{j\in S\cap B_i}\alpha_j$.\\
+$\forall j\notin S$, by 3., there's $i\in U_j$ s.t. $i$ conflicts with $p_j$. By the definition of conflict, $\exists k$ s.t. $\alpha_k-c_{ik}>0$ and $\alpha_k-c_{p_jk}>0$.\\
+$\then c_{p_jj}\leq c_{ij}+c_{ik}+c_{p_jk}<c_{ij}+2\alpha_k\overset{\cuz i\in U_j}\leq\alpha_j+2\alpha_k\leq3\alpha_j$.\\
+The last inequality above is because $\alpha_k=$ the time that $k$ is connected $=$ the time that $i$ is temporarily open $\leq$ the time that $j$ is connected $=\alpha_j$.\\
+$\forall i\in I$:\\
+$\suml_{j\in S\cap B_i}\alpha_j\overtext{2(d)}=\suml_{j\in S^{(i)}}\alpha_j=q_i$.\\
+$\suml_{j\in B_i\setminus S}\alpha_j\overset{\text{there's }k\in U_j\text{ s.t. }k\in A_i}\leq\suml_{k\in A_i}\suml_{j\in B_i\setminus S:k\in U_j}\alpha_j\leq\suml_{k\in A_i}\suml_{j\in S^{(i)}}\alpha_j=\suml_{k\in A_i}q_k\overtext{2(a)}\leq\suml_{k\in A_i}q_i=|A_i|q_i\leq(K-1)q_i$.\\
+$\then\suml_{j\in S\cap B_i}\alpha_j=q_i=\frac1K(1+K-1)q_i\geq\frac1K\left(\suml_{j\in S\cap B_i}\alpha_j+\suml_{j\in B_i\setminus S}\alpha_j\right)=\frac1K\suml_{j\in B_i}\alpha_j$.\\
+$\so\suml_{j\in B_i}c_{ij}+f_i=\suml_{j\in S\cap B_i}\alpha_j+\suml_{j\in B_i\setminus S}c_{ij}\leq\suml_{j\in S\cap B_i}\alpha_j+3\suml_{j\in B_i\setminus S}\alpha_j=3\suml_{j\in B_i}\alpha_j-2\suml_{j\in S\cap B_i}\alpha_j\leq(3-\frac2K)\suml_{j\in B_i}\alpha_j$.\\
+%$\then\suml_{i\in I}\suml_{j\in B_i}c_{ij}+f_i\leq(3-\frac2K)\suml_{j\in B_i}\alpha_j$.\\
+Also, $\forall i\notin I,\ x_i=0$.\\
+$\so$ this is a $(3-\frac2K)$-approximation.
+\end{pr}

@@ -1,0 +1,23 @@
+\begin{pr}
+\begin{lm}
+\label{2a}
+Let $f(x)=1-\frac1{4^x}-\frac34x$. For $0\leq x\leq1$, $f(x)\geq0$.
+\begin{proof}
+It's obvious that $f$ is continuous and differentiable in $\R$.\\
+$f'(x)=\ln4\frac1{4^x}-\frac34$.\\
+$\then f'(x)>0\iff\ln4\frac1{4^x}>\frac34\iff4^x<\frac{4\ln4}3\iff x<\log_4(\frac{4\ln4}3)\approx0.443$.\\
+$\so f$ is increasing in $(-\infty, \log_4(\frac{4\ln4}3))$ and decreasing in $(\log_4(\frac{4\ln4}3), \infty)$.\\
+$\then\forall x\in[0, \log_4(\frac{4\ln4}3)], x\geq f(0)=0$, and $\forall x\in[\log_4(\frac{4\ln4}3), 1], x\geq f(1)=0$.\\
+$\so f(x)\geq0$ for all $x\in[0, 1]$.
+\end{proof}
+\end{lm}
+\newcommand{\scp}{{S_c^+}}
+\newcommand{\scn}{{S_c^-}}
+\newcommand{\yi}{{y_i^*}}
+\newcommand{\zc}{{z_c^*}}
+Let $c$ be a clause.\\
+The probability that $c$ is satisfied $=1-\prodl_{i\in\scp}(1-4^{\yi-1})\prodl_{i\in\scn}(1-(1-4^{\yi-1}))\overset{\cuz1-4^{\yi-1}\leq4^{-\yi}}\geq1-\prodl_{i\in\scp}4^{-\yi}\prodl_{i\in\scn}4^{\yi-1}=1-(\frac14)^{\suml_{i\in\scp}\yi+\suml_{i\in\scn}(1-\yi)}$.\\
+By the restrictions in LP, there is $\suml_{i\in\scp}\yi+\suml_{i\in\scn}(1-\yi)\geq\zc$.\\
+$\so$ the probability that $c$ is satisfied $\geq1-(\frac14)^{\suml_{i\in\scp}\yi+\suml_{i\in\scn}(1-\yi)}\geq1-(\frac14)^\zc\overtext{by \rflm{2a}}\geq\frac34\zc$.\\
+$\so$ the expected number of clauses that are satisfied $\geq\frac34\suml_c\zc$.
+\end{pr}
