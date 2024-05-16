@@ -1,23 +1,37 @@
 \begin{pr}
-Let OPT $=\suml_if_iy_i=\suml_j\alpha_j$. (They're equal by the strong duality theorem).\\
-$\then$ all slackness conditions must hold.\\
-$\then\alpha_j-\beta_{ij}=c_{ij}$ or $x_{ij}=0,\ \forall i, j$.\\
-Let $p_j$ denote the falicity that serves $j$, $q_i$ denote the chosen client $j$ that open $i$ in $N_j$, and $B_i:=\{j:p_j=i\}$.\\
-If $p_j\notin N_j$, it means that $N_j\cap N_{q_{p_j}}\neq\emptyset$. Let $r_j$ denote a facility that $\in N_j\cap N_{q_{p_j}}$.\\
-Else just simply set $r_j:=p_j$.\\
-Let $F$ denote the set of falicities that are open.\\
-$\suml_{i\in F}f_i\leq\suml_{i\in F}f_i\suml_{k\in N_{q_i}}x_{kq_i}\leq\suml_{i\in F}f_i\suml_{k\in N_{q_i}}y_k\overset{f_i\leq f_k,\ \forall k\in N_{q_i}}\leq\suml_{i\in F}\suml_{k\in N_{q_i}}f_ky_k\overset{N_{q_i}\cap N_{q_k}=\emptyset,\ \forall i\neq k}\leq\suml_if_iy_i=OPT$.\\
-$\forall j,\ c_{p_jj}\leq c_{r_jj}+c_{r_jq_{p_j}}+c_{p_jq_{p_j}}$ (by the definition of metric).\\
-Since $q_{p_j}$ is chosen before $j$, there is $\alpha_{q_{p_j}}\leq\alpha_j$.\\
-Since $r_j\in N_j, r_j\in N_{q_{p_j}}, p_j\in N_{q_{p_j}}$, by the definition of $N$, there is $x_{r_jj}, x_{r_jq_{p_j}}, x_{p_jq_{p_j}}$ are all nonzero.\\
-$\so$:\\
-$c_{r_jj}\leq c_{r_jj}+\beta_{r_jj}=\alpha_j$.\\
-$c_{r_jq_{p_j}}\leq c_{r_jq_{p_j}}+\beta_{r_jq_{p_j}}=\alpha_{q_{p_j}}\leq\alpha_j$.\\
-$c_{p_jq_{p_j}}\leq c_{p_jq_{p_j}}+\beta_{p_jq_{p_j}}=\alpha_{q_{p_j}}\leq\alpha_j$.\\
-$\then c_{r_jj}\leq3\alpha_j$.\\
-$\so\suml_{i\in F}\suml_{j\in B_i}c_{p_jj}\leq\suml_{i\in F}\suml_{j\in B_i}3\alpha_j=3\suml_j\alpha_j=3OPT$.\\
-$\so\suml_{i\in F}f_i+\suml_{j\in B_i}c_{p_jj}\leq OPT+3OPT=4OPT$.\\
-Since $OPT$ is the optimal solution of LP relaxation, which is not greater than the optimal solution of ILP (denote as OPT').\\
-$\so\suml_{i\in F}f_i+\suml_{j\in B_i}c_{p_jj}\leq4OPT\leq4OPT'$.\\
-$\then$ this is a $4$-approximation.
+\begin{lm}\label{4a}
+If a process succeeds with probability at least $p$, where $p>0$ is a constant, and each time the process runs, the results are independent, then the expected number of times running the process to get a success is at most $\frac1p$.
+\begin{proof}
+Let $T$ denote the number of times running the process to get a success.\\
+Suppose that the probability that the process succeeds $=q$.\\
+$\E[T]=1+\P[$ the process fails $]\E[T]\leq1+(1-p)\E[T]$.\\
+$\then p\E[T]\leq1$.\\
+$\then\E[T]\leq\frac1p$.
+\end{proof}
+\end{lm}
+\begin{lm}\label{4b}
+The expected time complexity of step 3 is $O(i)$.
+\begin{proof}
+The probability that inserting $j$ in the rebuild process fails $=$ the probability that collisions happen on both slots $\overset{\text{Both tables have at most }j\text{ non-empty slots}}\leq(\frac j{4i^{1.5}})^2\leq(\frac i{4i^{1.5}})^2=\frac1{16i}$.\\
+$\then$ the probability that at least one of the above fails $\leq i\times\frac1{16i}=\frac1{16}$.\\
+$\so$ the probability that the rebuild process succeeds $=1-$ the probability that at least one of the above fails $\geq\frac{15}{16}$.\\
+By \rflm{4a}, the expected number of times the rebuild process is run $\leq\frac{16}{15}=O(1)$.\\
+Since the rebuild process needs to insert at most $i$ items, its time complexity is $O(i)$.\\
+$\so$ the expected time complexity of step 3 $=O(i)O(1)=O(i)$.
+\end{proof}
+\end{lm}
+\begin{lm}\label{4c}
+For any $i$, the expected total number of times step 3 is run when the $i$, $(i+1)$, \dots, $(2i-1)$-th insertion arrive is $O(1)$.
+\begin{proof}
+If step 3 is run for $0$ times, then \rflm{4c} holds clearly.\\
+Suppose that step 3 is run for the first time when the $j$-th insertion arrives.\\
+For all $k=j+1, j+2, \dots, 2i-1$, let $p_k$ denote the probability that step 3 is run when the $k$-th insertion arrives.\\
+$p_k=$ the probability that collisions happen on both slots $\overset{\text{Both tables have at most }k\text{ non-empty slots}}\leq(\frac k{\text{table size}})^2\leq(\frac k{4j^{1.5}})^2\leq(\frac{2i}{4j^{1.5}})^2\leq(\frac{2i}{4i^{1.5}})^2=\frac1{4i}$.\\
+$\so$ the expected number of step 3 is called $=1+\suml_{k=j+1}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}p_k\leq1+\suml_{k=i}^{2i-1}\frac1{4i}=\frac32=O(1)$.
+\end{proof}
+\end{lm}
+Let $t_i$ denote the total expected running time when the $i$, $i+1$, \dots, $2i-1$-th insertion arrive.\\
+By \rflm{4c}, $t_i$ is ($O(i)$ step 1 or 2) $+$ ($O(1)$ step 3) $\overtext{By \rflm{4b}}=O(i)O(1)+O(1)O(i)=O(i)$.\\
+Let $k$ be an integer such that $n\leq2^k<2n$.\\
+The total expected time complexity $\leq t_1+t_2+t_4+t_8+\cdots+t_{2^k}=O(1)+O(2)+O(4)+O(8)+\cdots+O(2^k)=O(2^{k+1})=O(4n)=O(n)$.
 \end{pr}
