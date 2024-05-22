@@ -1,0 +1,26 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item If $z\geq0$, then $x\geq y\geq0$.\\
+$\then f_Z(z)=\int_0^\infty\lambda e^{-\lambda(y+z)}\mu e^{-\mu y}dy\\
+=\int_0^\infty\lambda\mu e^{-(\lambda+\mu)y-\lambda z}dy\\
+=\left.\frac{\lambda\mu}{-\lambda-\mu}e^{-(\lambda+\mu)y-\lambda z}\right|_0^\infty\\
+=\frac{\lambda\mu}{\lambda+\mu}e^{-\lambda z}$.\\
+If $z\leq0$, then $y\geq x\geq0$.\\
+$\then f_Z(z)=\int_0^\infty\lambda e^{-\lambda x}\mu e^{-\mu(x-z)}dx\\
+=\int_0^\infty\lambda\mu e^{-(\lambda+\mu)x+\mu z}dx\\
+=\left.\frac{\lambda\mu}{-\lambda-\mu}e^{-(\lambda+\mu)x+\mu z}\right|_0^\infty\\
+=\frac{\lambda\mu}{\lambda+\mu}e^{\mu z}$.\\
+$\so f_Z(z)=\begin{cases}
+\frac{\lambda\mu}{\lambda+\mu}e^{-\lambda z}\text{, if }z\geq0\\
+\frac{\lambda\mu}{\lambda+\mu}e^{\mu z}\text{, otherwise}
+\end{cases}$.
+\item Clearly, for $w<0$, $f_W(w)=0$.\\
+For $w\geq0$:\\
+$W=|X-Y|=|Z|$.\\
+$\then f_W(w)=f_Z(w)+f_Z(-w)=\frac{\lambda\mu}{\lambda+\mu}e^{-\lambda w}+\frac{\lambda\mu}{\lambda+\mu}e^{-\mu w}=\frac{\lambda\mu}{\lambda+\mu}(e^{-\lambda w}+e^{-\mu w})$.\\
+$\so f_W(w)=\begin{cases}
+\frac{\lambda\mu}{\lambda+\mu}(e^{-\lambda w}+e^{-\mu w})\text{, if }w\geq0\\
+0\text{, otherwise}
+\end{cases}$.
+\end{enumerate}
+\end{pr}

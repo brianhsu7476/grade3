@@ -1,0 +1,12 @@
+\begin{pr}
+$e^{2e^s-2}=e^{2(e^s-1)}$ is the MGF of $\mathrm{Poisson}(2)$.\\
+$(\frac34e^s+\frac14)=(1-\frac34+\frac34e^s)^{10}$ is the MGF of $\mathrm{Binominal}(10, \frac34)$.\\
+$\so X\sim\mathrm{Poisson}(2)$ and $Y\sim\mathrm{Binominal}(10, \frac34)$.\\
+$\then P_X(x)=\frac{2^xe^{-2}}{x!}$ for $x=0, 1, 2, \dots$, $P_Y(y)=\binom{10}y(\frac34)^y(\frac14)^{10-y}$ for $y=0, 1, \dots, 10$.
+\begin{enumerate}[(a)]
+\item $\cuz X, Y\geq0$\\
+$\so\P[X+Y=2]\overset{\cuz X, Y\text{ are independent}}=P_X(0)P_Y(2)+P_X(1)P_Y(1)+P_X(2)P_Y(0)=e^{-2}45\times\frac9{16}(\frac14)^8+2e^{-2}10\times\frac34(\frac14)^9+2e^{-2}(\frac14)^{10}=\frac1{4^{10}e^2}(405+60+2)=\frac{467}{1048576e^2}$.
+\item $\P[XY=0]=\P[X=0\lor Y=0]=\P[X=0]+\P[Y=0]-\P[X=0\land Y=0]\overset{\cuz X, Y\text{ are independent}}=P_X(0)+P_Y(0)-P_X(0)P_Y(0)=e^{-2}+(\frac14)^{10}-e^{-2}(\frac14)^{10}=e^{-2}+\frac1{1048576}-\frac1{e^21048576}$.
+\item $\E[XY]\overset{\cuz X, Y\text{ are independent}}=\E[X]\E[Y]=2\times10\times\frac34=15$.
+\end{enumerate}
+\end{pr}
