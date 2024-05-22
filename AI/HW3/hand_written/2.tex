@@ -1,1 +1,20 @@
+\renewcommand{\u}{\mathbf{u}}
 
+\begin{pr}
+Let $f_u$ be the pdf of $\mathcal{N}(u, 1)$.
+\begin{lm}\label{2a}
+The maximizer of $g(u):=\prodl_{n=1}^Nf_u(x_n)$ is $u=\suml_{n=1}^Nx_n$.
+\begin{proof}
+$f_u(x)=\frac1{\sqrt{2\pi}}e^{-\frac12(x-u)^2}$.\\
+$\then g(u)=\prodl_{n=1}^Nf_u(x_n)=(\frac1{\sqrt{2\pi}})^Ne^{-\frac12\suml_{n=1}^N(x_n-u)^2}$.\\
+$g'(u)=(\frac1{\sqrt{2\pi}})^Ne^{-\frac12\suml_{n=1}^N(x_n-u)^2}\times\frac{d(-\frac12\suml_{n=1}^N(x_n-u)^2)}{du}=(\frac1{\sqrt{2\pi}})^Ne^{-\frac12\suml_{n=1}^N(x_n-u)^2}\times(-\frac12(\suml_{n=1}^N2(u-x_n)))=(\frac1{\sqrt{2\pi}})^Ne^{-\frac12\suml_{n=1}^N(x_n-u)^2}\times\suml_{n=1}^N(x_n-u)$.\\
+$\cuz(\frac1{\sqrt{2\pi}})^Ne^{-\frac12\suml_{n=1}^N(x_n-u)^2}>0$ for all $u$.\\
+$\so g'(u)=0\iff\suml_{n=1}^N(x_n-u)=0\iff u=\frac1N\suml_{n=1}^Nx_n$.\\
+$\so u=\frac1N\suml_{n=1}^Nx_n$ is the minimizer of $g(u)$.
+\end{proof}
+\end{lm}
+$\cuz\mathcal{N}(\u, I)$ is the joint distribution of $d$ independent random variables $X_1, X_2, \dots, X_d$, where $X_i\sim\mathcal{N}(\u_i, 1)$.\\
+$\so p_\u(\x_n)=\prodl_{i=1}^df_{\u_i}(\x_{n, i})$.\\
+$\then\prodl_{n=1}^Np_\u(\x_n)=\prodl_{n=1}^N\prodl_{i=1}^df_{\u_i}(\x_{n, i})=\prodl_{i=1}^d\prodl_{n=1}^Nf_{\u_i}(\x_{n, i})\overtext{By \rflm{2a}}\leq\prodl_{i=1}^d\prodl_{n=1}^Nf_{\frac1N\sum_{j=1}^N\x_{j, i}}(\x_{n, i})=\prodl_{i=1}^d\prodl_{n=1}^Nf_{\u^*_i}(\x_{n, i})=\prodl_{n=1}^N\prodl_{i=1}^df_{\u^*_i}(\x_{n, i})=\prodl_{n=1}^Np_{\u^*}(\x_n)$.\\
+$\so\u^*$ is the maximizer of $\prodl_{n=1}^Np_\u(\x_n)$.
+\end{pr}

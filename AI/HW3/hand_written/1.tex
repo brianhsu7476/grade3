@@ -1,10 +1,19 @@
 \newcommand{\w}{\mathbf{w}}
 \newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\err}{\mathrm{err}}
+\newcommand{\Ein}{\mathrm{E_{in}}}
 
 \begin{pr}
-$\max(1-y\w^T\x)^2=\begin{cases}
-(1-\y\w^T\x)^2=1-2y\w^T\x+y^2(\w^T\x)^2=1-2y\w^T\x+(\w^T\x)^2\text{, if }y\w^T\x\leq1\\
+$\err(\w^T\x, \y)=\max(1-y\w^T\x)^2\\
+=\begin{cases}
+(1-\y\w^T\x)^2\text{, if }y\w^T\x\leq1\\
 0\text{, otherwise}
 \end{cases}$.\\
-
+$\then\nabla(\err(\w^T\x, \y))=\begin{cases}
+2(1-\y\w^T\x)\times\nabla(1-\y\w^T\x)=2(1-\y\w^T\x)(-\y\x)=2(\w^T\x-\y)\x\text{, if }y\w^T\x\leq1\\
+0\text{, otherwise}
+\end{cases}$.\\
+$\so\nabla\Ein(\w)=\frac1N\suml_{n=1}^N\nabla\err(\w^T\x, \y)=\frac1N\suml_{1\leq n\leq N, y_n\w^T\x_n\leq1}2(\w^T\x_n-\y_n)\x_n+\frac1N\suml_{1\leq n\leq N, y_n\w^T\x_n>1}0\\
+=\frac2N\suml_{1\leq n\leq N, y_n\w^T\x_n\leq1}(\w^T\x_n-\y_n)\x_n$.
 \end{pr}
