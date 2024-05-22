@@ -1,0 +1,10 @@
+\section{Normalization and Standardization}
+
+\noindent
+Performance of logistic regression (number of iterations=$1000$, learning rate$=0.01$):\\
+Accuracy using normalization: 0.6444444444444445\\
+Accuracy using standardization: 0.8
+
+One can see that standardization performs better than normalization. The reason is that if a feature has an outlier (for example a feature that most data are between $1$ and $3$ but an outlier is $100$), then normalization will significantly reduce the impact of this feature (comparing to other features), but standardization won't.
+
+% (Normalization and standardization don't affect the result of decision tree or linear regression. The reason that both transformations don't affect the result of decision tree is that they don't change the relative size of the data, while the reason that both transformations don't affect the result of linear regression is that they are linear transformations.)

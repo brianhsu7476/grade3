@@ -1,0 +1,20 @@
+\section{The Number of Trees and Maximum Depth}
+
+\subsection{Classification}
+\noindent
+The number of trees=$100$, maximum depth=$5$: 0.9777777777777777\\
+The number of trees=$500$, maximum depth=$5$: 0.9777777777777777\\
+The number of trees=$100$, maximum depth=$10$: 0.9777777777777777\\
+The number of trees=$10$, maximum depth=$5$: 0.9777777777777777\\
+The number of trees=$100$, maximum depth=$2$: 0.9777777777777777
+
+One can see that the number of trees$=10$ with maximum depth $5$ or the number of trees$=100$ with maximum depth $2$ is enough to fit the training data.
+
+\subsection{Regression}
+\noindent
+The number of trees=$100$, maximum depth=$5$: 10.70623317539579\\
+The number of trees=$500$, maximum depth=$5$: 10.86428686562275\\
+The number of trees=$100$, maximum depth=$10$: 10.428790772456667
+
+One can see that the MSE increases when we increase the number of trees. The reason is that although more trees implies better performance on the training data, it may also overfit and thus performs worse on the testing data.\\
+One can also see that the MSE decreases when we increase the depth of trees. The reason is that trees with maximum depth=$5$ are not enough to fit the training data.

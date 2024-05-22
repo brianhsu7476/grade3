@@ -1,0 +1,18 @@
+\section{Learning Rate and Number of Iterations}
+
+\subsection{Logistic Regression}
+\noindent
+Learning rate=$0.01$, number of iterations=$1000$: 0.8\\
+Learning rate=$0.01$, number of iterations=$10000$: 0.9333333333333333\\
+Learning rate=$0.1$, number of iterations=$1000$: 0.9333333333333333
+
+One can see that both increasing the number of iterations and increasing the learning rate will increase the performance. The reason is that small learning rate or few number of iterations is not enough to fit the model.
+
+\subsection{Linear Regression}
+\noindent
+The result of directly using the pseudo inverse to calculate it: 22.33701156362598\\
+Learning rate=$0.01$, number of iterations=$1000$: 22.06285648717403\\
+Learning rate=$0.01$, number of iterations=$10000$: 22.337009206623446\\
+Learning rate=$0.1$, number of iterations=$1000$: 22.337009379619968
+
+One can see that both increasing the number of iterations and increasing the learning rate will make the resulting $\mathbf{w}$ closer to the optimal solution (which can be get by using the pseudo inverse). However, the closer to the optimal solution does not imply the smaller the MSE is because it may overfit the training data.

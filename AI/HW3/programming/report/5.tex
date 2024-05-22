@@ -1,0 +1,13 @@
+\section{Strengths and Weaknesses of Models}
+
+Strengths:\\
+Linear: easy, straightforward, good performance when data is linearly separable.\\
+Nonlinear: easier and faster than random forest, perform better when data is not linearly separable\\
+Random forest: perform really well with some outliers, often perform better than the other two models
+
+Weaknesses:\\
+Linear: perform bad when data is not linearly separable\\
+Nonlinear: perform worse than random forest if there are some outlier, easy to overfit if the tree is too deep\\
+Random forest: time consuming, easy to overfit
+
+If the data is approximately linearly separable, then I'll choose linear model. If I have few computing resources, I'll choose nonlinear model. Otherwise, in mose case, I'll choose random forest. Since in real world, there are usually some outliers in data, and random forest can deal with that well.

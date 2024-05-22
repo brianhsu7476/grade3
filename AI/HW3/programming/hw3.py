@@ -146,7 +146,10 @@ class LinearModel:
 				self.W=self.W-self._compute_gradients(X, y)*self.learning_rate
 			# pass
 		else:
-			self.w=np.dot(np.linalg.pinv(X), y)
+			# self.w=np.dot(np.linalg.pinv(X), y)
+			self.w=np.array([0.0 for i in range(n_features)])
+			for i in range(self.iterations):
+				self.w=self.w-self._compute_gradients(X, y)*self.learning_rate
 			# pass
 		# TODO: 2%
 		# raise NotImplementedError
@@ -167,7 +170,8 @@ class LinearModel:
 	def _compute_gradients(self, X: np.ndarray, y: np.ndarray) -> np.ndarray:
 		if self.model_type == "linear":
 			# TODO: 3%
-			raise NotImplementedError
+			return sum([2*(np.dot(self.w, X[i])-y[i])*X[i] for i in range(len(X))])/len(X)
+			# raise NotImplementedError
 		elif self.model_type == "logistic":
 			# TODO: 3%
 			res=[]
@@ -362,9 +366,16 @@ def main():
 	logistic_regression = LinearModel(model_type="logistic")
 	logistic_regression.fit(X_train, y_train)
 	y_pred = logistic_regression.predict(X_test)
-	#print("Logistic Regression Ein:", accuracy(y_train, logistic_regression.predict(X_train)))
 	print("Logistic Regression Accuracy:", accuracy(y_test, y_pred))
 
+	logistic_regression = LinearModel(model_type="logistic", iterations=10000)
+	logistic_regression.fit(X_train, y_train)
+	y_pred = logistic_regression.predict(X_test)
+	print("Logistic Regression Accuracy:", accuracy(y_test, y_pred))
+	logistic_regression = LinearModel(model_type="logistic", learning_rate=0.1)
+	logistic_regression.fit(X_train, y_train)
+	y_pred = logistic_regression.predict(X_test)
+	print("Logistic Regression Accuracy:", accuracy(y_test, y_pred))
 
 	decision_tree_classifier = DecisionTree(model_type="classifier")
 	decision_tree_classifier.fit(X_train, y_train)
@@ -375,6 +386,23 @@ def main():
 	random_forest_classifier = RandomForest(model_type="classifier")
 	random_forest_classifier.fit(X_train, y_train)
 	#print("Random Forest Classifier Ein:", accuracy(y_train, random_forest_classifier.predict(X_train)))
+	y_pred = random_forest_classifier.predict(X_test)
+	print("Random Forest Classifier Accuracy:", accuracy(y_test, y_pred))
+	
+	# random_forest_classifier = RandomForest(model_type="classifier", n_estimators=500)
+	# random_forest_classifier.fit(X_train, y_train)
+	# y_pred = random_forest_classifier.predict(X_test)
+	# print("Random Forest Classifier Accuracy:", accuracy(y_test, y_pred))
+	# random_forest_classifier = RandomForest(model_type="classifier", max_depth=10)
+	# random_forest_classifier.fit(X_train, y_train)
+	# y_pred = random_forest_classifier.predict(X_test)
+	# print("Random Forest Classifier Accuracy:", accuracy(y_test, y_pred))
+	random_forest_classifier = RandomForest(model_type="classifier", n_estimators=10)
+	random_forest_classifier.fit(X_train, y_train)
+	y_pred = random_forest_classifier.predict(X_test)
+	print("Random Forest Classifier Accuracy:", accuracy(y_test, y_pred))
+	random_forest_classifier = RandomForest(model_type="classifier", max_depth=2)
+	random_forest_classifier.fit(X_train, y_train)
 	y_pred = random_forest_classifier.predict(X_test)
 	print("Random Forest Classifier Accuracy:", accuracy(y_test, y_pred))
 
@@ -396,6 +424,15 @@ def main():
 	y_pred = linear_regression.predict(X_test)
 	print("Linear Regression MSE:", mean_squared_error(y_test, y_pred))
 
+	linear_regression = LinearModel(model_type="linear", iterations=10000)
+	linear_regression.fit(X_train, y_train)
+	y_pred = linear_regression.predict(X_test)
+	print("Linear Regression MSE:", mean_squared_error(y_test, y_pred))
+	linear_regression = LinearModel(model_type="linear", learning_rate=0.1)
+	linear_regression.fit(X_train, y_train)
+	y_pred = linear_regression.predict(X_test)
+	print("Linear Regression MSE:", mean_squared_error(y_test, y_pred))
+
 	decision_tree_regressor = DecisionTree(model_type="regressor")
 	decision_tree_regressor.fit(X_train, y_train)
 	y_pred = decision_tree_regressor.predict(X_test)
@@ -405,7 +442,14 @@ def main():
 	random_forest_regressor.fit(X_train, y_train)
 	y_pred = random_forest_regressor.predict(X_test)
 	print("Random Forest Regressor MSE:", mean_squared_error(y_test, y_pred))
-
+	random_forest_regressor = RandomForest(model_type="regressor", n_estimators=500)
+	random_forest_regressor.fit(X_train, y_train)
+	y_pred = random_forest_regressor.predict(X_test)
+	print("Random Forest Regressor MSE:", mean_squared_error(y_test, y_pred))
+	random_forest_regressor = RandomForest(model_type="regressor", max_depth=10)
+	random_forest_regressor.fit(X_train, y_train)
+	y_pred = random_forest_regressor.predict(X_test)
+	print("Random Forest Regressor MSE:", mean_squared_error(y_test, y_pred))
 
 if __name__ == "__main__":
 	main()
