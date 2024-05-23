@@ -1,3 +1,9 @@
 \begin{pr}
-
+Note that $\E[K]=np$, and $\E[K^2]=\Var(K)+(\E[K])^2=np(1-p)+n^2p^2=np(1-p+np)$.\\
+Given there are $X_1+\cdots+X_n=k$, the expected number of $1$ in $X_1, X_2, \dots, X_k$ is $\frac{k^2}n$.\\
+$\so\E[X_1+\cdots+X_k|K=k]=\frac{k^2}n$.\\
+$\E[U]=\suml_{k=0}^n\P_K(k)\E[X_1+X_2+\cdots+X_k|K=k]=\suml_{k=0}^n\binom nkp^k(1-p)^{n-k}\frac{k^2}n=\frac1n\E[K^2]=p(1-p+np)$.\\
+$\E[V]=\suml_{m=0}^n\P_M(m)\E[X_1+X_2+\cdots+X_m|M=m]=\suml_{m=0}^n\P_M(m)\E[X_1+X_2+\cdots+X_m]=\suml_{m=0}^n\binom nmp^m(1-p)^{n-m}pm=\suml_{k=0}^n\binom nkp^k(1-p)^{n-k}pk=p\E[K]=np^2$.\\
+$\cuz np^2=p(1-p+np)$ doesn't always hold.\\
+$\so\E[U]$ and $\E[V]$ are not the same.
 \end{pr}

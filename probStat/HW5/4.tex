@@ -1,3 +1,34 @@
 \begin{pr}
-
+\begin{lm}\label{4a}
+Let $n\geq0$ be an integer, and $c\in\R^+$. $$f(n):=\int_0^\infty x^ne^{-cx}dx=(\frac1c)^{n+1}n!$$
+\begin{proof}
+Let's have an induction on $n$ to prove this.\\
+For $n=0$, $f(n)=\int_0^\infty e^{-cx}dx=\left.-\frac1ce^{-cx}\right|_0^\infty=\frac1c$, \rflm{4a} holds.\\
+Suppose for $n=m$, $f(m)=(\frac1c)^{m+1}m!$.\\
+For $n=m+1$, $f(m+1)=\int_0^\infty x^{m+1}e^{-cx}dx\\
+=\left.x^{m+1}(-\frac1ce^{-cx})\right|_0^\infty+\int_0^\infty(m+1)x^m\cdot\frac1ce^{-cx}dx\\
+=\lim_{x\to\infty}\frac{x^{m+1}}{-ce^{cx}}+\frac{m+1}cf(m)\\
+\overset{\text{L'Hospital for }m+1\text{ times}}=\lim_{x\to\infty}\frac{(m+1)!}{-c^{m+2}e^{cx}}+\frac{m+1}cf(m)\\
+=\frac{m+1}cf(m)=\frac{m+1}c\cdot(\frac1c)^{m+1}m!=(\frac1c)^{m+2}(m+1)!$.\\
+$\so$ by induction, \rflm{4a} holds for all $n\geq0$.
+\end{proof}
+\end{lm}
+\begin{enumerate}[(a)]
+\item $f_T(t)=\alpha e^{-\alpha t}$.\\
+Clearly, for $n<0$, $P_N(n)=0$.\\
+For $n\geq0,\ P_N(n)=\E\left[\frac{(\beta T)^ne^{-\beta T}}{n!}\right]\\
+=\int_0^\infty f_T(t)\frac{(\beta T)^ne^{-\beta T}}{n!}dt\\
+=\int_0^\infty\alpha e^{-\alpha t}\frac{(\beta T)^ne^{-\beta T}}{n!}dt\\
+=\frac{\alpha\beta^n}{n!}\int_0^\infty t^ne^{-(\alpha+\beta)t}dt\\
+\overtext{\rflm{4a}}=\frac{\alpha\beta^n}{n!}\cdot\frac1{(\alpha+\beta)^{n+1}}n!\\
+=\frac{\alpha\beta^n}{(\alpha+\beta)^{n+1}}$.\\
+$\so P_N(n)=\begin{cases}
+\frac{\alpha\beta^n}{(\alpha+\beta)^{n+1}}\text{, if }n=0, 1, 2, \dots\\
+0\text{, otherwise}
+\end{cases}$.
+\item $\cuz P_N(n)=\frac\alpha{\alpha+\beta}(1-\frac\alpha{\alpha+\beta})^n=P_G(n+1)$, where $G\sim\mathrm{Geometric}(\frac\alpha{\alpha+\beta})$.\\
+$\so N=G-1$.\\
+$\then\E[N]=\E[G-1]=\E[G]-1=\frac{\alpha+\beta}\alpha-1=\frac{\beta}{\alpha}$.\\
+$\Var(N)=\Var(G-1)=\Var(G)=\frac{1-\frac\alpha{\alpha+\beta}}{(\frac\alpha{\alpha+\beta})^2}=\frac{\beta(\alpha+\beta)}{\alpha^2}$.
+\end{enumerate}
 \end{pr}

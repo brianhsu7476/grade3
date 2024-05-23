@@ -1,3 +1,20 @@
-\begin{pr}
-
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Let $N$ be the number of games played.\\
+Given $N=n$, there is $\P[X_i=1]=\P[X_i=2]=\frac12$ for $i<n$.\\
+Also, since each game loses with probability $\frac13$, there is $N\sim\mathrm{Geometric}(\frac13)$.\\
+$\then Y=Z_1+Z_2+\cdots+Z_{N-1}$, where $N\sim\mathrm{Geometric}(\frac13)$ and $Z_i$ is an uniform distribution on $\{1, 2\}$.\\
+Note that $Z_1, Z_2, \dots, Z_{N-1}, N$ are independent.\\
+$\phi_N(s)=\frac{\frac13e^s}{1-\frac23e^s}$, and $\phi_{N-1}(s)=e^{-s}\phi_N(s)=\frac{\frac13}{1-\frac23e^s}=\frac1{3-2e^s}$.\\
+By theorem 6.12 in the textbook, $\phi_Y(s)=\phi_{N-1}(\ln\phi_{Z_i}(s))=\phi_{N-1}(\ln(\frac12(e^s+e^{2s})))=\frac1{3-2\times\frac12(e^s+e^{2s})}=\frac1{3-e^s-e^{2s}}$.
+%\frac{\frac13\times\frac12(1+e^s)}{1-\frac23\times\frac12(e^s+e^{2s})}=\frac{1+e^s}{6-2e^s-2e^{2s}}$.
+\item $\E[Y]=\phi_Y'(0)\\
+=\left.\left(-\frac{-e^s-2e^{2s}}{(3-e^s-e^{2s})^2}\right)\right|_{s=0}\\
+=\left.\left(\frac{e^s+2e^{2s}}{(3-e^s-e^{2s})^2}\right)\right|_{s=0}\\
+=\frac3{1^2}=3$.\\
+$\E[Y^2]=\phi_Y''(0)\\
+=\left.\left(\frac{e^s+4e^{2s}}{(3-e^s-e^{2s})^2}-2\cdot\frac{(e^s+2e^{2s})(-e^s-2e^{2s})}{(3-e^s-e^{2s})^3}\right)\right|_{s=0}\\
+=\frac5{1^2}-2\cdot\frac{3\times(-3)}{1^3}=5+18=23$.\\
+$\Var(Y)=\E[Y^2]-(\E[Y])^2=23-3^2=14$.
+\end{enumerate}
 \end{pr}

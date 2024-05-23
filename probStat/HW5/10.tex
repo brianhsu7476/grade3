@@ -1,3 +1,13 @@
-\begin{pr}
-
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item $X_i$ is the sum of $10$ independent Bernoulli trials, so $X_i\sim\mathrm{Binomial}(10, 0.8)$.\\
+$\then P_{X_i}(x)=\binom{10}x0.8^x0.2^{1-x}$.
+\item $X$ is the average of $100$ independent Bernoulli trials (denote them by $Y_1, Y_2, \dots, Y_{100}$), so $X=0.01Z$, and $Z\sim\mathrm{Binomial}(100, 0.8)$.\\
+By Central Limit Theorem, $\P[X\leq x]=\P[Z\leq100x]\approx\Phi(\frac{100x-100\mu_{Y_i}}{\sqrt{100\sigma_{Y_i}^2}})=\Phi(\frac{100x-80}{\sqrt{100\times0.8\times0.2}})=\Phi(\frac{100x-80}4)$.\\
+$\so\P[A]=\P[X\geq0.9]=1-\P[X<0.9]\approx1-\Phi(\frac{10}4)=1-\Phi(2.5)\approx0.0062$.
+\item (Use the notations and results in (b)).\\
+$\P[A]=\P[X'\geq0.9]=\P[\frac{10n+\suml_{i=1}^{10}X_i}{10n+100}\geq0.9]=\P[\suml_{i=1}^{10}X_i\geq0.9(10n+100)-10n]=\P[Z\geq90-n]\approx1-\Phi(\frac{90-n-80}4)=1-\Phi(\frac{10-n}4)$.
+\item It will affect the letter grade $\iff$ in the following $90$ questions, exactly $89-8, 79-8, 69-8, 59-8$ are correct.\\
+$\so$ the probability $=\binom{90}{81}(0.8)^{81}(0.2)^9+\binom{90}{71}(0.8)^{71}(0.2)^{19}+\binom{90}{61}(0.8)^{61}(0.2)^{29}+\binom{90}{51}(0.8)^{51}(0.2)^{39}\approx0.1064$.
+\end{enumerate}
 \end{pr}

@@ -1,3 +1,12 @@
 \begin{pr}
-
+$\phi_{X_i}(s)=e^{s\cdot0+s^21^2/2}=e^{s^2/2}$.\\
+$\phi_{X_i}'(s)=se^{s^2/2}$.\\
+$\phi_{X_i}^{(2)}(s)=e^{s^2/2}+s^2e^{s^2/2}$.\\
+$\phi_{X_i}^{(3)}(s)=se^{s^2/2}+2se^{s^2/2}+s^3e^{s^2/2}$.\\
+$\phi_{X_i}^{(4)}(s)=3e^{s^2/2}+3s^2e^{s^2/2}+3s^2e^{s^2/2}+s^4e^{s^2/2}$.\\
+$\so\E[X_i^4]=\phi_{X_i}^{(4)}(0)=3$.\\
+$\E[X_i^2]=\Var(X_i)+(\E[X_i])^2=\Var(X_i)=1$.\\
+$\Var(X_i^2)=\E[X_i^4]-(\E[X_i^2])^2=3-1=2$.\\
+By Central Limit Theorem, for i.i.d. $Y_1, Y_2, \dots, Y_n$, $F_{Y_1+Y_2+\cdots+Y_n}(t)\approx\Phi(\frac{t-n\mu_Y}{\sqrt{n\sigma_Y^2}})$.\\
+$\so\lim_{n\to\infty}\P[X_1^2+\cdots+X_n^2\leq n+c\sqrt n]=\Phi(\frac{n+c\sqrt n-n\E[X_i^2]}{\sqrt{n\Var(X_i^2)}}=\Phi(\frac{c\sqrt n}{\sqrt{2n}})=\Phi(\frac c{\sqrt2})$.
 \end{pr}

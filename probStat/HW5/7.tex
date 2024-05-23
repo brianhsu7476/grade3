@@ -1,3 +1,18 @@
 \begin{pr}
-
+$\E[X_i^2]=\Var(X_i)+(\E[X_i])^2=1$.\\
+$\then\phi_{X_i}(s)=1+0\cdots s+\frac12s^2+\cdots$.\\
+Let $\phi_{X_i}(s)=1+\frac12s^2+a_3s^3+a_4s^4+\cdots$.\\
+$\phi_{W_n}(s)=(\phi_{X_i}(\frac s{\sqrt n}))^n=(1+\frac1{2n}s^2+\frac{a_3}{n^{3/2}}s^3+\frac{a_4}{n^2}s^4+\cdots)^n$.\\
+Suppose that $\phi_{W_n}(s)=b_0+b_1s+b_2s^2+b_3s^3+b_4s^4+\cdots$.\\
+Since $s=1^{n-1}s$, and the coefficient of $s$ in $\phi_{X_i}(s)$ is $0$.\\
+$\so b_1=0$.\\
+Since $s^2=1^{n-2}s^2=1^{n-1}(s^2)$, and the coefficient of $s$ in $\phi_{X_i}(s)$ is $0$.\\
+$\so b_2=\binom n1\cdot1^{n-1}\frac1{2n}=\frac12$.\\
+Since the coefficient of $s$ in $\phi_{X_i}(s)$ is $0$, the only possible combination is $s^3=1^{n-1}(s^3)$.\\
+$\so b_3=\binom n1\cdot1^{n-1}\frac{a_3}{n^{3/2}}=\frac{a_3}{\sqrt n}$.\\
+$\then\lim_{n\to\infty}b_3=0$.\\
+Since the coefficient of $s$ in $\phi_{X_i}(s)$ is $0$, the only possible combinations are $s^4=1^{n-2}(s^2)^2, 1^{n-1}(s^4)$.\\
+$\so b_4=\binom n2\cdot1^{n-2}(\frac1{2n})^2+\binom n11^{n-1}\frac{a_4}{n^2}=\frac{n(n-1)}{8n^2}+\frac{a_4}n$.\\
+$\then\lim_{n\to\infty}b_4=\frac18$.\\
+$\so\E[W_n]=b_1=0, \E[W_n^2]=2b_2=1, \E[W_n^3]=6b_3=0, \E[W_n^4]=24b_4=3$.
 \end{pr}

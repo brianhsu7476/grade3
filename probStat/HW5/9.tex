@@ -1,3 +1,7 @@
 \begin{pr}
-
+$\P[M_n(X)\geq c]\overtext{Chernoff bound}\leq\min_{s\geq0}e^{-sc}\phi_{M_n(X)}(s)\\
+\overset{X_1, X_2, \dots, X_n\text{ are independent}}=\min_{s\geq0}e^{-sc}\phi_X(\frac sn)^n\\
+\overset{t=\frac sn}=\min_{t\geq0}e^{-tnc}\phi_X(t)^n\\
+=\min_{t\geq0}(e^{-tc}\phi_X(t))^n\\
+=(\min_{s\geq0}e^{-sc}\phi_X(s))^n$.
 \end{pr}
