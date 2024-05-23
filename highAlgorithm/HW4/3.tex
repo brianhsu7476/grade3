@@ -1,0 +1,16 @@
+\begin{pr}
+\newcommand{\OPT}{\#(I)}
+Run $A$ for $s$ (we will determine $s$ later) times independently, and let the resulting $A(I)$ of the $i$-th time be $X_i$.\\
+Let $B(I)$ be the median of $X_1, X_2, \dots, X_s$.\\
+We know that $p:=\P[(1-\epsilon)\OPT\leq X_i\leq(1+\epsilon)\OPT]\geq\frac34$.\\
+Let $Y=|\{i:X_i<(1-\epsilon)\OPT\}|, Z=|\{i:X_i>(1+\epsilon)\OPT\}|$.\\
+Let $\mu:=\E[Y+Z]$.\\
+$\mu=\E[Y+Z]=\suml_{i=1}^s\P[X_i<(1-\epsilon)\OPT$ or $X_i>(1+\epsilon)\OPT]=\suml_{i=1}^s(1-p)=s(1-p)$.\\
+$\P[Y+Z\geq\frac s2]=\P[Y+Z\geq\frac1{2(1-p)}\mu]=\P[Y+Z\geq(1+\frac{2p-1}{2(1-p)})\mu]\leq e^{-(\frac{2p-1}{2-2p})^2\mu/3}=e^{-\frac{(2p-1)^2}{4(1-p)}s/3}\overset{\cuz2p-1\geq\frac12}\leq e^{-\frac1{16(1-p)}s/3}\overset{\cuz1-p\leq\frac14}\leq e^{-\frac s{12}}$.\\
+Take $s\geq12\ln\frac1\delta$, and we get $\P[Y+Z\geq\frac s2]\leq e^{-\frac s{12}}\leq\delta$.\\
+$\so\P[(1-\epsilon)\OPT\leq B(I)\leq(1+\epsilon)\OPT]=1-\P[Y\geq\frac s2\lor Z\geq\frac s2]\geq1-\P[Y+Z\geq\frac s2]\geq1-\delta$.\\
+Time complexity:\\
+Since this algorithm runs algorithm $A$ for $12\ln\frac1\delta$ times, it is in polynomial complexity of $n, \frac1\epsilon, \ln\frac1\delta$.
+%$\mu_Y=\suml_{i=1}^s\P[X_i<(1-\epsilon)\OPT]\leq\suml_{i=1}^s\P[X_i<(1-\epsilon)\OPT$ or $X_i>(1+\epsilon)\OPT]\leq\suml_{i=1}^s\frac14=\frac s4$.\\
+%$\P[Y\geq\frac12s]\leq\P[Y\geq2\mu_Y]\leq\P[Y\geq(1+\epsilon)\mu_Y]\leq e^{-\epsilon^2\mu_Y/3}\leq e^{-\epsilon^2}$.
+\end{pr}

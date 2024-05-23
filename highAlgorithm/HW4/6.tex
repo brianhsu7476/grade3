@@ -1,0 +1,21 @@
+\begin{pr}
+Suppose that the $a_1, a_2, \dots, a_{2n}$ are $2n$ points chosen uniform randomly in $[0, 1]$.\\
+WLOG suppose that the intervals of the first slot are $[a_1, a_1+x], [a_2, a_2+y]\pmod1$, and WLOG suppose that $a_2-a_1\pmod1\leq\frac12$.\\
+$\P[x+y<\frac1{4n\sqrt n}]<\P[x<\frac1{4n\sqrt n}\land y<\frac1{4n\sqrt n}]$.\\
+Let $A_1:=[a_1, a_1+\frac1{4n\sqrt n}), A_2:=[a_2, a_2+\frac1{4n\sqrt n})$.\\
+There are two cases that $x<\frac1{4n\sqrt n}\land y<\frac1{4n\sqrt n}$.\\
+Case 1: $a_2\in A_1$.\\
+$x$ is guaranteed to $<\frac1{4n\sqrt n}$ in this case.\\
+The probability that case 1 happens $=\frac1{4n\sqrt n}$.\\
+$\P[y<\frac1{4n\sqrt n}]=\P[a_3\in A_2\lor\cdots\lor a_{2n}\in A_2]\leq\suml_{i=3}^{2n}\P[a_i\in A_2]=\suml_{i=3}^{2n}\frac1{4n\sqrt n}=\frac{2n-2}{4n\sqrt n}\leq\frac{2n}{4n\sqrt n}=\frac1{2\sqrt n}$.\\
+Case 2: $a_2\notin A_1$.\\
+The probability that case 2 happens $=1-\frac1{4n\sqrt n}$.\\
+By the assumption that $a_2-a_1\pmod1\leq\frac12$, there is $A_1\cap A_2=\emptyset$.\\
+$\P[x<\frac1{4n\sqrt n}\land y<\frac1{4n\sqrt n}]=\P[\bigcup_{i=3}^{2n}\bigcup_{j=i+1}^{2n}(a_i\in A_1\land a_j\in A_2)\lor(a_i\in A_2\land a_j\in A_1)]\leq\suml_{i=3}^{2n}\suml_{j=i+1}^{2n}\P[(a_i\in A_1\land a_j\in A_2)\lor(a_i\in A_2\land a_j\in A_1)]=\suml_{i=3}^{2n}\suml_{j=i+1}^{2n}2\times\frac1{4n\sqrt n}\times\frac1{4n\sqrt n}=\binom{2n-2}2\times2\times\frac1{16n^3}\leq\frac{4n^2}{16n^3}=\frac1{4n}$.\\
+$\so\P[x+y<\frac1{4n\sqrt n}]\leq\frac1{4n\sqrt n}\times\frac1{2\sqrt n}+(1-\frac1{4n\sqrt n})\times\frac1{4n}\leq\frac1{8n^2}+\frac1{4n}\leq\frac1{2n}$.\\
+$\P[$ the size of the smallest interval $<\frac1{4n\sqrt n}]\\
+=\P[\bigcup_{i=1}^n($ the size of the interval of the $i$-th slot $<\frac1{4n\sqrt n})]\\
+\leq\suml_{i=1}^n\P[$ the size of the interval of the $i$-th slot $<\frac1{4n\sqrt n}]\\
+\leq\suml_{i=1}^n\frac1{2n}=\frac12$.\\
+$\so$ the size of the smallest interval is at least $\frac1{4n\sqrt n}$ with probability $\geq1-\frac12=\frac12=\Omega(1)$.
+\end{pr}

@@ -1,0 +1,19 @@
+\begin{pr}
+\begin{lm}\label{5a}
+For all $x\geq0$, there is $f(x)=e^{-x}+x-1\geq0$.\\
+That is, $1-x\leq e^{-x}$.
+\begin{proof}
+$f'(x)=-e^{-x}+1\geq0$ for all $x\geq0$.\\
+$\so f$ is increasing in $(0, \infty)$.\\
+$\cuz f(0)=1+0-1=0$.\\
+$\so f(x)\geq0$ for all $x\geq0$.
+\end{proof}
+\end{lm}
+Suppose that there are $i$ points $P_1, P_2, \dots, P_i$ on the circle, where the intervals between any two points are greater than $\frac1{n^2}$. Pick the $i+1$-th point $P_{i+1}$ uniformly at random on the circle. Let $E_j$ denote the event that the interval formed by $P_j$ and the $P_{i+1}$ is less than $\frac1{2n^2}$.\\
+Since $E_j, E_k$ are disjoint for all $j\neq k$.\\
+$\so$ The probability that the intervals between any two points are still greater than $\frac1{n^2}\leq1-\P[E_1\cup E_2\cup\cdots\cup E_i]=1-(\P[E_1]+\P[E_2]+\cdots+\P[E_i])=1-\frac i{2n^2}$.\\
+$\so$ after inserting $n$ points, the probability that the intervals between any two points are greater than $\frac1{n^2}\leq(1-\frac1{2n^2})(1-\frac2{2n^2})\cdots(1-\frac n{2n^2})\overtext{By \rflm{5a}}\leq e^{-\frac1{2n^2}}e^{-\frac2{2n^2}}\cdots e^{-\frac n{2n^2}}=e^{-\frac{n(n+1)}{4n^2}}\leq e^{-\frac{n^2}{4n^2}}=e^{-\frac14}$.\\
+$\so$ the probability that the size of the smallest interval is less than $\frac1{n^2}\\
+=1-$ the probability that the intervals between any two points are greater than $\frac1{n^2}\\
+\geq1-e^{-\frac14}=\Omega(1)$.
+\end{pr}

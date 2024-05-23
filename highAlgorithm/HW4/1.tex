@@ -1,0 +1,17 @@
+\begin{pr}
+Consider $(x_1\lor x_2)\land(x_1\lor\neg x_2)\land(\neg x_1\lor x_2)\land(\neg x_1\lor\neg x_2)$.\\
+Equivalent ILP:\\
+$\max(z_1+z_2+z_3+z_4)$.\\
+$\subj\begin{cases}
+y_1+y_2\geq z_1\\
+y_1+1-y_2\geq z_2\\
+1-y_1+y_2\geq z_3\\
+1-y_1+1-y_2\geq z_4\\
+y_i, z_c\in\{0, 1\}
+\end{cases}$.\\
+One can see that in LP, we can set $y_1=y_2=\frac12$, and get $z_1=z_2=z_3=z_4=1$, which maximizes $z_1+z_2+z_3+z_4=4$.\\
+But since exactly one of the $4$ clauses above must be false, $\max(z_1+z_2+z_3+z_4)=3$.\\
+$\so$ the integrality gap is $\frac34$ in this case.\\
+Note that it can't be more than $\frac34$ since in the following problem (or in class), we've find a solution $ALG$ that satisfies $\frac34OPT\leq\frac34OPT(LP)\leq ALG\leq OPT$.\\
+$\so$ MAX-SAT has integrality gap $\frac34$.
+\end{pr}
