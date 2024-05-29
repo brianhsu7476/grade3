@@ -1,0 +1,8 @@
+PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
+64 bytes from 192.168.1.1: icmp_seq=5 ttl=64 time=203 ms
+64 bytes from 192.168.1.1: icmp_seq=10 ttl=64 time=738 ms
+64 bytes from 192.168.1.1: icmp_seq=18 ttl=64 time=1427 ms
+64 bytes from 192.168.1.1: icmp_seq=20 ttl=64 time=445 ms
+64 bytes from 192.168.1.1: icmp_seq=26 ttl=64 time=846 ms
+64 bytes from 192.168.1.1: icmp_seq=36 ttl=64 time=597 ms
+64 bytes from 192.168.1.1: icmp_seq=37 ttl=64 time=470 ms
