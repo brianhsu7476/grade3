@@ -1,0 +1,33 @@
+\begin{pr}$ $
+\newcommand{\M}{M_n(T)}
+\begin{enumerate}[(a)]
+\item Recall that the mean and the variance of $\mathrm{Exponential}(\lambda)$ are $\frac1\lambda$ and $\frac1{\lambda^2}$, respectively.\\
+$\then$ the mean of $9$ i.i.d. of $\mathrm{Exponential}(\lambda)$ is approximately $\mathrm{Gaussian}(\frac1\lambda, \frac1{9\lambda^2})$ by the central limit theorem.\\
+$\then\M|H_0\sim\mathrm{Gaussian}(3, 1), \M|H_1\sim\mathrm{Gaussian}(6, 4)$.\\
+$\then f_{\M|H_0}(t)=\frac1{\sqrt{2\pi}}e^{-\frac12(t-3)^2}, f_{\M|H_1}(t)=\frac1{2\sqrt{2\pi}}e^{-\frac18(t-6)^2}$.\\
+Recall that $t_{ML}$ is the solution of $f_{\M|H_0}(t)=f_{\M|H_1}(t)$.\\
+$\then\frac1{\sqrt{2\pi}}e^{-\frac12(t-3)^2}=\frac1{2\sqrt{2\pi}}e^{-\frac18(t-6)^2}$.\\
+$\then e^{\frac12(t-3)^2-\frac18(t-6)^2}=2$.\\
+$\then\frac12(t-3)^2-\frac18(t-6)^2=\ln2$.\\
+$\then\frac38t^2-\frac32t=\ln2$.\\
+$\then3t^2-12t-8\ln2=0$.\\
+Since $t_{ML}\geq0$, there is $t_{ML}=\frac{6+\sqrt{36+24\ln2}}3=2+2\sqrt{1+\frac23\ln2}\approx4.42$.
+\item The sum of $n$ i.i.d. of $\mathrm{Exponential}(\lambda)$ is $\mathrm{Erlang}(n, \lambda)$.\\
+$\so9\M|H_0\sim\mathrm{Erlang}(9, \frac13), 9\M|H_1\sim\mathrm{Erlang}(9, \frac16)$.\\
+$\then f_{\M|H_0}(t)=\frac{(9t)^8e^{-\frac13(9t)}}{3^98!}, f_{\M|H_1}(t)=\frac{(9t)^8e^{-\frac16(9t)}}{6^98!}$.\\
+Recall that $t_{ML}$ is the solution of $f_{\M|H_0}(t)=f_{\M|H_1}(t)$.\\
+$\then\frac{(9t)^8e^{-\frac13(9t)}}{3^98!}=\frac{(9t)^8e^{-\frac16(9t)}}{6^98!}$.\\
+$\then e^{(\frac13-\frac16)(9t)}=2^9$.\\
+$\then\frac32t=9\ln2$.\\
+$\then t_{ML}=t=6\ln2\approx4.16$.
+\item Recall from problem 1 that $t_{MAP}$ is the solution of $4f_{\M|H_0}(t)=f_{\M|H_1}(t)$.\\
+$\then4\frac{(9t)^8e^{-\frac13(9t)}}{3^98!}=\frac{(9t)^8e^{-\frac16(9t)}}{6^98!}$.\\
+$\then e^{(\frac13-\frac16)(9t)}=2^{11}$.\\
+$\then\frac32t=11\ln2$.\\
+$\then t_{MAP}=t=\frac{22}3\ln2\approx5.08$.
+\item The following results are calculated by the following code.\\
+$9$ ping tests: $P_{ERR}=0.8\P[\M>t_{MAP}|H_0]+0.2\P[\M\leq t_{MAP}|H_1]\approx0.097$.\\
+Recall that $t_{MAP}^*$ of $1$ ping test is $18\ln2$.\\
+$1$ ping test: $P_{ERR}^*=0.8\P[T>t_{MAP}^*|H_0]+0.2\P[T\leq t_{MAP}^*|H_1]\approx0.188$.
+\end{enumerate}
+\end{pr}

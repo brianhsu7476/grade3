@@ -1,0 +1,9 @@
+\begin{pr}$ $
+\begin{enumerate}[(a)]
+\item Recall that the PDF of $\mathrm{Gaussian(0, 1)}$ is $\frac1{\sqrt{2\pi}}e^{-\frac12x^2}$.\\
+$x\leq x_0\iff x\in A_0\iff L(x)=\frac{f_{X|H_0}(x)}{f_{X|H_1}(x)}\geq\gamma\iff\frac{\frac1{\sqrt{2\pi}}e^{-\frac12x^2}}{\frac1{\sqrt{2\pi}}e^{-\frac12(x-v)^2}}\geq\gamma\iff e^{\frac12((x-v)^2-x^2)}\geq\gamma\iff\frac12(-2xv+v^2)\geq\ln\gamma\iff-xv\geq\ln\gamma-\frac12v^2\iff x\leq-\frac{\ln\gamma}v+\frac12v$.\\
+$\so x_0=-\frac{\ln\gamma}v+\frac12v$.
+\item $\alpha=P_{FA}=\P[A_1|H_0]=\P[X\geq x_0|H_0]=1-\Phi(x_0)$.\\
+$\then x_0=\Phi^{-1}(1-\alpha)$.
+\end{enumerate}
+\end{pr}
