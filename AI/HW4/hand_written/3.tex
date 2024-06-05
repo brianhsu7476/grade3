@@ -1,0 +1,67 @@
+\newcommand{\z}{\mathbf{z}}
+
+\begin{pr}$ $
+\begin{enumerate}[(A)]
+\item
+\begin{itemize}
+\item Iteration $1$:\\
+Partition: $\{(1, 2)\}, \{(3, 4), (7, 0), (10, 2)\}$\\
+Centroids: $(1, 2), (\frac{20}3, 2)$
+\item Iteration $2$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$
+\item Iteration $3$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$
+\end{itemize}
+The convergent result:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$
+\item
+\begin{itemize}
+\item Iteration $1$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$
+\item Iteration $2$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$
+\end{itemize}
+The convergent result:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (8.5, 1)$\\
+The result is same to (A).
+\item Consider the two different initial centroids: $\{(1, 2), (3, 4)\}$ and $\{(1, 2), (7, 0)\}$.\\
+\begin{itemize}
+\item The former centroids:
+\begin{itemize}
+\item Iteration $1$:\\
+Partition: $\{(1, 2)\}, \{(3, 4), (5, 6), (7, 0), (10, 2)\}$\\
+Centroids: $(1, 2), (6.25, 3)$
+\item Iteration $2$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(5, 6), (7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (\frac{22}3, \frac73)$
+\item Iteration $3$:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(5, 6), (7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (\frac{22}3, \frac73)$
+\end{itemize}
+The convergent result:\\
+Partition: $\{(1, 2), (3, 4)\}, \{(5, 6), (7, 0), (10, 2)\}$\\
+Centroids: $(2, 3), (\frac{22}3, \frac73)$\\
+$\Ein=\frac{53}3$.
+\item The latter centroids:
+\begin{itemize}
+\item Iteration $1$:\\
+Partition: $\{(1, 2), (3, 4), (5, 6)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(3, 4), (8.5, 1)$
+\item Iteration $2$:\\
+Partition: $\{(1, 2), (3, 4), (5, 6)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(3, 4), (8.5, 1)$
+\end{itemize}
+The convergent result:\\
+Partition: $\{(1, 2), (3, 4), (5, 6)\}, \{(7, 0), (10, 2)\}$\\
+Centroids: $(3, 4), (8.5, 1)$\\
+$\Ein=11.25$.
+\end{itemize}
+Since $11.25\neq\frac{53}3\approx17.67$, at least one of the above does not converge to the global minimum.
+\end{enumerate}
+\end{pr}

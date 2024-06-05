@@ -1,0 +1,8 @@
+\begin{pr}
+Let $A=\suml_{1\leq n\leq N, g_t(\x_n)\neq y_n}w_n^t, B=\suml_{1\leq n\leq N, g_t(\x_n)=y_n}w_n^t$.\\
+$\then\epsilon_t=\frac{A}{A+B}$.\\
+$d_t=\sqrt{\frac{1-\epsilon_t}{\epsilon_t}}=\sqrt{\frac BA}$.\\
+$\suml_{n=1}^Nw_n^{t+1}\delta(g_t(\x_n), y_n)=\suml_{1\leq n\leq N, g_t(\x_n)\neq y_n}w_n^{t+1}=d_t\suml_{1\leq n\leq N, g_t(\x_n)\neq y_n}w_n^t=d_tA=\sqrt{\frac BA}A=\sqrt{AB}$.\\
+$\suml_{n=1}^Nw_n^{t+1}=\suml_{1\leq n\leq N, g_t(\x_n)\neq y_n}w_n^{t+1}+\suml_{1\leq n\leq N, g_t(\x_n)=y_n}w_n^{t+1}=\suml_{1\leq n\leq N, g_t(\x_n)\neq y_n}d_tw_n^t+\suml_{1\leq n\leq N, g_t(\x_n)=y_n}w_n^t\frac1{d_t}=Ad_t+\frac B{d_t}=A\sqrt{\frac BA}+B\sqrt{\frac AB}=2\sqrt{AB}$.\\
+$\so\frac{\suml_{n=1}^Nw_n^{t+1}\delta(g_t(\x_n), y_n)}{\suml_{n=1}^Nw_n^{t+1}}=\frac{\sqrt{AB}}{2\sqrt{AB}}=0.5$.
+\end{pr}

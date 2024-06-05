@@ -1,0 +1,28 @@
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+
+\begin{pr}$ $
+\renewcommand{\P}{\matrix{0&1&0.5\\0&0&0.5\\1&0&0}}
+\newcommand{\va}{\matrix{\frac13\\\frac13\\\frac13}}
+\newcommand{\vb}{\matrix{\frac12\\\frac16\\\frac13}}
+\newcommand{\vc}{\matrix{\frac13\\\frac16\\\frac12}}
+\newcommand{\vd}{\matrix{\frac5{12}\\\frac14\\\frac13}}
+\newcommand{\ve}{\matrix{\frac5{12}\\\frac16\\\frac5{12}}}
+\newcommand{\vf}{\matrix{\frac38\\\frac5{24}\\\frac5{12}}}
+\begin{enumerate}[(A)]
+\item $\v_0=\va$.\\
+$\v_1=\P\va=\vb$.\\
+$\v_2=\P\vb=\vc$.\\
+$\v_3=\P\vc=\vd$.\\
+$\v_4=\P\vd=\ve$.\\
+$\v_5=\P\ve=\vf$.
+\item Suppose that $\v^*=\matrix{v_1\\v_2\\v_3}$.\\
+$\v^*=\P\v^*$.\\
+$\then\left(\P-I\right)\v^*=0$.\\
+$\then\matrix{-1&1&0.5\\0&-1&0.5\\1&0&-1}\v^*=0$.\\
+$\then-v_2+0.5v_3=0, v_1-v_3=0$.\\
+$\then\v^*=\matrix{v_3\\0.5v_3\\v_3}$.\\
+Since $(1+0.5+1)v_3=1$, there is $v_3=0.4$.\\
+$\so\v^*=\matrix{0.4\\0.2\\0.4}$.
+\end{enumerate}
+\end{pr}
