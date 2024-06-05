@@ -1,15 +1,15 @@
 \subsection{(a)}
 
-\includegraphics[width=15cm]{PCA_Eigen0.png}\\
-\includegraphics[width=15cm]{PCA_Eigen1.png}\\
-\includegraphics[width=15cm]{PCA_Eigen2.png}\\
-\includegraphics[width=15cm]{PCA_Eigen3.png}\\
-\includegraphics[width=15cm]{PCA_Eigen4.png}
+\includegraphics[width=13cm]{PCA_Eigen0.png}\\
+\includegraphics[width=13cm]{PCA_Eigen1.png}\\
+\includegraphics[width=13cm]{PCA_Eigen2.png}\\
+\includegraphics[width=13cm]{PCA_Eigen3.png}\\
+\includegraphics[width=13cm]{PCA_Eigen4.png}
 
 \subsection{(b)}
 
-\includegraphics[width=15cm]{Autoencoder_Error.png}\\
-\includegraphics[width=15cm]{Denoising_Autoencoder_Error.png}
+\includegraphics[width=14cm]{Autoencoder_Error.png}\\
+\includegraphics[width=14cm]{Denoising_Autoencoder_Error.png}
 
 \subsection{(c)}
 
@@ -72,3 +72,19 @@ Architecture 3:\\
 }
 Mean squared error: $0.01518507843373457$\\
 One can see that Architecture 2 has the best performance. The reason that Architecture 1 performs worse than Architecture 2 may be that it is not deep enough and therefore underfits the model. However, the deeper architecture doesn't imply the better performance. The reason that Architecture 3 performs worse than Architecture 2 may be that it is too deep and therefore overfits the model.
+
+\subsection{(e)}
+
+Adam:\\
+\includegraphics[width=15cm]{Denoising_Autoencoder_Error.png}\\
+Converged mean squared error: $0.01361696472773301$.\\
+Accurracy: $0.9333333333333333$.\\\newpage
+SGD:\\
+\includegraphics[width=15cm]{sgd.png}\\
+Mean squared error: $0.6925974951675007$.\\
+Accurracy: $0.9$.\\\newpage
+Adadelta:\\
+\includegraphics[width=15cm]{adadelta.png}\\
+Converged mean squared error: $0.08281828092189876$.\\
+Accurracy: $0.7333333333333333$.\\
+One can see that the error of SGD decreases slowly, and it's mean squared error after $500$ rounds is much more than the other two. Adam converges faster than the other two, and its performance (including error and accurracy) is also the best. Although SGD has high error, its accurracy is better than Adadelta. The reason may be that Adadelta overfits the model.
